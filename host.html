@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SO YOU THINK YOU KNOW THINGS — S2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<!-- ════════════════════════════════════════════════════════════
+     ██  CONFIGURATION DATA MENU  ██
+     ════════════════════════════════════════════════════════════
+     This is the ONLY section you need to edit.
+     Change question text, answers, image filenames, media URLs here.
+     Do not edit anything below the closing </script> of this block.
+
+     QUESTION FIELDS:
+       question    — the question text shown on screen
+       mediaType   — "image" | "audio" | "video" | "none"
+       mediaSrc    — filename (same folder) or full embed URL (YouTube/Spotify)
+       answer      — shown on the answer slide in BIG GREEN
+       answerImg   — optional image on the answer slide (filename or URL)
+       answerMedia — optional audio/video embed on the answer slide
+                     (for Warm Up: re-play the song on the answer slide)
+       note        — the cultural context paragraph
+       multiChoice — array of options; mark correct with ← CORRECT or ← NOT REAL
+     ════════════════════════════════════════════════════════════ -->
+<script id="QUIZ_DATA_MENU">
+
+const QUIZ_META = {
+  title:    "SO YOU THINK YOU KNOW THINGS",
+  subtitle: "SEASON 2",
+  tagline:  "Game Night Edition"
+};
+
+const ROUNDS = [
+
+  // ════════════════════════════════════════════════
+  // WARM UP — NAME THAT TUNE: REDEMPTION ARC
+  // ════════════════════════════════════════════════
+  {
+    id: "warmup",
+    name: "NAME THAT TUNE",
+    subname: "REDEMPTION ARC",
+    badge: "WARM UP",
+    format: "Song title + artist for each clip. Answers at end of round.",
+    hostNote: "Don't reveal the theme upfront. Just call it 'Redemption Arc' and let it land on the answer slides. The theme has been hiding in plain sight — every song is a comeback story.",
+    questions: [
+      {
+        question: "This song's opening harp line is one of the most recognisable in modern music. After a decade as an indie pop staple, it became the anthem of the biggest box office redemption arc of 2023 — when a fictional character used it to finally snap out of her existential depression.",
+        mediaType: "audio",
+        mediaSrc:  "audio_warmup_q1.mp3",
+        answer:   "Dog Days Are Over",
+        answerSubline: "Florence and the Machine — 2008",
+        answerImg: "img_ans_warmup_q1.jpg",
+        answerMedia: "audio_warmup_q1.mp3",
+        answerMediaType: "audio",
+        note:     "James Gunn used the track for the emotional, redemptive climax of Guardians of the Galaxy Vol. 3, causing the 15-year-old song to completely re-chart globally and introducing it to a whole new generation.",
+        multiChoice: []
+      },
+      {
+        question: "Flopped on release. Forgotten for 35 years. Then a single scene in a TV show turned it into a global number one.",
+        mediaType: "audio",
+        mediaSrc:  "audio_warmup_q2.mp3",
+        answer:   "Running Up That Hill",
+        answerSubline: "Kate Bush — 1985",
+        answerImg: "img_ans_warmup_q2.jpg",
+        answerMedia: "audio_warmup_q2.mp3",
+        answerMediaType: "audio",
+        note:     "When Stranger Things used it in 2022, Kate Bush became the oldest solo female artist ever to reach number one in the UK — at 63. She hadn't toured since 1979. The song is about wanting to swap places with someone you love to understand their pain. She approved the Stranger Things use personally and said she was overwhelmed by the response.",
+        multiChoice: []
+      },
+      {
+        question: "Written by a producer who told her she was completely washed up, this 2005 track became the title anthem of one of the most commercially explosive comeback albums in music history — proving the diva was nowhere near done.",
+        mediaType: "audio",
+        mediaSrc:  "audio_warmup_q3.mp3",
+        answer:   "We Belong Together",
+        answerSubline: "Mariah Carey — 2005",
+        answerImg: "img_ans_warmup_q3.jpg",
+        answerMedia: "audio_warmup_q3.mp3",
+        answerMediaType: "audio",
+        note:     "After her movie Glitter bombed and her career was declared dead by critics, Mariah released The Emancipation of Mimi. This song stayed at number one for 14 weeks, became the song of the decade, and remains the ultimate textbook example of a career resurrection.",
+        multiChoice: []
+      },
+      {
+        question: "Written on a paper bag between takes on a film set.\n\nOne shot. One opportunity.",
+        mediaType: "audio",
+        mediaSrc:  "audio_warmup_q4.mp3",
+        answer:   "Lose Yourself",
+        answerSubline: "Eminem — 2002",
+        answerImg: "img_ans_warmup_q4.jpg",
+        answerMedia: "audio_warmup_q4.mp3",
+        answerMediaType: "audio",
+        note:     "Written during the filming of 8 Mile. He won the Academy Award for Best Original Song — the first hip-hop artist ever to win an Oscar. He didn't attend the ceremony. He found out he'd won the next morning when his alarm went off for school drop-off.",
+        multiChoice: []
+      },
+      {
+        question: "His final studio recording.\n\nRecorded alone. Acoustic guitar. No band.\n\nHe died eight months after it came out.",
+        mediaType: "audio",
+        mediaSrc:  "audio_warmup_q5.mp3",
+        answer:   "Redemption Song",
+        answerSubline: "Bob Marley — 1980",
+        answerImg: "img_ans_warmup_q5.jpg",
+        answerMedia: "audio_warmup_q5.mp3",
+        answerMediaType: "audio",
+        note:     "Marley was dying of cancer when he recorded it. The album was called Uprising. He never heard how the song landed — how it would become one of the most covered, most quoted, most loved recordings in history. He took the title from a Marcus Garvey speech about freeing yourself from mental slavery.\n\nEvery single one of these songs exists because someone refused to stay down.",
+        multiChoice: []
+      }
+    ]
+  },
+
+  // ════════════════════════════════════════════════
+  // ROUND 1 — THE A ROUND
+  // ════════════════════════════════════════════════
+  {
+    id: "around",
+    name: "THE A ROUND",
+    subname: "",
+    badge: "ROUND 1",
+    format: "Every question topic AND every correct answer begins with the letter A.",
+    hostNote: "Remind the room explicitly — both the question and the answer start with A. Say it twice. They will forget.",
+    questions: [
+      {
+        question: "Adopted dad turned husband Woody Allen voiced the main character in this 1998 animated film.",
+        mediaType: "image",
+        mediaSrc:  "img_r1_q1_antz.jpg",
+        answer:   "Antz",
+        answerSubline: "1998",
+        answerImg: "img_r1_q1_antz.jpg",
+        note:     "Allen voiced the neurotic ant Z-4195, essentially playing himself in insect form. The film came out the same year his relationship with Soon-Yi Previn, whom he had adopted as a child with Mia Farrow, became public knowledge. The casting now reads as one of Hollywood's most accidentally revealing decisions.",
+        multiChoice: []
+      },
+      {
+        question: "At the 2012 Oscars, a body part went so viral it got its own Twitter account. Whose was it?",
+        mediaType: "image",
+        mediaSrc:  "img_r1_q2_leg.jpg",
+        answer:   "Angelina Jolie's leg",
+        answerSubline: "Oscars 2012",
+        answerImg: "img_r1_q2_leg.jpg",
+        note:     "@AngiesRightLeg had thousands of followers within hours. It spawned memes, a Tumblr, a Facebook page, and became one of the first truly viral celebrity moments of the social media era. The dress was Versace.",
+        multiChoice: []
+      },
+      {
+        question: "Anthropic, the AI company behind Claude, was famously started by a brother and sister who quit OpenAI over safety concerns. What is their shared last name?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "Amodei",
+        answerSubline: "Dario & Daniela",
+        answerImg: "",
+        note:     "Dario is CEO and Daniela is President. They left OpenAI in 2021 because they believed its direction was becoming too commercially driven at the expense of safety. In 2025 Dario was named Time magazine's Person of the Year.",
+        multiChoice: []
+      },
+      {
+        question: "This smiling Mexican salamander gets its name from an ancient god who could transform into one. Which civilisation?",
+        mediaType: "image",
+        mediaSrc:  "img_r1_q4_axolotl.jpg",
+        answer:   "Aztec",
+        answerSubline: "The Axolotl",
+        answerImg: "img_r1_q4_axolotl.jpg",
+        note:     "Xolotl was the Aztec god of fire, lightning, and the underworld, and according to myth transformed into a salamander to avoid being sacrificed. The axolotl appears on the 50 Mexican peso note and is critically endangered in the wild. It can regrow its own limbs, heart, and brain tissue.",
+        multiChoice: []
+      },
+      {
+        question: "After Pearl Harbor, the Secret Service needed to transport President Roosevelt urgently — but had no bulletproof vehicles available. Whose confiscated car did they use?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "Al Capone's",
+        answerSubline: "The 1928 Cadillac",
+        answerImg: "",
+        note:     "Capone's 1928 Cadillac Town Sedan, seized by the IRS in 1931, had inch-thick bulletproof glass, a police siren, and a scanner. Roosevelt rode in a gangster's car to deliver the famous 'a date which will live in infamy' speech.",
+        multiChoice: []
+      }
+    ]
+  },
+
+  // ════════════════════════════════════════════════
+  // ROUND 2 — GEOGRAPHY BUT MAKE IT FUN
+  // ════════════════════════════════════════════════
+  {
+    id: "geography",
+    name: "GEOGRAPHY",
+    subname: "BUT MAKE IT FUN",
+    badge: "ROUND 2",
+    format: "Traditional scoring. Answers at end of round.",
+    hostNote: "Q1 is multiple choice — read all options aloud. Q5 needs the blacked-out Kazakhstan map image.",
+    questions: [
+      {
+        question: "Three of these are real names of real disputed borders. One is completely made up.\n\nWhich is NOT real?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "D — The East Shield",
+        answerSubline: "Made up entirely.",
+        answerImg: "",
+        note:     "A = The DMZ separates North and South Korea — a 4km wide strip that has become one of the most biodiverse places on the peninsula because no humans have entered it in 70 years. B = Line of Control divides Indian and Pakistani-administered Kashmir. C = Line of Actual Control is the de facto border between India and China.",
+        multiChoice: ["A) The Demilitarized Zone (DMZ)", "B) Line of Control", "C) Line of Actual Control", "D) The East Shield ← NOT REAL"]
+      },
+      {
+        question: "There is a country in the world completely surrounded by just one other country.\n\nNot Vatican City. Not San Marino.\n\nName the country — and the country that surrounds it.",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "Lesotho",
+        answerSubline: "Surrounded entirely by South Africa",
+        answerImg: "",
+        note:     "Lesotho is a landlocked kingdom in southern Africa. It has the highest lowest point of any country on Earth — its lowest point is still 1,400 metres above sea level.",
+        multiChoice: []
+      },
+      {
+        question: "Every country in Africa was colonised by a European power during the Scramble for Africa.\n\nExcept one.\n\nWhich country?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "Ethiopia",
+        answerSubline: "Never colonised.",
+        answerImg: "",
+        note:     "Italy tried twice and lost both times. At the Battle of Adwa in 1896, Ethiopian Emperor Menelik II defeated an Italian army of 17,000. Ethiopia's flag — green, yellow, and red — was later adopted by dozens of newly independent African nations as a symbol of resistance. That's why so many African flags look similar.",
+        multiChoice: []
+      },
+      {
+        question: "There's a luxury beach in the Caribbean where Boeing 747s fly 30 feet over your head as they land.\n\nThe island is split down the middle — half France, half Netherlands.\n\nName it.",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "Saint Martin",
+        answerSubline: "Sint Maarten — Princess Juliana Airport",
+        answerImg: "",
+        note:     "The island is the smallest inhabited landmass in the world divided between two nations. You can walk from the French side to the Dutch side with zero security. The runway at Princess Juliana International Airport sits right against Maho Beach.",
+        multiChoice: []
+      },
+      {
+        question: "Identify this country from its outline alone.",
+        mediaType: "image",
+        mediaSrc:  "img_r2_q5_kazakhstan.jpg",
+        answer:   "Kazakhstan",
+        answerSubline: "The world's largest landlocked country",
+        answerImg: "img_r2_q5_kazakhstan.jpg",
+        note:     "Kazakhstan is the ninth largest country overall — bigger than Western Europe. Most people dramatically underestimate its size because the Mercator projection distorts it. Its current capital Astana was purpose-built from scratch in the middle of the steppe and is one of the most architecturally surreal cities on Earth.",
+        multiChoice: []
+      }
+    ]
+  },
+
+  // ════════════════════════════════════════════════
+  // ROUND 3 — FOOD COURT
+  // ════════════════════════════════════════════════
+  {
+    id: "food",
+    name: "FOOD COURT",
+    subname: "",
+    badge: "ROUND 3",
+    format: "Traditional scoring. Answers at end of round.",
+    hostNote: "Q2 (banana is a berry) and Q4/Q5 (baguette vs croissant) are great crowd debates — let them argue before moving on.",
+    questions: [
+      {
+        question: "Carrots were not always orange. For most of their cultivated history they were a completely different colour.\n\nWhich country bred the orange variety — and why?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "The Dutch — 17th century",
+        answerSubline: "Possibly as a tribute to the House of Orange",
+        answerImg: "",
+        note:     "Wild and early cultivated carrots were purple, yellow, and white. Whether a political gesture or happy accident, orange became the global standard. Purple carrots are now sold as a novelty at farmers markets, which feels like the food equivalent of being erased from history.",
+        multiChoice: []
+      },
+      {
+        question: "Botanically speaking, which of these is actually a berry?\n\nStrawberry — Raspberry — Banana — Blackberry",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "Banana",
+        answerSubline: "Strawberries, raspberries, and blackberries all fail the botanical definition.",
+        answerImg: "",
+        note:     "A berry develops from a single flower with one ovary. Bananas qualify. So do avocados, kiwis, watermelons, and aubergines. The tiny yellow seeds on the outside of a strawberry are the actual fruits — the red part is the enlarged receptacle of the flower. This fact reliably ruins strawberries for people for about three minutes.",
+        multiChoice: []
+      },
+      {
+        question: "Nutella was invented because of WWII.\n\nWhy?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "A wartime cocoa shortage",
+        answerSubline: "An Italian chocolatier bulked his chocolate out with hazelnuts",
+        answerImg: "",
+        note:     "Pietro Ferrero of Alba, Italy, created the original paste in 1946 to stretch limited cocoa supplies. His son Michele later developed the spreadable version and renamed it Nutella in 1964. The factory in Alba produces 365,000 jars a day and uses 25% of the world's hazelnuts annually.",
+        multiChoice: []
+      },
+      {
+        question: "In 2022, France successfully lobbied UNESCO to grant 'World Heritage' status to a daily food item — arguing its cultural ritual was endangered by supermarket industrialisation.\n\nWhat did they deem a global treasure?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "B — The Baguette",
+        answerSubline: "UNESCO Intangible Cultural Heritage, 2022",
+        answerImg: "",
+        note:     "The listing officially honours the artisanal know-how and culture of baguette bread, protecting a standard of French life that has seen thousands of traditional bakeries close due to mass-produced supermarket loaves.",
+        multiChoice: ["A) The Croissant", "B) The Baguette ← CORRECT", "C) Camembert Cheese", "D) The Macaron"]
+      },
+      {
+        question: "In 2023, the French Embassy in Washington had to issue an official statement confirming that cutting this item in half and spreading butter on it was an act of culinary war.\n\nWhat is the item?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "A — The Croissant",
+        answerSubline: "\"A croissant is already 50% butter. Please respect the lamination.\"",
+        answerImg: "",
+        note:     "The internet went entirely feral over an American food influencer buttering a croissant. The French Embassy's official tweet became one of the most shared diplomatic statements in recent memory.",
+        multiChoice: ["A) The Croissant ← CORRECT", "B) The Pain au Chocolat", "C) The Eclair", "D) The Brioche"]
+      }
+    ]
+  },
+
+  // ════════════════════════════════════════════════
+  // ROUND 4 — WHAT HAPPENED NEXT?
+  // ════════════════════════════════════════════════
+  {
+    id: "whathappenednext",
+    name: "WHAT HAPPENED NEXT?",
+    subname: "",
+    badge: "ROUND 4",
+    format: "Image frozen at the moment before everything changed. Teams write what happened next.",
+    hostNote: "Let the image breathe on screen before moving on. The drama is in the silence.",
+    questions: [
+      {
+        question: "Janet Jackson and Justin Timberlake.\nMid-performance. Super Bowl halftime show. 2004.\n\nWhat happened next?",
+        mediaType: "image",
+        mediaSrc:  "img_r4_q1_janet.jpg",
+        answer:   "Timberlake tore off part of Janet Jackson's costume",
+        answerSubline: "140 million viewers. Live television.",
+        answerImg: "img_r4_q1_janet_after.jpg",
+        note:     "The FCC received 540,000 complaints — more than any broadcast event in history at that point. The incident coined the phrase 'wardrobe malfunction.' Janet Jackson was effectively blacklisted from radio and awards shows for years. Timberlake's career was unaffected. He publicly apologised to Jackson in 2024, 20 years later.",
+        multiChoice: []
+      },
+      {
+        question: "Steve Harvey on stage at Miss Universe 2015.\nSmiling. Holding the card.\n\nWhat happened next?",
+        mediaType: "image",
+        mediaSrc:  "img_r4_q2_harvey.jpg",
+        answer:   "He announced the wrong winner",
+        answerSubline: "Miss Colombia was crowned, walked a lap, and gave a speech. Then the crown was physically removed from her head.",
+        answerImg: "img_r4_q2_harvey_after.jpg",
+        note:     "Harvey had read the runner-up card instead of the winner card. Miss Philippines was the actual winner. His Instagram apology the next day also misspelled both countries. The clip remains one of the most watched live TV moments of the 2010s.",
+        multiChoice: []
+      },
+      {
+        question: "Kanye West walking up to the stage at the MTV VMAs 2009.\nTaylor Swift is standing there, holding her award.\n\nWhat happened next?",
+        mediaType: "image",
+        mediaSrc:  "img_r4_q3_kanye.jpg",
+        answer:   "He took the microphone from her mid-speech",
+        answerSubline: "\"Beyoncé should have won.\" Taylor Swift was 19. It was her first VMA win.",
+        answerImg: "img_r4_q3_kanye_after.jpg",
+        note:     "Beyoncé won Video of the Year later that night and invited Taylor back to the stage to finish her interrupted speech. The incident defined the public perception of Kanye for years, and generated a beef that resurfaced multiple times over the following decade. Kanye apologised. Then un-apologised.",
+        multiChoice: []
+      },
+      {
+        question: "Fyre Festival promotional image.\nSupermodels. Private jets. Turquoise water. Perfection.\n\nWhat happened next?",
+        mediaType: "image",
+        mediaSrc:  "img_r4_q4_fyre.jpg",
+        answer:   "Guests arrived to FEMA tents, wet mattresses, and a cheese sandwich",
+        answerSubline: "Tickets cost up to $12,000.",
+        answerImg: "img_r4_q4_fyre_cheese.jpg",
+        note:     "Founder Billy McFarland had sold a luxury music festival that did not exist. He was convicted of wire fraud and sentenced to six years in prison. Two competing documentaries — one Netflix, one Hulu — were released before the festival site had even been fully cleared. The cheese sandwich photo became one of the defining memes of 2017.",
+        multiChoice: []
+      },
+      {
+        question: "A Coldplay concert.\nThe kiss cam lands on two people who are clearly trying to hide from it.\n\nWhat happened next?",
+        mediaType: "image",
+        mediaSrc:  "img_r4_q5_coldplay.jpg",
+        answer:   "It went viral. The two were identified. One resigned as CEO within days.",
+        answerSubline: "Andy Byron, CEO of Astronomer. Having an affair.",
+        answerImg: "img_r4_q5_coldplay_after.jpg",
+        note:     "By the time Byron's PR team drafted a statement, the internet had already identified both people, their job titles, their LinkedIn profiles, and their relationship statuses. Chris Martin joked on mic: 'Either they're having an affair or they're just very shy.' It turned out they were on leave together.",
+        multiChoice: []
+      }
+    ]
+  },
+
+  // ════════════════════════════════════════════════
+  // ROUND 5 — OOPS, THEIR BAD
+  // ════════════════════════════════════════════════
+  {
+    id: "oops",
+    name: "OOPS, THEIR BAD",
+    subname: "",
+    badge: "ROUND 5",
+    format: "All multiple choice. Traditional scoring.",
+    hostNote: "Q4 (Drake releasing 3 albums) is May 2026 — confirm it's still accurate before game night.",
+    questions: [
+      {
+        question: "Tucker Carlson once devoted an entire segment of his show to announcing he was no longer attracted to a brand mascot.\n\nWhich one?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "B — The M&Ms green lady",
+        answerSubline: "Mars had given her sensible shoes.",
+        answerImg: "",
+        note:     "Mars had redesigned the green M&M to wear lower heels as part of an inclusivity rebrand. Tucker's multi-minute segment said the change made him feel 'unsettled.' Mars retired all mascots in response, briefly replacing them with Maya Rudolph, then brought them back. The green lady kept the sensible shoes.",
+        multiChoice: ["A) The Wendy's girl", "B) The M&Ms green lady ← CORRECT", "C) The Dos Equis Most Interesting Man", "D) The Old Spice guy"]
+      },
+      {
+        question: "In 1750 BCE, a merchant named Ea-Nasir received a clay tablet from a customer named Nanni. Found 4,000 years later in the ruins of Ur, Iraq.\n\nWhat was in it?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "D — A strongly worded complaint about copper",
+        answerSubline: "Now in the British Museum.",
+        answerImg: "",
+        note:     "Nanni had paid for high-quality copper ingots. Ea-Nasir sent substandard ones and told his messenger to take them or leave them. Nanni chiselled his fury onto both sides of a clay tablet and sent it by hand. Archaeologists found it alongside several other complaint tablets in Ea-Nasir's house, suggesting he was a serial offender. The internet adopted him as patron saint of bad customer service.",
+        multiChoice: ["A) A wedding invitation", "B) A stolen camel accusation", "C) A love letter", "D) A strongly worded complaint about copper ← CORRECT"]
+      },
+      {
+        question: "In 2023, someone accused Hunter Biden of leaving cocaine in the West Wing. When the accusation went viral, how did he respond on social media?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "A — \"It most definitely was not. I would never have forgotten my drugs.\"",
+        answerSubline: "242,000 likes.",
+        answerImg: "",
+        note:     "Biden had just posted about reaching seven years of sobriety when the accusation appeared. He also went viral the same week for correcting a photoshopped meth pipe: 'A crack pipe doesn't have that little bowl at the end. This is why we can't trust AI.' Both posts became defining examples of weaponised self-deprecation.",
+        multiChoice: ["A) 'It most definitely was not. I would never have forgotten my drugs.' ← CORRECT", "B) 'This is an absolute fabrication and my legal team is tracking the source.'", "C) 'I have been sober for years, please photoshop a higher quality pipe next time.'", "D) He released a formal White House press statement and deleted his account."]
+      },
+      {
+        question: "After Kendrick Lamar performed Not Like Us at the Super Bowl in front of 100 million people, won five Grammys for it, and completed a sold-out world tour —\n\nDrake responded by releasing how many albums simultaneously?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "C — Three albums simultaneously",
+        answerSubline: "Iceman, Habibti, and Maid of Honour — 43 songs.",
+        answerImg: "",
+        note:     "On May 15, 2026, Drake released all three at once. The rollout involved an ice sculpture in Toronto and a projection onto the CN Tower. Kendrick has not responded. Not Like Us won every single Grammy it was nominated for. It was, by most measures, the most decisive public victory in a rap beef in a generation.",
+        multiChoice: ["A) 1", "B) 2", "C) 3 ← CORRECT", "D) He has not responded"]
+      },
+      {
+        question: "Pepsi launched in China with the slogan 'Pepsi Brings You Back to Life.'\n\nWhat did the Chinese translation actually say?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "B — \"Pepsi brings your ancestors back from the grave\"",
+        answerSubline: "Nobody caught it before launch. It ran.",
+        answerImg: "",
+        note:     "This was not the only major slogan disaster in China — KFC's 'Finger Lickin' Good' translated as 'Eat Your Fingers Off,' and HSBC's 'Assume Nothing' translated as 'Do Nothing' in several markets, costing the bank an estimated $10 million in rebranding. Language is cultural, not merely linguistic. Large corporations keep having to learn this expensively.",
+        multiChoice: ["A) Pepsi makes you feel younger", "B) Pepsi brings your ancestors back from the grave ← CORRECT", "C) Pepsi tastes like life itself", "D) Pepsi is the drink of heaven"]
+      }
+    ]
+  },
+
+  // ════════════════════════════════════════════════
+  // ROUND 6 — BEFORE THEY WERE FAMOUS
+  // ════════════════════════════════════════════════
+  {
+    id: "beforefamous",
+    name: "BEFORE THEY WERE FAMOUS",
+    subname: "",
+    badge: "ROUND 6",
+    format: "Show photo or play clip. Teams write who it is.",
+    hostNote: "Q2 needs the Dead Man's Bones audio clip. Q3 (Jon Hamm as set dresser on adult films) gets a great reaction — let it breathe.",
+    questions: [
+      {
+        question: "Young man scooping ice cream at Baskin-Robbins in Hawaii.\n\nWho is this?",
+        mediaType: "image",
+        mediaSrc:  "img_r6_q1_obama.jpg",
+        answer:   "Barack Obama",
+        answerSubline: "South King Street, Honolulu",
+        answerImg: "img_r6_q1_obama.jpg",
+        note:     "Obama worked at the Baskin-Robbins on South King Street in Honolulu as a teenager. He has since said in interviews that he no longer particularly enjoys ice cream — the job ruined it for him. He is the only US president known to have worked in fast food.",
+        multiChoice: []
+      },
+      {
+        question: "Listen to this clip.\n\nWho is the lead singer of this band?",
+        mediaType: "audio",
+        mediaSrc:  "audio_r6_q2_deadmansbones.mp3",
+        answer:   "Ryan Gosling",
+        answerSubline: "Dead Man's Bones — 2008",
+        answerImg: "img_r6_q2_gosling.jpg",
+        note:     "Dead Man's Bones was a gothic indie band Gosling formed with his friend Zach Shields in 2008. The album featured a children's choir. The songs were about ghosts, monsters, and longing. The internet rediscovered it after he became globally famous and people were delighted to find that Ken from Barbie had a deeply sincere ghost rock side project.",
+        multiChoice: []
+      },
+      {
+        question: "Jon Hamm in his pre-Mad Men years.\n\nWhat was his actual job before Mad Men?",
+        mediaType: "image",
+        mediaSrc:  "img_r6_q3_hamm.jpg",
+        answer:   "Set decorator on soft core porn films",
+        answerSubline: "He has spoken about it openly.",
+        answerImg: "img_r6_q3_hamm.jpg",
+        note:     "Hamm moved to Los Angeles and worked as a set dresser on adult films while waiting for his break. He auditioned for Mad Men at 35 — considered by many casting directors to be too old for a leading role. The show ran for seven seasons. He won the Emmy in 2015 on his eighth nomination.",
+        multiChoice: []
+      },
+      {
+        question: "Young man in a Gap staff uniform, folding clothes.\n\nWho is this?",
+        mediaType: "image",
+        mediaSrc:  "img_r6_q4_kanye.jpg",
+        answer:   "Kanye West",
+        answerSubline: "Gap, Chicago",
+        answerImg: "img_r6_q4_kanye.jpg",
+        note:     "Before his music career took off, Kanye worked at a Gap store in Chicago. In 2020 he announced a major Yeezy x Gap collaboration worth a reported $1 billion over ten years — describing it as a childhood dream come true. In 2022 he acrimoniously ended the partnership and announced he wanted to buy Gap entirely. Gap's stock dropped.",
+        multiChoice: []
+      },
+      {
+        question: "Young woman in a Hooters uniform.\n\nWho is this?",
+        mediaType: "image",
+        mediaSrc:  "img_r6_q5_amyadams.jpg",
+        answer:   "Amy Adams",
+        answerSubline: "Colorado. Six Oscar nominations. Zero wins.",
+        answerImg: "img_r6_q5_amyadams.jpg",
+        note:     "Adams worked at a Hooters restaurant in Colorado in her late teens to save money for acting classes. She went on to receive six Academy Award nominations. She has never won, which is one of Hollywood's most persistent oversights. She wore the orange shorts so she could learn her craft.",
+        multiChoice: []
+      }
+    ]
+  },
+
+  // ════════════════════════════════════════════════
+  // ROUND 7 — SARA'S FAVORITE FACTS (JEOPARDY)
+  // ════════════════════════════════════════════════
+  {
+    id: "sara",
+    name: "SARA'S FAVORITE FACTS",
+    subname: "",
+    badge: "ROUND 7",
+    format: "Jeopardy style — categories on screen. First team to buzz in with correct answer gets +1. Wrong answer: −1.",
+    hostNote: "The category board is shown on the main screen in this round. Use the Buzzer Tracker in the host panel to manage scoring. Click a category to load its question.",
+    questions: [
+      {
+        question: "What was General Patton doing on D-Day?",
+        category: "HISTORY",
+        categoryIcon: "🏛",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "Leading a fake army of inflatable tanks in England",
+        answerSubline: "Operation Fortitude",
+        answerImg: "",
+        note:     "Operation Fortitude was one of the most successful deception operations in military history. The Allies created a fictional army group — complete with fake tanks, fake radio traffic, and fake supply depots — to convince Hitler the real invasion was coming at Pas-de-Calais rather than Normandy. Patton was chosen as its fictional commander because the Germans believed he was the best American general. The inflatable tanks were made by a theatrical prop company.",
+        multiChoice: []
+      },
+      {
+        question: "What is the quantum physics theory illustrated by Schrödinger's Cat?",
+        category: "SCIENCE",
+        categoryIcon: "⚛",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "Superposition",
+        answerSubline: "Particles existing in multiple states until observed",
+        answerImg: "",
+        note:     "Schrödinger invented the thought experiment to mock quantum theory, not explain it. The irony is that superposition is now the founding principle of quantum computing. Every major tech company on earth is racing to build one.",
+        multiChoice: []
+      },
+      {
+        question: "Salvador Dali designed the logo for a famous sweet that is still sold today. He personally chose the daisy shape.\n\nWhich sweet?",
+        category: "ART",
+        categoryIcon: "🎨",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "Chupa Chups",
+        answerSubline: "Dali completed the logo in roughly one hour, over lunch, in 1969.",
+        answerImg: "",
+        note:     "Enric Bernat, the founder of Chupa Chups, asked Dali to redesign the logo in 1969. Dali suggested placing the logo on top of the sweet rather than on the side so it would always be visible. The daisy design has remained almost unchanged for over 50 years. Dali understood branding before branding was a word.",
+        multiChoice: []
+      },
+      {
+        question: "Before becoming the fire-breathing, blood-spitting frontman of KISS, Gene Simmons was seriously considering which profession?",
+        category: "MUSIC",
+        categoryIcon: "🎸",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "Rabbi",
+        answerSubline: "Born Chaim Witz. Haifa, Israel. 1949.",
+        answerImg: "",
+        note:     "His mother was a Hungarian Holocaust survivor who had survived Auschwitz and Mauthausen. The family emigrated to New York when he was eight. He was raised in a devout Jewish household and was seriously considering a religious path before rock and roll intervened. KISS has sold over 100 million records worldwide.",
+        multiChoice: []
+      },
+      {
+        question: "Dolly the sheep — the world's first successfully cloned mammal — was named after Dolly Parton.\n\nWhy?",
+        category: "POP CULTURE",
+        categoryIcon: "🌟",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "She was cloned from a mammary gland cell",
+        answerSubline: "The scientists thought that was funny.",
+        answerImg: "",
+        note:     "Dolly was created in 1996 at the Roslin Institute in Scotland. Researcher Ian Wilmut noted that the most famous mammary glands he could think of belonged to Dolly Parton, and so the name was chosen. Dolly Parton's response: 'I'm honoured to be even a part of her name.' Dolly the sheep is now stuffed and on display at the National Museum of Scotland in Edinburgh.",
+        multiChoice: []
+      }
+    ]
+  },
+
+  // ════════════════════════════════════════════════
+  // ROUND 8 — DOUBLE DOWN
+  // ════════════════════════════════════════════════
+  {
+    id: "doubledown",
+    name: "DOUBLE DOWN",
+    subname: "",
+    badge: "ROUND 8",
+    format: "Wager round. Before each question teams write a wager from 0 to their current score. Right: add it. Wrong: lose it.",
+    hostNote: "Collect wagers BEFORE showing each question — use the Wager Input in the host panel. Read the wager rule clearly before Q1.",
+    questions: [
+      {
+        question: "In 2019, Maurizio Cattelan duct-taped a banana to a wall and sold it for $1.04 million. In 2024, a crypto billionaire bought another edition for $6.2 million.\n\nWhat did both buyers immediately do to the artwork?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "They ate it.",
+        answerSubline: "The work is called 'Comedian.' The certificate is the art — not the banana.",
+        answerImg: "",
+        note:     "The 2024 buyer was Justin Sun, a crypto billionaire who ate it on camera at a press conference. The banana cost $6.2 million. It was a Cavendish. You can buy one for about 30 cents.",
+        multiChoice: []
+      },
+      {
+        question: "The inventor of the AK-47 wrote a letter shortly before he died saying he was tormented by the thought of all the people killed by his invention.\n\nWho was he?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "Mikhail Kalashnikov",
+        answerSubline: "An estimated 100 million AK-47s exist worldwide.",
+        answerImg: "",
+        note:     "Kalashnikov was a self-taught weapons designer who developed the AK-47 in 1947 after being wounded fighting the Germans in WWII. In his final letter, written to the head of the Russian Orthodox Church at age 93, he asked whether he bore moral responsibility for all who had died by his weapon. He died two weeks later.",
+        multiChoice: []
+      },
+      {
+        question: "The Eiffel Tower was almost demolished in 1909 when its original permit expired.\n\nIt was saved by one thing. What?",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "B — It was turned into a radio antenna",
+        answerSubline: "The most visited monument in the world was saved by military pragmatism.",
+        answerImg: "",
+        note:     "The Eiffel Tower was built as a temporary structure for the 1889 World's Fair and was always intended to be dismantled. The French military realised its antenna could intercept enemy radio communications. During WWI it jammed German signals. During the 1914 Battle of the Marne, the tower's transmitter was used to call up reserve troops — an act that may have turned the war.",
+        multiChoice: ["A) Gustav Eiffel bribed the city council", "B) It was turned into a radio antenna ← CORRECT", "C) A petition signed by artists including Monet and Maupassant", "D) It became too expensive to demolish"]
+      }
+    ]
+  },
+
+  // ════════════════════════════════════════════════
+  // ROUND 9 — CURRENT EVENTS
+  // ════════════════════════════════════════════════
+  {
+    id: "currentevents",
+    name: "CURRENT EVENTS",
+    subname: "THIS MONTH IN HISTORY",
+    badge: "ROUND 9",
+    format: "To be written late June 2026. Closes the quiz.",
+    hostNote: "Placeholder round — add questions here before game night using the same question object structure.",
+    questions: [
+      {
+        question: "This round will be written in late June 2026 to capture the freshest current events.\n\nAdd questions to the 'currentevents' round in the data menu at the top of this file.",
+        mediaType: "none",
+        mediaSrc:  "",
+        answer:   "TBD",
+        answerSubline: "",
+        answerImg: "",
+        note:     "Add question objects to the questions array of this round using the same format as all other rounds.",
+        multiChoice: []
+      }
+    ]
+  }
+
+]; // END ROUNDS
+
+// Sara's category board — order matches the 5 questions in the 'sara' round
+const SARA_CATEGORIES = [
+  { id: "history",    label: "HISTORY",     icon: "🏛" },
+  { id: "science",    label: "SCIENCE",     icon: "⚛" },
+  { id: "art",        label: "ART",         icon: "🎨" },
+  { id: "music",      label: "MUSIC",       icon: "🎸" },
+  { id: "popculture", label: "POP CULTURE", icon: "🌟" }
+];
+
+const SCORING = { maxTeams: 10 };
+
+</script>
+<!-- ════════════ END CONFIGURATION DATA MENU ════════════ -->
+
+<style>
+/* ── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --bg:        #0b0b0f;
+  --surface:   #13131a;
+  --surface2:  #1a1a24;
+  --border:    #252535;
+  --accent:    #7c3aed;
+  --accent2:   #4f46e5;
+  --accentGlow:rgba(124,58,237,0.15);
+  --green:     #22c55e;
+  --greenGlow: rgba(34,197,94,0.12);
+  --red:       #ef4444;
+  --amber:     #f59e0b;
+  --aColor:    #f59e0b;   /* The A Round accent — amber gold */
+  --text:      #f0f0f5;
+  --textMuted: #7777a0;
+  --textDim:   #44445a;
+  --r:         14px;
+  --rsm:       7px;
+  --ease:      cubic-bezier(.4,0,.2,1);
+  --t:         260ms;
+  --font-d:    'Syne', system-ui, sans-serif;
+  --font-b:    'DM Sans', system-ui, sans-serif;
+}
+
+/* ── RESET ──────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{
+  background:var(--bg);color:var(--text);font-family:var(--font-b);
+  min-height:100vh;display:flex;flex-direction:column;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+
+/* ── STAGE ──────────────────────────────────────────────── */
+#stage{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  min-height:calc(100vh - 2.75rem);
+  padding:2rem 3vw;position:relative;overflow:hidden;
+}
+/* ambient glow */
+#stage::before{
+  content:'';position:fixed;top:-15vh;left:50%;transform:translateX(-50%);
+  width:70vw;height:70vw;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(124,58,237,0.09) 0%,transparent 68%);
+}
+
+/* ── SHARED SCREEN WRAPPER ──────────────────────────────── */
+.screen{
+  display:none;width:100%;max-width:1200px;
+  flex-direction:column;align-items:center;
+  position:relative;z-index:1;
+}
+.screen.active{display:flex}
+
+/* ── TITLE SCREEN ───────────────────────────────────────── */
+#titleScreen{text-align:center;gap:1.2rem;justify-content:center}
+.title-eyebrow{
+  font-family:var(--font-d);font-size:clamp(.9rem,1.8vw,1.3rem);
+  letter-spacing:.35em;color:var(--accent);text-transform:uppercase;
+}
+.title-main{
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(4.5rem,12vw,11rem);line-height:.92;letter-spacing:-.03em;
+  background:linear-gradient(135deg,#f0f0f5 25%,#7c3aed 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.title-season{
+  font-family:var(--font-d);font-weight:700;
+  font-size:clamp(1.4rem,4vw,3rem);color:var(--accent);
+  letter-spacing:.15em;text-transform:uppercase;
+}
+.title-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  margin-top:1.5rem;padding:1.1rem 2.8rem;
+  background:var(--accent);color:#fff;border:none;border-radius:100px;
+  font-family:var(--font-d);font-weight:700;font-size:1.2rem;letter-spacing:.05em;
+  cursor:pointer;transition:background var(--t) var(--ease),transform var(--t) var(--ease),box-shadow var(--t) var(--ease);
+  box-shadow:0 0 40px rgba(124,58,237,.4);
+}
+.title-btn:hover{background:#6d28d9;transform:translateY(-2px);box-shadow:0 0 60px rgba(124,58,237,.55)}
+
+/* ── ROUND NAV ──────────────────────────────────────────── */
+#roundNav{gap:1.5rem;max-width:900px}
+.rnav-title{
+  font-family:var(--font-d);font-size:clamp(1rem,2vw,1.3rem);
+  letter-spacing:.3em;color:var(--textMuted);text-transform:uppercase;
+}
+.rnav-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:.9rem;width:100%;
+}
+.rnav-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.4rem 1.6rem;cursor:pointer;text-align:left;
+  transition:border-color var(--t) var(--ease),background var(--t) var(--ease),transform var(--t) var(--ease);
+}
+.rnav-card:hover{border-color:var(--accent);background:var(--surface2);transform:translateY(-3px)}
+.rnav-card.done{opacity:.4}
+.rnav-badge{font-family:var(--font-d);font-size:.75rem;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:.4rem}
+.rnav-label{font-family:var(--font-d);font-weight:700;font-size:1.15rem;line-height:1.2}
+
+/* ── ROUND INTRO ────────────────────────────────────────── */
+#roundIntro{gap:1.5rem;text-align:center;max-width:900px}
+.ri-badge{
+  font-family:var(--font-d);font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--accent);background:var(--accentGlow);
+  border:1px solid rgba(124,58,237,.3);padding:.5rem 1.4rem;border-radius:100px;
+}
+.ri-name{
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(3.5rem,10vw,8rem);line-height:.9;letter-spacing:-.02em;
+  animation:slideUp .5s var(--ease) both;
+}
+.ri-subname{
+  font-family:var(--font-d);font-weight:700;
+  font-size:clamp(1.4rem,4vw,2.8rem);color:var(--accent);letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.ri-format{font-size:clamp(1rem,2vw,1.4rem);color:var(--textMuted);line-height:1.7;max-width:55ch}
+.ri-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem}
+
+/* ── QUESTION SCREEN ────────────────────────────────────── */
+#questionView{gap:1.2rem;max-width:1200px}
+
+.q-topbar{
+  display:flex;align-items:center;justify-content:space-between;width:100%;gap:1rem;
+}
+.q-pill{
+  font-family:var(--font-d);font-size:.8rem;font-weight:700;
+  letter-spacing:.25em;text-transform:uppercase;
+  color:var(--accent);background:var(--accentGlow);
+  border:1px solid rgba(124,58,237,.3);padding:.4rem 1rem;border-radius:100px;
+}
+.q-counter{font-family:var(--font-d);font-size:.95rem;color:var(--textDim);letter-spacing:.1em}
+
+/* progress */
+.q-prog{width:100%;height:3px;background:var(--border);border-radius:99px;overflow:hidden}
+.q-prog-fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:99px;transition:width .6s var(--ease)}
+
+/* the main card — full presentationy slide */
+.q-card{
+  width:100%;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);
+  padding:clamp(2.5rem,5vw,4.5rem) clamp(2rem,5vw,5rem);
+  display:grid;grid-template-columns:1fr;gap:2rem;
+  min-height:52vh;position:relative;overflow:hidden;
+  animation:fadeSlide .35s var(--ease) both;
+}
+/* when there's media, use two-col layout */
+.q-card.has-media{
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+}
+@media(max-width:900px){.q-card.has-media{grid-template-columns:1fr}}
+
+/* subtle accent line at left edge */
+.q-card::before{
+  content:'';position:absolute;left:0;top:10%;bottom:10%;
+  width:3px;border-radius:0 3px 3px 0;
+  background:linear-gradient(180deg,transparent,var(--accent),transparent);
+  opacity:.4;
+}
+
+.q-text-col{display:flex;flex-direction:column;justify-content:center;gap:1.2rem}
+
+.q-question{
+  font-family:var(--font-d);font-weight:700;
+  font-size:clamp(2rem,4.5vw,4rem);line-height:1.2;letter-spacing:-.01em;
+  white-space:pre-line;
+}
+/* A Round: colour the leading A */
+.a-highlight{color:var(--aColor)}
+
+.q-options{display:flex;flex-direction:column;gap:.65rem;margin-top:.75rem}
+.q-opt{
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);
+  padding:1rem 1.4rem;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--textMuted);
+  transition:border-color var(--t);
+}
+.q-opt.correct{border-color:var(--green);color:var(--green);background:var(--greenGlow)}
+
+.q-media-col{display:flex;flex-direction:column;gap:1rem;align-items:center;justify-content:center}
+.q-media-wrap{
+  width:100%;border-radius:var(--rsm);overflow:hidden;
+  background:var(--surface2);border:1px solid var(--border);
+}
+.q-media-wrap img{width:100%;max-height:48vh;object-fit:cover;display:block}
+.q-media-wrap audio{width:100%;display:block;padding:.75rem}
+.q-media-wrap iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.q-media-wrap .ph{
+  padding:3rem 2rem;text-align:center;color:var(--textDim);
+}
+.ph-icon{font-size:3rem;display:block;margin-bottom:.75rem;opacity:.4}
+.ph-file{font-size:.7rem;font-family:monospace;color:var(--accent);opacity:.6;margin-top:.4rem;display:block}
+
+/* ── ANSWER SCREEN ──────────────────────────────────────── */
+#answerView{gap:1.2rem;max-width:1200px}
+
+.ans-topbar{
+  display:flex;align-items:center;justify-content:space-between;width:100%;
+}
+.ans-pill{
+  font-family:var(--font-d);font-size:.8rem;font-weight:700;
+  letter-spacing:.25em;text-transform:uppercase;
+  color:var(--green);background:var(--greenGlow);
+  border:1px solid rgba(34,197,94,.3);padding:.4rem 1rem;border-radius:100px;
+}
+.ans-counter{font-family:var(--font-d);font-size:.95rem;color:var(--textDim);letter-spacing:.1em}
+
+.ans-card{
+  width:100%;background:var(--surface);
+  border:1px solid rgba(34,197,94,.25);border-radius:var(--r);
+  padding:clamp(2.5rem,5vw,4.5rem) clamp(2rem,5vw,5rem);
+  display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;
+  min-height:52vh;align-items:center;
+  animation:fadeSlide .35s var(--ease) both;
+  position:relative;overflow:hidden;
+}
+.ans-card::before{
+  content:'';position:absolute;left:0;top:10%;bottom:10%;
+  width:3px;border-radius:0 3px 3px 0;
+  background:linear-gradient(180deg,transparent,var(--green),transparent);
+  opacity:.5;
+}
+@media(max-width:900px){.ans-card{grid-template-columns:1fr}}
+
+.ans-text-col{display:flex;flex-direction:column;gap:1.25rem}
+.ans-label{
+  font-family:var(--font-d);font-size:.85rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--green);opacity:.7;
+}
+.ans-main{
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(2.8rem,6vw,6rem);line-height:.95;letter-spacing:-.02em;
+  color:var(--green);
+}
+/* A Round: colour leading A in answer */
+.ans-main .a-highlight{color:var(--aColor)}
+
+.ans-sub{
+  font-family:var(--font-d);font-weight:400;
+  font-size:clamp(1.2rem,2.5vw,2rem);color:var(--textMuted);letter-spacing:.02em;
+  white-space:pre-line;
+}
+.ans-note{
+  font-size:clamp(1rem,1.6vw,1.25rem);color:var(--textMuted);
+  font-weight:300;line-height:1.75;max-width:58ch;
+  border-left:2px solid rgba(34,197,94,.25);padding-left:.9rem;
+  white-space:pre-line;
+}
+.ans-media-col{display:flex;flex-direction:column;gap:1rem;align-items:center;justify-content:center}
+.ans-media-wrap{
+  width:100%;border-radius:var(--rsm);overflow:hidden;
+  background:var(--surface2);border:1px solid var(--border);
+}
+.ans-media-wrap img{width:100%;max-height:48vh;object-fit:cover;display:block}
+.ans-media-wrap audio{width:100%;display:block;padding:.75rem}
+.ans-media-wrap iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+
+/* ── SARA'S JEOPARDY BOARD ──────────────────────────────── */
+#saraBoard{gap:1.5rem;max-width:1100px}
+.sara-title{
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(2rem,5vw,4rem);letter-spacing:-.01em;text-align:center;
+}
+.sara-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;width:100%;
+}
+.sara-cat{
+  background:var(--surface);border:2px solid var(--border);border-radius:var(--r);
+  padding:2rem 1rem;text-align:center;cursor:pointer;
+  transition:border-color var(--t) var(--ease),background var(--t) var(--ease),transform var(--t) var(--ease),box-shadow var(--t) var(--ease);
+  display:flex;flex-direction:column;align-items:center;gap:.75rem;
+}
+.sara-cat:hover:not(.played){border-color:var(--accent);background:var(--surface2);transform:translateY(-4px);box-shadow:0 8px 32px rgba(124,58,237,.2)}
+.sara-cat.played{opacity:.22;pointer-events:none}
+.sara-cat.active{border-color:var(--accent);background:var(--accentGlow);box-shadow:0 0 40px rgba(124,58,237,.3)}
+.sara-cat-icon{font-size:3rem}
+.sara-cat-label{font-family:var(--font-d);font-weight:700;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:var(--textMuted)}
+
+/* ── LEADERBOARD SCREEN ─────────────────────────────────── */
+#lbScreen{gap:2rem;max-width:700px;text-align:center}
+.lb-title{
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(3rem,8vw,7rem);line-height:.9;letter-spacing:-.02em;
+  background:linear-gradient(135deg,#f0f0f5,var(--amber));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+#lbList{width:100%;display:flex;flex-direction:column;gap:.6rem}
+.lb-row{
+  display:flex;align-items:center;gap:1.5rem;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);
+  padding:1.1rem 1.8rem;
+  transition:background var(--t),border-color var(--t);
+}
+.lb-row.first{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.35)}
+.lb-rank{font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:var(--textDim);width:2.5rem;text-align:center}
+.lb-rank.gold{color:var(--amber)}
+.lb-rank.silver{color:#9ca3af}
+.lb-rank.bronze{color:#b45309}
+.lb-name{flex:1;font-family:var(--font-d);font-weight:700;font-size:1.4rem}
+.lb-pts{font-family:var(--font-d);font-weight:800;font-size:1.8rem;color:var(--accent)}
+
+/* ── NAV BAR (always visible, bottom of stage) ──────────── */
+#navBar{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;max-width:1200px;padding:.5rem 0;margin-top:.75rem;
+}
+.nav-hint{font-size:.85rem;color:var(--textDim);letter-spacing:.07em}
+.nav-btns{display:flex;gap:.6rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.35rem;
+  padding:.65rem 1.4rem;border-radius:100px;
+  font-family:var(--font-d);font-weight:700;font-size:.92rem;letter-spacing:.05em;
+  cursor:pointer;border:1px solid;
+  transition:background var(--t) var(--ease),transform var(--t) var(--ease),box-shadow var(--t) var(--ease);
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 0 20px rgba(124,58,237,.3)}
+.btn-primary:hover{background:#6d28d9}
+.btn-ghost{background:transparent;color:var(--textMuted);border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--textMuted);color:var(--text)}
+.btn-violet{background:transparent;color:var(--accent);border-color:rgba(124,58,237,.4)}
+.btn-violet:hover{background:var(--accentGlow)}
+.btn-green{background:var(--green);color:#111;border-color:var(--green)}
+.btn-amber{background:var(--amber);color:#111;border-color:var(--amber)}
+
+/* ── HOST PANEL ─────────────────────────────────────────── */
+#hostPanel{
+  background:var(--surface);border-top:1px solid var(--border);
+  position:sticky;bottom:0;z-index:100;width:100%;
+}
+.hp-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.5rem 1.5rem;cursor:pointer;user-select:none;
+}
+.hp-toggle-label{
+  font-family:var(--font-d);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--textDim);display:flex;align-items:center;gap:.5rem;
+}
+.hp-toggle-label::before{content:'◆';color:var(--accent);font-size:.45rem}
+.hp-arrow{color:var(--textDim);font-size:.8rem;transition:transform var(--t) var(--ease)}
+#hostPanel.open .hp-arrow{transform:rotate(180deg)}
+.hp-body{
+  display:none;padding:1rem 1.5rem 1.5rem;gap:1.5rem;flex-direction:column;
+  border-top:1px solid var(--border);max-height:72vh;overflow-y:auto;
+}
+#hostPanel.open .hp-body{display:flex}
+
+.hp-sec-label{font-family:var(--font-d);font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.hp-note{background:var(--accentGlow);border:1px solid rgba(124,58,237,.25);border-radius:var(--rsm);padding:.6rem 1rem;font-size:.8rem;color:var(--textMuted);line-height:1.55}
+.hp-note strong{color:var(--accent)}
+
+.hp-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.hp-col{flex:1;min-width:250px}
+
+/* team input */
+.team-add{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}
+.team-add input{
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);
+  padding:.4rem .75rem;color:var(--text);font-family:var(--font-b);font-size:.85rem;
+  width:150px;outline:none;transition:border-color var(--t);
+}
+.team-add input:focus{border-color:var(--accent)}
+.hbtn{
+  padding:.4rem .85rem;border-radius:var(--rsm);font-family:var(--font-d);font-weight:700;
+  font-size:.72rem;letter-spacing:.04em;cursor:pointer;border:none;
+  transition:background var(--t) var(--ease),transform var(--t) var(--ease);
+}
+.hbtn:hover{transform:translateY(-1px)}
+.hbtn-a{background:var(--accent);color:#fff}
+.hbtn-g{background:var(--surface2);border:1px solid var(--border);color:var(--textMuted)}
+.hbtn-g:hover{color:var(--text)}
+.hbtn-green{background:var(--green);color:#111}
+.hbtn-red{background:var(--red);color:#fff}
+.hbtn-sm{padding:.22rem .45rem;font-size:.68rem;border-radius:4px}
+
+/* scoreboard */
+#scoreboard{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.45rem;margin-top:.6rem}
+.sc-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:.55rem .7rem;display:flex;flex-direction:column;gap:.3rem}
+.sc-name{font-family:var(--font-d);font-size:.72rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sc-bottom{display:flex;align-items:center;gap:.3rem}
+.sc-pts{font-family:var(--font-d);font-weight:800;font-size:1.3rem;color:var(--accent);flex:1}
+.sc-adj{display:flex;gap:.22rem}
+.sc-btn{width:24px;height:24px;border-radius:4px;font-weight:700;font-size:.85rem;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;transition:transform var(--t)}
+.sc-btn:hover{transform:scale(1.15)}
+.sc-plus{background:var(--green);color:#111}
+.sc-minus{background:var(--red);color:#fff}
+
+/* inline leaderboard in panel */
+#panelLb{display:flex;flex-direction:column;gap:.28rem}
+.plb-row{display:flex;align-items:center;gap:.7rem;padding:.3rem .45rem;border-radius:var(--rsm)}
+.plb-row:first-child{background:rgba(124,58,237,.1)}
+.plb-rank{font-family:var(--font-d);font-weight:700;font-size:.72rem;color:var(--textDim);width:1.4rem;text-align:right}
+.plb-rank.gold{color:var(--amber)}.plb-rank.silver{color:#9ca3af}.plb-rank.bronze{color:#b45309}
+.plb-name{flex:1;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.plb-pts{font-family:var(--font-d);font-weight:700;font-size:.9rem;color:var(--accent)}
+
+/* wager */
+.wager-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:.45rem}
+.wager-row{background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:.45rem .6rem;display:flex;flex-direction:column;gap:.28rem}
+.wager-name{font-size:.68rem;color:var(--textMuted)}
+.wager-row-inp{display:flex;gap:.25rem;align-items:center}
+.wager-inp{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:.18rem .35rem;color:var(--text);font-family:var(--font-d);font-weight:700;font-size:.82rem;width:55px;outline:none;text-align:center}
+.wager-inp:focus{border-color:var(--accent)}
+
+/* buzzer tracker */
+#buzzerTracker{display:none}
+#buzzerTracker.active{display:block}
+.bz-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.45rem;margin-bottom:.65rem}
+.bz-cat{background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:.5rem .35rem;text-align:center;cursor:pointer;transition:border-color var(--t),background var(--t)}
+.bz-cat:hover{border-color:var(--accent)}
+.bz-cat.played{opacity:.3;pointer-events:none}
+.bz-cat.active{border-color:var(--accent);background:var(--accentGlow)}
+.bz-icon{font-size:1.2rem;display:block;margin-bottom:.15rem}
+.bz-label{font-family:var(--font-d);font-size:.52rem;font-weight:700;letter-spacing:.1em;color:var(--textMuted);text-transform:uppercase}
+.bz-award{display:none;flex-direction:column;gap:.45rem}
+.bz-award.active{display:flex}
+.bz-team-btns{display:flex;flex-wrap:wrap;gap:.3rem}
+.bz-tbtn{padding:.3rem .6rem;border-radius:var(--rsm);font-size:.72rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surface2);color:var(--text);transition:background var(--t)}
+.bz-tbtn:hover{background:var(--accentGlow);border-color:var(--accent)}
+
+/* ── UTILITIES ──────────────────────────────────────────── */
+.hidden{display:none!important}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+.pop-in{animation:popIn .4s var(--ease) both}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media(max-width:700px){
+  #stage{padding:1.25rem 1rem}
+  .q-card,.ans-card{padding:1.5rem}
+  .sara-grid{grid-template-columns:repeat(3,1fr)}
+  .hp-row{flex-direction:column}
+}
+/* TV / large display boost — everything a touch larger */
+@media(min-width:1400px){
+  html{font-size:18px}
+  .q-question{font-size:clamp(2.5rem,4vw,4.5rem)}
+  .ans-main{font-size:clamp(3.5rem,6vw,7rem)}
+  .ans-note{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ MAIN STAGE ═══════════════════════════════════════════ -->
+<main id="stage">
+
+  <!-- TITLE -->
+  <div id="titleScreen" class="screen pop-in">
+    <p class="title-eyebrow">Game Night Edition</p>
+    <h1 class="title-main" id="titleMain">SO YOU THINK<br>YOU KNOW THINGS</h1>
+    <p class="title-season" id="titleSeason">SEASON 2</p>
+    <button class="title-btn" onclick="showRoundNav()">SELECT ROUND →</button>
+  </div>
+
+  <!-- ROUND NAV -->
+  <div id="roundNav" class="screen">
+    <p class="rnav-title">Select a Round</p>
+    <div class="rnav-grid" id="rnavGrid"></div>
+  </div>
+
+  <!-- ROUND INTRO -->
+  <div id="roundIntro" class="screen">
+    <span class="ri-badge" id="riBadge"></span>
+    <h2 class="ri-name" id="riName"></h2>
+    <p class="ri-subname" id="riSubname"></p>
+    <p class="ri-format" id="riFormat"></p>
+    <div class="ri-btns">
+      <button class="btn btn-primary" onclick="startRound()">BEGIN →</button>
+      <button class="btn btn-ghost" onclick="showRoundNav()">← ROUNDS</button>
+    </div>
+  </div>
+
+  <!-- QUESTION VIEW -->
+  <div id="questionView" class="screen">
+    <div class="q-topbar">
+      <span class="q-pill" id="qPill"></span>
+      <span class="q-counter" id="qCounter"></span>
+    </div>
+        <div class="q-prog"><div class="q-prog-fill" id="qProg" style="width:0%"></div></div>
+    <div class="q-card" id="qCard">
+      <div class="q-text-col" id="qTextCol">
+        <p class="q-question" id="qQuestion"></p>
+        <div class="q-options hidden" id="qOpts"></div>
+      </div>
+      <div class="q-media-col hidden" id="qMediaCol">
+        <div class="q-media-wrap" id="qMediaWrap"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANSWER VIEW (one answer at a time) -->
+  <div id="answerView" class="screen">
+    <div class="ans-topbar">
+      <span class="ans-pill" id="ansPill"></span>
+      <span class="ans-counter" id="ansCounter"></span>
+    </div>
+    <div class="ans-card" id="ansCard">
+      <div class="ans-text-col">
+        <span class="ans-label">ANSWER</span>
+        <p class="ans-main" id="ansMain"></p>
+        <p class="ans-sub" id="ansSub"></p>
+        <p class="ans-note" id="ansNote"></p>
+      </div>
+      <div class="ans-media-col" id="ansMediaCol">
+        <div class="ans-media-wrap" id="ansMediaWrap"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SARA'S JEOPARDY BOARD -->
+  <div id="saraBoard" class="screen">
+    <p class="ri-badge">ROUND 7</p>
+    <h2 class="sara-title">SARA'S FAVORITE FACTS</h2>
+    <div class="sara-grid" id="saraGrid"></div>
+  </div>
+
+  <!-- LEADERBOARD SCREEN -->
+  <div id="lbScreen" class="screen">
+    <h2 class="lb-title">LEADERBOARD</h2>
+    <div id="lbList"></div>
+    <div style="display:flex;gap:.75rem;margin-top:.5rem;flex-wrap:wrap;justify-content:center">
+      <button class="btn btn-ghost" onclick="hideLb()">← BACK</button>
+      <button class="btn btn-violet" onclick="showRoundNav()">ALL ROUNDS</button>
+    </div>
+  </div>
+
+  <!-- NAV BAR -->
+  <div id="navBar" class="hidden">
+    <span class="nav-hint">← → ARROW KEYS</span>
+    <div class="nav-btns">
+      <button class="btn btn-ghost" onclick="navigate(-1)">← PREV</button>
+      <button class="btn btn-amber" onclick="showLb()">SCORES</button>
+      <button class="btn btn-violet" onclick="showRoundNav()">ROUNDS</button>
+      <button class="btn btn-primary" onclick="navigate(1)">NEXT →</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- HOST PANEL -->
+<div id="hostPanel">
+  <div class="hp-toggle" onclick="togglePanel()">
+    <span class="hp-toggle-label">HOST CONTROL PANEL (press H)</span>
+    <span class="hp-arrow">▲</span>
+  </div>
+  <div class="hp-body">
+    <div class="hp-note"><strong>HOST NOTE:</strong> <span id="hpNote">Select a round to begin.</span></div>
+    <div class="hp-row">
+      <div class="hp-col">
+        <div class="hp-sec-label">TEAMS</div>
+        <div class="team-add">
+          <input type="text" id="newTeamInput" placeholder="Team name..." maxlength="24"
+                 onkeydown="if(event.key==='Enter')addTeam()">
+          <button class="hbtn hbtn-a" onclick="addTeam()">+ ADD</button>
+          <button class="hbtn hbtn-g" onclick="clearTeams()">CLEAR ALL</button>
+        </div>
+        <div id="scoreboard"></div>
+      </div>
+      <div class="hp-col" style="max-width:260px">
+        <div class="hp-sec-label">STANDINGS</div>
+        <div id="panelLb"></div>
+      </div>
+    </div>
+    <div id="wagerSection">
+      <div class="hp-sec-label">DOUBLE DOWN — WAGERS</div>
+      <p style="font-size:.72rem;color:var(--textDim);margin-bottom:.45rem">Enter each team's wager, then hit checkmark or X.</p>
+      <div class="wager-grid" id="wagerGrid"></div>
+      <div style="display:flex;gap:.4rem;margin-top:.5rem;flex-wrap:wrap">
+        <button class="hbtn hbtn-green hbtn-sm" onclick="applyAllWagers(1)">ALL CORRECT</button>
+        <button class="hbtn hbtn-red hbtn-sm" onclick="applyAllWagers(-1)">ALL WRONG</button>
+      </div>
+    </div>
+    <div id="buzzerTracker">
+      <div class="hp-sec-label">SARA'S FACTS — BUZZER TRACKER</div>
+      <div class="bz-grid" id="bzGrid"></div>
+      <div class="bz-award" id="bzAward">
+        <p style="font-size:.75rem;color:var(--accent)">Category: <strong id="bzCatLabel"></strong> — who buzzed in?</p>
+        <div class="bz-team-btns" id="bzTeamBtns"></div>
+        <div id="bzScoreRow" class="hidden" style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap">
+          <span style="font-size:.78rem;color:var(--textMuted)">Team: <strong id="bzSelTeam" style="color:var(--text)"></strong></span>
+          <button class="hbtn hbtn-green hbtn-sm" onclick="awardBuzzer(1)">+1 CORRECT</button>
+          <button class="hbtn hbtn-red hbtn-sm" onclick="awardBuzzer(-1)">-1 WRONG</button>
+          <button class="hbtn hbtn-g hbtn-sm" onclick="cancelBuzzer()">CANCEL</button>
+        </div>
+      </div>
+    </div>
+    <!-- ═══════════════════════════════════════════════
+         FIREBASE: LIVE ANSWERS PANEL
+         Shows submitted team answers in real time.
+         Everything below this comment is new Firebase UI.
+         ═══════════════════════════════════════════════ -->
+    <div id="liveAnswersSection">
+      <div class="hp-sec-label" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
+        <span>LIVE ANSWERS
+          <span id="fbConnStatus" style="font-size:.55rem;letter-spacing:.1em;color:var(--textDim);margin-left:.5rem">● disconnected</span>
+        </span>
+        <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+          <button class="hbtn hbtn-red hbtn-sm"   id="lockBtn"    onclick="fbLockQuestion()">🔒 LOCK</button>
+          <button class="hbtn hbtn-g   hbtn-sm"   id="unlockBtn"  onclick="fbUnlockQuestion()" style="display:none">🔓 UNLOCK</button>
+          <button class="hbtn hbtn-a   hbtn-sm"   id="clearBtn"   onclick="fbClearAnswers()">✕ CLEAR &amp; NEXT Q</button>
+          <button class="hbtn hbtn-green hbtn-sm" id="fbInitBtn"  onclick="fbPublishCurrent()">↑ PUSH CURRENT Q</button>
+        </div>
+      </div>
+
+      <!-- Team answer cards render here -->
+      <div id="liveAnswersList" style="
+        display:grid;
+        grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+        gap:.45rem;
+        margin-top:.5rem;
+      ">
+        <p style="font-size:.78rem;color:var(--textDim)">
+          No answers yet — push a question to start.
+        </p>
+      </div>
+
+      <!-- Answer count summary -->
+      <p id="answerSummary" style="font-size:.72rem;color:var(--textMuted);margin-top:.35rem"></p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// STATE
+let rIdx=-1, qIdx=0, aIdx=0, mode='title', lbReturnMode='questionView';
+let teams=[], completedRounds=new Set(), panelOpen=false;
+let buzzerActiveCat=null, buzzerSelTeam=null, buzzerPlayed=new Set();
+
+// INIT
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('titleMain').textContent   = QUIZ_META.title;
+  document.getElementById('titleSeason').textContent = QUIZ_META.subtitle;
+  buildRnavGrid(); buildSaraGrid(); buildBzGrid();
+  renderScoreboard(); renderPanelLb(); rebuildWagerGrid();
+  // Show title screen on load
+  showScreen('titleScreen');
+  document.addEventListener('keydown', e => {
+    if (['INPUT','TEXTAREA'].includes(e.target.tagName)) return;
+    if (e.key==='ArrowRight') navigate(1);
+    if (e.key==='ArrowLeft')  navigate(-1);
+    if (e.key==='h'||e.key==='H') togglePanel();
+  });
+});
+
+// SCREENS
+function showScreen(name) {
+  ['titleScreen','roundNav','roundIntro','questionView','answerView','saraBoard','lbScreen']
+    .forEach(id => document.getElementById(id).classList.remove('active'));
+  const nb = document.getElementById('navBar');
+  if (['questionView','answerView'].includes(name)) nb.classList.remove('hidden');
+  else nb.classList.add('hidden');
+  document.getElementById(name)?.classList.add('active');
+  mode = name;
+}
+function showRoundNav() { buildRnavGrid(); showScreen('roundNav'); setHpNote('Select a round to begin.'); }
+
+// ROUND NAV
+function buildRnavGrid() {
+  const g = document.getElementById('rnavGrid');
+  g.innerHTML = '';
+  ROUNDS.forEach((r,i) => {
+    const c = document.createElement('div');
+    c.className = 'rnav-card' + (completedRounds.has(i) ? ' done' : '');
+    c.innerHTML = `<div class="rnav-badge">${r.badge}</div><div class="rnav-label">${r.name}</div>`;
+    c.addEventListener('click', () => selectRound(i));
+    g.appendChild(c);
+  });
+}
+function selectRound(idx) {
+  rIdx=idx; qIdx=0; aIdx=0;
+  const r=ROUNDS[idx];
+  document.getElementById('riBadge').textContent  = r.badge;
+  document.getElementById('riName').textContent   = r.name;
+  const sub = document.getElementById('riSubname');
+  sub.textContent = r.subname||'';
+  sub.style.display = r.subname ? '' : 'none';
+  document.getElementById('riFormat').textContent = r.format;
+  showScreen('roundIntro');
+  setHpNote(r.hostNote||'');
+  updateBuzzerVis();
+}
+function startRound() {
+  if (ROUNDS[rIdx].id==='sara') { showScreen('saraBoard'); return; }
+  showScreen('questionView'); renderQuestion();
+}
+
+// NAVIGATE
+function navigate(dir) {
+  if (['lbScreen','saraBoard','roundIntro','roundNav','title'].includes(mode)) {
+    if (dir>0 && mode==='title') showRoundNav();
+    return;
+  }
+  const total = ROUNDS[rIdx].questions.length;
+  if (mode==='questionView') {
+    if (dir>0) {
+      if (qIdx < total-1) { qIdx++; renderQuestion(); }
+      else { aIdx=0; showScreen('answerView'); renderAnswer(); }
+    } else {
+      if (qIdx>0) { qIdx--; renderQuestion(); }
+    }
+  } else if (mode==='answerView') {
+    if (dir>0) {
+      if (aIdx < total-1) { aIdx++; renderAnswer(); }
+      else { completedRounds.add(rIdx); buildRnavGrid(); showRoundNav(); }
+    } else {
+      if (aIdx>0) { aIdx--; renderAnswer(); }
+      else { qIdx=total-1; showScreen('questionView'); renderQuestion(); }
+    }
+  }
+}
+
+// RENDER QUESTION
+function renderQuestion() {
+  const r=ROUNDS[rIdx], q=r.questions[qIdx], total=r.questions.length;
+  const isA = r.id==='around';
+  document.getElementById('qPill').textContent    = r.badge;
+  document.getElementById('qCounter').textContent = `Q ${qIdx+1} / ${total}`;
+  document.getElementById('qProg').style.width    = (qIdx/total*100)+'%';
+  const qEl = document.getElementById('qQuestion');
+  qEl[isA ? 'innerHTML' : 'textContent'] = isA ? highlightA(q.question) : q.question;
+  const optsEl = document.getElementById('qOpts');
+  if (q.multiChoice && q.multiChoice.length) {
+    optsEl.innerHTML = q.multiChoice.map(o =>
+      `<div class="q-opt">${esc(o.replace(/ ← CORRECT/,'').replace(/ ← NOT REAL/,''))}</div>`).join('');
+    optsEl.classList.remove('hidden');
+  } else { optsEl.classList.add('hidden'); }
+  const mediaCol=document.getElementById('qMediaCol');
+  const card=document.getElementById('qCard');
+  if (q.mediaType && q.mediaType!=='none' && q.mediaSrc) {
+    document.getElementById('qMediaWrap').innerHTML = buildMedia(q.mediaType, q.mediaSrc);
+    mediaCol.classList.remove('hidden');
+    card.classList.add('has-media');
+  } else { mediaCol.classList.add('hidden'); card.classList.remove('has-media'); }
+  setHpNote(r.hostNote||'');
+}
+
+// RENDER ANSWER
+function renderAnswer() {
+  const r=ROUNDS[rIdx], q=r.questions[aIdx], total=r.questions.length;
+  const isA = r.id==='around';
+  document.getElementById('ansPill').textContent    = r.badge+' — ANSWERS';
+  document.getElementById('ansCounter').textContent = `${aIdx+1} / ${total}`;
+  const mainEl = document.getElementById('ansMain');
+  mainEl[isA ? 'innerHTML' : 'textContent'] = isA ? highlightA(q.answer) : q.answer;
+  document.getElementById('ansSub').textContent  = q.answerSubline||'';
+  document.getElementById('ansNote').textContent = q.note||'';
+  const mediaCol=document.getElementById('ansMediaCol');
+  const card=document.getElementById('ansCard');
+  const wrap=document.getElementById('ansMediaWrap');
+  let hasMedia=false;
+  if (q.answerImg) {
+    wrap.innerHTML=`<img src="${q.answerImg}" alt="" onerror="this.parentElement.innerHTML='<div class=ph><span class=ph-icon>&#128444;</span>Image not found</div>'">`;
+    hasMedia=true;
+  } else if (q.answerMedia && q.answerMediaType) {
+    wrap.innerHTML=buildMedia(q.answerMediaType, q.answerMedia);
+    hasMedia=true;
+  }
+  if (hasMedia) { mediaCol.classList.remove('hidden'); card.style.gridTemplateColumns='1fr 1fr'; }
+  else { mediaCol.classList.add('hidden'); card.style.gridTemplateColumns='1fr'; }
+}
+
+// HIGHLIGHT FIRST A
+function highlightA(str) {
+  if (!str) return '';
+  const idx = str.search(/[Aa]/);
+  if (idx===-1) return esc(str);
+  return esc(str.slice(0,idx)) + `<span class="a-highlight">${str[idx]}</span>` + esc(str.slice(idx+1));
+}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// BUILD MEDIA
+function buildMedia(type, src) {
+  if (!src) return `<div class="ph"><span class="ph-icon">${type==='audio'?'&#127925;':'&#128444;'}</span>File not found</div>`;
+  if (type==='image') return `<img src="${src}" alt="" onerror="this.parentElement.innerHTML='<div class=ph><span class=ph-icon>&#128444;</span>${src}</div>'">`;
+  if (type==='audio') return `<audio controls src="${src}"></audio>`;
+  if (type==='video') return `<iframe src="${src}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+  return '';
+}
+
+// SARA BOARD
+function buildSaraGrid() {
+  document.getElementById('saraGrid').innerHTML = SARA_CATEGORIES.map((cat,i)=>`
+    <div class="sara-cat" id="saraCat_${i}" onclick="selectSaraCat(${i})">
+      <span class="sara-cat-icon">${cat.icon}</span>
+      <span class="sara-cat-label">${cat.label}</span>
+    </div>`).join('');
+}
+function selectSaraCat(idx) {
+  if (buzzerPlayed.has(idx)) return;
+  qIdx=idx;
+  SARA_CATEGORIES.forEach((_,i)=>document.getElementById(`saraCat_${i}`)?.classList.toggle('active',i===idx));
+  showScreen('questionView'); renderQuestion();
+  selectBzCat(idx);
+}
+function returnToSaraBoard() {
+  SARA_CATEGORIES.forEach((_,i)=>{
+    const el=document.getElementById(`saraCat_${i}`);
+    if(el){el.classList.remove('active');el.classList.toggle('played',buzzerPlayed.has(i));}
+  });
+  showScreen('saraBoard');
+}
+
+// LEADERBOARD
+function showLb() { lbReturnMode=mode; renderFullLb(); showScreen('lbScreen'); }
+function hideLb() { showScreen(lbReturnMode); document.getElementById('navBar').classList.remove('hidden'); }
+function renderFullLb() {
+  const el=document.getElementById('lbList');
+  if (!teams.length){el.innerHTML='<p style="color:var(--textDim);font-size:.9rem">No teams yet.</p>';return;}
+  const s=[...teams].sort((a,b)=>b.score-a.score);
+  el.innerHTML=s.map((t,i)=>`
+    <div class="lb-row${i===0?' first':''}">
+      <span class="lb-rank ${['gold','silver','bronze'][i]||''}">${i+1}</span>
+      <span class="lb-name">${esc(t.name)}</span>
+      <span class="lb-pts">${t.score}</span>
+    </div>`).join('');
+}
+
+// HOST PANEL
+function togglePanel(){ panelOpen=!panelOpen; document.getElementById('hostPanel').classList.toggle('open',panelOpen); }
+function setHpNote(txt){ document.getElementById('hpNote').textContent=txt||'—'; }
+function updateBuzzerVis(){ document.getElementById('buzzerTracker').classList.toggle('active',rIdx>=0&&ROUNDS[rIdx].id==='sara'); }
+
+// TEAMS
+function addTeam(){
+  const inp=document.getElementById('newTeamInput');
+  const name=inp.value.trim();
+  if(!name||teams.length>=SCORING.maxTeams)return;
+  teams.push({name,score:0}); inp.value='';
+  renderScoreboard();renderPanelLb();rebuildWagerGrid();rebuildBzTeamBtns();
+}
+function clearTeams(){
+  if(!confirm('Clear all teams and scores?'))return;
+  teams=[];renderScoreboard();renderPanelLb();rebuildWagerGrid();rebuildBzTeamBtns();
+}
+function adjustScore(idx,d){teams[idx].score+=d;renderScoreboard();renderPanelLb();}
+function renderScoreboard(){
+  const el=document.getElementById('scoreboard');
+  if(!teams.length){el.innerHTML='<p style="font-size:.78rem;color:var(--textDim);margin-top:.5rem">No teams yet.</p>';return;}
+  el.innerHTML=teams.map((t,i)=>`
+    <div class="sc-card">
+      <div class="sc-name" title="${esc(t.name)}">${esc(t.name)}</div>
+      <div class="sc-bottom">
+        <div class="sc-pts">${t.score}</div>
+        <div class="sc-adj">
+          <button class="sc-btn sc-plus" onclick="adjustScore(${i},1)">+</button>
+          <button class="sc-btn sc-minus" onclick="adjustScore(${i},-1)">−</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function renderPanelLb(){
+  const el=document.getElementById('panelLb');
+  if(!teams.length){el.innerHTML='<p style="font-size:.75rem;color:var(--textDim)">—</p>';return;}
+  const s=[...teams].sort((a,b)=>b.score-a.score);
+  el.innerHTML=s.map((t,i)=>`
+    <div class="plb-row">
+      <span class="plb-rank ${['gold','silver','bronze'][i]||''}">${i+1}</span>
+      <span class="plb-name">${esc(t.name)}</span>
+      <span class="plb-pts">${t.score}</span>
+    </div>`).join('');
+}
+
+// WAGER
+function rebuildWagerGrid(){
+  const g=document.getElementById('wagerGrid');
+  if(!teams.length){g.innerHTML='<p style="font-size:.75rem;color:var(--textDim)">Add teams first.</p>';return;}
+  g.innerHTML=teams.map((t,i)=>`
+    <div class="wager-row">
+      <div class="wager-name">${esc(t.name)} (${t.score})</div>
+      <div class="wager-row-inp">
+        <input class="wager-inp" type="number" id="w${i}" min="0" max="${Math.max(t.score,0)}" placeholder="0">
+        <button class="hbtn hbtn-green hbtn-sm" onclick="applyWager(${i},1)">✓</button>
+        <button class="hbtn hbtn-red hbtn-sm" onclick="applyWager(${i},-1)">✗</button>
+      </div>
+    </div>`).join('');
+}
+function applyWager(idx,dir){
+  const inp=document.getElementById(`w${idx}`);
+  teams[idx].score+=dir*(parseInt(inp.value)||0);
+  inp.value='';renderScoreboard();renderPanelLb();rebuildWagerGrid();
+}
+function applyAllWagers(dir){teams.forEach((_,i)=>applyWager(i,dir));}
+
+// SARA BUZZER
+function buildBzGrid(){
+  document.getElementById('bzGrid').innerHTML=SARA_CATEGORIES.map((cat,i)=>`
+    <div class="bz-cat" id="bzCat_${i}" onclick="selectBzCat(${i})">
+      <span class="bz-icon">${cat.icon}</span>
+      <span class="bz-label">${cat.label}</span>
+    </div>`).join('');
+}
+function selectBzCat(idx){
+  if(buzzerPlayed.has(idx))return;
+  buzzerActiveCat=idx;buzzerSelTeam=null;
+  SARA_CATEGORIES.forEach((_,i)=>document.getElementById(`bzCat_${i}`)?.classList.toggle('active',i===idx));
+  document.getElementById('bzCatLabel').textContent=SARA_CATEGORIES[idx].label;
+  document.getElementById('bzAward').classList.add('active');
+  document.getElementById('bzScoreRow').classList.add('hidden');
+  rebuildBzTeamBtns();
+}
+function rebuildBzTeamBtns(){
+  const c=document.getElementById('bzTeamBtns');
+  if(!teams.length){c.innerHTML='<span style="font-size:.72rem;color:var(--textDim)">Add teams first.</span>';return;}
+  c.innerHTML=teams.map((t,i)=>`<button class="bz-tbtn" onclick="selectBzTeam(${i})">${esc(t.name)}</button>`).join('');
+}
+function selectBzTeam(idx){
+  buzzerSelTeam=idx;
+  document.getElementById('bzSelTeam').textContent=teams[idx].name;
+  document.getElementById('bzScoreRow').classList.remove('hidden');
+}
+function awardBuzzer(delta){
+  if(buzzerSelTeam===null||buzzerActiveCat===null)return;
+  teams[buzzerSelTeam].score+=delta;
+  buzzerPlayed.add(buzzerActiveCat);
+  document.getElementById(`bzCat_${buzzerActiveCat}`)?.classList.add('played');
+  document.getElementById(`saraCat_${buzzerActiveCat}`)?.classList.add('played');
+  renderScoreboard();renderPanelLb();cancelBuzzer();
+  if(buzzerPlayed.size>=SARA_CATEGORIES.length){ aIdx=0;showScreen('answerView');renderAnswer(); }
+  else returnToSaraBoard();
+}
+function cancelBuzzer(){
+  buzzerActiveCat=null;buzzerSelTeam=null;
+  document.getElementById('bzAward').classList.remove('active');
+  document.getElementById('bzScoreRow').classList.add('hidden');
+  SARA_CATEGORIES.forEach((_,i)=>{if(!buzzerPlayed.has(i))document.getElementById(`bzCat_${i}`)?.classList.remove('active');});
+}
+
+<!-- ═══════════════════════════════════════════════════════════
+     FIREBASE INTEGRATION — host.html
+     ─────────────────────────────────────────────────────────
+     This block is the ONLY addition to the original file.
+     It adds Firebase Firestore sync on top of all existing
+     functionality without modifying any existing functions.
+
+     What it does:
+       • On page load, connects to Firestore
+       • Patches renderQuestion() to auto-publish game state
+         whenever the host navigates to a new question
+       • Listens for team answer submissions in real time
+       • Provides Lock, Unlock, and Clear buttons in the panel
+     ═══════════════════════════════════════════════════════════ -->
+<script type="module">
+import { firebaseConfig } from './firebase-config.js';
+import { initializeApp }   from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  onSnapshot,
+  collection,
+  getDocs,
+  deleteDoc,
+  writeBatch,
+  serverTimestamp
+} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import {
+  getAuth,
+  signInAnonymously
+} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+// ── INIT ─────────────────────────────────────────────────────
+const app = initializeApp(firebaseConfig);
+const db  = getFirestore(app);
+const auth = getAuth(app);
+
+let fbReady       = false;
+let unsubAnswers  = null;   // Firestore listener for live answers
+let currentQKey   = null;   // The question ID string we last published
+
+// Sign in anonymously so host has write access
+signInAnonymously(auth)
+  .then(() => {
+    fbReady = true;
+    setConnStatus(true);
+    startListeningForAnswers();
+  })
+  .catch(err => {
+    setConnStatus(false, err.message);
+  });
+
+// ── CONNECT STATUS ────────────────────────────────────────────
+function setConnStatus(ok, msg) {
+  const el = document.getElementById('fbConnStatus');
+  if (!el) return;
+  if (ok) {
+    el.textContent = '● connected';
+    el.style.color = 'var(--green)';
+  } else {
+    el.textContent = '● ' + (msg || 'error');
+    el.style.color = 'var(--red)';
+  }
+}
+
+// ── BUILD A STABLE QUESTION KEY ───────────────────────────────
+// Uses round id + question index so it survives page refresh.
+function makeQKey(roundIdx, questionIdx) {
+  const r = (typeof ROUNDS !== 'undefined' && ROUNDS[roundIdx]) ? ROUNDS[roundIdx] : null;
+  const rid = r ? r.id : 'r' + roundIdx;
+  return `${rid}_q${questionIdx}`;
+}
+
+// ── PATCH renderQuestion TO AUTO-PUBLISH ──────────────────────
+// We store a reference to the original function, wrap it, and
+// re-assign on the window. This is the only modification to
+// existing behaviour — no original code is changed.
+const _origRenderQuestion = window.renderQuestion;
+if (typeof _origRenderQuestion === 'function') {
+  window.renderQuestion = function(...args) {
+    _origRenderQuestion.apply(this, args);   // run original first
+    fbAutoPublish();                          // then sync to Firestore
+  };
+}
+
+// Also patch renderAnswer (answer slides) so the phase is broadcast
+const _origRenderAnswer = window.renderAnswer;
+if (typeof _origRenderAnswer === 'function') {
+  window.renderAnswer = function(...args) {
+    _origRenderAnswer.apply(this, args);
+    fbPublishPhase('answers');
+  };
+}
+
+// ── AUTO-PUBLISH CURRENT QUESTION ─────────────────────────────
+function fbAutoPublish() {
+  if (!fbReady) return;
+  // rIdx and qIdx are the existing global state variables in host.html
+  if (typeof rIdx === 'undefined' || rIdx < 0) return;
+  fbPublishQuestion(rIdx, qIdx);
+}
+
+// ── PUBLISH QUESTION TO FIRESTORE ─────────────────────────────
+async function fbPublishQuestion(roundIdx, questionIdx) {
+  if (!fbReady) return;
+
+  const r = ROUNDS[roundIdx];
+  const q = r.questions[questionIdx];
+  const qKey = makeQKey(roundIdx, questionIdx);
+
+  // Don't re-publish if question hasn't changed
+  if (qKey === currentQKey) return;
+  currentQKey = qKey;
+
+  // Strip answer/note — teams should not see those
+  const safeMultiChoice = (q.multiChoice || []).map(o =>
+    o.replace(/ ← CORRECT/g, '').replace(/ ← NOT REAL/g, '')
+  );
+
+  try {
+    await setDoc(doc(db, 'game', 'state'), {
+      questionId:   qKey,
+      roundIdx:     roundIdx,
+      questionIdx:  questionIdx,
+      roundBadge:   r.badge,
+      roundName:    r.name,
+      questionNum:  questionIdx + 1,
+      questionText: q.question,
+      multiChoice:  safeMultiChoice,
+      locked:       false,
+      phase:        'question',
+      updatedAt:    serverTimestamp()
+    });
+
+    // Re-attach answers listener for this new question
+    startListeningForAnswers(qKey);
+
+    // Reset UI
+    document.getElementById('lockBtn').style.display   = '';
+    document.getElementById('unlockBtn').style.display = 'none';
+    setAnswerList([]);
+
+  } catch (err) {
+    console.error('fbPublishQuestion error:', err);
+    setConnStatus(false, err.message);
+  }
+}
+
+// ── PUBLISH PHASE ONLY (for answer slides) ────────────────────
+async function fbPublishPhase(phase) {
+  if (!fbReady) return;
+  try {
+    await setDoc(doc(db, 'game', 'state'), { phase }, { merge: true });
+  } catch (e) { /* silent */ }
+}
+
+// ── MANUAL PUSH BUTTON ────────────────────────────────────────
+// Exposed to onclick in HTML
+window.fbPublishCurrent = function() {
+  if (typeof rIdx === 'undefined' || rIdx < 0) {
+    alert('Navigate to a question first, then click PUSH CURRENT Q.');
+    return;
+  }
+  currentQKey = null; // force re-publish
+  fbPublishQuestion(rIdx, qIdx);
+};
+
+// ── LOCK / UNLOCK ─────────────────────────────────────────────
+window.fbLockQuestion = async function() {
+  if (!fbReady) return;
+  try {
+    await setDoc(doc(db, 'game', 'state'), { locked: true }, { merge: true });
+    document.getElementById('lockBtn').style.display   = 'none';
+    document.getElementById('unlockBtn').style.display = '';
+  } catch (err) { alert('Lock failed: ' + err.message); }
+};
+
+window.fbUnlockQuestion = async function() {
+  if (!fbReady) return;
+  try {
+    await setDoc(doc(db, 'game', 'state'), { locked: false }, { merge: true });
+    document.getElementById('lockBtn').style.display   = '';
+    document.getElementById('unlockBtn').style.display = 'none';
+  } catch (err) { alert('Unlock failed: ' + err.message); }
+};
+
+// ── CLEAR ANSWERS ─────────────────────────────────────────────
+window.fbClearAnswers = async function() {
+  if (!fbReady || !currentQKey) return;
+  if (!confirm('Clear all submitted answers for this question?')) return;
+
+  try {
+    const answersRef = collection(db, 'game', 'answers', currentQKey);
+    const snap = await getDocs(answersRef);
+    const batch = writeBatch(db);
+    snap.forEach(d => batch.delete(d.ref));
+    await batch.commit();
+    setAnswerList([]);
+  } catch (err) { alert('Clear failed: ' + err.message); }
+};
+
+// ── LISTEN FOR ANSWERS ────────────────────────────────────────
+function startListeningForAnswers(qKey) {
+  if (unsubAnswers) { unsubAnswers(); unsubAnswers = null; }
+  const key = qKey || currentQKey;
+  if (!key) return;
+
+  unsubAnswers = onSnapshot(
+    collection(db, 'game', 'answers', key),
+    snap => {
+      const answers = [];
+      snap.forEach(d => answers.push({ id: d.id, ...d.data() }));
+      setAnswerList(answers);
+    },
+    err => console.error('Answers listener error:', err)
+  );
+}
+
+// ── RENDER ANSWER LIST ────────────────────────────────────────
+function setAnswerList(answers) {
+  const container = document.getElementById('liveAnswersList');
+  const summary   = document.getElementById('answerSummary');
+  if (!container) return;
+
+  if (!answers.length) {
+    container.innerHTML =
+      '<p style="font-size:.78rem;color:var(--textDim)">No answers yet.</p>';
+    if (summary) summary.textContent = '';
+    return;
+  }
+
+  // Sort by submission time if available
+  const sorted = [...answers].sort((a, b) => {
+    const ta = a.submittedAt?.toMillis?.() || 0;
+    const tb = b.submittedAt?.toMillis?.() || 0;
+    return ta - tb;
+  });
+
+  container.innerHTML = sorted.map((a, i) => `
+    <div style="
+      background:var(--surface2);
+      border:1px solid var(--border);
+      border-radius:var(--rsm);
+      padding:.55rem .75rem;
+      display:flex;flex-direction:column;gap:.25rem;
+    ">
+      <div style="
+        font-family:var(--font-d);font-size:.68rem;font-weight:700;
+        color:var(--accent);letter-spacing:.05em;
+        white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      ">${escHtml(a.teamName || 'Team ' + (i+1))}</div>
+      <div style="
+        font-size:.85rem;color:var(--text);line-height:1.4;
+        word-break:break-word;
+      ">${escHtml(a.answer || '')}</div>
+    </div>
+  `).join('');
+
+  if (summary) summary.textContent = `${answers.length} answer${answers.length===1?'':'s'} received`;
+}
+
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+</script>
+</body>
+</html>
