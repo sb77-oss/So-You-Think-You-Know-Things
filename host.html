@@ -1586,20 +1586,11 @@ function cancelBuzzer(){
   document.getElementById('bzScoreRow').classList.add('hidden');
   SARA_CATEGORIES.forEach((_,i)=>{if(!buzzerPlayed.has(i))document.getElementById(`bzCat_${i}`)?.classList.remove('active');});
 }
+</script>
 
 <!-- ═══════════════════════════════════════════════════════════
      FIREBASE INTEGRATION — host.html
-     ─────────────────────────────────────────────────────────
      This block is the ONLY addition to the original file.
-     It adds Firebase Firestore sync on top of all existing
-     functionality without modifying any existing functions.
-
-     What it does:
-       • On page load, connects to Firestore
-       • Patches renderQuestion() to auto-publish game state
-         whenever the host navigates to a new question
-       • Listens for team answer submissions in real time
-       • Provides Lock, Unlock, and Clear buttons in the panel
      ═══════════════════════════════════════════════════════════ -->
 <script type="module">
 import { firebaseConfig } from './firebase-config.js';
