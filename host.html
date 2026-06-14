@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SO YOU THINK YOU KNOW THINGS — S2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
 <!-- ════════════════════════════════════════════════════════════
      ██  CONFIGURATION DATA MENU  ██
@@ -710,30 +710,85 @@ body{
 
 /* ── TITLE SCREEN ───────────────────────────────────────── */
 #titleScreen{text-align:center;gap:1.2rem;justify-content:center}
-.title-eyebrow{
-  font-family:var(--font-d);font-size:clamp(.9rem,1.8vw,1.3rem);
-  letter-spacing:.35em;color:var(--accent);text-transform:uppercase;
+/* ── PRIDE GLOW KEYFRAMES ───────────────────────────────── */
+@keyframes prideShift {
+  0%   { background-position: 0% 50% }
+  50%  { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
 }
+@keyframes prideGlow {
+  0%,100% { text-shadow: 0 0 40px rgba(255,0,128,.4), 0 0 80px rgba(255,165,0,.2); }
+  25%     { text-shadow: 0 0 40px rgba(0,200,255,.4), 0 0 80px rgba(128,0,255,.2); }
+  50%     { text-shadow: 0 0 40px rgba(0,255,128,.4), 0 0 80px rgba(255,0,0,.2); }
+  75%     { text-shadow: 0 0 40px rgba(255,200,0,.4), 0 0 80px rgba(0,128,255,.2); }
+}
+@keyframes firework {
+  0%   { transform: scale(0) translateY(0); opacity:1; }
+  80%  { opacity:1; }
+  100% { transform: scale(1) translateY(-120px); opacity:0; }
+}
+
+.title-eyebrow{ display:none; }
+
 .title-main{
   font-family:var(--font-d);font-weight:800;
   font-size:clamp(4.5rem,12vw,11rem);line-height:.92;letter-spacing:-.03em;
-  background:linear-gradient(135deg,#f0f0f5 25%,#7c3aed 100%);
+  background: linear-gradient(270deg,
+    #ff0000,#ff8c00,#ffed00,#008026,#004dff,#750787,
+    #ff0000,#ff8c00,#ffed00,#008026,#004dff,#750787);
+  background-size: 400% 400%;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation: prideShift 6s ease infinite, prideGlow 6s ease infinite;
 }
 .title-season{
-  font-family:var(--font-d);font-weight:700;
-  font-size:clamp(1.4rem,4vw,3rem);color:var(--accent);
-  letter-spacing:.15em;text-transform:uppercase;
+  font-family:'Playfair Display', Georgia, serif;
+  font-style:italic;font-weight:700;
+  font-size:clamp(5rem,18vw,16rem);
+  line-height:.85;
+  background: linear-gradient(270deg,
+    #ff0000,#ff8c00,#ffed00,#008026,#004dff,#750787,
+    #ff0000,#ff8c00,#ffed00);
+  background-size: 400% 400%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation: prideShift 6s ease infinite 1s;
+  letter-spacing:-.02em;
 }
 .title-btn{
   display:inline-flex;align-items:center;gap:.5rem;
-  margin-top:1.5rem;padding:1.1rem 2.8rem;
-  background:var(--accent);color:#fff;border:none;border-radius:100px;
-  font-family:var(--font-d);font-weight:700;font-size:1.2rem;letter-spacing:.05em;
-  cursor:pointer;transition:background var(--t) var(--ease),transform var(--t) var(--ease),box-shadow var(--t) var(--ease);
+  margin-top:1.5rem;padding:1.2rem 3rem;
+  background: linear-gradient(270deg,#ff0000,#ff8c00,#ffed00,#008026,#004dff,#750787,#ff0000);
+  background-size:300% 100%;
+  animation: prideShift 4s ease infinite;
+  color:#fff;border:none;border-radius:100px;
+  font-family:var(--font-d);font-weight:700;font-size:1.3rem;letter-spacing:.05em;
+  cursor:pointer;
+  transition:transform var(--t) var(--ease),box-shadow var(--t) var(--ease);
   box-shadow:0 0 40px rgba(124,58,237,.4);
+  position:relative;
 }
-.title-btn:hover{background:#6d28d9;transform:translateY(-2px);box-shadow:0 0 60px rgba(124,58,237,.55)}
+.title-btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 0 60px rgba(255,100,200,.5)}
+
+/* firework particles */
+.firework-particle {
+  position:fixed;
+  width:8px;height:8px;border-radius:50%;
+  pointer-events:none;z-index:9999;
+  animation: firework 0.8s ease-out forwards;
+}
+
+/* back to title button — tiny, always visible top-left */
+#backToTitle {
+  position:fixed;top:.75rem;left:1rem;z-index:50;
+  font-family:var(--font-d);font-size:.65rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--textDim);background:transparent;
+  border:1px solid var(--border);border-radius:100px;
+  padding:.3rem .75rem;cursor:pointer;
+  transition:color var(--t),border-color var(--t);
+  display:none;
+}
+#backToTitle.show{display:block}
+#backToTitle:hover{color:var(--text);border-color:var(--textMuted)}
 
 /* ── ROUND NAV ──────────────────────────────────────────── */
 #roundNav{gap:1.5rem;max-width:900px}
@@ -745,15 +800,34 @@ body{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
   gap:.9rem;width:100%;
 }
+/* round card accent colours — one per round slot */
 .rnav-card{
-  background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  background:var(--surface);border:2px solid var(--border);border-radius:var(--r);
   padding:1.4rem 1.6rem;cursor:pointer;text-align:left;
-  transition:border-color var(--t) var(--ease),background var(--t) var(--ease),transform var(--t) var(--ease);
+  transition:border-color var(--t) var(--ease),background var(--t) var(--ease),transform var(--t) var(--ease),box-shadow var(--t) var(--ease);
+  position:relative;overflow:hidden;
 }
-.rnav-card:hover{border-color:var(--accent);background:var(--surface2);transform:translateY(-3px)}
-.rnav-card.done{opacity:.4}
-.rnav-badge{font-family:var(--font-d);font-size:.75rem;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:.4rem}
+.rnav-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--card-accent,var(--accent));
+  border-radius:0 0 var(--r) var(--r);
+}
+.rnav-card:hover{
+  border-color:var(--card-accent,var(--accent));
+  background:var(--surface2);transform:translateY(-4px);
+  box-shadow:0 8px 32px rgba(0,0,0,.3);
+}
+.rnav-card.done{opacity:.35}
+.rnav-badge{font-family:var(--font-d);font-size:.75rem;letter-spacing:.2em;color:var(--card-accent,var(--accent));text-transform:uppercase;margin-bottom:.4rem}
 .rnav-label{font-family:var(--font-d);font-weight:700;font-size:1.15rem;line-height:1.2}
+.rnav-pts{font-family:var(--font-d);font-size:.7rem;color:var(--textDim);margin-top:.4rem;letter-spacing:.05em}
+
+.rnav-menu-foot{
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic;font-size:clamp(1.1rem,2.5vw,1.6rem);
+  color:var(--textDim);letter-spacing:.08em;margin-top:.5rem;
+  opacity:.6;
+}
 
 /* ── ROUND INTRO ────────────────────────────────────────── */
 #roundIntro{gap:1.5rem;text-align:center;max-width:900px}
@@ -1102,21 +1176,24 @@ body{
 </head>
 <body>
 
+<!-- back to title — always visible top-left except on title screen -->
+<button id="backToTitle" onclick="goHome()">⌂ HOME</button>
+
 <!-- ═══ MAIN STAGE ═══════════════════════════════════════════ -->
 <main id="stage">
 
   <!-- TITLE -->
   <div id="titleScreen" class="screen pop-in">
-    <p class="title-eyebrow">Game Night Edition</p>
     <h1 class="title-main" id="titleMain">SO YOU THINK<br>YOU KNOW THINGS</h1>
-    <p class="title-season" id="titleSeason">SEASON 2</p>
-    <button class="title-btn" onclick="showRoundNav()">SELECT ROUND →</button>
+    <p class="title-season" id="titleSeason">2</p>
+    <button class="title-btn" id="letsGoBtn" onclick="fireworksThenNav()">LET'S GOOOOOOO 🎉</button>
   </div>
 
   <!-- ROUND NAV -->
   <div id="roundNav" class="screen">
-    <p class="rnav-title">Select a Round</p>
+    <p class="rnav-title">This Evening's Quiz Selection</p>
     <div class="rnav-grid" id="rnavGrid"></div>
+    <p class="rnav-menu-foot">— Bon Apple Teeth —</p>
   </div>
 
   <!-- ROUND INTRO -->
@@ -1190,6 +1267,7 @@ body{
     <span class="nav-hint">← → ARROW KEYS</span>
     <div class="nav-btns">
       <button class="btn btn-ghost" onclick="navigate(-1)">← PREV</button>
+      <button class="btn btn-ghost" id="saraBoardBtn" onclick="returnToSaraBoard()" style="display:none">⬡ BOARD</button>
       <button class="btn btn-amber" onclick="showLb()">SCORES</button>
       <button class="btn btn-violet" onclick="showRoundNav()">ROUNDS</button>
       <button class="btn btn-primary" onclick="navigate(1)">NEXT →</button>
@@ -1245,40 +1323,6 @@ body{
         </div>
       </div>
     </div>
-    <!-- ═══════════════════════════════════════════════
-         FIREBASE: LIVE ANSWERS PANEL
-         Shows submitted team answers in real time.
-         Everything below this comment is new Firebase UI.
-         ═══════════════════════════════════════════════ -->
-    <div id="liveAnswersSection">
-      <div class="hp-sec-label" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
-        <span>LIVE ANSWERS
-          <span id="fbConnStatus" style="font-size:.55rem;letter-spacing:.1em;color:var(--textDim);margin-left:.5rem">● disconnected</span>
-        </span>
-        <div style="display:flex;gap:.4rem;flex-wrap:wrap">
-          <button class="hbtn hbtn-red hbtn-sm"   id="lockBtn"    onclick="fbLockQuestion()">🔒 LOCK</button>
-          <button class="hbtn hbtn-g   hbtn-sm"   id="unlockBtn"  onclick="fbUnlockQuestion()" style="display:none">🔓 UNLOCK</button>
-          <button class="hbtn hbtn-a   hbtn-sm"   id="clearBtn"   onclick="fbClearAnswers()">✕ CLEAR &amp; NEXT Q</button>
-          <button class="hbtn hbtn-green hbtn-sm" id="fbInitBtn"  onclick="fbPublishCurrent()">↑ PUSH CURRENT Q</button>
-        </div>
-      </div>
-
-      <!-- Team answer cards render here -->
-      <div id="liveAnswersList" style="
-        display:grid;
-        grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-        gap:.45rem;
-        margin-top:.5rem;
-      ">
-        <p style="font-size:.78rem;color:var(--textDim)">
-          No answers yet — push a question to start.
-        </p>
-      </div>
-
-      <!-- Answer count summary -->
-      <p id="answerSummary" style="font-size:.72rem;color:var(--textMuted);margin-top:.35rem"></p>
-    </div>
-
   </div>
 </div>
 
@@ -1313,17 +1357,91 @@ function showScreen(name) {
   else nb.classList.add('hidden');
   document.getElementById(name)?.classList.add('active');
   mode = name;
+  // Show/hide back-to-home button
+  const homeBtn = document.getElementById('backToTitle');
+  if (homeBtn) homeBtn.classList.toggle('show', name !== 'titleScreen');
+  // Show Sara board button only when in questionView during Sara round
+  const saraBoardBtn = document.getElementById('saraBoardBtn');
+  if (saraBoardBtn) {
+    saraBoardBtn.style.display = (name==='questionView' && rIdx>=0 && ROUNDS[rIdx].id==='sara') ? '' : 'none';
+  }
+}
+
+// FIREWORKS then navigate
+function fireworksThenNav() {
+  launchFireworks();
+  setTimeout(() => showRoundNav(), 900);
+}
+
+function launchFireworks() {
+  const colors = ['#ff0000','#ff8c00','#ffed00','#008026','#004dff','#750787','#ff69b4','#fff'];
+  const btn = document.getElementById('letsGoBtn');
+  const rect = btn ? btn.getBoundingClientRect() : { left: window.innerWidth/2, top: window.innerHeight/2, width:0, height:0 };
+  const cx = rect.left + rect.width/2;
+  const cy = rect.top + rect.height/2;
+
+  for (let burst = 0; burst < 3; burst++) {
+    setTimeout(() => {
+      for (let i = 0; i < 24; i++) {
+        const p = document.createElement('div');
+        p.className = 'firework-particle';
+        const angle = (i / 24) * 360;
+        const distance = 80 + Math.random() * 120;
+        const dx = Math.cos(angle * Math.PI/180) * distance;
+        const dy = Math.sin(angle * Math.PI/180) * distance;
+        p.style.cssText = `
+          left:${cx}px; top:${cy}px;
+          background:${colors[Math.floor(Math.random()*colors.length)]};
+          transform-origin: center;
+          animation: firework-particle 0.8s ease-out forwards;
+        `;
+        // use inline keyframes via JS
+        p.animate([
+          { transform: 'translate(-50%,-50%) scale(1)', opacity: 1 },
+          { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0)`, opacity: 0 }
+        ], { duration: 700 + burst * 100, easing: 'ease-out', fill: 'forwards' });
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 900);
+      }
+    }, burst * 200);
+  }
+}
+
+// GO HOME
+function goHome() {
+  showScreen('titleScreen');
 }
 function showRoundNav() { buildRnavGrid(); showScreen('roundNav'); setHpNote('Select a round to begin.'); }
 
 // ROUND NAV
+// Accent colour per round slot — cycles through pride-ish palette
+const ROUND_COLORS = [
+  '#ff6eb4', // warm up — pink
+  '#f59e0b', // round 1 — amber (A Round)
+  '#22c55e', // round 2 — green
+  '#f97316', // round 3 — orange
+  '#ef4444', // round 4 — red
+  '#a855f7', // round 5 — purple
+  '#06b6d4', // round 6 — cyan
+  '#eab308', // round 7 — yellow
+  '#ec4899', // round 8 — pink
+  '#4f46e5', // round 9 — indigo
+];
+
 function buildRnavGrid() {
   const g = document.getElementById('rnavGrid');
   g.innerHTML = '';
   ROUNDS.forEach((r,i) => {
     const c = document.createElement('div');
     c.className = 'rnav-card' + (completedRounds.has(i) ? ' done' : '');
-    c.innerHTML = `<div class="rnav-badge">${r.badge}</div><div class="rnav-label">${r.name}</div>`;
+    const color = ROUND_COLORS[i] || '#7c3aed';
+    c.style.setProperty('--card-accent', color);
+    const pts = r.questions.length;
+    c.innerHTML = `
+      <div class="rnav-badge">${r.badge}</div>
+      <div class="rnav-label">${r.name}</div>
+      <div class="rnav-pts">${pts} question${pts===1?'':'s'} · ${pts} pts possible</div>
+    `;
     c.addEventListener('click', () => selectRound(i));
     g.appendChild(c);
   });
@@ -1428,11 +1546,21 @@ function renderAnswer() {
   else { mediaCol.classList.add('hidden'); card.style.gridTemplateColumns='1fr'; }
 }
 
-// HIGHLIGHT FIRST A
+// HIGHLIGHT STANDALONE A — only colours an A that stands alone as a word
+// (preceded by start-of-string or space, followed by space or punctuation)
+// so "Answer" or "Anthropic" are NOT highlighted, but "A smiling" IS.
 function highlightA(str) {
   if (!str) return '';
-  const idx = str.search(/[Aa]/);
-  if (idx===-1) return esc(str);
+  // Match A/a that is a standalone word
+  const match = str.match(/(?:^|(?<=\s))[Aa](?=\s|$|[.,!?:])/);
+  if (!match) {
+    // fallback: highlight very first character if it is A/a
+    if (/^[Aa]/.test(str)) {
+      return `<span class="a-highlight">${str[0]}</span>` + esc(str.slice(1));
+    }
+    return esc(str);
+  }
+  const idx = match.index;
   return esc(str.slice(0,idx)) + `<span class="a-highlight">${str[idx]}</span>` + esc(str.slice(idx+1));
 }
 function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
@@ -1468,6 +1596,9 @@ function returnToSaraBoard() {
   });
   showScreen('saraBoard');
 }
+
+// Also called from BOARD button in nav bar
+window.returnToSaraBoardFromNav = function() { returnToSaraBoard(); };
 
 // LEADERBOARD
 function showLb() { lbReturnMode=mode; renderFullLb(); showScreen('lbScreen'); }
