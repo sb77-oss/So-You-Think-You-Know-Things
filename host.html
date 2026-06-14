@@ -29,7 +29,7 @@
 
 const QUIZ_META = {
   title:    "SO YOU THINK YOU KNOW THINGS",
-  subtitle: "SEASON 2",
+  subtitle: "2",
   tagline:  "Game Night Edition"
 };
 
@@ -735,7 +735,7 @@ body{
 
 .title-main{
   font-family:var(--font-d);font-weight:800;
-  font-size:clamp(4.5rem,12vw,11rem);line-height:.92;letter-spacing:-.03em;
+  font-size:clamp(5rem,13vw,13rem);line-height:.88;letter-spacing:-.03em;
   background: linear-gradient(270deg,
     #ff0000,#ff8c00,#ffed00,#008026,#004dff,#750787,
     #ff0000,#ff8c00,#ffed00,#008026,#004dff,#750787);
@@ -743,34 +743,37 @@ body{
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   animation: prideShift 6s ease infinite, prideGlow 6s ease infinite;
 }
-@keyframes spinIn3D {
-  0%   { transform: perspective(600px) rotateY(-90deg) scale(.8); opacity:0; }
-  40%  { transform: perspective(600px) rotateY(12deg)  scale(1.05); opacity:1; }
-  60%  { transform: perspective(600px) rotateY(-6deg)  scale(.98); }
-  80%  { transform: perspective(600px) rotateY(3deg)   scale(1.01); }
-  100% { transform: perspective(600px) rotateY(0deg)   scale(1); opacity:1; }
+/* ── SPARKLE "2" ─────────────────────────────────────────── */
+#sparkle2Text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(10rem, 32vw, 30rem);
+  line-height: 0.85;
+  display: block;
+  background: linear-gradient(160deg,
+    #ffffff 0%,
+    #ffe066 18%,
+    #fff5a0 32%,
+    #ffd700 45%,
+    #ffffff 55%,
+    #ffe066 68%,
+    #ffd700 82%,
+    #fff8c0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(255,215,0,0.6)) drop-shadow(0 0 60px rgba(255,215,0,0.3));
+  animation: glitterShimmer 3s ease-in-out infinite;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
 }
-@keyframes floatPulse {
-  0%,100% { transform: perspective(600px) rotateY(0deg) translateY(0); }
-  50%     { transform: perspective(600px) rotateY(8deg) translateY(-8px); }
+@keyframes glitterShimmer {
+  0%   { filter: drop-shadow(0 0 20px rgba(255,215,0,.5)) drop-shadow(0 0 50px rgba(255,215,0,.25)); background-position: 0% 50%; }
+  50%  { filter: drop-shadow(0 0 50px rgba(255,240,100,.9)) drop-shadow(0 0 100px rgba(255,215,0,.5)); background-position: 100% 50%; }
+  100% { filter: drop-shadow(0 0 20px rgba(255,215,0,.5)) drop-shadow(0 0 50px rgba(255,215,0,.25)); background-position: 0% 50%; }
 }
-.title-season{
-  font-family:'Cormorant Garamond', Georgia, serif;
-  font-style:normal;font-weight:700;
-  font-size:clamp(5rem,18vw,16rem);
-  line-height:.85;
-  background: linear-gradient(270deg,
-    #ff0000,#ff8c00,#ffed00,#008026,#004dff,#750787,
-    #ff0000,#ff8c00,#ffed00);
-  background-size: 400% 400%;
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  animation: spinIn3D 1.2s cubic-bezier(.34,1.56,.64,1) both,
-             prideShift 6s ease 1.2s infinite,
-             floatPulse 4s ease-in-out 1.2s infinite;
-  letter-spacing: 0;
-  display:inline-block;
-  filter: drop-shadow(0 0 40px rgba(255,100,200,.35));
-}
+#sparkle2Text { background-size: 200% 200%; }
 .title-btn{
   display:inline-flex;align-items:center;gap:.5rem;
   margin-top:1.5rem;padding:1.2rem 3rem;
@@ -794,19 +797,7 @@ body{
   animation: firework 0.8s ease-out forwards;
 }
 
-/* back to title button — tiny, always visible top-left */
-#backToTitle {
-  position:fixed;top:.75rem;left:1rem;z-index:50;
-  font-family:var(--font-d);font-size:.65rem;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;
-  color:var(--textDim);background:transparent;
-  border:1px solid var(--border);border-radius:100px;
-  padding:.3rem .75rem;cursor:pointer;
-  transition:color var(--t),border-color var(--t);
-  display:none;
-}
-#backToTitle.show{display:block}
-#backToTitle:hover{color:var(--text);border-color:var(--textMuted)}
+/* back to title button removed */
 
 /* ── ROUND NAV ──────────────────────────────────────────── */
 #roundNav{gap:1.5rem;max-width:900px}
@@ -852,30 +843,30 @@ body{
 #roundIntro::before{
   content:'';position:absolute;top:-30vh;left:50%;transform:translateX(-50%);
   width:80vw;height:80vw;border-radius:50%;pointer-events:none;z-index:0;
-  background:radial-gradient(circle, color-mix(in srgb,var(--round-color) 12%,transparent) 0%,transparent 65%);
+  background:radial-gradient(circle, var(--round-glow) 0%,transparent 65%);
   transition:background 0.5s ease;
 }
 #roundIntro > *{position:relative;z-index:1;}
 .ri-badge{
   font-family:var(--font-d);font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;
   color:var(--round-color);background:var(--round-glow);
-  border:1px solid color-mix(in srgb,var(--round-color) 35%,transparent);
+  border:1px solid var(--round-glow);
   padding:.5rem 1.4rem;border-radius:100px;
 }
 .ri-name{
   font-family:var(--font-d);font-weight:800;
-  font-size:clamp(3.5rem,10vw,8rem);line-height:.9;letter-spacing:-.02em;
+  font-size:clamp(4rem,11vw,10rem);line-height:.88;letter-spacing:-.02em;
   animation:slideUp .5s var(--ease) both;
   color:var(--round-color);
-  text-shadow: 0 0 80px color-mix(in srgb, var(--round-color) 50%, transparent);
+  text-shadow: 0 0 80px var(--round-glow);
   transition:color .5s ease;
 }
 .ri-subname{
   font-family:var(--font-d);font-weight:700;
-  font-size:clamp(1.4rem,4vw,2.8rem);color:var(--round-color);letter-spacing:.08em;
+  font-size:clamp(1.6rem,4.5vw,3.5rem);color:var(--round-color);letter-spacing:.08em;
   text-transform:uppercase;
 }
-.ri-format{font-size:clamp(1rem,2vw,1.4rem);color:var(--textMuted);line-height:1.7;max-width:55ch}
+.ri-format{font-size:clamp(1.1rem,2.2vw,1.6rem);color:var(--textMuted);line-height:1.7;max-width:55ch}
 .ri-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem}
 
 /* ── QUESTION SCREEN ────────────────────────────────────── */
@@ -888,13 +879,13 @@ body{
   font-family:var(--font-d);font-size:.8rem;font-weight:700;
   letter-spacing:.25em;text-transform:uppercase;
   color:var(--round-color);background:var(--round-glow);
-  border:1px solid color-mix(in srgb,var(--round-color) 35%,transparent);
+  border:1px solid var(--round-glow);
   padding:.4rem 1rem;border-radius:100px;
 }
 .q-counter{font-family:var(--font-d);font-size:.95rem;color:var(--textDim);letter-spacing:.1em}
 
 /* progress */
-.q-prog{width:100%;height:3px;background:var(--border);border-radius:99px;overflow:hidden}
+.q-prog{width:100%;height:6px;background:var(--border);border-radius:99px;overflow:hidden}
 .q-prog-fill{height:100%;background:var(--round-color);border-radius:99px;transition:width .6s var(--ease),background .5s ease}
 
 /* the main card — full presentationy slide */
@@ -926,7 +917,7 @@ body{
 
 .q-question{
   font-family:var(--font-d);font-weight:700;
-  font-size:clamp(2rem,4.5vw,4rem);line-height:1.2;letter-spacing:-.01em;
+  font-size:clamp(2.2rem,5vw,5rem);line-height:1.18;letter-spacing:-.01em;
   white-space:pre-line;
   color:var(--round-color);
   transition:color .5s ease;
@@ -937,7 +928,7 @@ body{
 .q-options{display:flex;flex-direction:column;gap:.65rem;margin-top:.75rem}
 .q-opt{
   background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);
-  padding:1rem 1.4rem;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--textMuted);
+  padding:1.1rem 1.5rem;font-size:clamp(1.2rem,2.2vw,1.8rem);color:var(--textMuted);
   transition:border-color var(--t);
 }
 .q-opt.correct{border-color:var(--green);color:var(--green);background:var(--greenGlow)}
@@ -966,14 +957,14 @@ body{
   font-family:var(--font-d);font-size:.8rem;font-weight:700;
   letter-spacing:.25em;text-transform:uppercase;
   color:var(--round-color);background:var(--round-glow);
-  border:1px solid color-mix(in srgb,var(--round-color) 35%,transparent);
+  border:1px solid var(--round-glow);
   padding:.4rem 1rem;border-radius:100px;
 }
 .ans-counter{font-family:var(--font-d);font-size:.95rem;color:var(--textDim);letter-spacing:.1em}
 
 .ans-card{
   width:100%;background:var(--surface);
-  border:1px solid color-mix(in srgb,var(--round-color) 25%,transparent);
+  border:1px solid var(--round-glow);
   border-radius:var(--r);
   padding:clamp(2.5rem,5vw,4.5rem) clamp(2rem,5vw,5rem);
   display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;
@@ -1001,7 +992,7 @@ body{
 }
 .ans-main{
   font-family:var(--font-d);font-weight:800;
-  font-size:clamp(2.8rem,6vw,6rem);line-height:.95;letter-spacing:-.02em;
+  font-size:clamp(3.5rem,7vw,8rem);line-height:.9;letter-spacing:-.02em;
   color:#ffffff;
 }
 /* A Round: colour leading A in answer — highlight stays amber on white */
@@ -1009,13 +1000,13 @@ body{
 
 .ans-sub{
   font-family:var(--font-d);font-weight:400;
-  font-size:clamp(1.2rem,2.5vw,2rem);color:var(--textMuted);letter-spacing:.02em;
+  font-size:clamp(1.4rem,2.8vw,2.5rem);color:var(--textMuted);letter-spacing:.02em;
   white-space:pre-line;
 }
 .ans-note{
-  font-size:clamp(1rem,1.6vw,1.25rem);color:var(--textMuted);
+  font-size:clamp(1.1rem,1.8vw,1.5rem);color:var(--textMuted);
   font-weight:300;line-height:1.75;max-width:58ch;
-  border-left:2px solid color-mix(in srgb,var(--round-color) 30%,transparent);padding-left:.9rem;
+  border-left:2px solid var(--round-glow);padding-left:.9rem;
   white-space:pre-line;
 }
 .ans-media-col{display:flex;flex-direction:column;gap:1rem;align-items:center;justify-content:center}
@@ -1045,8 +1036,8 @@ body{
 .sara-cat:hover:not(.played){border-color:var(--accent);background:var(--surface2);transform:translateY(-4px);box-shadow:0 8px 32px rgba(124,58,237,.2)}
 .sara-cat.played{opacity:.22;pointer-events:none}
 .sara-cat.active{border-color:var(--accent);background:var(--accentGlow);box-shadow:0 0 40px rgba(124,58,237,.3)}
-.sara-cat-icon{font-size:3rem}
-.sara-cat-label{font-family:var(--font-d);font-weight:700;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:var(--textMuted)}
+.sara-cat-icon{font-size:3.5rem}
+.sara-cat-label{font-family:var(--font-d);font-weight:700;font-size:1.15rem;letter-spacing:.12em;text-transform:uppercase;color:var(--textMuted)}
 
 /* ── LEADERBOARD SCREEN ─────────────────────────────────── */
 #lbScreen{gap:1.5rem;max-width:800px;text-align:center;width:100%}
@@ -1084,8 +1075,8 @@ body{
 .lb-rank.gold{color:var(--amber);text-shadow:0 0 20px rgba(245,158,11,.5)}
 .lb-rank.silver{color:#9ca3af}
 .lb-rank.bronze{color:#b45309}
-.lb-name{flex:1;font-family:var(--font-d);font-weight:700;font-size:1.5rem;text-align:left}
-.lb-pts{font-family:var(--font-d);font-weight:800;font-size:2rem;color:var(--amber)}
+.lb-name{flex:1;font-family:var(--font-d);font-weight:700;font-size:1.8rem;text-align:left}
+.lb-pts{font-family:var(--font-d);font-weight:800;font-size:2.2rem;color:var(--amber)}
 .lb-bar-wrap{width:100%;height:3px;background:var(--border);border-radius:99px;overflow:hidden;margin-top:.5rem}
 .lb-bar{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--amber),#ff8c00);transition:width .8s var(--ease)}
 
@@ -1230,19 +1221,22 @@ body{
   .sara-grid{grid-template-columns:repeat(3,1fr)}
   .hp-row{flex-direction:column}
 }
-/* TV / large display boost — everything a touch larger */
+/* TV / large display — 58 inch TV from a couch */
 @media(min-width:1400px){
-  html{font-size:18px}
-  .q-question{font-size:clamp(2.5rem,4vw,4.5rem)}
-  .ans-main{font-size:clamp(3.5rem,6vw,7rem)}
-  .ans-note{font-size:1.3rem}
+  html{font-size:20px}
+  .q-question{font-size:clamp(3rem,5vw,5.5rem)}
+  .ans-main{font-size:clamp(4.5rem,7vw,9rem)}
+  .ans-sub{font-size:clamp(1.6rem,3vw,2.8rem)}
+  .ans-note{font-size:clamp(1.2rem,1.8vw,1.6rem)}
+  .ri-name{font-size:clamp(5rem,12vw,11rem)}
+  .title-main{font-size:clamp(6rem,14vw,14rem)}
+  .title-season{font-size:clamp(8rem,24vw,22rem)}
+  .q-prog{height:8px}
 }
 </style>
 </head>
 <body>
 
-<!-- back to title — always visible top-left except on title screen -->
-<button id="backToTitle" onclick="goHome()">⌂ HOME</button>
 
 <!-- ═══ MAIN STAGE ═══════════════════════════════════════════ -->
 <main id="stage">
@@ -1250,7 +1244,7 @@ body{
   <!-- TITLE -->
   <div id="titleScreen" class="screen pop-in">
     <h1 class="title-main" id="titleMain">SO YOU THINK<br>YOU KNOW THINGS</h1>
-    <p class="title-season" id="titleSeason">2</p>
+    <span id="sparkle2Text">2</span>
     <button class="title-btn" id="letsGoBtn" onclick="fireworksThenNav()">LET'S GOOOOOOO 🎉</button>
   </div>
 
@@ -1337,6 +1331,7 @@ body{
       <button class="btn btn-amber" onclick="showLb()">SCORES</button>
       <button class="btn btn-ghost" id="answersBtn" onclick="jumpToAnswers()">ANSWERS</button>
       <button class="btn btn-violet" onclick="showRoundNav()">ROUNDS</button>
+      <button class="btn btn-ghost" onclick="showScreen('titleScreen')">HOME</button>
       <button class="btn btn-primary" onclick="navigate(1)">NEXT →</button>
     </div>
   </div>
@@ -1402,7 +1397,7 @@ let buzzerActiveCat=null, buzzerSelTeam=null, buzzerPlayed=new Set();
 // INIT
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('titleMain').textContent   = QUIZ_META.title;
-  document.getElementById('titleSeason').textContent = QUIZ_META.subtitle;
+  // titleSeason content set in HTML directly — do not overwrite
   buildRnavGrid(); buildSaraGrid(); buildBzGrid();
   renderScoreboard(); renderPanelLb(); rebuildWagerGrid();
   // Show title screen on load
@@ -1424,9 +1419,7 @@ function showScreen(name) {
   else nb.classList.add('hidden');
   document.getElementById(name)?.classList.add('active');
   mode = name;
-  // Show/hide back-to-home button
-  const homeBtn = document.getElementById('backToTitle');
-  if (homeBtn) homeBtn.classList.toggle('show', name !== 'titleScreen');
+
   // Show Sara board button only when in questionView during Sara round
   const saraBoardBtn = document.getElementById('saraBoardBtn');
   if (saraBoardBtn) {
@@ -1508,10 +1501,6 @@ function launchFireworks() {
   });
 }
 
-// GO HOME
-function goHome() {
-  showScreen('titleScreen');
-}
 function showRoundNav() { buildRnavGrid(); showScreen('roundNav'); setHpNote('Select a round to begin.'); }
 
 // ROUND NAV
@@ -1588,10 +1577,11 @@ function startRound() {
 
 // NAVIGATE
 function navigate(dir) {
-  if (['lbScreen','saraBoard','roundIntro','roundNav','title'].includes(mode)) {
-    if (dir>0 && mode==='title') showRoundNav();
+  if (['lbScreen','saraBoard','roundIntro','roundNav','titleScreen'].includes(mode)) {
+    if (dir>0 && mode==='titleScreen') showRoundNav();
     return;
   }
+  if (rIdx < 0 || !ROUNDS[rIdx]) return;
   const total = ROUNDS[rIdx].questions.length;
   if (mode==='questionView') {
     if (dir>0) {
@@ -1621,6 +1611,7 @@ function jumpToAnswers() {
 
 // RENDER QUESTION
 function renderQuestion() {
+  if (rIdx < 0 || !ROUNDS[rIdx]) return;
   const r=ROUNDS[rIdx], q=r.questions[qIdx], total=r.questions.length;
   const isA = r.id==='around';
   document.getElementById('qPill').textContent    = r.badge;
@@ -1649,6 +1640,7 @@ function renderQuestion() {
 
 // RENDER ANSWER
 function renderAnswer() {
+  if (rIdx < 0 || !ROUNDS[rIdx]) return;
   const r=ROUNDS[rIdx], q=r.questions[aIdx], total=r.questions.length;
   const isA = r.id==='around';
   document.getElementById('ansPill').textContent    = r.badge;
@@ -1674,22 +1666,22 @@ function renderAnswer() {
   else { mediaCol.classList.add('hidden'); card.style.gridTemplateColumns='1fr'; }
 }
 
-// HIGHLIGHT STANDALONE A — only colours an A that stands alone as a word
-// (preceded by start-of-string or space, followed by space or punctuation)
-// so "Answer" or "Anthropic" are NOT highlighted, but "A smiling" IS.
+// Highlight standalone A — only colours an A that stands alone as a word.
+// Uses a compatible approach (no lookbehind) for broad browser support.
 function highlightA(str) {
   if (!str) return '';
-  // Match A/a that is a standalone word
-  const match = str.match(/(?:^|(?<=\s))[Aa](?=\s|$|[.,!?:])/);
+  // Match word-boundary A: at start of string, or preceded by whitespace
+  const match = str.match(/(^|\s)([Aa])(?=\s|$|[.,!?:])/);
   if (!match) {
-    // fallback: highlight very first character if it is A/a
+    // Fallback: just highlight the very first A/a character
     if (/^[Aa]/.test(str)) {
       return `<span class="a-highlight">${str[0]}</span>` + esc(str.slice(1));
     }
     return esc(str);
   }
-  const idx = match.index;
-  return esc(str.slice(0,idx)) + `<span class="a-highlight">${str[idx]}</span>` + esc(str.slice(idx+1));
+  // match[1] is the preceding whitespace (if any), match[2] is the A
+  const idx = match.index + match[1].length;
+  return esc(str.slice(0, idx)) + `<span class="a-highlight">${str[idx]}</span>` + esc(str.slice(idx + 1));
 }
 function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
@@ -2123,5 +2115,7 @@ function escHtml(s) {
 }
 
 </script>
+
+
 </body>
 </html>
