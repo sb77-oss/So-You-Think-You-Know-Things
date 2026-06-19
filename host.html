@@ -725,11 +725,12 @@ body{
 
 /* ── SHARED SCREEN WRAPPER ──────────────────────────────── */
 .screen{
-  display:none;width:100%;max-width:1200px;
-  flex-direction:column;align-items:center;
+  display:none;
+  width:100%;height:100%;
+  flex-direction:column;align-items:center;justify-content:center;
   position:relative;z-index:1;
-  max-height:100%;
   overflow:hidden;
+  box-sizing:border-box;
 }
 .screen.active{display:flex;animation:screenFadeIn .3s var(--ease) both}
 @keyframes screenFadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
@@ -738,7 +739,7 @@ body{
 #titleScreen{
   text-align:center;gap:1.5vh;justify-content:center;align-items:center;
   position:relative;
-  width:100%;height:100%;
+  padding:3vh 4vw;
 }
 
 /* ── ANIMATED BACKGROUND CANVAS ─────────────────────────── */
@@ -909,14 +910,14 @@ body{
 /* back to title button removed */
 
 /* ── ROUND NAV ──────────────────────────────────────────── */
-#roundNav{gap:1.5rem;max-width:900px}
+#roundNav{gap:1.5vh;width:100%;padding:3vh 4vw;justify-content:center;}
 .rnav-title{
   font-family:var(--font-d);font-size:clamp(1rem,2vw,1.3rem);
   letter-spacing:.3em;color:var(--textMuted);text-transform:uppercase;
 }
 .rnav-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-  gap:.9rem;width:100%;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:.8rem;width:100%;
 }
 /* round card accent colours — one per round slot */
 .rnav-card{
@@ -948,7 +949,7 @@ body{
 }
 
 /* ── ROUND INTRO ────────────────────────────────────────── */
-#roundIntro{gap:1vh;text-align:center;max-width:900px;position:relative;max-height:100%;justify-content:center;overflow:hidden;}
+#roundIntro{gap:2vh;text-align:center;width:100%;position:relative;justify-content:center;padding:3vh 6vw;}
 #roundIntro::before{
   content:'';position:absolute;top:-30vh;left:50%;transform:translateX(-50%);
   width:80vw;height:80vw;border-radius:50%;pointer-events:none;z-index:0;
@@ -979,7 +980,7 @@ body{
 .ri-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1vh}
 
 /* ── QUESTION SCREEN ────────────────────────────────────── */
-#questionView{gap:.5vh;max-width:1200px;width:100%;flex-direction:column;justify-content:space-between;max-height:100%;}
+#questionView{gap:.5vh;width:100%;height:100%;flex-direction:column;justify-content:space-between;padding:.5vh 2vw;}
 
 .q-topbar{
   display:flex;align-items:center;justify-content:space-between;width:100%;gap:1rem;
@@ -998,16 +999,17 @@ body{
 .q-prog{width:100%;height:4px;background:var(--border);border-radius:99px;overflow:hidden;flex-shrink:0;}
 .q-prog-fill{height:100%;background:var(--round-color);border-radius:99px;transition:width .6s var(--ease),background .5s ease}
 
-/* the main card — fills remaining viewport height */
+/* the main card — fills remaining flex space */
 .q-card{
   width:100%;background:var(--surface);
   border:1px solid var(--border);border-radius:var(--r);
-  padding:2vh 3vw;
+  padding:2.5vh 3vw;
   display:grid;grid-template-columns:1fr;gap:1.5vh;
   flex:1;min-height:0;
   position:relative;overflow:hidden;
   animation:fadeSlide .35s var(--ease) both;
   box-sizing:border-box;
+  align-content:center;
 }
 /* when there's media, use two-col layout */
 .q-card.has-media{
@@ -1062,7 +1064,7 @@ body{
 .ph-file{font-size:.7rem;font-family:monospace;color:var(--accent);opacity:.6;margin-top:.4rem;display:block}
 
 /* ── ANSWER SCREEN ──────────────────────────────────────── */
-#answerView{gap:.5vh;max-width:1200px;width:100%;flex-direction:column;justify-content:space-between;max-height:100%;}
+#answerView{gap:.5vh;width:100%;height:100%;flex-direction:column;justify-content:space-between;padding:.5vh 2vw;}
 
 .ans-topbar{
   display:flex;align-items:center;justify-content:space-between;width:100%;
@@ -1080,8 +1082,8 @@ body{
   width:100%;background:var(--surface);
   border:1px solid var(--round-glow);
   border-radius:var(--r);
-  padding:2vh 3vw;
-  display:grid;grid-template-columns:1fr 1fr;gap:2vw;
+  padding:2.5vh 3vw;
+  display:grid;grid-template-columns:1fr 1fr;gap:3vw;
   flex:1;min-height:0;align-items:center;
   animation:fadeSlide .35s var(--ease) both;
   position:relative;overflow:hidden;
@@ -1137,7 +1139,7 @@ body{
 .ans-media-wrap iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
 
 /* ── SARA'S JEOPARDY BOARD ──────────────────────────────── */
-#saraBoard{gap:1vh;max-width:1100px;max-height:100%;overflow:hidden;}
+#saraBoard{gap:2vh;width:100%;padding:3vh 4vw;justify-content:center;}
 .sara-title{
   font-family:var(--font-d);font-weight:800;
   font-size:clamp(1.5rem,3.5vw,3rem);letter-spacing:-.01em;text-align:center;
@@ -1158,7 +1160,7 @@ body{
 .sara-cat-label{font-family:var(--font-d);font-weight:700;font-size:1.15rem;letter-spacing:.12em;text-transform:uppercase;color:var(--textMuted)}
 
 /* ── LEADERBOARD SCREEN ─────────────────────────────────── */
-#lbScreen{gap:1vh;max-width:800px;text-align:center;width:100%;max-height:100%;overflow:hidden;}
+#lbScreen{gap:1.5vh;width:100%;text-align:center;padding:3vh 6vw;justify-content:center;}
 .lb-title{
   font-family:var(--font-d);font-weight:800;
   font-size:clamp(2.5rem,7vw,6rem);line-height:.85;letter-spacing:-.03em;
