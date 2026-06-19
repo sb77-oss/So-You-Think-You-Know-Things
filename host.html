@@ -52,7 +52,7 @@ const ROUNDS = [
         mediaSrc:  "audio_warmup_q1.mp3",
         answer:   "Dog Days Are Over",
         answerSubline: "Florence and the Machine — 2008",
-        answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Florence_and_the_Machine_-_Lollapalooza_Brazil_2016_-_S%C3%A3o_Paulo%2C_Brazil.jpg/1200px-Florence_and_the_Machine_-_Lollapalooza_Brazil_2016_-_S%C3%A3o_Paulo%2C_Brazil.jpg",
+        answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Florence_and_the_Machine_-_Lollapalooza_Brazil_2016_-_S%C3%A3o_Paulo%2C_Brazil.jpg/640px-Florence_and_the_Machine_-_Lollapalooza_Brazil_2016_-_S%C3%A3o_Paulo%2C_Brazil.jpg",
         answerMedia: "audio_warmup_q1.mp3",
         answerMediaType: "audio",
         note:     "The 15-year-old song completely re-charted globally after Guardians of the Galaxy Vol. 3 used it for its emotional climax.",
@@ -736,10 +736,9 @@ body{
 
 /* ── TITLE SCREEN ───────────────────────────────────────── */
 #titleScreen{
-  text-align:center;gap:0;justify-content:center;
+  text-align:center;gap:1.5vh;justify-content:center;align-items:center;
   position:relative;
-  width:100%;max-height:100%;
-  overflow:hidden;
+  width:100%;height:100%;
 }
 
 /* ── ANIMATED BACKGROUND CANVAS ─────────────────────────── */
@@ -790,7 +789,7 @@ body{
 .title-main{
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: clamp(2.5rem, 6vw, 7rem);
+  font-size: clamp(3rem, 7.5vw, 8.5rem);
   line-height: .88;
   letter-spacing: -.04em;
   /* Glossy lacquered pride — rainbow with a white sheen layer */
@@ -821,7 +820,7 @@ body{
 #sparkle2Text {
   font-family: 'DM Serif Display', Georgia, serif;
   font-style: italic;
-  font-size: clamp(5rem, 14vw, 13rem);
+  font-size: clamp(6rem, 16vw, 15rem);
   line-height: 1;
   display: block;
   padding: .1em .15em;
@@ -980,7 +979,7 @@ body{
 .ri-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1vh}
 
 /* ── QUESTION SCREEN ────────────────────────────────────── */
-#questionView{gap:.5vh;max-width:1200px;width:100%;display:flex;flex-direction:column;justify-content:space-between;max-height:100%;}
+#questionView{gap:.5vh;max-width:1200px;width:100%;flex-direction:column;justify-content:space-between;max-height:100%;}
 
 .q-topbar{
   display:flex;align-items:center;justify-content:space-between;width:100%;gap:1rem;
@@ -1063,7 +1062,7 @@ body{
 .ph-file{font-size:.7rem;font-family:monospace;color:var(--accent);opacity:.6;margin-top:.4rem;display:block}
 
 /* ── ANSWER SCREEN ──────────────────────────────────────── */
-#answerView{gap:.5vh;max-width:1200px;width:100%;display:flex;flex-direction:column;justify-content:space-between;max-height:100%;}
+#answerView{gap:.5vh;max-width:1200px;width:100%;flex-direction:column;justify-content:space-between;max-height:100%;}
 
 .ans-topbar{
   display:flex;align-items:center;justify-content:space-between;width:100%;
@@ -1209,18 +1208,22 @@ body{
 }
 .nav-hint{font-size:.85rem;color:var(--textDim);letter-spacing:.07em}
 .nav-round-label{
-  font-family:var(--font-d);font-size:.8rem;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;
+  font-family:var(--font-d);font-size:.72rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
   color:var(--round-color);
   transition:color .5s ease;
   opacity:.85;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:12vw;
 }
-.nav-btns{display:flex;gap:.6rem}
+.nav-btns{display:flex;gap:.4rem;flex-wrap:nowrap;align-items:center;}
 .btn{
-  display:inline-flex;align-items:center;gap:.35rem;
-  padding:.65rem 1.4rem;border-radius:100px;
-  font-family:var(--font-d);font-weight:700;font-size:.92rem;letter-spacing:.05em;
-  cursor:pointer;border:1px solid;
+  display:inline-flex;align-items:center;gap:.3rem;
+  padding:.5rem .9rem;border-radius:100px;
+  font-family:var(--font-d);font-weight:700;font-size:.78rem;letter-spacing:.04em;
+  cursor:pointer;border:1px solid;white-space:nowrap;
   transition:background var(--t) var(--ease),transform var(--t) var(--ease),box-shadow var(--t) var(--ease);
 }
 .btn:hover{transform:translateY(-1px)}
@@ -1350,8 +1353,8 @@ body{
   .ans-sub{font-size:1.6vw}
   .ans-note{font-size:1.1vw}
   .ri-name{font-size:6vw}
-  .title-main{font-size:6.5vw}
-  #sparkle2Text{font-size:16vw}
+  .title-main{font-size:7vw}
+  #sparkle2Text{font-size:15vw}
   .q-prog{height:6px}
 }
 </style>
@@ -1746,7 +1749,7 @@ function renderQuestion() {
   const mediaCol=document.getElementById('qMediaCol');
   const card=document.getElementById('qCard');
   if (q.mediaType && q.mediaType!=='none' && q.mediaSrc) {
-    document.getElementById('qMediaWrap').innerHTML = buildMedia(q.mediaType, q.mediaSrc);
+    const qmw = document.getElementById('qMediaWrap'); if(qmw) qmw.innerHTML = buildMedia(q.mediaType, q.mediaSrc);
     mediaCol.classList.remove('hidden');
     card.classList.add('has-media');
   } else { mediaCol.classList.add('hidden'); card.classList.remove('has-media'); }
