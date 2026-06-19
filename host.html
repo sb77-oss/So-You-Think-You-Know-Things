@@ -790,7 +790,7 @@ body{
 .title-main{
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: clamp(3rem, 8vw, 8rem);
+  font-size: clamp(2.5rem, 6vw, 7rem);
   line-height: .88;
   letter-spacing: -.04em;
   /* Glossy lacquered pride — rainbow with a white sheen layer */
@@ -821,7 +821,7 @@ body{
 #sparkle2Text {
   font-family: 'DM Serif Display', Georgia, serif;
   font-style: italic;
-  font-size: clamp(7rem, 22vw, 20rem);
+  font-size: clamp(5rem, 14vw, 13rem);
   line-height: 1;
   display: block;
   padding: .1em .15em;
@@ -1343,17 +1343,16 @@ body{
   .sara-grid{grid-template-columns:repeat(3,1fr)}
   .hp-row{flex-direction:column}
 }
-/* TV / large display — 58 inch TV from a couch */
+/* TV / large display — sizes that actually fit the viewport */
 @media(min-width:1400px){
-  html{font-size:20px}
-  .q-question{font-size:clamp(3rem,5vw,5.5rem)}
-  .ans-main{font-size:clamp(4.5rem,7vw,9rem)}
-  .ans-sub{font-size:clamp(1.6rem,3vw,2.8rem)}
-  .ans-note{font-size:clamp(1.2rem,1.8vw,1.6rem)}
-  .ri-name{font-size:clamp(5rem,12vw,11rem)}
-  .title-main{font-size:clamp(6rem,14vw,14rem)}
-  .title-season{font-size:clamp(8rem,24vw,22rem)}
-  .q-prog{height:8px}
+  .q-question{font-size:3vw}
+  .ans-main{font-size:4.5vw}
+  .ans-sub{font-size:1.6vw}
+  .ans-note{font-size:1.1vw}
+  .ri-name{font-size:6vw}
+  .title-main{font-size:6.5vw}
+  #sparkle2Text{font-size:16vw}
+  .q-prog{height:6px}
 }
 </style>
 </head>
