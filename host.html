@@ -725,8 +725,8 @@ body{
   flex:1;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   width:100%;
-  height:calc(100vh - 2.75rem);
-  max-height:calc(100vh - 2.75rem);
+  height:calc(100vh - 3.5rem);
+  max-height:calc(100vh - 3.5rem);
   padding:0;
   position:relative;
   overflow:hidden;
@@ -1071,10 +1071,28 @@ body{
   align-content:center;
   transition:background .5s ease;
 }
-/* when there's media, use two-col layout */
+/* image questions: side by side */
 .q-card.has-media{
   grid-template-columns:1fr 1fr;
   align-items:center;
+}
+/* audio questions: stack vertically */
+.q-card.has-audio{
+  grid-template-columns:1fr;
+  grid-template-rows:1fr auto;
+  align-items:start;
+}
+.q-card.has-audio .q-media-col{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.q-card.has-audio .q-media-wrap{
+  padding:.5rem 1rem;
+}
+.q-card.has-audio audio{
+  width:100%;
+  min-height:54px;
 }
 @media(max-width:900px){.q-card.has-media{grid-template-columns:1fr}}
 
@@ -1904,7 +1922,7 @@ function renderQuestion() {
   }
 
   // Fit question text to viewport — short = big, long = smaller
-  requestAnimationFrame(() => fitText(document.getElementById('qQuestion'), 1.8, 4.5));
+  requestAnimationFrame(() => fitText(document.getElementById('qQuestion'), 1.6, 3.8));
 }
 
 // RENDER ANSWER
@@ -1958,13 +1976,13 @@ function renderAnswer() {
 function fitText(el, minVw, maxVw) {
   if (!el) return;
   const len = (el.textContent || el.innerText || '').length;
-  let vw;
-  if (len < 20)        vw = maxVw;
-  else if (len < 60)   vw = maxVw - ((len - 20) / 40)  * (maxVw - minVw) * 0.4;
-  else if (len < 120)  vw = maxVw - ((len - 20) / 100) * (maxVw - minVw) * 0.7;
-  else if (len < 220)  vw = maxVw - ((len - 20) / 200) * (maxVw - minVw) * 0.9;
-  else                 vw = minVw;
-  vw = Math.max(minVw, Math.min(maxVw, vw));
+  // Gentler curve — less dramatic size variation between questions
+  let ratio;
+  if (len < 40)        ratio = 1.0;
+  else if (len < 100)  ratio = 1.0 - ((len - 40) / 60)  * 0.35;
+  else if (len < 200)  ratio = 0.65 - ((len - 100) / 100) * 0.35;
+  else                 ratio = 0.3;
+  const vw = minVw + (maxVw - minVw) * Math.max(0, Math.min(1, ratio));
   el.style.fontSize = vw.toFixed(2) + 'vw';
 }
 
