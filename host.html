@@ -939,7 +939,7 @@ body{
 /* back to title button removed */
 
 /* ── ROUND NAV ──────────────────────────────────────────── */
-#roundNav{gap:1.5vh;width:100%;padding:2.5vh 3vw;justify-content:center;}
+#roundNav{gap:1.5vh;width:100%;height:100%;padding:2.5vh 2.5vw;justify-content:flex-start;}
 .rnav-title{
   font-family:var(--font-d);font-size:clamp(.85rem,1.5vw,1.1rem);
   letter-spacing:.3em;color:var(--textMuted);text-transform:uppercase;
@@ -948,9 +948,9 @@ body{
 .rnav-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
+  grid-template-rows:repeat(3,1fr);
   gap:.75rem;width:100%;
   flex:1;min-height:0;
-  align-content:center;
 }
 /* round card accent colours — one per round slot */
 .rnav-card{
@@ -970,9 +970,9 @@ body{
   box-shadow:0 8px 32px rgba(0,0,0,.3);
 }
 .rnav-card.done{opacity:.35}
-.rnav-badge{font-family:var(--font-d);font-size:.7rem;letter-spacing:.18em;color:var(--card-accent,var(--accent));text-transform:uppercase;margin-bottom:.3rem}
-.rnav-label{font-family:var(--font-d);font-weight:700;font-size:1.1rem;line-height:1.2}
-.rnav-pts{font-family:var(--font-d);font-size:.65rem;color:var(--textDim);margin-top:.3rem;letter-spacing:.04em}
+.rnav-badge{font-family:var(--font-d);font-size:.8rem;letter-spacing:.18em;color:var(--card-accent,var(--accent));text-transform:uppercase;margin-bottom:.4rem}
+.rnav-label{font-family:var(--font-d);font-weight:700;font-size:1.3rem;line-height:1.2}
+.rnav-pts{font-family:var(--font-d);font-size:.72rem;color:var(--textDim);margin-top:.4rem;letter-spacing:.04em}
 
 .rnav-menu-foot{
   font-family:'Cormorant Garamond',Georgia,serif;
@@ -1194,7 +1194,7 @@ body{
   font-family:var(--font-d);font-weight:800;
   /* font-size set dynamically by JS */
   font-size:5vw;
-  line-height:.95;letter-spacing:-.02em;
+  line-height:1.05;letter-spacing:-.02em;
   color:#ffffff;
 }
 /* A Round: colour leading A in answer — highlight stays amber on white */
@@ -1948,7 +1948,7 @@ function renderAnswer() {
   }
 
   // Fit answer text to viewport
-  requestAnimationFrame(() => fitText(document.getElementById('ansMain'), 2.5, 6.5));
+  requestAnimationFrame(() => fitText(document.getElementById('ansMain'), 1.6, 5.0));
 }
 
 // DYNAMIC FONT SIZING — fits text to card without overflow
@@ -1957,10 +1957,11 @@ function fitText(el, minVw, maxVw) {
   if (!el) return;
   const len = (el.textContent || el.innerText || '').length;
   let vw;
-  if (len < 30)       vw = maxVw;
-  else if (len < 80)  vw = maxVw - ((len - 30) / 50) * (maxVw - minVw) * 0.55;
-  else if (len < 180) vw = maxVw - ((len - 30) / 150) * (maxVw - minVw) * 0.9;
-  else                vw = minVw;
+  if (len < 20)        vw = maxVw;
+  else if (len < 60)   vw = maxVw - ((len - 20) / 40)  * (maxVw - minVw) * 0.4;
+  else if (len < 120)  vw = maxVw - ((len - 20) / 100) * (maxVw - minVw) * 0.7;
+  else if (len < 220)  vw = maxVw - ((len - 20) / 200) * (maxVw - minVw) * 0.9;
+  else                 vw = minVw;
   vw = Math.max(minVw, Math.min(maxVw, vw));
   el.style.fontSize = vw.toFixed(2) + 'vw';
 }
