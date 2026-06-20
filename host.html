@@ -34,623 +34,637 @@ const QUIZ_META = {
 };
 
 const ROUNDS = [
-
-  // ════════════════════════════════════════════════
-  // WARM UP — NAME THAT TUNE: REDEMPTION ARC
-  // ════════════════════════════════════════════════
+  // ═══════════════════════════════════════════════
   {
     id: "warmup",
     name: "NAME THAT TUNE",
     subname: "REDEMPTION ARC",
     badge: "WARM UP",
     format: "Song title + artist for each clip. Answers at end of round.",
-    hostNote: "Don't reveal the theme upfront. Just call it 'Redemption Arc' and let it land on the answer slides. The theme has been hiding in plain sight — every song is a comeback story.",
+    hostNote: "Don't reveal the theme upfront. Let it land on the answer slides.",
     questions: [
       {
-        question: "This song's opening harp line is one of the most recognisable in modern music. After a decade as an indie pop staple, it became the anthem of the biggest box office redemption arc of 2023 — when a fictional character used it to finally snap out of her existential depression.",
-        mediaType: "audio",
-        mediaSrc:  "audio_warmup_q1.mp3",
-        answer:   "Dog Days Are Over",
-        answerSubline: "Florence and the Machine — 2008",
-        answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Florence_and_the_Machine_-_Lollapalooza_Brazil_2016_-_S%C3%A3o_Paulo%2C_Brazil.jpg/640px-Florence_and_the_Machine_-_Lollapalooza_Brazil_2016_-_S%C3%A3o_Paulo%2C_Brazil.jpg",
-        answerMedia: "audio_warmup_q1.mp3",
-        answerMediaType: "audio",
-        note:     "The 15-year-old song completely re-charted globally after Guardians of the Galaxy Vol. 3 used it for its emotional climax.",
-        noteScript: "James Gunn chose it for the moment Rocket Raccoon finally confronts his trauma. Florence herself said she cried when she saw the cut.",
-        multiChoice: []
-      },
-      {
-        question: "Flopped on release. Forgotten for 35 years. Then a single scene in a TV show turned it into a global number one.",
-        mediaType: "audio",
-        mediaSrc:  "audio_warmup_q2.mp3",
-        answer:   "Running Up That Hill",
-        answerSubline: "Kate Bush — 1985",
+        question: "Kate Bush wrote this song about wanting to swap places with someone you love so you could truly understand their pain. It became a global hit all over again in 2022. Name the song.",
+        mediaType: "audio", mediaSrc: "audio_warmup_q1.mp3",
+        answer: "Running Up That Hill (A Deal with God)",
+        answerSubline: "Released 1985 — viral again via Stranger Things in 2022",
         answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Kate_Bush%2C_The_Tour_of_Life%2C_1979.jpg/800px-Kate_Bush%2C_The_Tour_of_Life%2C_1979.jpg",
-        answerMedia: "audio_warmup_q2.mp3",
-        answerMediaType: "audio",
-        note:     "Kate Bush became the oldest solo female artist ever to reach #1 in the UK. She was 63. She hadn't toured since 1979.",
-        noteScript: "The song is about wanting to swap places with someone you love to understand their pain. She approved the Stranger Things use personally and said she was overwhelmed by the response.",
+        answerMedia: "audio_warmup_q1.mp3", answerMediaType: "audio",
+        note: "Bush approved the sync personally and said she was overwhelmed by the response. A whole new generation found a 37-year-old song and made it number one.",
         multiChoice: []
       },
       {
-        question: "Written by a producer who told her she was completely washed up, this 2005 track became the title anthem of one of the most commercially explosive comeback albums in music history — proving the diva was nowhere near done.",
-        mediaType: "audio",
-        mediaSrc:  "audio_warmup_q3.mp3",
-        answer:   "We Belong Together",
-        answerSubline: "Mariah Carey — 2005",
-        answerImg: "img_ans_warmup_q3.jpg",
-        answerMedia: "audio_warmup_q3.mp3",
-        answerMediaType: "audio",
-        note:     "14 weeks at #1. Released the year critics declared her career dead.",
-        noteScript: "The album was called The Emancipation of Mimi. The producer who told her she was washed up had to watch it become the best-selling album of 2005.",
+        question: "The opening number of this massively successful Broadway musical spends four minutes summarizing a historical figure's tragic childhood, survival of a hurricane, and move to New York to completely rebuild his life. Name the musical.",
+        mediaType: "audio", mediaSrc: "audio_warmup_q2.mp3",
+        answer: "Hamilton",
+        answerSubline: "Lin-Manuel Miranda, 2015",
+        answerImg: "",
+        answerMedia: "audio_warmup_q2.mp3", answerMediaType: "audio",
+        note: "The track packs a staggering amount of biographical exposition into a hip-hop number, setting up one of the greatest creative and commercial success stories in theatre history.",
         multiChoice: []
       },
       {
-        question: "Written on a paper bag between takes on a film set.\n\nOne shot. One opportunity.",
-        mediaType: "audio",
-        mediaSrc:  "audio_warmup_q4.mp3",
-        answer:   "Lose Yourself",
-        answerSubline: "Eminem — 2002",
-        answerImg: "img_ans_warmup_q4.jpg",
-        answerMedia: "audio_warmup_q4.mp3",
-        answerMediaType: "audio",
-        note:     "First hip-hop artist ever to win an Oscar. He found out when his alarm went off for school drop-off.",
-        noteScript: "He didn't attend the ceremony. He was written off by Hollywood and won anyway. The song was literally scribbled on a paper bag between takes on the 8 Mile set.",
+        question: "A producer once told this artist she was finished. She went on to release the best-selling album of 2005. Name the song that anchored the comeback.",
+        mediaType: "audio", mediaSrc: "audio_warmup_q3.mp3",
+        answer: "We Belong Together — Mariah Carey",
+        answerSubline: "From The Emancipation of Mimi, 2005",
+        answerImg: "",
+        answerMedia: "audio_warmup_q3.mp3", answerMediaType: "audio",
+        note: "The producer who wrote her off had a front-row seat to the entire thing. The album sold over 10 million copies worldwide.",
         multiChoice: []
       },
       {
-        question: "His final studio recording.\n\nRecorded alone. Acoustic guitar. No band.\n\nHe died eight months after it came out.",
-        mediaType: "audio",
-        mediaSrc:  "audio_warmup_q5.mp3",
-        answer:   "Redemption Song",
-        answerSubline: "Bob Marley — 1980",
+        question: "Eminem won the Academy Award for Best Original Song for this track and wasn't even in the room when it happened. Name the song.",
+        mediaType: "audio", mediaSrc: "audio_warmup_q4.mp3",
+        answer: "Lose Yourself",
+        answerSubline: "Oscar 2003 — written on a paper bag on the 8 Mile set",
+        answerImg: "",
+        answerMedia: "audio_warmup_q4.mp3", answerMediaType: "audio",
+        note: "He was written off by Hollywood and won anyway. He later said he didn't think he had any chance of winning, so he just didn't go.",
+        multiChoice: []
+      },
+      {
+        question: "Bob Marley took the title of this song from a Marcus Garvey speech about freeing yourself from mental slavery. It was the last album he released before he died. Name the song.",
+        mediaType: "audio", mediaSrc: "audio_warmup_q5.mp3",
+        answer: "Redemption Song",
+        answerSubline: "From Uprising, 1980 — Marley died eight months after its release",
         answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Bob-Marley.jpg/800px-Bob-Marley.jpg",
-        answerMedia: "audio_warmup_q5.mp3",
-        answerMediaType: "audio",
-        note:     "He was dying of cancer when he recorded it. He never heard how the song landed.",
-        noteScript: "He took the title from a Marcus Garvey speech about freeing yourself from mental slavery. The album was called Uprising. He died eight months after its release.",
+        answerMedia: "audio_warmup_q5.mp3", answerMediaType: "audio",
+        note: "Garvey's original line was about emancipating yourself from mental slavery. Marley distilled an entire political philosophy into an acoustic guitar and three minutes.",
         multiChoice: []
       }
     ]
   },
-
-  // ════════════════════════════════════════════════
-  // ROUND 1 — THE A ROUND
-  // ════════════════════════════════════════════════
+  // ═══════════════════════════════════════════════
   {
     id: "around",
     name: "THE A ROUND",
     subname: "Every question. Every answer. Starts with A.",
     badge: "ROUND 1",
-    format: "Every question topic AND every correct answer begins with the letter A.",
-    hostNote: "Remind the room explicitly — both the question and the answer start with A. Say it twice. They will forget.",
+    format: "Every question AND answer starts with the letter A.",
+    hostNote: "Say it twice before starting — both the question AND the answer start with A.",
     questions: [
       {
-        question: "Adopted dad turned husband Woody Allen voiced the main character in this 1998 animated film.",
-        mediaType: "image",
-        mediaSrc:  "img_r1_q1_antz.jpg",
-        answer:   "Antz",
-        answerSubline: "1998",
+        question: "Adopted daddy turned husband Woody Allen voiced a neurotic, anxious worker who refused to accept his place in the colony, essentially playing himself, but as an insect. What was the 1998 animated film?",
+        mediaType: "image", mediaSrc: "img_r1_q1_antz.jpg",
+        answer: "Antz",
+        answerSubline: "DreamWorks, 1998",
         answerImg: "img_r1_q1_antz.jpg",
-        note:     "The casting now reads as one of Hollywood's most accidentally revealing decisions.",
-        noteScript: "Allen voiced the neurotic ant Z-4195, essentially playing himself in insect form. The film came out the same year his relationship with Soon-Yi Previn became public knowledge.",
+        note: "The rivalry between Antz and A Bug\'s Life was genuinely vicious, with DreamWorks rushing this out to beat Disney to theatres.",
         multiChoice: []
       },
       {
-        question: "At the 2012 Oscars, a body part went so viral it got its own Twitter account. Whose was it?",
-        mediaType: "image",
-        mediaSrc:  "img_r1_q2_leg.jpg",
-        answer:   "Angelina Jolie's leg",
-        answerSubline: "Oscars 2012",
+        question: "At the 2012 Oscars, one specific part of a celebrity's body became an overnight meme, spawned its own Tumblr, and got a dedicated Facebook page. What was it?",
+        mediaType: "image", mediaSrc: "img_r1_q2_leg.jpg",
+        answer: "Angelina Jolie's leg",
+        answerSubline: "Oscars 2012 — one of the first viral celebrity body-part moments",
         answerImg: "img_r1_q2_leg.jpg",
-        note:     "@AngiesRightLeg had thousands of followers within hours. The dress was Versace.",
-        noteScript: "It spawned memes, a Tumblr, and a Facebook page. It became one of the first truly viral celebrity moments of the social media era.",
+        note: "The right leg got its own Twitter account within hours, launching a massive wave of photoshop memes across the internet.",
         multiChoice: []
       },
       {
-        question: "Anthropic, the AI company behind Claude, was famously started by a brother and sister who quit OpenAI over safety concerns. What is their shared last name?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "Amodei",
-        answerSubline: "Dario & Daniela",
+        question: "Anthropic, one of the world's leading AI safety companies, was co-founded by a brother and sister who both left OpenAI over concerns about the direction of the technology. What is their shared last name?",
+        mediaType: "none", mediaSrc: "",
+        answer: "Amodei",
+        answerSubline: "Dario and Daniela Amodei — founded Anthropic in 2021",
         answerImg: "",
-        note:     "Dario is CEO and Daniela is President. They left OpenAI in 2021 because they believed its direction was becoming too commercially driven at the expense of safety. In 2025 Dario was named Time magazine's Person of the Year.",
+        note: "They left OpenAI along with several colleagues over disagreements about how fast to push development versus how carefully to test for safety.",
         multiChoice: []
       },
       {
-        question: "A smiling Mexican salamander gets its name from an ancient god who could transform into one. Which civilisation?",
-        mediaType: "image",
-        mediaSrc:  "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Axolotl_ganz.jpg/1200px-Axolotl_ganz.jpg",
-        answer:   "Aztec",
-        answerSubline: "The Axolotl",
+        question: "Although the axolotl looks like a cheerful modern novelty, this perpetually smiling salamander takes its name from the mythology of which ancient Mesoamerican civilisation?",
+        mediaType: "image", mediaSrc: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Axolotl_ganz.jpg/1200px-Axolotl_ganz.jpg",
+        answer: "Aztec",
+        answerSubline: "Named for the god Xolotl — axolotls are now critically endangered in the wild",
         answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Axolotl_ganz.jpg/1200px-Axolotl_ganz.jpg",
-        note:     "It can regrow its own limbs, heart, and brain tissue. It's on the 50 Mexican peso note.",
-        noteScript: "Xolotl was the Aztec god of fire, lightning, and the underworld. According to myth he transformed into a salamander to avoid being sacrificed. The axolotl is critically endangered in the wild.",
+        note: "Xolotl was the god of fire, lightning, and the underworld, who allegedly transformed into the salamander to avoid being sacrificed by the other gods.",
         multiChoice: []
       },
       {
-        question: "After Pearl Harbor, the Secret Service needed to transport President Roosevelt urgently — but had no bulletproof vehicles available. Whose confiscated car did they use?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "Al Capone's",
-        answerSubline: "The 1928 Cadillac",
+        question: "After Pearl Harbor, the Secret Service needed a bulletproof car for Roosevelt to deliver his \"date which will live in infamy\" speech and the only one available belonged to a famous criminal. Whose armoured 1928 Cadillac did Roosevelt ride in?",
+        mediaType: "none", mediaSrc: "",
+        answer: "Al Capone's",
+        answerSubline: "December 1941 — inch-thick bulletproof glass, police siren, radio scanner",
         answerImg: "",
-        note:     "Capone's 1928 Cadillac Town Sedan, seized by the IRS in 1931, had inch-thick bulletproof glass, a police siren, and a scanner. Roosevelt rode in a gangster's car to deliver the famous 'a date which will live in infamy' speech.",
+        note: "Capone had been in federal prison since 1931, so the car was sitting in government impound when the Secret Service commandeered it for the president.",
         multiChoice: []
       }
     ]
   },
-
-  // ════════════════════════════════════════════════
-  // ROUND 2 — GEOGRAPHY BUT MAKE IT FUN
-  // ════════════════════════════════════════════════
+  // ═══════════════════════════════════════════════
   {
     id: "geography",
     name: "GEOGRAPHY",
     subname: "BUT MAKE IT FUN",
     badge: "ROUND 2",
     format: "Traditional scoring. Answers at end of round.",
-    hostNote: "Q1 is multiple choice — read all options aloud. Q5 needs the blacked-out Kazakhstan map image.",
+    hostNote: "Q5 is Israel-specific — great crowd moment.",
     questions: [
       {
         question: "Three of these are real names of real disputed borders. One is completely made up.\n\nWhich is NOT real?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "D — The East Shield",
-        answerSubline: "Made up entirely.",
+        mediaType: "none", mediaSrc: "",
+        answer: "D — The East Shield",
+        answerSubline: "The DMZ splits Korea; Line of Control splits Kashmir; Line of Actual Control separates India and China",
         answerImg: "",
-        note:     "A = The DMZ separates North and South Korea — a 4km wide strip that has become one of the most biodiverse places on the peninsula because no humans have entered it in 70 years. B = Line of Control divides Indian and Pakistani-administered Kashmir. C = Line of Actual Control is the de facto border between India and China.",
+        note: "The Korean DMZ has become one of the most biodiverse zones on the peninsula because no humans have entered it in over 70 years. Nature moved in the moment people moved out.",
         multiChoice: ["A) The Demilitarized Zone (DMZ)", "B) Line of Control", "C) Line of Actual Control", "D) The East Shield ← NOT REAL"]
       },
       {
-        question: "There is a country in the world completely surrounded by just one other country.\n\nNot Vatican City. Not San Marino.\n\nName the country — and the country that surrounds it.",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "Lesotho",
-        answerSubline: "Surrounded entirely by South Africa",
+        question: "In 2011, the island nation of Samoa decided to completely skip an entire calendar day, erasing December 30th from their history entirely.\n\nWhat was their reason?",
+        mediaType: "none", mediaSrc: "",
+        answer: "To align their time zone with their main trading partners — Australia and New Zealand",
+        answerSubline: "Samoa Time Zone Shift, 2011",
         answerImg: "",
-        note:     "Lesotho is a landlocked kingdom in southern Africa. It has the highest lowest point of any country on Earth — its lowest point is still 1,400 metres above sea level.",
+        note: "Samoa had previously been 21 hours behind eastern Australia, which meant they lost two working days a week doing business. By jumping across the International Date Line, they instantly synced their business week.",
         multiChoice: []
       },
       {
-        question: "Every country in Africa was colonised by a European power during the Scramble for Africa.\n\nExcept one.\n\nWhich country?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "Ethiopia",
-        answerSubline: "Never colonised.",
+        question: "This is the only African country to successfully defeat a European colonial army in a full-scale battle during the Scramble for Africa — and it did it twice. Its flag colours were later adopted by dozens of newly independent African nations as a symbol of that resistance.\n\nName the country.",
+        mediaType: "none", mediaSrc: "",
+        answer: "Ethiopia",
+        answerSubline: "Battle of Adwa, 1896 — Emperor Menelik II defeated 17,000 Italian troops",
         answerImg: "",
-        note:     "Italy tried twice and lost both times. At the Battle of Adwa in 1896, Ethiopian Emperor Menelik II defeated an Italian army of 17,000. Ethiopia's flag — green, yellow, and red — was later adopted by dozens of newly independent African nations as a symbol of resistance. That's why so many African flags look similar.",
+        note: "That\'s why so many African flags share green, yellow, and red. Ethiopia\'s victory became a pan-African symbol of the fact that colonisation was not inevitable.",
         multiChoice: []
       },
       {
-        question: "There's a luxury beach in the Caribbean where Boeing 747s fly 30 feet over your head as they land.\n\nThe island is split down the middle — half France, half Netherlands.\n\nName it.",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "Saint Martin",
-        answerSubline: "Sint Maarten — Princess Juliana Airport",
+        question: "This Caribbean island is the smallest inhabited landmass in the world to be divided between two different nations. You can cross from one side to the other with zero passport control.\n\nName the island.",
+        mediaType: "none", mediaSrc: "",
+        answer: "Saint Martin / Sint Maarten",
+        answerSubline: "Split between France and the Netherlands since 1648",
         answerImg: "",
-        note:     "The island is the smallest inhabited landmass in the world divided between two nations. You can walk from the French side to the Dutch side with zero security. The runway at Princess Juliana International Airport sits right against Maho Beach.",
+        note: "Legend has it the border was drawn by a Frenchman and a Dutchman walking in opposite directions around the island. The Frenchman walked faster so France got the bigger share.",
         multiChoice: []
       },
       {
-        question: "Identify this country from its outline alone.",
-        mediaType: "image",
-        mediaSrc:  "img_r2_q5_kazakhstan.jpg",
-        answer:   "Kazakhstan",
-        answerSubline: "The world's largest landlocked country",
-        answerImg: "img_r2_q5_kazakhstan.jpg",
-        note:     "Kazakhstan is the ninth largest country overall — bigger than Western Europe. Most people dramatically underestimate its size because the Mercator projection distorts it. Its current capital Astana was purpose-built from scratch in the middle of the steppe and is one of the most architecturally surreal cities on Earth.",
+        question: "Due to its location right along the Great Rift Valley, seismologists warn that Israel is statistically overdue for a major instance of which specific natural disaster?",
+        mediaType: "none", mediaSrc: "",
+        answer: "An earthquake",
+        answerSubline: "Major destructive earthquakes historically hit the region roughly every 100 years",
+        answerImg: "",
+        note: "The last massive one occurred in 1927. Experts monitor the Dead Sea Fault closely, as structural infrastructure in older cities remains highly vulnerable.",
         multiChoice: []
       }
     ]
   },
-
-  // ════════════════════════════════════════════════
-  // ROUND 3 — FOOD COURT
-  // ════════════════════════════════════════════════
+  // ═══════════════════════════════════════════════
   {
     id: "food",
     name: "FOOD COURT",
     subname: "",
     badge: "ROUND 3",
     format: "Traditional scoring. Answers at end of round.",
-    hostNote: "Q2 (banana is a berry) and Q4/Q5 (baguette vs croissant) are great crowd debates — let them argue before moving on.",
+    hostNote: "The honey and shirako questions get great reactions. Let them debate.",
     questions: [
       {
-        question: "Carrots were not always orange. For most of their cultivated history they were a completely different colour.\n\nWhich country bred the orange variety — and why?",
-        mediaType: "image",
-        mediaSrc:  "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Carrots_of_many_colors.jpg/1200px-Carrots_of_many_colors.jpg",
-        answer:   "The Dutch — 17th century",
-        answerSubline: "Possibly as a tribute to the House of Orange",
+        question: "Carrots were originally purple. They became orange in the 17th century, largely through the influence of one European nation, allegedly as a tribute to their royal family.\n\nWhich nation?",
+        mediaType: "image", mediaSrc: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Carrots_of_many_colors.jpg/1200px-Carrots_of_many_colors.jpg",
+        answer: "The Dutch",
+        answerSubline: "House of Orange — 17th century Netherlands",
         answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Carrots_of_many_colors.jpg/1200px-Carrots_of_many_colors.jpg",
-        note:     "Wild carrots were purple, yellow, and white. The Dutch bred orange ones — possibly as a tribute to William of Orange.",
-        noteScript: "Whether political gesture or happy accident, orange became the global standard. Purple carrots are now sold as a novelty at farmers markets, which feels like the food equivalent of being erased from history.",
+        note: "Whether deliberate political branding or just selective cultivation, orange became the global standard. Purple carrots are now sold as a novelty at farmers markets.",
         multiChoice: []
       },
       {
-        question: "Botanically speaking, which of these is actually a berry?\n\nStrawberry — Raspberry — Banana — Blackberry",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "Banana",
-        answerSubline: "Strawberries, raspberries, and blackberries all fail the botanical definition.",
+        question: "Because botanical classification dictates that a true berry must develop from a single flower with one ovary, strawberries don\'t actually qualify.\n\nWhich of these combinations consists entirely of actual, scientifically classified berries?",
+        mediaType: "none", mediaSrc: "",
+        answer: "B — Bananas, Avocados, and Watermelons",
+        answerSubline: "Strawberries are technically aggregate fruits",
         answerImg: "",
-        note:     "A berry develops from a single flower with one ovary. Bananas qualify. So do avocados, kiwis, watermelons, and aubergines. The tiny yellow seeds on the outside of a strawberry are the actual fruits — the red part is the enlarged receptacle of the flower. This fact reliably ruins strawberries for people for about three minutes.",
+        note: "The little yellow specks on the outside of a strawberry are the actual fruits. Meanwhile, watermelons, pumpkins, bananas, and avocados check every botanical box to be official berries.",
+        multiChoice: ["A) Blackberries, Raspberries, and Strawberries", "B) Bananas, Avocados, and Watermelons ← CORRECT", "C) Cherries, Grapes, and Plums", "D) Blueberries, Cranberries, and Peaches"]
+      },
+      {
+        question: "Honey is famous for being the only food in your pantry that never completely spoils.\n\nBiologically speaking, what is honey?",
+        mediaType: "none", mediaSrc: "",
+        answer: "C — Bee vomit",
+        answerSubline: "Technically it is regurgitated nectar stored in a specialised honey stomach",
+        answerImg: "",
+        note: "Bees swallow nectar, break it down with enzymes, throw it back up, and then fan it with their wings to evaporate the water. The low moisture and high acidity create an environment where bacteria instantly dehydrates and dies.",
+        multiChoice: ["A) Bee sweat", "B) Bee poop", "C) Bee vomit ← CORRECT", "D) Bee saliva"]
+      },
+      {
+        question: "Often served at elite sushi restaurants as a delicate, creamy winter luxury, the Japanese delicacy shirako translates literally to \"white children.\"\n\nWhat part of the fish are you actually eating?",
+        mediaType: "none", mediaSrc: "",
+        answer: "Sperm sacs",
+        answerSubline: "Usually harvested from cod, pufferfish, or anglerfish",
+        answerImg: "",
+        note: "Because of its rich, custard-like texture and mild, slightly sweet ocean flavour, top chefs treat it like the seafood equivalent of foie gras.",
         multiChoice: []
       },
       {
-        question: "Nutella was invented because of WWII.\n\nWhy?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "A wartime cocoa shortage",
-        answerSubline: "An Italian chocolatier bulked his chocolate out with hazelnuts",
-        answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Nutella_jar.jpg/800px-Nutella_jar.jpg",
-        note:     "The factory in Alba produces 365,000 jars a day and uses 25% of the world's hazelnuts annually.",
-        noteScript: "Pietro Ferrero of Alba, Italy, created the original paste in 1946. His son Michele later developed the spreadable version and renamed it Nutella in 1964.",
+        question: "Rank these four fast food chains from highest to lowest global annual revenue:\n\nMcDonald\'s, Starbucks, Subway, Taco Bell.",
+        mediaType: "none", mediaSrc: "",
+        answer: "McDonald's ($48.4bn) → Starbucks ($36.3bn) → Subway ($17.8bn) → Taco Bell ($15.1bn)",
+        answerSubline: "Most people swap Starbucks and McDonald's — almost nobody puts Taco Bell last",
+        answerImg: "",
+        note: "Starbucks beats every fast food chain on earth except McDonald\'s, purely on the back of $7 lattes. Taco Bell quietly makes more money annually than Burger King.",
         multiChoice: []
-      },
-      {
-        question: "In 2022, France successfully lobbied UNESCO to grant 'World Heritage' status to a daily food item — arguing its cultural ritual was endangered by supermarket industrialisation.\n\nWhat did they deem a global treasure?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "B — The Baguette",
-        answerSubline: "UNESCO Intangible Cultural Heritage, 2022",
-        answerImg: "",
-        note:     "The listing officially honours the artisanal know-how and culture of baguette bread, protecting a standard of French life that has seen thousands of traditional bakeries close due to mass-produced supermarket loaves.",
-        multiChoice: ["A) The Croissant", "B) The Baguette ← CORRECT", "C) Camembert Cheese", "D) The Macaron"]
-      },
-      {
-        question: "In 2023, the French Embassy in Washington had to issue an official statement confirming that cutting this item in half and spreading butter on it was an act of culinary war.\n\nWhat is the item?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "A — The Croissant",
-        answerSubline: "\"A croissant is already 50% butter. Please respect the lamination.\"",
-        answerImg: "",
-        note:     "The internet went entirely feral over an American food influencer buttering a croissant. The French Embassy's official tweet became one of the most shared diplomatic statements in recent memory.",
-        multiChoice: ["A) The Croissant ← CORRECT", "B) The Pain au Chocolat", "C) The Eclair", "D) The Brioche"]
       }
     ]
   },
-
-  // ════════════════════════════════════════════════
-  // ROUND 4 — WHAT HAPPENED NEXT?
-  // ════════════════════════════════════════════════
+  // ═══════════════════════════════════════════════
   {
     id: "whathappenednext",
     name: "WHAT HAPPENED NEXT?",
     subname: "",
     badge: "ROUND 4",
-    format: "Image frozen at the moment before everything changed. Teams write what happened next.",
-    hostNote: "Let the image breathe on screen before moving on. The drama is in the silence.",
+    format: "Show image. Teams write what happened next. Answers at end of round.",
+    hostNote: "Let the image breathe on screen before revealing. Q2 (Fyre Festival) gets a massive reaction.",
     questions: [
       {
-        question: "Janet Jackson and Justin Timberlake.\nMid-performance. Super Bowl halftime show. 2004.",
-        mediaType: "image",
-        mediaSrc:  "img_r4_q1_janet.jpg",
-        answer:   "Timberlake tore off part of Janet Jackson's costume",
-        answerSubline: "140 million viewers. Live television.",
-        answerImg: "img_r4_q1_janet_after.jpg",
-        note:     "The FCC received 540,000 complaints — more than any broadcast event in history at that point. The incident coined the phrase 'wardrobe malfunction.' Janet Jackson was effectively blacklisted from radio and awards shows for years. Timberlake's career was unaffected. He publicly apologised to Jackson in 2024, 20 years later.",
+        question: "Look at the image on screen.\n\nWhat universal internet slang phrase was coined less than 24 hours after this live broadcast moment took place?",
+        mediaType: "image", mediaSrc: "img_r4_q1_janet.jpg",
+        answer: "Wardrobe malfunction",
+        answerSubline: "Super Bowl XXXVIII, 2004",
+        answerImg: "img_r4_q1_janet.jpg",
+        note: "The term was coined by Timberlake\'s PR team in an apology statement the next day. The FCC received over 540,000 complaints, leading to a mandatory tape-delay on all live American broadcasting.",
         multiChoice: []
       },
       {
-        question: "Steve Harvey on stage at Miss Universe 2015.\nSmiling. Holding the card.",
-        mediaType: "image",
-        mediaSrc:  "img_r4_q2_harvey.jpg",
-        answer:   "He announced the wrong winner",
-        answerSubline: "Miss Colombia was crowned, walked a lap, and gave a speech. Then the crown was physically removed from her head.",
-        answerImg: "img_r4_q2_harvey_after.jpg",
-        note:     "Harvey had read the runner-up card instead of the winner card. Miss Philippines was the actual winner. His Instagram apology the next day also misspelled both countries. The clip remains one of the most watched live TV moments of the 2010s.",
-        multiChoice: []
-      },
-      {
-        question: "Kanye West walking up to the stage at the MTV VMAs 2009.\nTaylor Swift is standing there, holding her award.",
-        mediaType: "image",
-        mediaSrc:  "img_r4_q3_kanye.jpg",
-        answer:   "He took the microphone from her mid-speech",
-        answerSubline: "\"Beyoncé should have won.\" Taylor Swift was 19. It was her first VMA win.",
-        answerImg: "img_r4_q3_kanye_after.jpg",
-        note:     "Beyoncé won Video of the Year later that night and invited Taylor back to the stage to finish her interrupted speech. The incident defined the public perception of Kanye for years, and generated a beef that resurfaced multiple times over the following decade. Kanye apologised. Then un-apologised.",
-        multiChoice: []
-      },
-      {
-        question: "Fyre Festival promotional image.\nSupermodels. Private jets. Turquoise water. Perfection.",
-        mediaType: "image",
-        mediaSrc:  "img_r4_q4_fyre.jpg",
-        answer:   "Guests arrived to FEMA tents, wet mattresses, and a cheese sandwich",
-        answerSubline: "Tickets cost up to $12,000.",
+        question: "In the 2019 Netflix documentary tracking the disaster of Fyre Festival, event producer Andy King became an overnight viral sensation for detailing the absolute extreme he was ordered to go to by founder Billy McFarland.\n\nWhat did Billy ask him to do to save the festival\'s drinking water from customs?",
+        mediaType: "image", mediaSrc: "img_r4_q4_fyre.jpg",
+        answer: "Perform oral sex on a customs official",
+        answerSubline: "Andy King\'s viral interview moment",
         answerImg: "img_r4_q4_fyre_cheese.jpg",
-        note:     "Founder Billy McFarland had sold a luxury music festival that did not exist. He was convicted of wire fraud and sentenced to six years in prison. Two competing documentaries — one Netflix, one Hulu — were released before the festival site had even been fully cleared. The cheese sandwich photo became one of the defining memes of 2017.",
+        note: "King famously recounted that McFarland told him to \"take one for the team.\" He went down fully prepared to do it before the customs director luckily relented without it.",
         multiChoice: []
       },
       {
-        question: "A Coldplay concert.\nThe kiss cam lands on two people who are clearly trying to hide from it.",
-        mediaType: "image",
-        mediaSrc:  "img_r4_q5_coldplay.jpg",
-        answer:   "It went viral. The two were identified. One resigned as CEO within days.",
-        answerSubline: "Andy Byron, CEO of Astronomer. Having an affair.",
+        question: "At the 2009 MTV VMAs, Kanye West interrupted Taylor Swift\'s acceptance speech for Best Female Video to declare that someone else deserved the award.\n\nWho did he say should have won?",
+        mediaType: "image", mediaSrc: "img_r4_q3_kanye.jpg",
+        answer: "Beyoncé — for Single Ladies",
+        answerSubline: "MTV VMAs 2009",
+        answerImg: "img_r4_q3_kanye_after.jpg",
+        note: "Beyoncé won Video of the Year later that same night and immediately called Taylor back to the stage to finish her interrupted speech.",
+        multiChoice: []
+      },
+      {
+        question: "In 1993, the dynamic pop duo Milli Vanilli were riding high on global stardom when their track \"Girl You Know It\'s True\" began skipping during a live MTV broadcast.\n\nWhat catastrophic industry event happened next?",
+        mediaType: "image", mediaSrc: "img_r4_q4_millivanilli.jpg",
+        answer: "They were stripped of their Grammy Award for Best New Artist",
+        answerSubline: "The 1990 Grammy Scandal",
+        answerImg: "img_r4_q4_millivanilli.jpg",
+        note: "The backing track skipping exposed the fact that the frontmen had been completely lip-syncing. It remains the only time in history the Recording Academy has revoked a Grammy.",
+        multiChoice: []
+      },
+      {
+        question: "Look at this stadium Kiss Cam moment from 2023.\n\nWhy did internet sleuths frantically track down this exact couple\'s identities within hours of the game?",
+        mediaType: "image", mediaSrc: "img_r4_q5_coldplay.jpg",
+        answer: "They both called in sick to work that day",
+        answerSubline: "Busted by LinkedIn detectives",
         answerImg: "img_r4_q5_coldplay_after.jpg",
-        note:     "By the time Byron's PR team drafted a statement, the internet had already identified both people, their job titles, their LinkedIn profiles, and their relationship statuses. Chris Martin joked on mic: 'Either they're having an affair or they're just very shy.' It turned out they were on leave together.",
+        note: "The pair tried to duck and hide the second they hit the big screen. Within hours, internet sleuths cross-referenced their faces, found their matching corporate LinkedIn profiles, and confirmed they were colleagues playing hooky together.",
         multiChoice: []
       }
     ]
   },
-
-  // ════════════════════════════════════════════════
-  // ROUND 5 — OOPS, THEIR BAD
-  // ════════════════════════════════════════════════
+  // ═══════════════════════════════════════════════
   {
     id: "oops",
     name: "OOPS, THEIR BAD",
     subname: "",
     badge: "ROUND 5",
     format: "Brands, celebrities, and world leaders who got it spectacularly wrong. All multiple choice.",
-    hostNote: "Q4 (Drake releasing 3 albums) is May 2026 — confirm it's still accurate before game night.",
+    hostNote: "Q4 (Drake) is May 2026 — confirm still accurate before game night.",
     questions: [
       {
-        question: "Tucker Carlson once devoted an entire segment of his show to announcing he was no longer attracted to a brand mascot.\n\nWhich one?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "B — The M&Ms green lady",
-        answerSubline: "Mars had given her sensible shoes.",
-        answerImg: "img_r5_q1_mms.jpg",
-        note:     "Mars had redesigned the green M&M to wear lower heels as part of an inclusivity rebrand. Tucker's multi-minute segment said the change made him feel 'unsettled.' Mars retired all mascots in response, briefly replacing them with Maya Rudolph, then brought them back. The green lady kept the sensible shoes.",
-        multiChoice: ["A) The Wendy's girl", "B) The M&Ms green lady ← CORRECT", "C) The Dos Equis Most Interesting Man", "D) The Old Spice guy"]
+        question: "In 2014, a charismatic Stanford dropout became a billionaire tech celebrity by convincing the world her company could run hundreds of medical tests on a single drop of blood.\n\nName the fraudulent company.",
+        mediaType: "none", mediaSrc: "",
+        answer: "Theranos",
+        answerSubline: "Elizabeth Holmes — convicted of wire fraud in 2022",
+        answerImg: "img_r5_q1_theranos.jpg",
+        note: "The Edison machines never worked. The company was secretly running its blood tests on standard commercial machines while telling investors their proprietary technology was revolutionary.",
+        multiChoice: []
       },
       {
-        question: "In 1750 BCE, a merchant named Ea-Nasir received a clay tablet from a customer named Nanni. Found 4,000 years later in the ruins of Ur, Iraq.\n\nWhat was in it?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "D — A strongly worded complaint about copper",
-        answerSubline: "Now in the British Museum.",
+        question: "In 1750 BCE, a merchant named Ea-Nasir received a clay tablet from a customer named Nanni. Found 4,000 years later in the ruins of Ur, Iraq — what kind of letter was it?",
+        mediaType: "none", mediaSrc: "",
+        answer: "D — A strongly worded customer complaint",
+        answerSubline: "The world\'s oldest recorded customer complaint — now in the British Museum",
         answerImg: "img_r5_q2_tablet.jpg",
-        note:     "Nanni had paid for high-quality copper ingots. Ea-Nasir sent substandard ones and told his messenger to take them or leave them. Nanni chiselled his fury onto both sides of a clay tablet and sent it by hand. Archaeologists found it alongside several other complaint tablets in Ea-Nasir's house, suggesting he was a serial offender. The internet adopted him as patron saint of bad customer service.",
-        multiChoice: ["A) A wedding invitation", "B) A stolen camel accusation", "C) A love letter", "D) A strongly worded complaint about copper ← CORRECT"]
+        note: "Nanni was furious that Ea-Nasir promised premium grade copper but delivered substandard ingots. Because clay doesn\'t degrade like paper, Ea-Nasir has effectively endured nearly four thousand years of continuous global embarrassment.",
+        multiChoice: ["A) A stolen camel accusation", "B) A curse from a rival business", "C) A notice of default on a loan", "D) A strongly worded customer complaint ← CORRECT"]
       },
       {
         question: "In 2023, someone accused Hunter Biden of leaving cocaine in the West Wing. When the accusation went viral, how did he respond on social media?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "A — \"It most definitely was not. I would never have forgotten my drugs.\"",
-        answerSubline: "242,000 likes.",
+        mediaType: "none", mediaSrc: "",
+        answer: "A — \"It most definitely was not. I would never have forgotten my drugs.\"",
+        answerSubline: "The Secret Service ultimately closed the investigation without finding a suspect",
         answerImg: "img_r5_q3_biden.jpg",
-        note:     "Biden had just posted about reaching seven years of sobriety when the accusation appeared. He also went viral the same week for correcting a photoshopped meth pipe: 'A crack pipe doesn't have that little bowl at the end. This is why we can't trust AI.' Both posts became defining examples of weaponised self-deprecation.",
-        multiChoice: ["A) 'It most definitely was not. I would never have forgotten my drugs.' ← CORRECT", "B) 'This is an absolute fabrication and my legal team is tracking the source.'", "C) 'I have been sober for years, please photoshop a higher quality pipe next time.'", "D) He released a formal White House press statement and deleted his account."]
+        note: "242,000 likes. He also went viral the same week for correcting a photoshopped meth pipe: \"A crack pipe doesn\'t have that little bowl at the end.\"",
+        multiChoice: ["A) \"It most definitely was not. I would never have forgotten my drugs.\" ← CORRECT", "B) \"This is an absolute fabrication and my legal team is tracking the source.\"", "C) \"I have been sober for years, please photoshop a higher quality pipe next time.\"", "D) He released a formal White House press statement and deleted his account."]
       },
       {
-        question: "After Kendrick Lamar performed Not Like Us at the Super Bowl in front of 100 million people, won five Grammys for it, and completed a sold-out world tour —\n\nDrake responded by releasing how many albums simultaneously?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "C — Three albums simultaneously",
-        answerSubline: "Iceman, Habibti, and Maid of Honour — 43 songs.",
+        question: "In May 2026, following his feud with Kendrick Lamar, Drake chose a rapid streaming strategy to reclaim dominance.\n\nHow many complete solo albums did he drop simultaneously at midnight?",
+        mediaType: "none", mediaSrc: "",
+        answer: "B — 3 albums",
+        answerSubline: "Iceman, Habibti, and Maid of Honour — released May 15, 2026",
         answerImg: "img_r5_q4_drake.jpg",
-        note:     "On May 15, 2026, Drake released all three at once. The rollout involved an ice sculpture in Toronto and a projection onto the CN Tower. Kendrick has not responded. Not Like Us won every single Grammy it was nominated for. It was, by most measures, the most decisive public victory in a rap beef in a generation.",
-        multiChoice: ["A) 1", "B) 2", "C) 3 ← CORRECT", "D) He has not responded"]
+        note: "Drake dropped a 43-song triple-album simultaneously to flood global streaming metrics. He became the first artist in history to hold the top three spots on the Billboard 200 concurrently.",
+        multiChoice: ["A) 2 albums", "B) 3 albums ← CORRECT", "C) 4 albums", "D) 5 albums"]
       },
       {
-        question: "Pepsi launched in China with the slogan 'Pepsi Brings You Back to Life.'\n\nWhat did the Chinese translation actually say?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "B — \"Pepsi brings your ancestors back from the grave\"",
-        answerSubline: "Nobody caught it before launch. It ran.",
+        question: "Pepsi launched in China with the slogan \"Pepsi Brings You Back to Life.\"\n\nWhat did the Chinese translation actually say?",
+        mediaType: "none", mediaSrc: "",
+        answer: "B — \"Pepsi brings your ancestors back from the grave\"",
+        answerSubline: "A legendary translation disaster in global marketing",
         answerImg: "img_r5_q5_pepsi.jpg",
-        note:     "This was not the only major slogan disaster in China — KFC's 'Finger Lickin' Good' translated as 'Eat Your Fingers Off,' and HSBC's 'Assume Nothing' translated as 'Do Nothing' in several markets, costing the bank an estimated $10 million in rebranding. Language is cultural, not merely linguistic. Large corporations keep having to learn this expensively.",
+        note: "The literal translation hit a massive cultural nerve regarding ancestral respect, forcing an expensive and hasty marketing pivot.",
         multiChoice: ["A) Pepsi makes you feel younger", "B) Pepsi brings your ancestors back from the grave ← CORRECT", "C) Pepsi tastes like life itself", "D) Pepsi is the drink of heaven"]
       }
     ]
   },
-
-  // ════════════════════════════════════════════════
-  // ROUND 6 — BEFORE THEY WERE FAMOUS
-  // ════════════════════════════════════════════════
+  // ═══════════════════════════════════════════════
   {
     id: "beforefamous",
     name: "BEFORE THEY WERE FAMOUS",
     subname: "",
     badge: "ROUND 6",
     format: "Show photo or play clip. Teams write who it is.",
-    hostNote: "Q2 needs the Dead Man's Bones audio clip. Q3 (Jon Hamm as set dresser on adult films) gets a great reaction — let it breathe.",
+    hostNote: "Prepare your images/clips in advance. Q2 needs the Dead Man\'s Bones audio clip.",
     questions: [
       {
-        question: "Young man scooping ice cream at Baskin-Robbins in Hawaii.\n\nWho is this?",
-        mediaType: "image",
-        mediaSrc:  "img_r6_q1_obama.jpg",
-        answer:   "Barack Obama",
-        answerSubline: "South King Street, Honolulu",
+        question: "Before rising to the absolute pinnacle of global politics, this Honolulu teenager spent their summers scooping ice cream at a Baskin-Robbins.\n\nWho is it?",
+        mediaType: "image", mediaSrc: "img_r6_q1_obama.jpg",
+        answer: "Barack Obama",
+        answerSubline: "44th President of the United States",
         answerImg: "img_r6_q1_obama.jpg",
-        note:     "Obama worked at the Baskin-Robbins on South King Street in Honolulu as a teenager. He has since said in interviews that he no longer particularly enjoys ice cream — the job ruined it for him. He is the only US president known to have worked in fast food.",
+        note: "He has noted in interviews that scooping so much ice cream so relentlessly as a teenager permanently put him off the dessert for the rest of his life.",
         multiChoice: []
       },
       {
-        question: "Listen to this clip.\n\nWho is the lead singer of this band?",
-        mediaType: "audio",
-        mediaSrc:  "audio_r6_q2_deadmansbones.mp3",
-        answer:   "Ryan Gosling",
-        answerSubline: "Dead Man's Bones — 2008",
+        question: "Before he was a globally famous Hollywood A-lister, this actor fronted a deeply sincere ghost-rock band that recorded a full album with a children\'s choir.\n\nWho is he?",
+        mediaType: "audio", mediaSrc: "audio_r6_q2_deadmansbones.mp3",
+        answer: "Ryan Gosling",
+        answerSubline: "Dead Man\'s Bones, 2009",
         answerImg: "img_r6_q2_gosling.jpg",
-        note:     "Dead Man's Bones was a gothic indie band Gosling formed with his friend Zach Shields in 2008. The album featured a children's choir. The songs were about ghosts, monsters, and longing. The internet rediscovered it after he became globally famous and people were delighted to find that Ken from Barbie had a deeply sincere ghost rock side project.",
+        note: "The internet rediscovered it after he became globally famous. People were delighted to find that Ken from Barbie had a deeply sincere ghost rock side project.",
         multiChoice: []
       },
       {
-        question: "Jon Hamm in his pre-Mad Men years.\n\nWhat was his actual job before Mad Men?",
-        mediaType: "image",
-        mediaSrc:  "img_r6_q3_hamm.jpg",
-        answer:   "Set decorator on soft core porn films",
-        answerSubline: "He has spoken about it openly.",
+        question: "Before landing his career-defining role as Don Draper in Mad Men at age 35, this struggling actor was considered too old to ever be a Hollywood lead.\n\nWho is he?",
+        mediaType: "image", mediaSrc: "img_r6_q3_hamm.jpg",
+        answer: "Jon Hamm",
+        answerSubline: "Auditioned 2006 — won an Emmy on his 8th nomination in 2015",
         answerImg: "img_r6_q3_hamm.jpg",
-        note:     "Hamm moved to Los Angeles and worked as a set dresser on adult films while waiting for his break. He auditioned for Mad Men at 35 — considered by many casting directors to be too old for a leading role. The show ran for seven seasons. He won the Emmy in 2015 on his eighth nomination.",
+        note: "He worked as a set dresser on adult films while waiting for his break. He was 35 when he got the Mad Men role, considered ancient by Hollywood standards for a leading man.",
         multiChoice: []
       },
       {
-        question: "Young man in a Gap staff uniform, folding clothes.\n\nWho is this?",
-        mediaType: "image",
-        mediaSrc:  "img_r6_q4_kanye.jpg",
-        answer:   "Kanye West",
-        answerSubline: "Gap, Chicago",
+        question: "Before becoming one of the most polarizing figures in modern music and fashion, this Chicago teenager worked the retail floor folding clothes at the Gap.\n\nWho is he?",
+        mediaType: "image", mediaSrc: "img_r6_q4_kanye.jpg",
+        answer: "Kanye West",
+        answerSubline: "Late 1990s Chicago",
         answerImg: "img_r6_q4_kanye.jpg",
-        note:     "Before his music career took off, Kanye worked at a Gap store in Chicago. In 2020 he announced a major Yeezy x Gap collaboration worth a reported $1 billion over ten years — describing it as a childhood dream come true. In 2022 he acrimoniously ended the partnership and announced he wanted to buy Gap entirely. Gap's stock dropped.",
+        note: "He later announced a billion-dollar Yeezy x Gap collaboration, calling it a childhood dream come true. Two years later he acrimoniously ended the deal and tried to buy the whole company.",
         multiChoice: []
       },
       {
-        question: "Young woman in a Hooters uniform.\n\nWho is this?",
-        mediaType: "image",
-        mediaSrc:  "img_r6_q5_amyadams.jpg",
-        answer:   "Amy Adams",
-        answerSubline: "Colorado. Six Oscar nominations. Zero wins.",
+        question: "Before earning six Academy Award nominations for her work across major dramas, comedies, and musicals, this actress paid the bills working as a Hooters waitress in Minnesota.\n\nWho is she?",
+        mediaType: "image", mediaSrc: "img_r6_q5_amyadams.jpg",
+        answer: "Amy Adams",
+        answerSubline: "Minnesota, 1990s — famously has zero Oscar wins despite six nominations",
         answerImg: "img_r6_q5_amyadams.jpg",
-        note:     "Adams worked at a Hooters restaurant in Colorado in her late teens to save money for acting classes. She went on to receive six Academy Award nominations. She has never won, which is one of Hollywood's most persistent oversights. She wore the orange shorts so she could learn her craft.",
+        note: "Six nominations. Zero wins. One of Hollywood\'s most persistent oversights. She wore the orange shorts so she could learn her craft.",
         multiChoice: []
       }
     ]
   },
-
-  // ════════════════════════════════════════════════
-  // ROUND 7 — SARA'S FAVORITE FACTS (JEOPARDY)
-  // ════════════════════════════════════════════════
+  // ═══════════════════════════════════════════════
   {
     id: "sara",
-    name: "SARA'S FAVORITE FACTS",
+    name: "SARA\'S FAVOURITE FACTS",
     subname: "",
     badge: "ROUND 7",
-    format: "Jeopardy style — categories on screen. First team to buzz in with correct answer gets +1. Wrong answer: −1.",
-    hostNote: "The category board is shown on the main screen in this round. Use the Buzzer Tracker in the host panel to manage scoring. Click a category to load its question.",
+    format: "Jeopardy style. First team to buzz in with correct answer gets +1. Wrong answer: −1.",
+    hostNote: "Use the Buzzer Tracker in the host panel. Click a category to load its question.",
     questions: [
       {
-        question: "What was General Patton doing on D-Day?",
-        category: "HISTORY",
-        categoryIcon: "🏛",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "Leading a fake army of inflatable tanks in England",
-        answerSubline: "Operation Fortitude",
+        question: "Operation Fortitude was a massive WWII deception operation that used a fake army of inflatable rubber tanks to trick Hitler.\n\nWhat was General Patton doing on D-Day?",
+        category: "HISTORY", categoryIcon: "🏛",
+        mediaType: "none", mediaSrc: "",
+        answer: "Leading a fake army",
+        answerSubline: "June 6, 1944 — Patton was kept on the sidelines intentionally",
         answerImg: "",
-        note:     "Operation Fortitude was one of the most successful deception operations in military history. The Allies created a fictional army group — complete with fake tanks, fake radio traffic, and fake supply depots — to convince Hitler the real invasion was coming at Pas-de-Calais rather than Normandy. Patton was chosen as its fictional commander because the Germans believed he was the best American general. The inflatable tanks were made by a theatrical prop company.",
+        note: "Because the Germans feared him above all other Allied commanders, his placement in Kent completely convinced Hitler that the Normandy landings were just a diversion.",
         multiChoice: []
       },
       {
-        question: "What is the quantum physics theory illustrated by Schrödinger's Cat?",
-        category: "SCIENCE",
-        categoryIcon: "⚛",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "Superposition",
-        answerSubline: "Particles existing in multiple states until observed",
+        question: "Schrödinger\'s Cat is a famous thought experiment involving a cat in a box that is simultaneously alive and dead.\n\nWhat is the fundamental quantum physics theory this scenario is meant to illustrate?",
+        category: "SCIENCE", categoryIcon: "⚛",
+        mediaType: "none", mediaSrc: "",
+        answer: "Superposition",
+        answerSubline: "Formulated by Erwin Schrödinger in 1935",
         answerImg: "",
-        note:     "Schrödinger invented the thought experiment to mock quantum theory, not explain it. The irony is that superposition is now the founding principle of quantum computing. Every major tech company on earth is racing to build one.",
+        note: "Superposition is the cornerstone of modern quantum computing, allowing qubits to exist as both a 1 and a 0 at the same time, processing calculations at speeds impossible for standard computers.",
         multiChoice: []
       },
       {
-        question: "Salvador Dali designed the logo for a famous sweet that is still sold today. He personally chose the daisy shape.\n\nWhich sweet?",
-        category: "ART",
-        categoryIcon: "🎨",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "Chupa Chups",
-        answerSubline: "Dali completed the logo in roughly one hour, over lunch, in 1969.",
+        question: "In 1969, a Spanish artist was paid a reported fee of just $1,000 to redesign a confectionery logo and made one suggestion that changed how the product was seen forever.\n\nWho was the artist, and what was the product?",
+        category: "ART", categoryIcon: "🎨",
+        mediaType: "none", mediaSrc: "",
+        answer: "Salvador Dalí — Chupa Chups",
+        answerSubline: "1969 — Dalí understood branding before branding was a common word",
         answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Chupa_Chups_logo.svg/1200px-Chupa_Chups_logo.svg.png",
-        note:     "Dalí designed it in an hour over lunch. The daisy has been unchanged for 50+ years.",
-        noteScript: "He suggested placing the logo on top of the sweet rather than on the side so it would always be visible. Dalí understood branding before branding was a word.",
+        note: "Placing the logo on top meant it was always visible no matter how the sweet was held. Dalí reportedly sketched the bright daisy shape over lunch on a newspaper.",
         multiChoice: []
       },
       {
         question: "Before becoming the fire-breathing, blood-spitting frontman of KISS, Gene Simmons was seriously considering which profession?",
-        category: "MUSIC",
-        categoryIcon: "🎸",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "Rabbi",
-        answerSubline: "Born Chaim Witz. Haifa, Israel. 1949.",
+        category: "MUSIC", categoryIcon: "🎸",
+        mediaType: "none", mediaSrc: "",
+        answer: "A Rabbi",
+        answerSubline: "Born Chaim Witz in Haifa, Israel",
         answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/KISS_-_Gene_Simmons_2012.jpg/800px-KISS_-_Gene_Simmons_2012.jpg",
-        note:     "Born Chaim Witz in Haifa. His mother survived Auschwitz. Rock and roll intervened.",
-        noteScript: "The family emigrated to New York when he was eight. He was raised in a devout Jewish household and was seriously considering a religious path. KISS has sold over 100 million records worldwide.",
+        note: "Raised in a deeply devout household, he attended a theological seminary and seriously considered a rabbinical path before pivoting to teaching sixth grade in Spanish Harlem, and eventually, rock stardom.",
         multiChoice: []
       },
       {
-        question: "Dolly the sheep — the world's first successfully cloned mammal — was named after Dolly Parton.\n\nWhy?",
-        category: "POP CULTURE",
-        categoryIcon: "🌟",
-        mediaType: "image",
-        mediaSrc:  "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Dolly_face_closeup.jpg/800px-Dolly_face_closeup.jpg",
-        answer:   "She was cloned from a mammary gland cell",
-        answerSubline: "The scientists thought that was funny.",
+        question: "Dolly the sheep, the first mammal cloned from an adult cell, was created in 1996 at the Roslin Institute in Scotland.\n\nHow did she get her name?",
+        category: "POP CULTURE", categoryIcon: "🌟",
+        mediaType: "image", mediaSrc: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Dolly_face_closeup.jpg/800px-Dolly_face_closeup.jpg",
+        answer: "She was cloned from a mammary gland cell and the researcher named her after Dolly Parton",
+        answerSubline: "Roslin Institute, Edinburgh, 1996",
         answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Dolly_Parton_1982.jpg/800px-Dolly_Parton_1982.jpg",
-        note:     "Dolly Parton's response: 'I'm honoured to be even a part of her name.'",
-        noteScript: "Dolly the sheep was created in 1996 at the Roslin Institute in Scotland. She is now stuffed and on display at the National Museum of Scotland in Edinburgh. The researcher said Dolly Parton had the most famous mammary glands he could think of.",
+        note: "The lead researcher candidly admitted that Dolly Parton had the most famous mammary glands he could think of, so it felt like an appropriate tribute.",
+        multiChoice: []
+      }
+    ]
+  },
+  // ═══════════════════════════════════════════════
+  {
+    id: "pride",
+    name: "THE PRIDE ROUND",
+    subname: "",
+    badge: "ROUND 9",
+    format: "Traditional scoring. Answers at end of round.",
+    hostNote: "Great crowd round for Tel Aviv — lean into the energy.",
+    questions: [
+      {
+        question: "In 1998, the Eurovision Song Contest became a massive milestone for trans visibility when an international pop icon won the entire competition with the hit track Diva.\n\nName the artist.",
+        mediaType: "none", mediaSrc: "",
+        answer: "Dana International",
+        answerSubline: "Representing Israel at Eurovision 1998 in Birmingham",
+        answerImg: "img_r9_q1_dana.jpg",
+        note: "Her victory sparked a massive wave of global media attention and faced intense domestic theological opposition before she took the stage. Her win cemented her as a definitive icon of Middle Eastern pop music.",
+        multiChoice: []
+      },
+      {
+        question: "Tel Aviv famously hosts a massive Pride parade every June, but the movement had humble beginnings.\n\nIn what year did the city hold its very first official, municipal-sponsored Pride Parade?",
+        mediaType: "none", mediaSrc: "",
+        answer: "B — 1998",
+        answerSubline: "Following Dana International\'s historic Eurovision win that same year",
+        answerImg: "",
+        note: "While smaller political marches took place in Sheinkin and Rabin Square starting in 1993, 1998 marked the first time the city municipality officially backed and organised the parade.",
+        multiChoice: ["A) 1993", "B) 1998 ← CORRECT", "C) 2001", "D) 2005"]
+      },
+      {
+        question: "Because the acronym used to be standard as \"GLBT\" with the G up front, the decision to move the L to the very beginning of the LGBTQ+ initialism was an intentional political statement.\n\nWhat major historical event in the 1980s prompted this permanent shift?",
+        mediaType: "none", mediaSrc: "",
+        answer: "The AIDS Epidemic — and the massive wave of lesbian caregiving and activism that followed",
+        answerSubline: "Lesbians took the lead in organising care networks, blood drives, and hospice support",
+        answerImg: "",
+        note: "When the crisis hit gay men, government inaction left many completely abandoned. The lesbian community stepped up to run blood drives, staff hospital rooms, and lead radical activist networks.",
+        multiChoice: []
+      },
+      {
+        question: "Tel Aviv is globally recognised as a safe haven and massive hub for the queer community.\n\nApproximately what percentage of Tel Aviv\'s total population identifies as LGBTQ+?",
+        mediaType: "none", mediaSrc: "",
+        answer: "C — 25%",
+        answerSubline: "Roughly one in four residents identifies as part of the community",
+        answerImg: "",
+        note: "This concentration places Tel Aviv alongside San Francisco and Berlin for local queer density, completely shaping the culture, nightlife, and daily social fabric of the entire city.",
+        multiChoice: ["A) 10%", "B) 15%", "C) 25% ← CORRECT", "D) 35%"]
+      },
+      {
+        question: "While Pride parades are banned or heavily restricted across most of the region, which tiny landlocked European principality became one of the latest countries to host its first-ever official Pride festival?",
+        mediaType: "none", mediaSrc: "",
+        answer: "C — Liechtenstein",
+        answerSubline: "Liechtenstein held its inaugural Pride festival in June 2022",
+        answerImg: "",
+        note: "While places like Malta and Cyprus have long-established annual celebrations, these tiny independent European states mark the newest borders to break through with public pride visibility.",
+        multiChoice: ["A) Malta", "B) Cyprus", "C) Liechtenstein ← CORRECT", "D) San Marino"]
+      }
+    ]
+  },
+  // ═══════════════════════════════════════════════
+  {
+    id: "telaviv",
+    name: "LOCAL EXPERT",
+    subname: "TEL AVIV",
+    badge: "ROUND 10",
+    format: "Traditional scoring. Answers at end of round.",
+    hostNote: "Home crowd advantage round — lean into it. The R2M question will cause arguments.",
+    questions: [
+      {
+        question: "Long before it became a bustling avenue of high-end real estate and Bauhaus architecture, the land that is now Rothschild Boulevard served what highly practical municipal purpose for the very first families of Ahuzat Bayit in 1909?",
+        mediaType: "none", mediaSrc: "",
+        answer: "A sand dunes wadi used to dump trash",
+        answerSubline: "The street was built over a natural seasonal topography depression",
+        answerImg: "",
+        note: "The terrain was considered completely unbuildable. The founders filled it in with topsoil, planted trees down the centre, and accidentally created the most expensive strip of pavement in the modern country.",
+        multiChoice: []
+      },
+      {
+        question: "Tel Aviv consistently ranks as one of the highest cities in the world for dog ownership per capita. With over 25,000 registered dogs running around a relatively small urban footprint, which specific central neighbourhood holds the title for the highest concentration of dogs per block?",
+        mediaType: "none", mediaSrc: "",
+        answer: "Florentin",
+        answerSubline: "South Tel Aviv — the undisputed hub for local pet density",
+        answerImg: "",
+        note: "The neighbourhood\'s industrial conversions, young population, and lack of private green yards mean the sidewalks operate as a non-stop chaotic dog meetup every single hour of the day.",
+        multiChoice: []
+      },
+      {
+        question: "In the summer of 2011, the defining socioeconomic event of modern Tel Aviv history took place when a massive public protest encampment took over Rothschild Boulevard.\n\nWhat specific everyday supermarket staple served as the catalyst that sparked the entire national movement?",
+        mediaType: "none", mediaSrc: "",
+        answer: "Cottage cheese",
+        answerSubline: "The 2011 Israeli Social Justice Protests",
+        answerImg: "",
+        note: "What began as a Facebook boycott against the soaring price of Tnuva cottage cheese exploded into a historic wave of demonstrations against the country\'s general cost of living and housing crisis.",
+        multiChoice: []
+      },
+      {
+        question: "Every year, real estate rankings highlight the staggering cost of living in Tel Aviv. Which specific deeply unglamorous apartment feature determines whether your rental cost stays reasonable or instantly skyrockets by 2,000 shekels a month?",
+        mediaType: "none", mediaSrc: "",
+        answer: "A dedicated parking spot (Tabu)",
+        answerSubline: "Private parking ownership is registered in the land registry",
+        answerImg: "",
+        note: "Because the municipality has aggressively removed street parking in favour of bike lanes and bus routes, an apartment with an official deeded parking spot in central Tel Aviv is treated like gold dust.",
+        multiChoice: []
+      },
+      {
+        question: "If you try to grab a table anywhere in Lev HaIr on a weekend, you are likely sitting inside an establishment owned by a single powerhouse hospitality entity.\n\nWhich dominant group operates the Bakery chain, Delicatessen, Herzl 16, and Hotel Montefiore?",
+        mediaType: "none", mediaSrc: "",
+        answer: "B — R2M",
+        answerSubline: "Founded by Ruthie and Mati Broudo",
+        answerImg: "",
+        note: "R2M practically engineered the aesthetic and service standards of modern central Tel Aviv dining over the last two decades.",
+        multiChoice: ["A) The Triger Group", "B) R2M ← CORRECT", "C) The Brothers Group (HaAchim)", "D) Nox Group"]
+      }
+    ]
+  },
+  // ═══════════════════════════════════════════════
+  {
+    id: "currentevents",
+    name: "CURRENT EVENTS",
+    subname: "THIS MONTH IN HISTORY",
+    badge: "ROUND 11",
+    format: "TBD — questions in progress. Closes the quiz.",
+    hostNote: "Add questions here before game night using the same format as all other rounds.",
+    questions: [
+      {
+        question: "Current Events questions coming soon.",
+        mediaType: "none", mediaSrc: "",
+        answer: "TBD",
+        answerSubline: "",
+        answerImg: "",
+        note: "Add your current events questions to the data menu before game night.",
         multiChoice: []
       }
     ]
   },
 
-  // ════════════════════════════════════════════════
-  // ROUND 8 — DOUBLE DOWN
-  // ════════════════════════════════════════════════
+  // ═══════════════════════════════════════════════
+  // ROUND 11 — CURRENT EVENTS (IN PROGRESS)
+  // ═══════════════════════════════════════════════
   {
     id: "doubledown",
     name: "DOUBLE DOWN",
     subname: "",
     badge: "ROUND 8",
     format: "Wager round. Before each question teams write a wager from 0 to their current score. Right: add it. Wrong: lose it.",
-    hostNote: "Collect wagers BEFORE showing each question — use the Wager Input in the host panel. Read the wager rule clearly before Q1.",
+    hostNote: "Collect wagers BEFORE showing each question.",
     questions: [
       {
-        question: "In 2019, Maurizio Cattelan duct-taped a banana to a wall and sold it for $1.04 million. In 2024, a crypto billionaire bought another edition for $6.2 million.\n\nWhat did both buyers immediately do to the artwork?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "They ate it.",
-        answerSubline: "The work is called 'Comedian.' The certificate is the art — not the banana.",
+        question: "In 2024, a piece of conceptual art consisting of a real banana duct-taped to a wall, originally sold for $120,000, was auctioned again and sold for $6.2 million.\n\nWhat did the buyer do immediately after purchasing it?",
+        mediaType: "none", mediaSrc: "",
+        answer: "He ate it",
+        answerSubline: "Buyer was crypto billionaire Justin Sun, 2024",
         answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Comedian_%28artwork%29.jpg/800px-Comedian_%28artwork%29.jpg",
-        note:     "$6.2 million. It was a Cavendish. You can buy one for about 30 cents.",
-        noteScript: "The 2024 buyer was Justin Sun, a crypto billionaire who ate it on camera at a press conference. He said he was experiencing the artwork. The certificate of authenticity is the actual artwork — the banana can be replaced.",
+        note: "Sun said he was \"experiencing the artwork.\" The certificate of authenticity is the actual artwork — the banana is completely replaceable. He bought the paper, then ate the fruit.",
         multiChoice: []
       },
       {
-        question: "The inventor of the AK-47 wrote a letter shortly before he died saying he was tormented by the thought of all the people killed by his invention.\n\nWho was he?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "Mikhail Kalashnikov",
-        answerSubline: "An estimated 100 million AK-47s exist worldwide.",
+        question: "This Soviet weapons designer was self-taught, wounded fighting the Germans in WWII, and wanted to create a rifle simple enough for any soldier to use. He succeeded beyond any conceivable measure — his design became the most produced firearm in history.\n\nWhat is his last name?",
+        mediaType: "none", mediaSrc: "",
+        answer: "Kalashnikov",
+        answerSubline: "Mikhail Kalashnikov — the AK-47, first produced 1947",
         answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/AK-47_and_AKM_Surface-to-air_type_2.jpg/1200px-AK-47_and_AKM_Surface-to-air_type_2.jpg",
-        note:     "At age 93, he wrote to the Russian Orthodox Church asking if he bore moral responsibility. He died two weeks later.",
-        noteScript: "He was a self-taught weapons designer, wounded fighting the Germans in WWII. He wanted to create a weapon simple enough for any Soviet soldier to use. He succeeded beyond any conceivable measure.",
+        note: "An estimated 100 million AK-47s exist worldwide. Kalashnikov expressed philosophical regret late in life about the sheer scale of global violence his creation facilitated.",
         multiChoice: []
       },
       {
-        question: "The Eiffel Tower was almost demolished in 1909 when its original permit expired.\n\nIt was saved by one thing. What?",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "B — It was turned into a radio antenna",
-        answerSubline: "The most visited monument in the world was saved by military pragmatism.",
+        question: "The Eiffel Tower was built as a temporary structure for the 1889 World\'s Fair and was always intended to be demolished. Parisians largely hated it.\n\nWhat saved it?",
+        mediaType: "none", mediaSrc: "",
+        answer: "It was repurposed as a radio antenna and used to intercept and jam German communications during WWI",
+        answerSubline: "Built 1889 — saved by military use in WWI",
         answerImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/800px-Tour_Eiffel_Wikimedia_Commons.jpg",
-        note:     "During the 1914 Battle of the Marne, the tower's transmitter called up reserve troops — an act that may have turned the war.",
-        noteScript: "The tower was built as a temporary structure for the 1889 World's Fair and was always intended to be demolished. Parisians largely hated it. The French military realised its antenna could intercept enemy radio communications and jammed German signals during WWI.",
-        multiChoice: ["A) Gustav Eiffel bribed the city council", "B) It was turned into a radio antenna ← CORRECT", "C) A petition signed by artists including Monet and Maupassant", "D) It became too expensive to demolish"]
-      }
-    ]
-  },
-
-  // ════════════════════════════════════════════════
-  // ROUND 9 — CURRENT EVENTS
-  // ════════════════════════════════════════════════
-  {
-    id: "currentevents",
-    name: "CURRENT EVENTS",
-    subname: "THIS MONTH IN HISTORY",
-    badge: "ROUND 9",
-    format: "To be written late June 2026. Closes the quiz.",
-    hostNote: "Placeholder round — add questions here before game night using the same question object structure.",
-    questions: [
-      {
-        question: "This round will be written in late June 2026 to capture the freshest current events.\n\nAdd questions to the 'currentevents' round in the data menu at the top of this file.",
-        mediaType: "none",
-        mediaSrc:  "",
-        answer:   "TBD",
-        answerSubline: "",
-        answerImg: "",
-        note:     "Add question objects to the questions array of this round using the same format as all other rounds.",
+        note: "The French military realised its height made it an unparalleled transmission tower. It intercepted vital enemy radio signals during the war, directly turning a temporary eyesore into an invaluable strategic asset.",
         multiChoice: []
       }
     ]
   }
-
 ]; // END ROUNDS
 
 // Sara's category board — order matches the 5 questions in the 'sara' round
@@ -709,9 +723,10 @@ body{
 #stage{
   flex:1;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
+  width:100%;
   height:calc(100vh - 2.75rem);
   max-height:calc(100vh - 2.75rem);
-  padding:1.5vh 3vw;
+  padding:0;
   position:relative;
   overflow:hidden;
   box-sizing:border-box;
@@ -910,19 +925,23 @@ body{
 /* back to title button removed */
 
 /* ── ROUND NAV ──────────────────────────────────────────── */
-#roundNav{gap:1.5vh;width:100%;padding:3vh 4vw;justify-content:center;}
+#roundNav{gap:1vh;width:100%;padding:2vh 2.5vw;justify-content:center;}
 .rnav-title{
-  font-family:var(--font-d);font-size:clamp(1rem,2vw,1.3rem);
+  font-family:var(--font-d);font-size:clamp(.85rem,1.5vw,1.1rem);
   letter-spacing:.3em;color:var(--textMuted);text-transform:uppercase;
+  flex-shrink:0;
 }
 .rnav-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-  gap:.8rem;width:100%;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:.55rem;width:100%;
+  flex:1;min-height:0;
+  align-content:start;
 }
 /* round card accent colours — one per round slot */
 .rnav-card{
   background:var(--surface);border:2px solid var(--border);border-radius:var(--r);
-  padding:1.4rem 1.6rem;cursor:pointer;text-align:left;
+  padding:.75rem 1rem;cursor:pointer;text-align:left;
   transition:border-color var(--t) var(--ease),background var(--t) var(--ease),transform var(--t) var(--ease),box-shadow var(--t) var(--ease);
   position:relative;overflow:hidden;
 }
@@ -933,13 +952,13 @@ body{
 }
 .rnav-card:hover{
   border-color:var(--card-accent,var(--accent));
-  background:var(--surface2);transform:translateY(-4px);
+  background:var(--surface2);transform:translateY(-3px);
   box-shadow:0 8px 32px rgba(0,0,0,.3);
 }
 .rnav-card.done{opacity:.35}
-.rnav-badge{font-family:var(--font-d);font-size:.75rem;letter-spacing:.2em;color:var(--card-accent,var(--accent));text-transform:uppercase;margin-bottom:.4rem}
-.rnav-label{font-family:var(--font-d);font-weight:700;font-size:1.15rem;line-height:1.2}
-.rnav-pts{font-family:var(--font-d);font-size:.7rem;color:var(--textDim);margin-top:.4rem;letter-spacing:.05em}
+.rnav-badge{font-family:var(--font-d);font-size:.6rem;letter-spacing:.18em;color:var(--card-accent,var(--accent));text-transform:uppercase;margin-bottom:.2rem}
+.rnav-label{font-family:var(--font-d);font-weight:700;font-size:.95rem;line-height:1.2}
+.rnav-pts{font-family:var(--font-d);font-size:.6rem;color:var(--textDim);margin-top:.25rem;letter-spacing:.04em}
 
 .rnav-menu-foot{
   font-family:'Cormorant Garamond',Georgia,serif;
@@ -949,7 +968,7 @@ body{
 }
 
 /* ── ROUND INTRO ────────────────────────────────────────── */
-#roundIntro{gap:2vh;text-align:center;width:100%;position:relative;justify-content:center;padding:3vh 6vw;}
+#roundIntro{gap:2vh;text-align:center;width:100%;height:100%;position:relative;justify-content:center;padding:4vh 8vw;}
 #roundIntro::before{
   content:'';position:absolute;top:-30vh;left:50%;transform:translateX(-50%);
   width:80vw;height:80vw;border-radius:50%;pointer-events:none;z-index:0;
@@ -1546,10 +1565,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // SCREENS
 function showScreen(name) {
   ['titleScreen','roundNav','roundIntro','questionView','answerView','saraBoard','lbScreen']
-    .forEach(id => document.getElementById(id).classList.remove('active'));
+    .forEach(id => document.getElementById(id)?.classList.remove('active'));
   const nb = document.getElementById('navBar');
-  if (['questionView','answerView'].includes(name)) nb.classList.remove('hidden');
-  else nb.classList.add('hidden');
+  if (nb) {
+    if (['questionView','answerView'].includes(name)) nb.classList.remove('hidden');
+    else nb.classList.add('hidden');
+  }
   document.getElementById(name)?.classList.add('active');
   mode = name;
 
@@ -1630,19 +1651,22 @@ function showRoundNav() { buildRnavGrid(); showScreen('roundNav'); setHpNote('Se
 // Accent colour per round slot — cycles through pride-ish palette
 const ROUND_COLORS = [
   '#ff6eb4', // warm up — pink
-  '#f59e0b', // round 1 — amber (A Round)
+  '#f59e0b', // round 1 — amber
   '#22c55e', // round 2 — green
   '#f97316', // round 3 — orange
   '#ef4444', // round 4 — red
   '#a855f7', // round 5 — purple
   '#06b6d4', // round 6 — cyan
   '#eab308', // round 7 — yellow
-  '#ec4899', // round 8 — pink
-  '#4f46e5', // round 9 — indigo
+  '#ec4899', // round 8 — hot pink (pride)
+  '#10b981', // round 9 — emerald (tel aviv)
+  '#8b5cf6', // round 11 — violet (current events)
+  '#f59e0b', // round 12 — gold (double down)
 ];
 
 function buildRnavGrid() {
   const g = document.getElementById('rnavGrid');
+  if (!g) return;
   g.innerHTML = '';
   ROUNDS.forEach((r,i) => {
     const c = document.createElement('div');
@@ -1852,7 +1876,9 @@ function buildMedia(type, src) {
 
 // SARA BOARD
 function buildSaraGrid() {
-  document.getElementById('saraGrid').innerHTML = SARA_CATEGORIES.map((cat,i)=>`
+  const g = document.getElementById('saraGrid');
+  if (!g) return;
+  g.innerHTML = SARA_CATEGORIES.map((cat,i)=>`
     <div class="sara-cat" id="saraCat_${i}" onclick="selectSaraCat(${i})">
       <span class="sara-cat-icon">${cat.icon}</span>
       <span class="sara-cat-label">${cat.label}</span>
@@ -1918,6 +1944,7 @@ function clearTeams(){
 function adjustScore(idx,d){teams[idx].score+=d;renderScoreboard();renderPanelLb();}
 function renderScoreboard(){
   const el=document.getElementById('scoreboard');
+  if(!el) return;
   if(!teams.length){el.innerHTML='<p style="font-size:.78rem;color:var(--textDim);margin-top:.5rem">No teams yet.</p>';return;}
   el.innerHTML=teams.map((t,i)=>`
     <div class="sc-card">
@@ -1933,6 +1960,7 @@ function renderScoreboard(){
 }
 function renderPanelLb(){
   const el=document.getElementById('panelLb');
+  if(!el) return;
   if(!teams.length){el.innerHTML='<p style="font-size:.75rem;color:var(--textDim)">—</p>';return;}
   const s=[...teams].sort((a,b)=>b.score-a.score);
   el.innerHTML=s.map((t,i)=>`
