@@ -1811,11 +1811,25 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('INIT ERROR:', e.message, e.stack);
   }
 
-  // Intro loop — starts on first user interaction (browser autoplay policy)
-  // Use once:true so it auto-removes after firing
-  const _startIntro = () => {
-    if (SFX.introLoop) { SFX.introLoop.currentTime=0; SFX.introLoop.play().catch(()=>{}); }
+  // Intro loop — prime on mousemove so it's instant when clicked
+  let _audioPrimed = false;
+  const _primeAudio = () => {
+    if (_audioPrimed || !SFX.introLoop) return;
+    _audioPrimed = true;
+    SFX.introLoop.volume = 0;
+    SFX.introLoop.play().then(() => {
+      SFX.introLoop.pause();
+      SFX.introLoop.currentTime = 0;
+      SFX.introLoop.volume = 0.55;
+    }).catch(()=>{});
+    document.removeEventListener('mousemove', _primeAudio);
+    document.removeEventListener('touchstart', _primeAudio);
   };
+  const _startIntro = () => {
+    if (SFX.introLoop) { SFX.introLoop.currentTime=0; SFX.introLoop.volume=0.55; SFX.introLoop.play().catch(()=>{}); }
+  };
+  document.addEventListener('mousemove', _primeAudio);
+  document.addEventListener('touchstart', _primeAudio);
   document.addEventListener('click', _startIntro, { once: true });
   document.addEventListener('keydown', _startIntro, { once: true });
 
@@ -1840,8 +1854,9 @@ function _applyScreen(name) {
   // Remove wager result overlay when leaving answer view
   const wro = document.getElementById('wagerResultOverlay');
   if (wro) wro.remove();
-  // Fade YouTube if leaving question view
-  if (mode === 'questionView') ytFade();
+  // Stop YouTube on every screen change except when staying in question/answer views within same round
+  if (name !== 'questionView' && name !== 'answerView') ytStop();
+  else if (mode === 'questionView') ytFade();
   // Stop intro loop when leaving title screen
   if (mode === 'titleScreen' && name !== 'titleScreen' && SFX.introLoop) {
     SFX.introLoop.pause(); SFX.introLoop.currentTime=0;
@@ -2648,6 +2663,7 @@ function ytToggle(videoId, btnEl) {
 }
 
 function ytStop() {
+  _ytPending = null;
   try {
     if (_ytPlayer && _ytReady) {
       _ytPlayer.stopVideo();
