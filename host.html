@@ -611,7 +611,7 @@ const ROUNDS = [
     name: "CURRENT EVENTS",
     subname: "THIS MONTH IN HISTORY",
     badge: "ROUND 11",
-    format: "TBD, questions in progress. Closes the quiz.",
+    format: "Wager round. Before each question teams write a wager from 0 to their current score. Right: add it. Wrong: lose it.",
     hostNote: "Add questions here before game night using the same format as all other rounds.",
     questions: [
       {
@@ -631,10 +631,11 @@ const ROUNDS = [
   // ═══════════════════════════════════════════════
   {
     id: "doubledown",
-    name: "DOUBLE DOWN",
-    subname: "",
-    badge: "ROUND 8",
-    format: "Wager round. Before each question teams write a wager from 0 to their current score. Right: add it. Wrong: lose it.",
+    name: "PLEASE SIR",
+    navName: "P.S.M.I.H.S.M.",
+    subname: "MAY I HAVE SOME MORE?",
+    badge: "BONUS",
+    format: "you nerds",
     hostNote: "Collect wagers BEFORE showing each question.",
     questions: [
       {
@@ -751,6 +752,8 @@ body{
   background:#080412;
 }
 .screen.active{display:flex;}
+/* Title screen needs its content wrapper to handle centering */
+#titleScreen.active { align-items:stretch; justify-content:stretch; }
 
 /* ── COLOUR WIPE TRANSITION ─────────────────────────────── */
 #wipeOverlay {
@@ -793,54 +796,28 @@ body{
 }
 
 /* ── TITLE SCREEN ───────────────────────────────────────── */
-/* ── TITLE SCREEN ───────────────────────────────────────── */
-#titleScreen{
-  position:relative;
-  overflow:hidden;
-  background:#080412;
-  /* Fill stage completely */
-  width:100%;
-  height:100%;
-  /* Centre everything */
-  display:flex !important;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+#titleScreen {
+  background: #080412;
+  text-align: center;
 }
 
-/* Ghost "2" watermark */
-#sparkle2Text {
-  position:absolute;
-  right:-4vw;
-  top:50%;
-  transform:translateY(-50%);
-  font-family: 'DM Serif Display', Georgia, serif;
-  font-style: italic;
-  font-size: clamp(12rem, 40vw, 46rem);
-  line-height: 1;
-  color: rgba(255,255,255,0.04);
-  pointer-events:none;
-  user-select:none;
-  z-index:0;
-  letter-spacing:-.05em;
-}
+/* #sparkle2Text removed — replaced by SEASON II marker */
 
-/* Title content — vertically centred */
+/* Content wrapper — fills screen, centres content */
 .title-content {
-  position:relative;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:2vh;
-  padding:0 4vw;
-  width:100%;
-  /* Do NOT set height here — let flexbox centre it naturally */
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2vh;
+  padding: 0 4vw;
+  width: 100%;
+  height: 100%;
 }
 
-/* ── ANIMATED BACKGROUND CANVAS ─────────────────────────── */
+
 #titleBg {
   position:fixed;
   top:0;left:0;width:100vw;height:100vh;
@@ -910,7 +887,19 @@ body{
   filter: drop-shadow(0 0 40px rgba(255,100,200,.25));
 }
 
-/* #sparkle2Text now handled in #titleScreen block above */
+
+
+/* ── SEASON II marker ───────────────────────────────────── */
+.title-season {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: clamp(.7rem, 1vw, .9rem);
+  letter-spacing: .55em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  margin-top: -.5vh;
+  animation: issueIn .8s var(--ease) .6s both;
+}
 
 /* ── THIN RULE ───────────────────────────────────────────── */
 .title-rule {
@@ -1599,7 +1588,6 @@ body{
   .ans-note{font-size:1.1vw}
   .ri-name{font-size:6vw}
   .title-main{font-size:7vw}
-  #sparkle2Text{font-size:15vw}
   .q-prog{height:6px}
 }
 </style>
@@ -1613,7 +1601,7 @@ body{
 <div id="wagerModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:300;background:rgba(8,4,18,0.96);flex-direction:column;align-items:center;justify-content:center;gap:3vh;padding:4vh 4vw;box-sizing:border-box;">
   <p style="font-family:var(--font-d);font-size:.75rem;letter-spacing:.3em;color:var(--textDim);text-transform:uppercase;">Double Down</p>
   <h2 style="font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,5vw,4rem);color:#fff;text-align:center;line-height:1;">Place Your Wagers</h2>
-  <p style="font-size:.85rem;color:var(--textMuted);text-align:center;">Each team bets between 0 and their current score</p>
+  <p style="font-size:.85rem;color:var(--textMuted);text-align:center;">Place your bets</p>
   <div id="wagerModalGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;width:100%;max-width:900px;"></div>
   <button onclick="revealDoubleDownQuestion()" style="margin-top:1vh;padding:1.2rem 4rem;background:transparent;border:2px solid rgba(255,255,255,.8);border-radius:0;font-family:var(--font-d);font-weight:700;font-size:1rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;cursor:pointer;transition:background .3s;">REVEAL QUESTION →</button>
 </div>
@@ -1633,17 +1621,12 @@ body{
   <canvas id="titleBg"></canvas>
 
   <!-- TITLE -->
-  <div id="titleScreen" class="screen pop-in">
-    <!-- Disco ball canvas — drawn by JS -->
-    <canvas id="discoBallCanvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
-
-    <!-- Ghost "2" watermark behind everything -->
-    <span id="sparkle2Text" aria-hidden="true">2</span>
-
-    <!-- Content -->
+  <div id="titleScreen" class="screen">
+    <!-- Content centred -->
     <div class="title-content">
       <p class="title-masthead">your most unemployed friend presents</p>
       <h1 class="title-main" id="titleMain">SO YOU THINK<br>YOU KNOW THINGS</h1>
+      <p class="title-season">SEASON II</p>
       <div class="title-rule"></div>
       <button class="title-btn" id="letsGoBtn" onclick="fireworksThenNav()"><span>LET'S GOOOOOOO</span></button>
     </div>
@@ -1829,13 +1812,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Intro loop — starts on first user interaction (browser autoplay policy)
-  const _unlockAudio = () => {
+  // Use once:true so it auto-removes after firing
+  const _startIntro = () => {
     if (SFX.introLoop) { SFX.introLoop.currentTime=0; SFX.introLoop.play().catch(()=>{}); }
-    document.removeEventListener('click', _unlockAudio);
-    document.removeEventListener('keydown', _unlockAudio);
   };
-  document.addEventListener('click', _unlockAudio);
-  document.addEventListener('keydown', _unlockAudio);
+  document.addEventListener('click', _startIntro, { once: true });
+  document.addEventListener('keydown', _startIntro, { once: true });
 
   document.addEventListener('keydown', e => {
     if (['INPUT','TEXTAREA'].includes(e.target.tagName)) return;
@@ -2009,7 +1991,7 @@ function buildRnavGrid() {
     const pts = r.questions.length;
     c.innerHTML = `
       <div class="rnav-badge">${r.badge}</div>
-      <div class="rnav-label">${r.name}</div>
+      <div class="rnav-label">${r.navName || r.name}</div>
       <div class="rnav-pts">${pts} question${pts===1?'':'s'} · ${pts} pts</div>
     `;
     c.addEventListener('click', () => selectRound(i));
@@ -2063,14 +2045,13 @@ function hexToRgba(hex, alpha) {
 function startRound() {
   if (ROUNDS[rIdx].id==='sara') { showScreen('saraBoard', true); return; }
   showScreen('questionView', true);
-  if (ROUNDS[rIdx].id === 'doubledown') { showWagerModal(); } else { renderQuestion(); }
+  if (['currentevents'].includes(ROUNDS[rIdx].id)) { showWagerModal(); } else { renderQuestion(); }
 }
 
 // NAVIGATE
 function navigate(dir) {
   if (['lbScreen','saraBoard','roundIntro','roundNav','titleScreen'].includes(mode)) {
     if (dir>0 && mode==='titleScreen') showRoundNav(); // wipe handled inside
-  if (name==='titleScreen' && SFX.introLoop) { SFX.introLoop.currentTime=0; SFX.introLoop.play().catch(()=>{}); }
     return;
   }
   if (rIdx < 0 || !ROUNDS[rIdx]) return;
@@ -2079,7 +2060,7 @@ function navigate(dir) {
     if (dir>0) {
       if (qIdx < total-1) {
         // In Double Down — show wager modal before each new question
-        if (rIdx >= 0 && ROUNDS[rIdx].id === 'doubledown') {
+        if (rIdx >= 0 && ['currentevents'].includes(ROUNDS[rIdx].id)) {
           qIdx++;
           showWagerModal();
         } else {
@@ -2260,7 +2241,7 @@ function renderAnswer() {
   // Fit answer text to viewport
   requestAnimationFrame(() => fitText(document.getElementById('ansMain'), 2.0, 4.2));
   // Show wager result buttons for Double Down
-  if (rIdx >= 0 && ROUNDS[rIdx] && ROUNDS[rIdx].id === 'doubledown') {
+  if (rIdx >= 0 && ROUNDS[rIdx] && ['currentevents'].includes(ROUNDS[rIdx].id)) {
     setTimeout(() => buildWagerResultOverlay(), 400);
   }
   sfxFadeLoop();
@@ -2706,7 +2687,6 @@ function buildWagerModal() {
     return `
     <div class="wager-team-card" id="wagerCard_${i}">
       <div class="wager-team-name">${esc(t.name)}</div>
-      <div class="wager-team-score">${t.score} pts available</div>
       <div class="wager-controls">
         <button class="wager-btn" onclick="adjustWager(${i},-1)">−</button>
         <div class="wager-amount" id="wagerAmt_${i}">0</div>
@@ -2719,8 +2699,7 @@ function buildWagerModal() {
 function adjustWager(idx, dir) {
   const team = teams[idx];
   if (!team) return;
-  const max = Math.max(team.score, 0);
-  _wagers[idx] = Math.max(0, Math.min(max, (_wagers[idx] || 0) + dir));
+  _wagers[idx] = Math.max(0, (_wagers[idx] || 0) + dir);
   const el = document.getElementById(`wagerAmt_${idx}`);
   if (el) el.textContent = _wagers[idx];
   const card = document.getElementById(`wagerCard_${idx}`);
