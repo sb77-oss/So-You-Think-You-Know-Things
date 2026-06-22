@@ -1828,6 +1828,15 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('INIT ERROR:', e.message, e.stack);
   }
 
+  // Intro loop — starts on first user interaction (browser autoplay policy)
+  const _unlockAudio = () => {
+    if (SFX.introLoop) { SFX.introLoop.currentTime=0; SFX.introLoop.play().catch(()=>{}); }
+    document.removeEventListener('click', _unlockAudio);
+    document.removeEventListener('keydown', _unlockAudio);
+  };
+  document.addEventListener('click', _unlockAudio);
+  document.addEventListener('keydown', _unlockAudio);
+
   document.addEventListener('keydown', e => {
     if (['INPUT','TEXTAREA'].includes(e.target.tagName)) return;
     if (e.key==='ArrowRight') navigate(1);
@@ -2130,10 +2139,34 @@ function renderQuestion() {
   const mediaCol=document.getElementById('qMediaCol');
   const card=document.getElementById('qCard');
   if (q.mediaType && q.mediaType!=='none' && q.mediaSrc) {
-    const qmw = document.getElementById('qMediaWrap'); if(qmw) qmw.innerHTML = buildMedia(q.mediaType, q.mediaSrc);
-    mediaCol.classList.remove('hidden');
-    card.classList.add('has-media');
-  } else { mediaCol.classList.add('hidden'); card.classList.remove('has-media'); }
+    const isAudio = q.mediaType === 'audio';
+    const qmw = document.getElementById('qMediaWrap');
+    if (qmw) qmw.innerHTML = buildMedia(q.mediaType, q.mediaSrc);
+
+    if (isAudio) {
+      // Audio — hide media col, inject play button into text col instead
+      if(mediaCol) mediaCol.classList.add('hidden');
+      if(card) { card.classList.remove('has-media'); card.classList.add('has-audio'); card.style.gridTemplateColumns='1fr'; }
+      // Inject play button below question text
+      const textCol = document.getElementById('qTextCol');
+      if (textCol && isYtSrc(q.mediaSrc)) {
+        const ytid = ytIdFrom(q.mediaSrc);
+        let existingBtn = textCol.querySelector('.yt-play-btn');
+        if (!existingBtn) {
+          const btnDiv = document.createElement('div');
+          btnDiv.innerHTML = `<div class="yt-play-btn" onclick="ytToggle('${ytid}',this)" id="ytBtn_${ytid}"><div class="yt-play-icon">▶</div></div>`;
+          textCol.appendChild(btnDiv.firstChild);
+        }
+      }
+    } else {
+      // Image/video — show media col side by side
+      if(mediaCol) mediaCol.classList.remove('hidden');
+      if(card) { card.classList.add('has-media'); card.classList.remove('has-audio'); card.style.gridTemplateColumns='1fr 1fr'; }
+    }
+  } else {
+    if(mediaCol) mediaCol.classList.add('hidden');
+    if(card) { card.style.gridTemplateColumns='1fr'; card.classList.remove('has-media','has-audio'); }
+  }
   setHpNote(r.hostNote||'');
   // Update nav label with round name in round color
   const navLbl = document.getElementById('navRoundLabel');
