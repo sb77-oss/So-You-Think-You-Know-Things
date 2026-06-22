@@ -396,7 +396,7 @@ const ROUNDS = [
       },
       {
         question: "Before he was a globally famous Hollywood A-lister, this actor fronted a deeply sincere ghost-rock band that recorded a full album with a children\'s choir.\n\nWho is he?",
-        mediaType: "audio", mediaSrc: "yt:FM3JnVZgKrI",
+        mediaType: "audio", mediaSrc: "yt:FM3JnVZgKrI:30",
         answer: "Ryan Gosling",
         answerSubline: "Dead Man's Bones, 2009",
         answerImg: "img_r6_q2_gosling_jpg_.jpeg",
@@ -2058,9 +2058,12 @@ function hexToRgba(hex, alpha) {
   return `rgba(${r},${g},${b},${alpha})`;
 }
 function startRound() {
-  if (ROUNDS[rIdx].id==='sara') { showScreen('saraBoard', true); return; }
-  showScreen('questionView', true);
-  if (['currentevents'].includes(ROUNDS[rIdx].id)) { showWagerModal(); } else { renderQuestion(); }
+  sfxPlay('letsGo');
+  setTimeout(() => {
+    if (ROUNDS[rIdx].id==='sara') { showScreen('saraBoard', true); return; }
+    showScreen('questionView', true);
+    if (['currentevents'].includes(ROUNDS[rIdx].id)) { showWagerModal(); } else { renderQuestion(); }
+  }, 600);
 }
 
 // NAVIGATE
@@ -2198,7 +2201,7 @@ function renderQuestion() {
   if (q.mediaType === 'audio' && isYtSrc(q.mediaSrc)) {
     const ytid = ytIdFrom(q.mediaSrc);
     setTimeout(() => {
-      ytPlayFrom(ytid, 0);
+      ytPlayFrom(ytid, ytStartFrom(q.mediaSrc));
       const btn = document.getElementById(`ytBtn_${ytid}`);
       if (btn) { btn.querySelector('.yt-play-icon').textContent = '⏸'; btn.classList.add('playing'); }
     }, 400);
@@ -2688,7 +2691,16 @@ function ytFade() {
 
 // Parse yt:VIDEO_ID format from mediaSrc
 function isYtSrc(src) { return src && src.startsWith('yt:'); }
-function ytIdFrom(src) { return src ? src.replace('yt:', '') : null; }
+function ytIdFrom(src) {
+  if (!src) return null;
+  const parts = src.replace('yt:', '').split(':');
+  return parts[0];
+}
+function ytStartFrom(src) {
+  if (!src) return 0;
+  const parts = src.replace('yt:', '').split(':');
+  return parts[1] ? parseInt(parts[1]) : 0;
+}
 
 
 // ── DOUBLE DOWN WAGER SYSTEM ──────────────────────────────────
