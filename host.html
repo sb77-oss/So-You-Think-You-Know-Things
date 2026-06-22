@@ -44,6 +44,16 @@ const ROUNDS = [
     hostNote: "Don't reveal the theme upfront. Let it land on the answer slides.",
     questions: [
       {
+        question: "The opening number of this massively successful Broadway musical spends four minutes summarizing a historical figure's tragic childhood, survival of a hurricane, and move to New York to completely rebuild his life. Name the musical.",
+        mediaType: "audio", mediaSrc: "yt:VhinPd5RRJw",
+        answer: "Hamilton",
+        answerSubline: "Lin-Manuel Miranda · Hamilton Original Broadway Cast Recording · 2015",
+        answerImg: "",
+        answerMedia: "yt:VhinPd5RRJw", answerMediaType: "audio",
+        note: "Lin-Manuel Miranda performed an early version at the White House in 2009. Obama laughed. The room laughed. Nobody in that room thought they were watching the future of theatre.",
+        multiChoice: []
+      },
+      {
         question: "This song is about wanting to swap bodies with someone you love so you could truly understand their pain. It peaked at number 3 in the UK in 1985, was critically adored, and then vanished from the charts for nearly four decades. Name the song and the artist.",
         mediaType: "audio", mediaSrc: "yt:wp43OdtAAkM",
         answer: "Running Up That Hill (A Deal with God)",
@@ -55,13 +65,13 @@ const ROUNDS = [
         multiChoice: []
       },
       {
-        question: "The opening number of this massively successful Broadway musical spends four minutes summarizing a historical figure's tragic childhood, survival of a hurricane, and move to New York to completely rebuild his life. Name the musical.",
-        mediaType: "audio", mediaSrc: "yt:VhinPd5RRJw",
-        answer: "Hamilton",
-        answerSubline: "Lin-Manuel Miranda · Hamilton Original Broadway Cast Recording · 2015",
+        question: "Eminem won the Academy Award for Best Original Song for this track and wasn't even in the room when it happened. Name the song.",
+        mediaType: "audio", mediaSrc: "yt:7YuAzR2XVAM",
+        answer: "Lose Yourself",
+        answerSubline: "Eminem · 8 Mile Soundtrack · 2002",
         answerImg: "",
-        answerMedia: "yt:VhinPd5RRJw", answerMediaType: "audio",
-        note: "Lin-Manuel Miranda performed an early version at the White House in 2009. Obama laughed. The room laughed. Nobody in that room thought they were watching the future of theatre.",
+        answerMedia: "yt:7YuAzR2XVAM", answerMediaType: "audio",
+        note: "Written on a paper bag between takes on set. He won the Oscar and wasn't even in the room. Found out the next morning when his alarm went off for school drop-off.",
         multiChoice: []
       },
       {
@@ -72,16 +82,6 @@ const ROUNDS = [
         answerImg: "",
         answerMedia: "yt:0habxsuXW4g", answerMediaType: "audio",
         note: "The producer who wrote her off had a front-row seat to the entire thing. The album sold over 10 million copies worldwide.",
-        multiChoice: []
-      },
-      {
-        question: "Eminem won the Academy Award for Best Original Song for this track and wasn't even in the room when it happened. Name the song.",
-        mediaType: "audio", mediaSrc: "yt:7YuAzR2XVAM",
-        answer: "Lose Yourself",
-        answerSubline: "Eminem · 8 Mile Soundtrack · 2002",
-        answerImg: "",
-        answerMedia: "yt:7YuAzR2XVAM", answerMediaType: "audio",
-        note: "Written on a paper bag between takes on set. He won the Oscar and wasn't even in the room. Found out the next morning when his alarm went off for school drop-off.",
         multiChoice: []
       },
       {
@@ -793,43 +793,51 @@ body{
 }
 
 /* ── TITLE SCREEN ───────────────────────────────────────── */
+/* ── TITLE SCREEN ───────────────────────────────────────── */
 #titleScreen{
-  text-align:center;
-  justify-content:center;align-items:center;
   position:relative;
-  padding:0;
   overflow:hidden;
   background:#080412;
+  /* Fill stage completely */
+  width:100%;
+  height:100%;
+  /* Centre everything */
+  display:flex !important;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
-#titleScreen > * { position:relative; z-index:1; }
 
-/* Ghost "2" — massive watermark behind title */
+/* Ghost "2" watermark */
 #sparkle2Text {
   position:absolute;
-  right:-2vw;
+  right:-4vw;
   top:50%;
-  transform:translateY(-55%);
+  transform:translateY(-50%);
   font-family: 'DM Serif Display', Georgia, serif;
   font-style: italic;
-  font-size: clamp(12rem, 45vw, 52rem);
+  font-size: clamp(12rem, 40vw, 46rem);
   line-height: 1;
-  color: rgba(255,255,255,0.035);
+  color: rgba(255,255,255,0.04);
   pointer-events:none;
   user-select:none;
   z-index:0;
   letter-spacing:-.05em;
-  animation: issueIn 1.2s var(--ease) .3s both;
 }
 
-/* Title content block — centred over the ghost 2 */
+/* Title content — vertically centred */
 .title-content {
   position:relative;
   z-index:2;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:2.5vh;
+  justify-content:center;
+  gap:2vh;
   padding:0 4vw;
+  width:100%;
+  /* Do NOT set height here — let flexbox centre it naturally */
 }
 
 /* ── ANIMATED BACKGROUND CANVAS ─────────────────────────── */
@@ -867,20 +875,21 @@ body{
 .title-masthead {
   font-family: var(--font-d);
   font-weight: 300;
-  font-size: clamp(.75rem, 1.2vw, 1rem);
-  letter-spacing: .45em;
+  font-size: clamp(.8rem, 1.1vw, 1rem);
+  letter-spacing: .4em;
   text-transform: lowercase;
-  color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.38);
   display: inline-block;
   animation: issueIn .8s var(--ease) .1s both;
+  margin-bottom: .5vh;
 }
 
 /* ── MAIN TITLE ──────────────────────────────────────────── */
 .title-main{
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: clamp(2rem, 7vw, 9rem);
-  line-height: .88;
+  font-size: clamp(2.5rem, 7.5vw, 9rem);
+  line-height: .85;
   letter-spacing: -.04em;
   will-change:background-position;
   background: linear-gradient(
@@ -905,19 +914,22 @@ body{
 
 /* ── THIN RULE ───────────────────────────────────────────── */
 .title-rule {
-  width: 60px;
+  width: 48px;
   height: 1px;
-  background: rgba(255,255,255,.2);
-  animation: issueIn .8s var(--ease) .7s both;
+  background: rgba(255,255,255,.18);
+  margin: .5vh 0;
 }
 
 /* ── BUTTON — typographic, editorial ─────────────────────── */
 .title-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: .5rem;
-  margin-top: 2rem;
-  padding: 1.1rem 3.5rem;
+  width: fit-content;
+  max-width:320px;
+  align-self: center;
+  padding: .9rem 2.5rem;
   background: transparent;
   border: 2px solid rgba(255,255,255,.85);
   border-radius: 0;  /* sharp corners — editorial */
@@ -1092,28 +1104,85 @@ body{
   align-content:center;
   transition:background .5s ease;
 }
+
+/* Spinning vinyl record — shown behind audio questions */
+.q-card.has-audio::before {
+  content:'';
+  position:absolute;
+  width:min(55vh,55vw);
+  height:min(55vh,55vw);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%, #1a1a1a 0%, #1a1a1a 12%,
+      transparent 12%, transparent 14%,
+      #111 14%, #111 15%,
+      #222 15%, #222 16%,
+      #111 16%, #111 100%),
+    repeating-conic-gradient(
+      from 0deg,
+      #1a1a1a 0deg 1deg,
+      #2a2a2a 1deg 2deg
+    );
+  box-shadow:
+    0 0 0 2px #333,
+    0 0 60px rgba(var(--round-color-rgb, 124,58,237),.2),
+    0 0 120px rgba(var(--round-color-rgb, 124,58,237),.1);
+  animation: spinRecord 4s linear infinite;
+  opacity:.18;
+  pointer-events:none;
+  z-index:0;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}
+@keyframes spinRecord {
+  from { transform:translate(-50%,-50%) rotate(0deg); }
+  to   { transform:translate(-50%,-50%) rotate(360deg); }
+}
+/* Label in centre of record */
+.q-card.has-audio::after {
+  content:'';
+  position:absolute;
+  width:min(16vh,16vw);
+  height:min(16vh,16vw);
+  border-radius:50%;
+  background:radial-gradient(circle, var(--round-color) 0%, rgba(0,0,0,.8) 100%);
+  opacity:.15;
+  pointer-events:none;
+  z-index:0;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  animation: spinRecord 4s linear infinite;
+}
+
 /* image questions: side by side */
 .q-card.has-media{
   grid-template-columns:1fr 1fr;
   align-items:center;
 }
-/* audio questions: stack vertically */
+/* audio questions — full width centred */
 .q-card.has-audio{
   grid-template-columns:1fr;
-  grid-template-rows:1fr auto;
-  align-items:start;
-}
-.q-card.has-audio .q-media-col{
-  display:flex;
   align-items:center;
+  justify-items:center;
+  display:flex;
+  flex-direction:column;
   justify-content:center;
 }
-.q-card.has-audio .q-media-wrap{
-  padding:.5rem 1rem;
+.q-card.has-audio .q-media-col{
+  display:none !important;
 }
-.q-card.has-audio audio{
+.q-card.has-audio .q-text-col{
   width:100%;
-  min-height:54px;
+  height:100%;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.q-card.has-audio .q-question{
+  text-align:center;
+  max-width:80%;
 }
 @media(max-width:900px){.q-card.has-media{grid-template-columns:1fr}}
 
@@ -1149,9 +1218,8 @@ body{
 
 .q-question{
   font-family:var(--font-d);font-weight:700;
-  /* font-size set dynamically by JS based on text length */
-  font-size:3vw;
-  line-height:1.22;letter-spacing:-.01em;
+  font-size:2.8vw;
+  line-height:1.25;letter-spacing:-.01em;
   white-space:pre-line;
   color:var(--round-color);
   transition:color .5s ease;
@@ -1233,8 +1301,7 @@ body{
 }
 .ans-main{
   font-family:var(--font-d);font-weight:800;
-  /* font-size set dynamically by JS */
-  font-size:5vw;
+  font-size:4.5vw;
   line-height:1.05;letter-spacing:-.02em;
   color:#ffffff;
 }
@@ -1678,7 +1745,7 @@ body{
       <button class="btn btn-amber" onclick="showLb()">SCORES</button>
       <button class="btn btn-ghost" id="answersBtn" onclick="jumpToAnswers()">ANSWERS</button>
       <button class="btn btn-violet" onclick="showRoundNav()">ROUNDS</button>
-      <button class="btn btn-ghost" onclick="showScreen('titleScreen')">HOME</button>
+      <button class="btn btn-ghost" onclick="showScreen('titleScreen'); if(SFX.introLoop){SFX.introLoop.currentTime=0;SFX.introLoop.play().catch(()=>{});}; sfxStopLoop();">HOME</button>
       <button class="btn btn-primary" onclick="navigate(1)">NEXT →</button>
     </div>
   </div>
@@ -1784,6 +1851,14 @@ function _applyScreen(name) {
   if (wro) wro.remove();
   // Fade YouTube if leaving question view
   if (mode === 'questionView') ytFade();
+  // Stop intro loop when leaving title screen
+  if (mode === 'titleScreen' && name !== 'titleScreen' && SFX.introLoop) {
+    SFX.introLoop.pause(); SFX.introLoop.currentTime=0;
+  }
+  // Restart intro loop when returning to title screen
+  if (name === 'titleScreen' && SFX.introLoop) {
+    setTimeout(() => { SFX.introLoop.currentTime=0; SFX.introLoop.play().catch(()=>{}); }, 200);
+  }
   ['titleScreen','roundNav','roundIntro','questionView','answerView','saraBoard','lbScreen']
     .forEach(id => document.getElementById(id)?.classList.remove('active'));
   const nb = document.getElementById('navBar');
@@ -1824,6 +1899,10 @@ function doWipeTransition(callback) {
 
 // FIREWORKS then navigate
 function fireworksThenNav() {
+  // Stop intro loop, play the yeah
+  if (SFX.introLoop) { SFX.introLoop.pause(); SFX.introLoop.currentTime=0; }
+  sfxPlay('letsGo');
+
   launchFireworks();
   setTimeout(() => showRoundNav(), 900); // showRoundNav now uses wipe internally
 }
@@ -1982,6 +2061,7 @@ function startRound() {
 function navigate(dir) {
   if (['lbScreen','saraBoard','roundIntro','roundNav','titleScreen'].includes(mode)) {
     if (dir>0 && mode==='titleScreen') showRoundNav(); // wipe handled inside
+  if (name==='titleScreen' && SFX.introLoop) { SFX.introLoop.currentTime=0; SFX.introLoop.play().catch(()=>{}); }
     return;
   }
   if (rIdx < 0 || !ROUNDS[rIdx]) return;
@@ -2084,7 +2164,7 @@ function renderQuestion() {
   }
 
   // Fit question text to viewport — short = big, long = smaller
-  requestAnimationFrame(() => fitText(document.getElementById('qQuestion'), 1.6, 3.8));
+  requestAnimationFrame(() => fitText(document.getElementById('qQuestion'), 1.8, 3.2));
   // Play YouTube audio if this question uses it
   if (q.mediaType === 'audio' && isYtSrc(q.mediaSrc)) {
     const ytid = ytIdFrom(q.mediaSrc);
@@ -2145,7 +2225,7 @@ function renderAnswer() {
   }
 
   // Fit answer text to viewport
-  requestAnimationFrame(() => fitText(document.getElementById('ansMain'), 1.6, 5.0));
+  requestAnimationFrame(() => fitText(document.getElementById('ansMain'), 2.0, 4.2));
   // Show wager result buttons for Double Down
   if (rIdx >= 0 && ROUNDS[rIdx] && ROUNDS[rIdx].id === 'doubledown') {
     setTimeout(() => buildWagerResultOverlay(), 400);
@@ -2218,9 +2298,15 @@ function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').rep
 
 // BUILD MEDIA
 function buildMedia(type, src) {
-  if (!src) return `<div class="ph"><span class="ph-icon">${type==='audio'?'&#127925;':'&#128444;'}</span>File not found</div>`;
+  if (!src) return '';
   if (type==='image') return `<img src="${src}" alt="" onerror="if(this.parentElement){this.onerror=null;this.parentElement.innerHTML='<div class=ph><span class=ph-icon>&#128444;</span></div>';}">`;
-  if (type==='audio') return `<audio controls src="${src}"></audio>`;
+  if (type==='audio') {
+    if (isYtSrc(src)) {
+      const ytid = ytIdFrom(src);
+      return `<div class="yt-play-btn" onclick="ytToggle('${ytid}',this)" id="ytBtn_${ytid}"><div class="yt-play-icon">▶</div></div>`;
+    }
+    return `<audio controls src="${src}" style="width:100%;display:block"></audio>`;
+  }
   if (type==='video') return `<iframe src="${src}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
   return '';
 }
@@ -2402,7 +2488,7 @@ function applyAllWagers(dir){teams.forEach((_,i)=>applyWager(i,dir));}
 //   sfx_winner.mp3         — winner fanfare (leaderboard)
 // Missing files fail silently.
 // ══════════════════════════════════════════════════════════════
-const SFX = { questionLoop:null, fanfare:null, answerSting:null, winner:null };
+const SFX = { questionLoop:null, fanfare:null, answerSting:null, winner:null, introLoop:null, letsGo:null };
 let _loopPlaying = false;
 
 function initSounds() {
@@ -2419,6 +2505,8 @@ function initSounds() {
   SFX.fanfare      = load('sfx_round_fanfare.mp3', 0.6);
   SFX.answerSting  = load('sfx_answer_sting.mp3',  0.7);
   SFX.winner       = load('sfx_winner.mp3',         0.75);
+  SFX.introLoop    = load('380823__frankum__yeah-techno-loop.mp3', 0.55, true);
+  SFX.letsGo       = load('320739__druki__yeah.mp3', 0.85);
 }
 
 function sfxPlay(key) {
