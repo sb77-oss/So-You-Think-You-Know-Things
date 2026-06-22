@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SO YOU THINK YOU KNOW THINGS — S2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:wght@600;700&family=DM+Serif+Display:ital@0;1&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
 <!-- ════════════════════════════════════════════════════════════
      ██  CONFIGURATION DATA MENU  ██
@@ -45,52 +45,52 @@ const ROUNDS = [
     questions: [
       {
         question: "This song is about wanting to swap bodies with someone you love so you could truly understand their pain. It peaked at number 3 in the UK in 1985, was critically adored, and then vanished from the charts for nearly four decades. Name the song and the artist.",
-        mediaType: "audio", mediaSrc: "audio_warmup_q1.mp3",
+        mediaType: "audio", mediaSrc: "yt:wp43OdtAAkM",
         answer: "Running Up That Hill (A Deal with God)",
         answerSubline: "Kate Bush · Hounds of Love · 1985",
         answerYear: "37 years later it became the biggest song on earth.",
         answerImg: "",
-        answerMedia: "audio_warmup_q1.mp3", answerMediaType: "audio",
+        answerMedia: "yt:wp43OdtAAkM", answerMediaType: "audio",
         note: "It took a fictional dying teenager in Indiana to finally give it its crown. 37 years after release it became the biggest song on earth.",
         multiChoice: []
       },
       {
         question: "The opening number of this massively successful Broadway musical spends four minutes summarizing a historical figure's tragic childhood, survival of a hurricane, and move to New York to completely rebuild his life. Name the musical.",
-        mediaType: "audio", mediaSrc: "audio_warmup_q2.mp3",
+        mediaType: "audio", mediaSrc: "yt:VhinPd5RRJw",
         answer: "Hamilton",
         answerSubline: "Lin-Manuel Miranda · Hamilton Original Broadway Cast Recording · 2015",
         answerImg: "",
-        answerMedia: "audio_warmup_q2.mp3", answerMediaType: "audio",
+        answerMedia: "yt:VhinPd5RRJw", answerMediaType: "audio",
         note: "Lin-Manuel Miranda performed an early version at the White House in 2009. Obama laughed. The room laughed. Nobody in that room thought they were watching the future of theatre.",
         multiChoice: []
       },
       {
         question: "A producer once told this artist she was finished. She went on to release the best-selling album of 2005. Name the song that anchored the comeback.",
-        mediaType: "audio", mediaSrc: "audio_warmup_q3.mp3",
+        mediaType: "audio", mediaSrc: "yt:0habxsuXW4g",
         answer: "We Belong Together",
         answerSubline: "Mariah Carey · The Emancipation of Mimi · 2005",
         answerImg: "",
-        answerMedia: "audio_warmup_q3.mp3", answerMediaType: "audio",
+        answerMedia: "yt:0habxsuXW4g", answerMediaType: "audio",
         note: "The producer who wrote her off had a front-row seat to the entire thing. The album sold over 10 million copies worldwide.",
         multiChoice: []
       },
       {
         question: "Eminem won the Academy Award for Best Original Song for this track and wasn't even in the room when it happened. Name the song.",
-        mediaType: "audio", mediaSrc: "audio_warmup_q4.mp3",
+        mediaType: "audio", mediaSrc: "yt:7YuAzR2XVAM",
         answer: "Lose Yourself",
         answerSubline: "Eminem · 8 Mile Soundtrack · 2002",
         answerImg: "",
-        answerMedia: "audio_warmup_q4.mp3", answerMediaType: "audio",
+        answerMedia: "yt:7YuAzR2XVAM", answerMediaType: "audio",
         note: "Written on a paper bag between takes on set. He won the Oscar and wasn't even in the room. Found out the next morning when his alarm went off for school drop-off.",
         multiChoice: []
       },
       {
         question: "This artist took the title of his final song from a Marcus Garvey speech about freeing yourself from mental slavery. He recorded it while dying of cancer and never heard how it landed. Name the song and the artist.",
-        mediaType: "audio", mediaSrc: "audio_warmup_q5.mp3",
+        mediaType: "audio", mediaSrc: "yt:yv5xonFSC4c",
         answer: "Redemption Song",
         answerSubline: "Bob Marley · Uprising · 1980",
         answerImg: "",
-        answerMedia: "audio_warmup_q5.mp3", answerMediaType: "audio",
+        answerMedia: "yt:yv5xonFSC4c", answerMediaType: "audio",
         note: "He was dying of cancer when he recorded it. He never heard how it landed. Marley distilled an entire political philosophy into an acoustic guitar and three minutes.",
         multiChoice: []
       }
@@ -396,7 +396,7 @@ const ROUNDS = [
       },
       {
         question: "Before he was a globally famous Hollywood A-lister, this actor fronted a deeply sincere ghost-rock band that recorded a full album with a children\'s choir.\n\nWho is he?",
-        mediaType: "audio", mediaSrc: "audio_r6_q2_deadmansbones.mp3",
+        mediaType: "audio", mediaSrc: "yt:FM3JnVZgKrI",
         answer: "Ryan Gosling",
         answerSubline: "Dead Man's Bones, 2009",
         answerImg: "img_r6_q2_gosling_jpg_.jpeg",
@@ -712,12 +712,13 @@ const SCORING = { maxTeams: 10 };
 
 /* ── RESET ──────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:16px}
+html{font-size:16px;background:#080412;}body,#stage{background:#080412;}
 body{
-  background:var(--bg);color:var(--text);font-family:var(--font-b);
+  background:#080412;color:var(--text);font-family:var(--font-b);
   height:100vh;max-height:100vh;
   display:flex;flex-direction:column;
   overflow:hidden;-webkit-font-smoothing:antialiased;
+  -webkit-overflow-scrolling:touch;
 }
 
 /* ── STAGE — exact viewport height ──────────────────────── */
@@ -747,6 +748,7 @@ body{
   position:relative;z-index:1;
   overflow:hidden;
   box-sizing:border-box;
+  background:#080412;
 }
 .screen.active{display:flex;}
 
@@ -757,9 +759,9 @@ body{
   pointer-events:none;
   z-index:500;
   transform:translateX(-100%);
-  /* Dark tinted with just a hint of round colour — not blinding */
   background:rgba(8,4,18,0.92);
   transition:none;
+  will-change:transform;
 }
 #wipeOverlay.wipe-in  { animation: wipeIn  .45s cubic-bezier(.86,0,.07,1) forwards; }
 #wipeOverlay.wipe-out { animation: wipeOut .45s cubic-bezier(.86,0,.07,1) forwards; }
@@ -792,9 +794,42 @@ body{
 
 /* ── TITLE SCREEN ───────────────────────────────────────── */
 #titleScreen{
-  text-align:center;gap:1.5vh;justify-content:center;align-items:center;
+  text-align:center;
+  justify-content:center;align-items:center;
   position:relative;
-  padding:3vh 4vw;
+  padding:0;
+  overflow:hidden;
+  background:#080412;
+}
+#titleScreen > * { position:relative; z-index:1; }
+
+/* Ghost "2" — massive watermark behind title */
+#sparkle2Text {
+  position:absolute;
+  right:-2vw;
+  top:50%;
+  transform:translateY(-55%);
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(12rem, 45vw, 52rem);
+  line-height: 1;
+  color: rgba(255,255,255,0.035);
+  pointer-events:none;
+  user-select:none;
+  z-index:0;
+  letter-spacing:-.05em;
+  animation: issueIn 1.2s var(--ease) .3s both;
+}
+
+/* Title content block — centred over the ghost 2 */
+.title-content {
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2.5vh;
+  padding:0 4vw;
 }
 
 /* ── ANIMATED BACKGROUND CANVAS ─────────────────────────── */
@@ -828,16 +863,15 @@ body{
   to   { opacity:1; transform:translateY(0); }
 }
 
-/* ── MASTHEAD — handwritten, personal ───────────────────── */
+/* ── MASTHEAD — fine editorial sans ─────────────────────── */
 .title-masthead {
-  font-family: 'Caveat', cursive;
-  font-weight: 600;
-  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
-  letter-spacing: .02em;
-  text-transform: none;
-  color: rgba(255,255,255,.55);
+  font-family: var(--font-d);
+  font-weight: 300;
+  font-size: clamp(.75rem, 1.2vw, 1rem);
+  letter-spacing: .45em;
+  text-transform: lowercase;
+  color: rgba(255,255,255,.4);
   display: inline-block;
-  margin-bottom: .75rem;
   animation: issueIn .8s var(--ease) .1s both;
 }
 
@@ -845,74 +879,36 @@ body{
 .title-main{
   font-family: var(--font-d);
   font-weight: 800;
-  font-size: clamp(3rem, 7.5vw, 8.5rem);
+  font-size: clamp(2rem, 7vw, 9rem);
   line-height: .88;
   letter-spacing: -.04em;
-  /* Glossy lacquered pride — rainbow with a white sheen layer */
+  will-change:background-position;
   background: linear-gradient(
-    175deg,
-    rgba(255,255,255,.9) 0%,
-    rgba(255,255,255,.0) 18%,
-    #ff0000 22%,
-    #ff8c00 33%,
-    #ffed00 44%,
-    #008026 55%,
-    #004dff 66%,
-    #750787 77%,
-    rgba(255,255,255,.0) 82%,
-    rgba(255,255,255,.5) 100%
+    90deg,
+    #ff0000 0%,
+    #ff8c00 16%,
+    #ffed00 32%,
+    #008026 48%,
+    #004dff 64%,
+    #750787 80%,
+    #ff0000 100%
   );
-  background-size: 300% 300%;
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: prideShift 8s ease infinite, titleReveal .9s var(--ease) .2s both;
-  /* Glossy sheen via filter */
-  filter: drop-shadow(0 2px 0 rgba(0,0,0,.4))
-          drop-shadow(0 0 60px rgba(124,58,237,.3));
+  animation: prideShift 6s ease infinite, titleReveal .9s var(--ease) .3s both;
+  filter: drop-shadow(0 0 40px rgba(255,100,200,.25));
 }
 
-/* ── THE "2" ─────────────────────────────────────────────── */
-#sparkle2Text {
-  font-family: 'DM Serif Display', Georgia, serif;
-  font-style: italic;
-  font-size: clamp(6rem, 16vw, 15rem);
-  line-height: 1;
-  display: block;
-  padding: .1em .15em;
-  /* Clean white with a subtle rainbow shimmer underneath */
-  background: linear-gradient(
-    160deg,
-    #ffffff 0%,
-    rgba(255,255,255,.95) 30%,
-    rgba(255,180,200,.9) 45%,
-    rgba(180,160,255,.9) 60%,
-    rgba(255,255,255,.95) 75%,
-    #ffffff 100%
-  );
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: prideShift 5s ease-in-out infinite,
-             issueIn 1s var(--ease) .5s both;
-  letter-spacing: -.03em;
-  /* Depth — like embossed ink on magazine cover */
-  filter:
-    drop-shadow(0 4px 0 rgba(0,0,0,.35))
-    drop-shadow(0 0 80px rgba(255,200,230,.4))
-    drop-shadow(0 0 160px rgba(180,100,255,.25));
-}
+/* #sparkle2Text now handled in #titleScreen block above */
 
-/* ── ISSUE LINE — between 2 and button ───────────────────── */
-.title-issue-line {
-  font-family: 'DM Serif Display', Georgia, serif;
-  font-style: italic;
-  font-size: clamp(.85rem, 1.5vw, 1.1rem);
-  color: var(--textMuted);
-  letter-spacing: .08em;
-  margin-top: .5rem;
-  animation: issueIn .8s var(--ease) .8s both;
+/* ── THIN RULE ───────────────────────────────────────────── */
+.title-rule {
+  width: 60px;
+  height: 1px;
+  background: rgba(255,255,255,.2);
+  animation: issueIn .8s var(--ease) .7s both;
 }
 
 /* ── BUTTON — typographic, editorial ─────────────────────── */
@@ -1071,14 +1067,14 @@ body{
   animation:pillShimmer 3s ease-in-out infinite;
 }
 @keyframes pillShimmer {
-  0%,100% { opacity:1; }
-  50%      { opacity:.65; }
+  0%,40%,100% { opacity:1; }
+  70%         { opacity:.7; }
 }
 .q-counter{font-family:var(--font-d);font-size:.95rem;color:var(--textDim);letter-spacing:.1em}
 
 /* progress */
 .q-prog{width:100%;height:4px;background:var(--border);border-radius:99px;overflow:hidden;flex-shrink:0;}
-.q-prog-fill{height:100%;background:var(--round-color);border-radius:99px;transition:width .6s var(--ease),background .5s ease}
+.q-prog-fill{height:100%;background:var(--round-color);border-radius:99px;transition:width .6s var(--ease),background .5s ease;will-change:width;}
 .q-prog-fill.last-question{animation:progPulse 1s ease-in-out infinite;}
 @keyframes progPulse{0%,100%{opacity:1;}50%{opacity:.45;}}
 
@@ -1438,6 +1434,55 @@ body{
 .plb-name{flex:1;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .plb-pts{font-family:var(--font-d);font-weight:700;font-size:.9rem;color:var(--accent)}
 
+/* YouTube audio indicator */
+.yt-audio-indicator {
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1rem;padding:2rem;
+}
+.yt-audio-icon {
+  font-size:3rem;
+  color:var(--round-color);
+  animation:pillShimmer 1.5s ease-in-out infinite;
+}
+.yt-audio-label {
+  font-family:var(--font-d);
+  font-size:.8rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--textMuted);
+}
+
+/* wager modal team card */
+.wager-team-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:1.25rem 1rem;
+  display:flex;flex-direction:column;
+  align-items:center;gap:.75rem;
+  transition:border-color .2s;
+}
+.wager-team-card.active { border-color:var(--amber); }
+.wager-team-name { font-family:var(--font-d);font-weight:700;font-size:1rem;color:var(--text);text-align:center; }
+.wager-team-score { font-size:.75rem;color:var(--textMuted); }
+.wager-amount { font-family:var(--font-d);font-weight:800;font-size:2.5rem;color:var(--amber);min-width:3rem;text-align:center; }
+.wager-controls { display:flex;gap:.5rem;align-items:center; }
+.wager-btn { width:2.5rem;height:2.5rem;border-radius:50%;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:1.2rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s; }
+.wager-btn:hover { background:var(--accent);border-color:var(--accent); }
+
+/* after-answer result buttons */
+.wager-result-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;width:100%;max-width:900px; }
+.wager-result-card { background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1rem;display:flex;flex-direction:column;align-items:center;gap:.5rem; }
+.wager-result-name { font-family:var(--font-d);font-weight:700;font-size:.9rem; }
+.wager-result-bet { font-size:.75rem;color:var(--textMuted); }
+.wager-result-btns { display:flex;gap:.5rem; }
+.wager-correct { padding:.5rem 1.2rem;background:rgba(34,197,94,.15);border:1px solid #22c55e;border-radius:var(--rsm);color:#22c55e;font-family:var(--font-d);font-weight:700;font-size:.85rem;cursor:pointer;transition:background .15s; }
+.wager-correct:hover { background:rgba(34,197,94,.3); }
+.wager-wrong { padding:.5rem 1.2rem;background:rgba(239,68,68,.15);border:1px solid #ef4444;border-radius:var(--rsm);color:#ef4444;font-family:var(--font-d);font-weight:700;font-size:.85rem;cursor:pointer;transition:background .15s; }
+.wager-wrong:hover { background:rgba(239,68,68,.3); }
+.wager-done { opacity:.35;pointer-events:none; }
+
 /* wager */
 .wager-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:.45rem}
 .wager-row{background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:.45rem .6rem;display:flex;flex-direction:column;gap:.28rem}
@@ -1488,9 +1533,25 @@ body{
   .q-prog{height:6px}
 }
 </style>
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
 
+
+<!-- WAGER MODAL -->
+<div id="wagerModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:300;background:rgba(8,4,18,0.96);flex-direction:column;align-items:center;justify-content:center;gap:3vh;padding:4vh 4vw;box-sizing:border-box;">
+  <p style="font-family:var(--font-d);font-size:.75rem;letter-spacing:.3em;color:var(--textDim);text-transform:uppercase;">Double Down</p>
+  <h2 style="font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,5vw,4rem);color:#fff;text-align:center;line-height:1;">Place Your Wagers</h2>
+  <p style="font-size:.85rem;color:var(--textMuted);text-align:center;">Each team bets between 0 and their current score</p>
+  <div id="wagerModalGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;width:100%;max-width:900px;"></div>
+  <button onclick="revealDoubleDownQuestion()" style="margin-top:1vh;padding:1.2rem 4rem;background:transparent;border:2px solid rgba(255,255,255,.8);border-radius:0;font-family:var(--font-d);font-weight:700;font-size:1rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;cursor:pointer;transition:background .3s;">REVEAL QUESTION →</button>
+</div>
+
+<!-- Hidden YouTube Player -->
+<div id="ytPlayerWrap" style="position:fixed;bottom:-200px;left:-200px;width:1px;height:1px;overflow:hidden;pointer-events:none;z-index:-1;">
+  <div id="ytPlayer"></div>
+</div>
 
 <!-- COLOUR WIPE OVERLAY -->
 <div id="wipeOverlay"></div>
@@ -1503,10 +1564,19 @@ body{
 
   <!-- TITLE -->
   <div id="titleScreen" class="screen pop-in">
-    <p class="title-masthead">your most unemployed friend presents</p>
-    <h1 class="title-main" id="titleMain">SO YOU THINK<br>YOU KNOW THINGS</h1>
-    <span id="sparkle2Text">2</span>
-    <button class="title-btn" id="letsGoBtn" onclick="fireworksThenNav()"><span>LET'S GOOOOOOO</span></button>
+    <!-- Disco ball canvas — drawn by JS -->
+    <canvas id="discoBallCanvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+
+    <!-- Ghost "2" watermark behind everything -->
+    <span id="sparkle2Text" aria-hidden="true">2</span>
+
+    <!-- Content -->
+    <div class="title-content">
+      <p class="title-masthead">your most unemployed friend presents</p>
+      <h1 class="title-main" id="titleMain">SO YOU THINK<br>YOU KNOW THINGS</h1>
+      <div class="title-rule"></div>
+      <button class="title-btn" id="letsGoBtn" onclick="fireworksThenNav()"><span>LET'S GOOOOOOO</span></button>
+    </div>
   </div>
 
   <!-- ROUND NAV -->
@@ -1682,6 +1752,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderScoreboard(); renderPanelLb(); rebuildWagerGrid();
     showScreen('titleScreen');
     initTitleBg();
+  try { /* initDiscoBalls(); — disabled, causing iOS script errors */ } catch(de) { }
   initSounds();
   } catch(e) {
     console.error('INIT ERROR:', e.message, e.stack);
@@ -1705,6 +1776,11 @@ function showScreen(name, useWipe) {
 }
 
 function _applyScreen(name) {
+  // Remove wager result overlay when leaving answer view
+  const wro = document.getElementById('wagerResultOverlay');
+  if (wro) wro.remove();
+  // Fade YouTube if leaving question view
+  if (mode === 'questionView') ytFade();
   ['titleScreen','roundNav','roundIntro','questionView','answerView','saraBoard','lbScreen']
     .forEach(id => document.getElementById(id)?.classList.remove('active'));
   const nb = document.getElementById('navBar');
@@ -1746,7 +1822,7 @@ function doWipeTransition(callback) {
 // FIREWORKS then navigate
 function fireworksThenNav() {
   launchFireworks();
-  setTimeout(() => showRoundNav(), 900);
+  setTimeout(() => showRoundNav(), 900); // showRoundNav now uses wipe internally
 }
 
 function launchFireworks() {
@@ -1811,7 +1887,7 @@ function launchFireworks() {
   });
 }
 
-function showRoundNav() { buildRnavGrid(); showScreen('roundNav'); setHpNote('Select a round to begin.'); }
+function showRoundNav() { buildRnavGrid(); showScreen('roundNav', true); setHpNote('Select a round to begin.'); }
 
 // ROUND NAV
 // Accent colour per round slot — cycles through pride-ish palette
@@ -1895,21 +1971,39 @@ function hexToRgba(hex, alpha) {
 }
 function startRound() {
   if (ROUNDS[rIdx].id==='sara') { showScreen('saraBoard', true); return; }
-  showScreen('questionView', true); renderQuestion();
+  showScreen('questionView', true);
+  if (ROUNDS[rIdx].id === 'doubledown') { showWagerModal(); } else { renderQuestion(); }
 }
 
 // NAVIGATE
 function navigate(dir) {
   if (['lbScreen','saraBoard','roundIntro','roundNav','titleScreen'].includes(mode)) {
-    if (dir>0 && mode==='titleScreen') showRoundNav();
+    if (dir>0 && mode==='titleScreen') showRoundNav(); // wipe handled inside
     return;
   }
   if (rIdx < 0 || !ROUNDS[rIdx]) return;
   const total = ROUNDS[rIdx].questions.length;
   if (mode==='questionView') {
     if (dir>0) {
-      if (qIdx < total-1) { qIdx++; renderQuestion(); }
-      else { aIdx=0; showScreen('answerView'); renderAnswer(); }
+      if (qIdx < total-1) {
+        // In Double Down — show wager modal before each new question
+        if (rIdx >= 0 && ROUNDS[rIdx].id === 'doubledown') {
+          qIdx++;
+          showWagerModal();
+        } else {
+          qIdx++; renderQuestion();
+        }
+      }
+      else {
+        // Fill progress bar to 100% and wait for transition before moving to answers
+        const fill = document.getElementById('qProg')?.querySelector('.q-prog-fill') ||
+                     document.querySelector('.q-prog-fill');
+        if (fill) {
+          fill.style.width = '100%';
+          fill.classList.remove('last-question'); // stop pulsing, hold solid
+        }
+        setTimeout(() => { aIdx=0; showScreen('answerView'); renderAnswer(); }, 650);
+      }
     } else {
       if (qIdx>0) { qIdx--; renderQuestion(); }
     }
@@ -1939,7 +2033,7 @@ function renderQuestion() {
   const isA = r.id==='around';
   document.getElementById('qPill').textContent = r.badge;
   setEl('qCounter','textContent', `Q ${qIdx+1} / ${total}`);
-  setStyle('qProg','width', (qIdx/total*100)+'%');
+  setStyle('qProg','width', ((qIdx+1)/total*100)+'%');
   const qEl = document.getElementById('qQuestion');
   if (qEl) qEl[isA ? 'innerHTML' : 'textContent'] = isA ? highlightA(q.question) : q.question;
   const optsEl = document.getElementById('qOpts');
@@ -1988,7 +2082,12 @@ function renderQuestion() {
 
   // Fit question text to viewport — short = big, long = smaller
   requestAnimationFrame(() => fitText(document.getElementById('qQuestion'), 1.6, 3.8));
-  sfxStartLoop();
+  // Play YouTube audio if this question uses it
+  if (q.mediaType === 'audio' && isYtSrc(q.mediaSrc)) {
+    setTimeout(() => ytPlayFrom(ytIdFrom(q.mediaSrc), 0), 300);
+  } else {
+    sfxStartLoop();
+  }
 }
 
 // RENDER ANSWER
@@ -2030,11 +2129,19 @@ function renderAnswer() {
 
   // If there's also answerMedia AND answerImg, append the audio player below the image
   if (q.answerImg && q.answerMedia && q.answerMediaType === 'audio') {
-    wrap.innerHTML += `<audio controls src="${q.answerMedia}" style="width:100%;display:block;padding:.5rem"></audio>`;
+    if (isYtSrc(q.answerMedia)) {
+      setTimeout(() => ytPlayFrom(ytIdFrom(q.answerMedia), 0), 500);
+    } else {
+      wrap.innerHTML += `<audio controls src="${q.answerMedia}" style="width:100%;display:block;padding:.5rem"></audio>`;
+    }
   }
 
   // Fit answer text to viewport
   requestAnimationFrame(() => fitText(document.getElementById('ansMain'), 1.6, 5.0));
+  // Show wager result buttons for Double Down
+  if (rIdx >= 0 && ROUNDS[rIdx] && ROUNDS[rIdx].id === 'doubledown') {
+    setTimeout(() => buildWagerResultOverlay(), 400);
+  }
   sfxFadeLoop();
   // Hide answer text immediately to prevent flash during word-reveal setup
   const _am = document.getElementById('ansMain');
@@ -2362,6 +2469,167 @@ function revealAnswerWords(el) {
   });
 }
 
+
+// ── YOUTUBE AUDIO ENGINE ──────────────────────────────────────
+// Replaces local MP3 files for warm up and before they were famous audio
+let _ytPlayer = null;
+let _ytReady  = false;
+let _ytPending = null; // { videoId, startSeconds } to play once ready
+
+window.onYouTubeIframeAPIReady = function() {
+  _ytPlayer = new YT.Player('ytPlayer', {
+    height: '1',
+    width:  '1',
+    playerVars: {
+      autoplay: 0,
+      controls: 0,
+      disablekb: 1,
+      fs: 0,
+      iv_load_policy: 3,
+      modestbranding: 1,
+      playsinline: 1,
+      rel: 0,
+    },
+    events: {
+      onReady: function() {
+        _ytReady = true;
+        if (_ytPending) {
+          ytPlayFrom(_ytPending.videoId, _ytPending.startSeconds);
+          _ytPending = null;
+        }
+      },
+      onStateChange: function(e) {
+        // When video ends or is paused externally, do nothing
+      }
+    }
+  });
+};
+
+function ytPlayFrom(videoId, startSeconds) {
+  if (!_ytReady || !_ytPlayer) {
+    _ytPending = { videoId, startSeconds: startSeconds || 0 };
+    return;
+  }
+  try {
+    _ytPlayer.loadVideoById({
+      videoId,
+      startSeconds: startSeconds || 0,
+      suggestedQuality: 'small'
+    });
+    _ytPlayer.setVolume(70);
+    _ytPlayer.playVideo();
+  } catch(e) { console.warn('YT play error:', e); }
+}
+
+function ytStop() {
+  try {
+    if (_ytPlayer && _ytReady) {
+      _ytPlayer.stopVideo();
+    }
+  } catch(e) {}
+}
+
+function ytFade() {
+  if (!_ytPlayer || !_ytReady) return;
+  let vol = 70;
+  const fade = setInterval(() => {
+    vol -= 5;
+    if (vol <= 0) {
+      clearInterval(fade);
+      ytStop();
+      try { _ytPlayer.setVolume(70); } catch(e){}
+    } else {
+      try { _ytPlayer.setVolume(vol); } catch(e){}
+    }
+  }, 60);
+}
+
+// Parse yt:VIDEO_ID format from mediaSrc
+function isYtSrc(src) { return src && src.startsWith('yt:'); }
+function ytIdFrom(src) { return src ? src.replace('yt:', '') : null; }
+
+
+// ── DOUBLE DOWN WAGER SYSTEM ──────────────────────────────────
+let _wagers = {};
+
+function buildWagerModal() {
+  const grid = document.getElementById('wagerModalGrid');
+  if (!grid) return;
+  _wagers = {};
+  grid.innerHTML = teams.map((t, i) => {
+    _wagers[i] = 0;
+    return `
+    <div class="wager-team-card" id="wagerCard_${i}">
+      <div class="wager-team-name">${esc(t.name)}</div>
+      <div class="wager-team-score">${t.score} pts available</div>
+      <div class="wager-controls">
+        <button class="wager-btn" onclick="adjustWager(${i},-1)">−</button>
+        <div class="wager-amount" id="wagerAmt_${i}">0</div>
+        <button class="wager-btn" onclick="adjustWager(${i},1)">+</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function adjustWager(idx, dir) {
+  const team = teams[idx];
+  if (!team) return;
+  const max = Math.max(team.score, 0);
+  _wagers[idx] = Math.max(0, Math.min(max, (_wagers[idx] || 0) + dir));
+  const el = document.getElementById(`wagerAmt_${idx}`);
+  if (el) el.textContent = _wagers[idx];
+  const card = document.getElementById(`wagerCard_${idx}`);
+  if (card) card.classList.toggle('active', _wagers[idx] > 0);
+}
+
+function showWagerModal() {
+  buildWagerModal();
+  const m = document.getElementById('wagerModal');
+  if (m) m.style.display = 'flex';
+}
+
+function hideWagerModal() {
+  const m = document.getElementById('wagerModal');
+  if (m) m.style.display = 'none';
+}
+
+function revealDoubleDownQuestion() {
+  hideWagerModal();
+  renderQuestion();
+  sfxStartLoop();
+}
+
+function buildWagerResultOverlay() {
+  const existing = document.getElementById('wagerResultOverlay');
+  if (existing) existing.remove();
+  if (!teams.length) return;
+  const overlay = document.createElement('div');
+  overlay.id = 'wagerResultOverlay';
+  overlay.style.cssText = 'position:fixed;bottom:3.5rem;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:.75rem;z-index:200;padding:0 2vw;';
+  overlay.innerHTML = `
+    <p style="font-family:var(--font-d);font-size:.7rem;letter-spacing:.2em;color:var(--textMuted);text-transform:uppercase;">Apply Wagers</p>
+    <div class="wager-result-grid">
+      ${teams.map((t, i) => `
+        <div class="wager-result-card" id="wagerResult_${i}">
+          <div class="wager-result-name">${esc(t.name)}</div>
+          <div class="wager-result-bet">Wagered: ${_wagers[i] || 0} pts</div>
+          <div class="wager-result-btns">
+            <button class="wager-correct" onclick="applyWagerResult(${i},1)">+${_wagers[i]||0}</button>
+            <button class="wager-wrong" onclick="applyWagerResult(${i},-1)">−${_wagers[i]||0}</button>
+          </div>
+        </div>`).join('')}
+    </div>`;
+  document.body.appendChild(overlay);
+}
+
+function applyWagerResult(idx, dir) {
+  const wager = _wagers[idx] || 0;
+  teams[idx].score += wager * dir;
+  renderScoreboard(); renderPanelLb();
+  const card = document.getElementById(`wagerResult_${idx}`);
+  if (card) card.classList.add('wager-done');
+}
+
 // SARA BUZZER
 function buildBzGrid(){
   const bzg = document.getElementById('bzGrid'); if(!bzg) return;
@@ -2410,28 +2678,168 @@ function cancelBuzzer(){
 
 // ── TITLE BACKGROUND ─────────────────────────────────────────
 // Slow moving aurora blobs — cinematic energy, no seizure risk
+
+// ── DISCO BALLS ──────────────────────────────────────────────
+function initDiscoBalls() {
+  const canvas = document.getElementById('discoBallCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+
+  function resize() {
+    const w = canvas.offsetWidth;
+    const h = canvas.offsetHeight;
+    canvas.width  = w * dpr;
+    canvas.height = h * dpr;
+    ctx.scale(dpr, dpr);
+    // Store logical dimensions for drawing
+    canvas._w = w;
+    canvas._h = h;
+  }
+  resize();
+  window.addEventListener('resize', () => { ctx.setTransform(1,0,0,1,0,0); resize(); });
+
+  // Ball definitions — position, size, rotation speed
+  const balls = [
+    { x:.18, y:.2,  r:28, speed:.004, angle:0 },
+    { x:.82, y:.15, r:22, speed:.006, angle:1 },
+    { x:.5,  y:.08, r:18, speed:.005, angle:2 },
+    { x:.08, y:.55, r:16, speed:.007, angle:0.5 },
+    { x:.92, y:.6,  r:20, speed:.004, angle:1.5 },
+  ];
+
+  // Light flecks cast by each ball
+  let flecks = [];
+
+  function spawnFlecks(ball, W, H) {
+    const bx = ball.x * W;
+    const by = ball.y * H;
+    const count = 6;
+    const hues = [330, 280, 200, 160, 60, 0, 320]; // pride + disco
+    for (let i = 0; i < count; i++) {
+      const angle = ball.angle + (i / count) * Math.PI * 2;
+      const dist  = ball.r * (3 + Math.random() * 8);
+      const hue   = hues[Math.floor(Math.random() * hues.length)];
+      flecks.push({
+        x:  bx + Math.cos(angle) * dist,
+        y:  by + Math.sin(angle) * dist,
+        vx: (Math.random() - .5) * .8,
+        vy: (Math.random() - .5) * .5,
+        size: 2 + Math.random() * 5,
+        hue,
+        life: 80 + Math.random() * 120,
+        maxLife: 0,
+      });
+      flecks[flecks.length-1].maxLife = flecks[flecks.length-1].life;
+    }
+  }
+
+  function drawBall(ctx, cx, cy, r, angle) {
+    // Sphere shading
+    const grad = ctx.createRadialGradient(cx - r*.3, cy - r*.3, r*.05, cx, cy, r);
+    grad.addColorStop(0,   'rgba(255,255,255,0.9)');
+    grad.addColorStop(0.3, 'rgba(200,180,220,0.6)');
+    grad.addColorStop(0.7, 'rgba(80,40,100,0.5)');
+    grad.addColorStop(1,   'rgba(20,10,30,0.8)');
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    // Mirror tiles
+    const tileSize = r * .22;
+    const rows = Math.floor(Math.PI * r / tileSize);
+    for (let row = 0; row < rows; row++) {
+      const phi  = (row / rows) * Math.PI;
+      const ry   = Math.sin(phi) * r;
+      const rz   = Math.cos(phi) * r;
+      const circ = Math.abs(ry) * 2;
+      const cols = Math.max(1, Math.floor(circ * Math.PI / tileSize));
+      for (let col = 0; col < cols; col++) {
+        const theta = (col / cols) * Math.PI * 2 + angle;
+        const tx = Math.cos(theta) * ry;
+        const ty = rz;
+        const tsx = cx + tx;
+        const tsy = cy - ty * .85; // slight vertical squeeze
+
+        // Tile colour varies with angle — iridescent
+        const hue = ((theta + angle * 3) * 180 / Math.PI) % 360;
+        const brightness = 0.3 + Math.abs(Math.cos(theta + angle)) * 0.7;
+        const tileAlpha  = 0.4 + brightness * 0.5;
+
+        ctx.fillStyle = `hsla(${hue},80%,${50 + brightness * 30}%,${tileAlpha})`;
+        ctx.fillRect(tsx - tileSize*.4, tsy - tileSize*.4, tileSize*.8, tileSize*.8);
+      }
+    }
+
+    // Specular highlight
+    ctx.beginPath();
+    ctx.arc(cx - r*.3, cy - r*.3, r*.18, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    ctx.fill();
+  }
+
+  let frame = 0;
+  function tick() {
+    if (!document.getElementById('titleScreen')?.classList.contains('active')) {
+      requestAnimationFrame(tick);
+      return;
+    }
+
+    const W = canvas._w || canvas.offsetWidth;
+    const H = canvas._h || canvas.offsetHeight;
+    ctx.clearRect(0, 0, W, H);
+
+    frame++;
+    balls.forEach(b => {
+      b.angle += b.speed;
+      drawBall(ctx, b.x * W, b.y * H, b.r, b.angle);
+      if (frame % 8 === 0) spawnFlecks(b, W, H);
+    });
+
+    // Draw and age flecks
+    flecks = flecks.filter(f => f.life > 0);
+    flecks.forEach(f => {
+      f.x += f.vx;
+      f.y += f.vy;
+      f.life--;
+      const alpha = (f.life / f.maxLife) * 0.7;
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.size * (f.life / f.maxLife), 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${f.hue},100%,75%,${alpha})`;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(tick);
+  }
+  tick();
+}
+
 function initTitleBg() {
   const canvas = document.getElementById('bgCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
+  const dpr = window.devicePixelRatio || 1;
   function resize() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width  = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.scale(dpr, dpr);
+    canvas._lw = window.innerWidth;
+    canvas._lh = window.innerHeight;
   }
   resize();
-  window.addEventListener('resize', resize);
+  window.addEventListener('resize', () => { ctx.setTransform(1,0,0,1,0,0); resize(); });
 
-  // Lava-lamp blobs — slow organic ooze behind everything
-  // Base palette: deep purples, magentas, midnight blues
+  // Lava-lamp blobs — visible, saturated, clearly moving
   const blobs = [
-    { x:.15, y:.25, r:.42, color:'#7c0050', vx:.00025, vy:.00018, wobble:0, wobbleSpeed:.0008 },
-    { x:.78, y:.15, r:.35, color:'#1a0044', vx:-.00022, vy:.00028, wobble:1, wobbleSpeed:.0006 },
-    { x:.5,  y:.72, r:.50, color:'#3d0066', vx:.00030, vy:-.00020, wobble:2, wobbleSpeed:.0010 },
-    { x:.88, y:.62, r:.33, color:'#550033', vx:-.00027, vy:-.00023, wobble:3, wobbleSpeed:.0007 },
-    { x:.18, y:.78, r:.32, color:'#00184d', vx:.00023, vy:-.00025, wobble:4, wobbleSpeed:.0009 },
-    { x:.62, y:.38, r:.28, color:'#66003a', vx:-.00018, vy:.00030, wobble:5, wobbleSpeed:.0005 },
-    { x:.35, y:.5,  r:.36, color:'#4a0070', vx:.00020, vy:.00022, wobble:6, wobbleSpeed:.0008 },
+    { x:.15, y:.25, r:.42, color:'#9d0060', vx:.0018, vy:.0012, wobble:0, wobbleSpeed:.008 },
+    { x:.78, y:.15, r:.35, color:'#2a0066', vx:-.0015, vy:.0020, wobble:1, wobbleSpeed:.006 },
+    { x:.5,  y:.72, r:.50, color:'#5a0088', vx:.0022, vy:-.0016, wobble:2, wobbleSpeed:.010 },
+    { x:.88, y:.62, r:.33, color:'#7a0040', vx:-.0019, vy:-.0018, wobble:3, wobbleSpeed:.007 },
+    { x:.18, y:.78, r:.32, color:'#003a6d', vx:.0016, vy:-.0022, wobble:4, wobbleSpeed:.009 },
+    { x:.62, y:.38, r:.28, color:'#880020', vx:-.0014, vy:.0025, wobble:5, wobbleSpeed:.005 },
+    { x:.35, y:.5,  r:.36, color:'#600090', vx:.0020, vy:.0018, wobble:6, wobbleSpeed:.008 },
   ];
 
   // Current round colour influence — starts neutral
@@ -2460,16 +2868,22 @@ function initTitleBg() {
   };
 
   let time = 0;
+  let _bgAnimId = null;
   function draw() {
-    requestAnimationFrame(draw);
-    time += 0.01;
+    _bgAnimId = requestAnimationFrame(draw);
+    time += 0.008;
 
-    const W = canvas.width, H = canvas.height;
+    const W = canvas._lw || window.innerWidth;
+    const H = canvas._lh || window.innerHeight;
 
     // Dark base
     ctx.clearRect(0, 0, W, H);
     ctx.fillStyle = '#080412';
     ctx.fillRect(0, 0, W, H);
+
+    // Skip expensive blob rendering when document is hidden or throttle to 30fps
+    if (document.hidden) return;
+    if (Math.round(time * 125) % 2 !== 0) return; // ~30fps for blobs
 
     blobs.forEach(b => {
       // Organic ooze movement — sine wave wobble on top of linear drift
@@ -2484,15 +2898,15 @@ function initTitleBg() {
       if (b.x < -.15 || b.x > 1.15) { b.vx *= -1; b.x = Math.max(-.1, Math.min(1.1, b.x)); }
       if (b.y < -.15 || b.y > 1.15) { b.vy *= -1; b.y = Math.max(-.1, Math.min(1.1, b.y)); }
 
-      const cx = b.x * W + Math.sin(time + b.wobble) * W * 0.03;
-      const cy = b.y * H + Math.cos(time * 0.7 + b.wobble) * H * 0.03;
-      const radius = (b.r + Math.sin(time * 0.5 + b.wobble * 2) * 0.05) * Math.max(W, H);
+      const cx = b.x * W + Math.sin(time + b.wobble) * W * 0.08;
+      const cy = b.y * H + Math.cos(time * 0.7 + b.wobble) * H * 0.08;
+      const radius = (b.r + Math.sin(time * 0.5 + b.wobble * 2) * 0.08) * Math.max(W, H);
 
       const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-      grd.addColorStop(0,   b.color + 'dd');
-      grd.addColorStop(0.35, b.color + '66');
-      grd.addColorStop(0.7,  b.color + '22');
-      grd.addColorStop(1,   b.color + '00');
+      grd.addColorStop(0,    b.color + 'ff');
+      grd.addColorStop(0.3,  b.color + 'aa');
+      grd.addColorStop(0.65, b.color + '44');
+      grd.addColorStop(1,    b.color + '00');
       ctx.fillStyle = grd;
       ctx.fillRect(0, 0, W, H);
     });
@@ -2504,7 +2918,7 @@ function initTitleBg() {
       ctx.fillRect(0, 0, W, H);
     }
 
-    // Very subtle vignette
+    // Subtle vignette
     const vgrd = ctx.createRadialGradient(W*.5,H*.5,H*.2,W*.5,H*.5,H*.9);
     vgrd.addColorStop(0,'rgba(0,0,0,0)');
     vgrd.addColorStop(1,'rgba(0,0,0,0.55)');
