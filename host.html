@@ -1434,24 +1434,27 @@ body{
 .plb-name{flex:1;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .plb-pts{font-family:var(--font-d);font-weight:700;font-size:.9rem;color:var(--accent)}
 
-/* YouTube audio indicator */
-.yt-audio-indicator {
+/* YouTube play button */
+.yt-play-btn {
   width:100%;height:100%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:1rem;padding:2rem;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  border:2px solid rgba(255,255,255,.15);
+  border-radius:var(--r);
+  transition:border-color .2s, background .2s;
+  background:rgba(255,255,255,.04);
+  min-height:120px;
 }
-.yt-audio-icon {
-  font-size:3rem;
+.yt-play-btn:hover { border-color:var(--round-color); background:rgba(255,255,255,.08); }
+.yt-play-btn.playing { border-color:var(--round-color); }
+.yt-play-icon {
+  font-size:3.5rem;
   color:var(--round-color);
-  animation:pillShimmer 1.5s ease-in-out infinite;
+  transition:transform .15s;
+  user-select:none;
 }
-.yt-audio-label {
-  font-family:var(--font-d);
-  font-size:.8rem;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  color:var(--textMuted);
-}
+.yt-play-btn:hover .yt-play-icon { transform:scale(1.1); }
+.yt-play-btn.playing .yt-play-icon { animation:pillShimmer 2s ease-in-out infinite; }
 
 /* wager modal team card */
 .wager-team-card {
@@ -1549,7 +1552,7 @@ body{
 </div>
 
 <!-- Hidden YouTube Player -->
-<div id="ytPlayerWrap" style="position:fixed;bottom:-200px;left:-200px;width:1px;height:1px;overflow:hidden;pointer-events:none;z-index:-1;">
+<div id="ytPlayerWrap" style="position:fixed;bottom:-400px;left:-400px;width:320px;height:180px;overflow:hidden;pointer-events:none;z-index:-1;">
   <div id="ytPlayer"></div>
 </div>
 
@@ -2084,7 +2087,12 @@ function renderQuestion() {
   requestAnimationFrame(() => fitText(document.getElementById('qQuestion'), 1.6, 3.8));
   // Play YouTube audio if this question uses it
   if (q.mediaType === 'audio' && isYtSrc(q.mediaSrc)) {
-    setTimeout(() => ytPlayFrom(ytIdFrom(q.mediaSrc), 0), 300);
+    const ytid = ytIdFrom(q.mediaSrc);
+    setTimeout(() => {
+      ytPlayFrom(ytid, 0);
+      const btn = document.getElementById(`ytBtn_${ytid}`);
+      if (btn) { btn.querySelector('.yt-play-icon').textContent = '⏸'; btn.classList.add('playing'); }
+    }, 400);
   } else {
     sfxStartLoop();
   }
@@ -2519,6 +2527,22 @@ function ytPlayFrom(videoId, startSeconds) {
     _ytPlayer.setVolume(70);
     _ytPlayer.playVideo();
   } catch(e) { console.warn('YT play error:', e); }
+}
+
+function ytToggle(videoId, btnEl) {
+  if (!_ytReady) return;
+  try {
+    const state = _ytPlayer.getPlayerState();
+    if (state === YT.PlayerState.PLAYING) {
+      _ytPlayer.pauseVideo();
+      if (btnEl) btnEl.querySelector('.yt-play-icon').textContent = '▶';
+      btnEl?.classList.remove('playing');
+    } else {
+      ytPlayFrom(videoId, 0);
+      if (btnEl) btnEl.querySelector('.yt-play-icon').textContent = '⏸';
+      btnEl?.classList.add('playing');
+    }
+  } catch(e) {}
 }
 
 function ytStop() {
