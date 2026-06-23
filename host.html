@@ -2236,7 +2236,8 @@ function renderAnswer() {
   if (q.answerImg) {
     wrap.innerHTML = `<img src="${q.answerImg}" alt=""
       onerror="if(this.parentElement){this.onerror=null;this.parentElement.innerHTML='<div class=ph><span class=ph-icon>🖼</span></div>';}">`;
-  } else if (q.answerMedia && q.answerMediaType) {
+  } else if (q.answerMedia && q.answerMediaType && q.answerMediaType !== 'audio') {
+    // Only show non-audio media (video etc) — audio is handled separately
     wrap.innerHTML = buildMedia(q.answerMediaType, q.answerMedia);
   } else {
     // Placeholder — tells host what file to add
@@ -2247,14 +2248,8 @@ function renderAnswer() {
     </div>`;
   }
 
-  // If there's also answerMedia AND answerImg, append the audio player below the image
-  if (q.answerImg && q.answerMedia && q.answerMediaType === 'audio') {
-    if (isYtSrc(q.answerMedia)) {
-      setTimeout(() => ytPlayFrom(ytIdFrom(q.answerMedia), 0), 500);
-    } else {
-      wrap.innerHTML += `<audio controls src="${q.answerMedia}" style="width:100%;display:block;padding:.5rem"></audio>`;
-    }
-  }
+  // Audio on answer slides: only replay non-YouTube local files if explicitly needed
+  // YouTube audio already played on question slide — don't replay on answer
 
   // Fit answer text to viewport
   requestAnimationFrame(() => fitText(document.getElementById('ansMain'), 2.0, 4.2));
