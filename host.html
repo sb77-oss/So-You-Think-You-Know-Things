@@ -1869,8 +1869,8 @@ function _applyScreen(name) {
   // Stop YouTube on every screen change except when staying in question/answer views within same round
   if (name !== 'questionView' && name !== 'answerView') ytStop();
   else if (mode === 'questionView') ytFade();
-  // Stop intro loop when leaving title screen
-  if (mode === 'titleScreen' && name !== 'titleScreen' && SFX.introLoop) {
+  // Stop intro loop whenever we're not on the title screen
+  if (name !== 'titleScreen' && SFX.introLoop) {
     SFX.introLoop.pause(); SFX.introLoop.currentTime=0;
   }
   // Restart intro loop when returning to title screen
