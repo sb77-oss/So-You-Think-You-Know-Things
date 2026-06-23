@@ -2051,9 +2051,12 @@ function selectRound(idx) {
   }
   setEl('riFormat','textContent', r.format);
 
-  // Round number watermark in background
+  // Round number watermark in background — extract number from badge (e.g. "ROUND 6" → "06")
   const numBg = document.getElementById('riNumberBg');
-  if (numBg) numBg.textContent = String(rIdx + 1).padStart(2, '0');
+  if (numBg) {
+    const badgeNum = r.badge.match(/\d+/);
+    numBg.textContent = badgeNum ? String(parseInt(badgeNum[0])).padStart(2, '0') : r.badge;
+  }
 
   showScreen('roundIntro', true);
   sfxFadeLoop();
