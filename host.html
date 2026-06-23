@@ -2139,25 +2139,27 @@ function renderQuestion() {
   const card=document.getElementById('qCard');
   if (q.mediaType && q.mediaType!=='none' && q.mediaSrc) {
     const isAudio = q.mediaType === 'audio';
-    const qmw = document.getElementById('qMediaWrap');
-    if (qmw) qmw.innerHTML = buildMedia(q.mediaType, q.mediaSrc);
 
     if (isAudio) {
-      // Audio — hide media col, inject play button into text col instead
+      // Audio — hide media col, inject play button into text col only (no duplicate in qMediaWrap)
       if(mediaCol) mediaCol.classList.add('hidden');
       if(card) { card.classList.remove('has-media'); card.classList.add('has-audio'); card.style.gridTemplateColumns='1fr'; }
+      const qmw = document.getElementById('qMediaWrap');
+      if (qmw) qmw.innerHTML = ''; // clear so no stale duplicate button lurks
       // Inject play button below question text
       const textCol = document.getElementById('qTextCol');
       if (textCol && isYtSrc(q.mediaSrc)) {
         const ytid = ytIdFrom(q.mediaSrc);
-        let existingBtn = textCol.querySelector('.yt-play-btn');
-        if (!existingBtn) {
-          const btnDiv = document.createElement('div');
-          btnDiv.innerHTML = `<div class="yt-play-btn" onclick="ytToggle('${ytid}',this)" id="ytBtn_${ytid}"><div class="yt-play-icon">▶</div></div>`;
-          textCol.appendChild(btnDiv.firstChild);
-        }
+        // Remove any pre-existing play button from a previous question
+        const staleBtn = textCol.querySelector('.yt-play-btn');
+        if (staleBtn) staleBtn.remove();
+        const btnDiv = document.createElement('div');
+        btnDiv.innerHTML = `<div class="yt-play-btn" onclick="ytToggle('${ytid}',this)" id="ytBtn_${ytid}"><div class="yt-play-icon">▶</div></div>`;
+        textCol.appendChild(btnDiv.firstChild);
       }
     } else {
+      const qmw = document.getElementById('qMediaWrap');
+      if (qmw) qmw.innerHTML = buildMedia(q.mediaType, q.mediaSrc);
       // Image/video — show media col side by side
       if(mediaCol) mediaCol.classList.remove('hidden');
       if(card) { card.classList.add('has-media'); card.classList.remove('has-audio'); card.style.gridTemplateColumns='1fr 1fr'; }
@@ -2165,6 +2167,10 @@ function renderQuestion() {
   } else {
     if(mediaCol) mediaCol.classList.add('hidden');
     if(card) { card.style.gridTemplateColumns='1fr'; card.classList.remove('has-media','has-audio'); }
+    // Clear any leftover play button injected by a previous audio question
+    const textCol = document.getElementById('qTextCol');
+    const staleBtn = textCol ? textCol.querySelector('.yt-play-btn') : null;
+    if (staleBtn) staleBtn.remove();
   }
   setHpNote(r.hostNote||'');
   // Update nav label with round name in round color
@@ -2229,23 +2235,23 @@ function renderAnswer() {
   const wrap     = document.getElementById('ansMediaWrap');
   if (!wrap) return; // guard
 
-  // Always show the media column — placeholder if nothing set yet
-  mediaCol.classList.remove('hidden');
-  card.style.gridTemplateColumns = '1fr 1fr';
-
+  // Decide what to show in the media column
   if (q.answerImg) {
+    // Has an answer image — show it
+    mediaCol.classList.remove('hidden');
+    card.style.gridTemplateColumns = '1fr 1fr';
     wrap.innerHTML = `<img src="${q.answerImg}" alt=""
       onerror="if(this.parentElement){this.onerror=null;this.parentElement.innerHTML='<div class=ph><span class=ph-icon>🖼</span></div>';}">`;
   } else if (q.answerMedia && q.answerMediaType && q.answerMediaType !== 'audio') {
-    // Only show non-audio media (video etc) — audio is handled separately
+    // Has non-audio media (video etc)
+    mediaCol.classList.remove('hidden');
+    card.style.gridTemplateColumns = '1fr 1fr';
     wrap.innerHTML = buildMedia(q.answerMediaType, q.answerMedia);
   } else {
-    // Placeholder — tells host what file to add
-    const label = q.answerImgLabel || 'Add image to answerImg field';
-    wrap.innerHTML = `<div class="ph">
-      <span class="ph-icon">🖼</span>
-      <span class="ph-file">${label}</span>
-    </div>`;
+    // Nothing to show — collapse to single column, no placeholder
+    mediaCol.classList.add('hidden');
+    card.style.gridTemplateColumns = '1fr';
+    wrap.innerHTML = '';
   }
 
   // Audio on answer slides: only replay non-YouTube local files if explicitly needed
