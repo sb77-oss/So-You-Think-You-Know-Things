@@ -1150,14 +1150,12 @@ body{
   grid-template-columns:1fr 1fr;
   align-items:center;
 }
-/* audio questions — full width centred */
+/* audio questions — full width, question at top, play button centered on record */
 .q-card.has-audio{
   grid-template-columns:1fr;
-  align-items:center;
-  justify-items:center;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:flex-start;
 }
 .q-card.has-audio .q-media-col{
   display:none !important;
@@ -1166,12 +1164,22 @@ body{
   width:100%;
   height:100%;
   align-items:center;
-  justify-content:center;
+  justify-content:flex-start;
   text-align:center;
+  padding-top:1.5vh;
+  padding-bottom:50%; /* keep text out of the lower half where the record lives */
 }
 .q-card.has-audio .q-question{
   text-align:center;
   max-width:80%;
+}
+/* Play button sits centered on the card, over the record graphic */
+.q-card.has-audio .yt-play-btn {
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+  z-index:2;
 }
 @media(max-width:900px){.q-card.has-media{grid-template-columns:1fr}}
 
@@ -1492,25 +1500,29 @@ body{
 
 /* YouTube play button */
 .yt-play-btn {
-  width:100%;height:100%;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;
-  border:2px solid rgba(255,255,255,.15);
-  border-radius:var(--r);
-  transition:border-color .2s, background .2s;
-  background:rgba(255,255,255,.04);
-  min-height:120px;
+  border:2px solid rgba(255,255,255,.2);
+  border-radius:50%;
+  transition:border-color .2s, background .2s, transform .15s;
+  background:rgba(255,255,255,.06);
+  width:clamp(60px,10vw,90px);
+  height:clamp(60px,10vw,90px);
+  flex-shrink:0;
+  position:relative;
+  z-index:2;
 }
-.yt-play-btn:hover { border-color:var(--round-color); background:rgba(255,255,255,.08); }
-.yt-play-btn.playing { border-color:var(--round-color); }
+.yt-play-btn:hover { border-color:var(--round-color); background:rgba(255,255,255,.12); transform:scale(1.08); }
+.yt-play-btn.playing { border-color:var(--round-color); background:rgba(255,255,255,.06); }
 .yt-play-icon {
-  font-size:3.5rem;
+  font-size:clamp(1.4rem,3vw,2.2rem);
   color:var(--round-color);
   transition:transform .15s;
   user-select:none;
+  margin-left:.15em; /* optical centering for ▶ */
 }
+.yt-play-btn.playing .yt-play-icon { margin-left:0; animation:pillShimmer 2s ease-in-out infinite; }
 .yt-play-btn:hover .yt-play-icon { transform:scale(1.1); }
-.yt-play-btn.playing .yt-play-icon { animation:pillShimmer 2s ease-in-out infinite; }
 
 /* wager modal team card */
 .wager-team-card {
@@ -1905,9 +1917,10 @@ function doWipeTransition(callback) {
 
 // FIREWORKS then navigate
 function fireworksThenNav() {
-  // Stop intro loop, play the yeah
+  // Stop intro loop
   if (SFX.introLoop) { SFX.introLoop.pause(); SFX.introLoop.currentTime=0; }
-  sfxPlay('letsGo');
+  // Small delay ensures audio context is fully unlocked before playing yeah
+  setTimeout(() => sfxPlay('letsGo'), 30);
 
   launchFireworks();
   setTimeout(() => showRoundNav(), 900); // showRoundNav now uses wipe internally
@@ -2122,6 +2135,20 @@ function renderQuestion() {
   if (rIdx < 0 || !ROUNDS[rIdx]) return;
   const r=ROUNDS[rIdx], q=r.questions[qIdx], total=r.questions.length;
   const isA = r.id==='around';
+
+  // ── CLEAN UP previous question's audio state unconditionally ──
+  const card=document.getElementById('qCard');
+  const textCol = document.getElementById('qTextCol');
+  // Remove any injected play button
+  const staleBtn = textCol ? textCol.querySelector('.yt-play-btn') : null;
+  if (staleBtn) staleBtn.remove();
+  // Clear card audio class (will be re-added below if this question needs it)
+  if (card) card.classList.remove('has-audio');
+  // Stop YouTube if this question doesn't use audio
+  if (!q.mediaSrc || q.mediaType !== 'audio') {
+    ytStop();
+  }
+
   document.getElementById('qPill').textContent = r.badge;
   setEl('qCounter','textContent', `Q ${qIdx+1} / ${total}`);
   setStyle('qProg','width', ((qIdx+1)/total*100)+'%');
@@ -2136,23 +2163,18 @@ function renderQuestion() {
     } else { optsEl.classList.add('hidden'); }
   }
   const mediaCol=document.getElementById('qMediaCol');
-  const card=document.getElementById('qCard');
   if (q.mediaType && q.mediaType!=='none' && q.mediaSrc) {
     const isAudio = q.mediaType === 'audio';
 
     if (isAudio) {
-      // Audio — hide media col, inject play button into text col only (no duplicate in qMediaWrap)
+      // Audio — hide media col, inject play button into text col only
       if(mediaCol) mediaCol.classList.add('hidden');
       if(card) { card.classList.remove('has-media'); card.classList.add('has-audio'); card.style.gridTemplateColumns='1fr'; }
       const qmw = document.getElementById('qMediaWrap');
-      if (qmw) qmw.innerHTML = ''; // clear so no stale duplicate button lurks
-      // Inject play button below question text
-      const textCol = document.getElementById('qTextCol');
+      if (qmw) qmw.innerHTML = '';
+      // Inject play button into text col
       if (textCol && isYtSrc(q.mediaSrc)) {
         const ytid = ytIdFrom(q.mediaSrc);
-        // Remove any pre-existing play button from a previous question
-        const staleBtn = textCol.querySelector('.yt-play-btn');
-        if (staleBtn) staleBtn.remove();
         const btnDiv = document.createElement('div');
         btnDiv.innerHTML = `<div class="yt-play-btn" onclick="ytToggle('${ytid}',this)" id="ytBtn_${ytid}"><div class="yt-play-icon">▶</div></div>`;
         textCol.appendChild(btnDiv.firstChild);
@@ -2167,10 +2189,6 @@ function renderQuestion() {
   } else {
     if(mediaCol) mediaCol.classList.add('hidden');
     if(card) { card.style.gridTemplateColumns='1fr'; card.classList.remove('has-media','has-audio'); }
-    // Clear any leftover play button injected by a previous audio question
-    const textCol = document.getElementById('qTextCol');
-    const staleBtn = textCol ? textCol.querySelector('.yt-play-btn') : null;
-    if (staleBtn) staleBtn.remove();
   }
   setHpNote(r.hostNote||'');
   // Update nav label with round name in round color
@@ -2178,7 +2196,6 @@ function renderQuestion() {
   if (navLbl) navLbl.textContent = r.name;
 
   // Q number watermark — large faded number behind question text
-  const textCol = document.getElementById('qTextCol');
   if (textCol) {
     let numBg = textCol.querySelector('.q-number-bg');
     if (!numBg) {
