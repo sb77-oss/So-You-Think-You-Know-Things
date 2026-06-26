@@ -1076,6 +1076,17 @@ body{
 }
 .q-counter{font-family:var(--font-d);font-size:.95rem;color:var(--textDim);letter-spacing:.1em}
 
+/* ── QUESTION CLOCK ─────────────────────────────────────── */
+#qClock{
+  font-family:var(--font-d);font-size:1rem;font-weight:700;
+  letter-spacing:.15em;color:var(--textMuted);
+  transition:color .3s ease;
+  min-width:4.5ch;text-align:center;
+}
+#qClock.clock-warning{ color:var(--amber); }
+#qClock.clock-over{ color:var(--red); animation:clockPulse .6s ease-in-out infinite; }
+@keyframes clockPulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+
 /* progress */
 .q-prog{width:100%;height:4px;background:var(--border);border-radius:99px;overflow:hidden;flex-shrink:0;}
 .q-prog-fill{height:100%;background:var(--round-color);border-radius:99px;transition:width .6s var(--ease),background .5s ease;will-change:width;}
@@ -1752,6 +1763,7 @@ body{
   <div id="questionView" class="screen">
     <div class="q-topbar">
       <span class="q-pill" id="qPill"></span>
+      <span id="qClock">0:00</span>
       <span class="q-counter" id="qCounter"></span>
     </div>
         <div class="q-prog"><div class="q-prog-fill" id="qProg" style="width:0%"></div></div>
@@ -1837,6 +1849,7 @@ body{
       <button class="btn btn-ghost" id="answersBtn" onclick="jumpToAnswers()">ANSWERS</button>
       <button class="btn btn-violet" onclick="showRoundNav()">ROUNDS</button>
       <button class="btn btn-ghost" id="musicToggleBtn" onclick="toggleIntroMusic()" title="Pause/resume intro music">♫ MUSIC</button>
+      <button class="btn btn-ghost" id="clockToggleBtn" onclick="toggleClock()" title="Start/stop question timer">⏱ 0:00</button>
       <button class="btn btn-ghost" onclick="showScreen('titleScreen'); if(SFX.introLoop){SFX.introLoop.currentTime=0;SFX.introLoop.play().catch(()=>{});}; sfxStopLoop();">HOME</button>
       <button class="btn btn-primary" onclick="navigate(1)">NEXT →</button>
     </div>
@@ -1970,8 +1983,8 @@ function _applyScreen(name) {
   if (name !== 'titleScreen' && SFX.introLoop) {
     SFX.introLoop.pause(); SFX.introLoop.currentTime=0;
   }
-  // Restart intro loop when returning to title screen
-  if (name === 'titleScreen' && SFX.introLoop) {
+  // Restart intro loop when returning to title screen — only if user hasn't manually paused it
+  if (name === 'titleScreen' && SFX.introLoop && !_introMusicUserPaused) {
     setTimeout(() => { SFX.introLoop.currentTime=0; SFX.introLoop.play().catch(()=>{}); }, 200);
   }
   ['titleScreen','roundNav','roundIntro','questionView','answerView','roundupView','saraBoard','lbScreen']
@@ -2334,7 +2347,7 @@ function renderQuestion() {
       if (textCol && isYtSrc(q.mediaSrc)) {
         const ytid = ytIdFrom(q.mediaSrc);
         const btnDiv = document.createElement('div');
-        btnDiv.innerHTML = `<div class="yt-play-btn" onclick="ytToggle('${ytid}',this)" id="ytBtn_${ytid}"><div class="yt-play-icon">▶</div></div>`;
+        btnDiv.innerHTML = `<div class="yt-play-btn" onclick="ytToggle('${ytid}',this)" id="ytBtn_${ytid}" data-start="${ytStartFrom(q.mediaSrc)}"><div class="yt-play-icon">▶</div></div>`;
         textCol.appendChild(btnDiv.firstChild);
       }
     } else {
@@ -2378,6 +2391,8 @@ function renderQuestion() {
 
   // Fit question text to viewport , short = big, long = smaller
   requestAnimationFrame(() => fitText(document.getElementById('qQuestion'), 1.8, 3.2));
+  // Reset and start clock on each new question
+  clockReset(); clockStart();
   // Play YouTube audio if this question uses it
   if (q.mediaType === 'audio' && isYtSrc(q.mediaSrc)) {
     const ytid = ytIdFrom(q.mediaSrc);
@@ -2728,16 +2743,75 @@ function initSounds() {
 function sfxPlay(key) {
   try { const s=SFX[key]; if(!s) return; s.currentTime=0; s.play().catch(()=>{}); } catch(e){}
 }
+let _introMusicUserPaused = false;
 function toggleIntroMusic(){
   const btn = document.getElementById('musicToggleBtn');
   if(!SFX.introLoop) return;
   if(SFX.introLoop.paused){
+    _introMusicUserPaused = false;
     SFX.introLoop.play().catch(()=>{});
     if(btn){ btn.textContent='♫ MUSIC'; btn.style.opacity='1'; }
   } else {
+    _introMusicUserPaused = true;
     SFX.introLoop.pause();
     if(btn){ btn.textContent='♪ PAUSED'; btn.style.opacity='0.45'; }
   }
+}
+
+
+// ── QUESTION CLOCK ────────────────────────────────────────
+let _clockInterval = null;
+let _clockSeconds = 0;
+let _clockRunning = false;
+const CLOCK_WARN = 90;   // amber at 1:30
+const CLOCK_MAX  = 120;  // red + pulse at 2:00
+
+function clockFormat(s) {
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return m + ':' + String(sec).padStart(2, '0');
+}
+
+function clockUpdate() {
+  _clockSeconds++;
+  const display = clockFormat(_clockSeconds);
+  const el = document.getElementById('qClock');
+  const btn = document.getElementById('clockToggleBtn');
+  if (el) {
+    el.textContent = display;
+    el.classList.toggle('clock-warning', _clockSeconds >= CLOCK_WARN && _clockSeconds < CLOCK_MAX);
+    el.classList.toggle('clock-over', _clockSeconds >= CLOCK_MAX);
+  }
+  if (btn) btn.textContent = '⏱ ' + display;
+}
+
+function clockStart() {
+  if (_clockInterval) clearInterval(_clockInterval);
+  _clockRunning = true;
+  _clockInterval = setInterval(clockUpdate, 1000);
+  const btn = document.getElementById('clockToggleBtn');
+  if (btn) btn.style.opacity = '1';
+}
+
+function clockStop() {
+  if (_clockInterval) clearInterval(_clockInterval);
+  _clockInterval = null;
+  _clockRunning = false;
+  const btn = document.getElementById('clockToggleBtn');
+  if (btn) btn.style.opacity = '0.45';
+}
+
+function clockReset() {
+  clockStop();
+  _clockSeconds = 0;
+  const el = document.getElementById('qClock');
+  const btn = document.getElementById('clockToggleBtn');
+  if (el) { el.textContent = '0:00'; el.classList.remove('clock-warning','clock-over'); }
+  if (btn) { btn.textContent = '⏱ 0:00'; btn.style.opacity = '1'; }
+}
+
+function toggleClock() {
+  if (_clockRunning) { clockStop(); } else { clockStart(); }
 }
 
 function sfxStartLoop() {
@@ -2853,7 +2927,8 @@ function ytToggle(videoId, btnEl) {
       if (btnEl) btnEl.querySelector('.yt-play-icon').textContent = '▶';
       btnEl?.classList.remove('playing');
     } else {
-      ytPlayFrom(videoId, 0);
+      const startSec = btnEl ? parseInt(btnEl.dataset.start || '0') : 0;
+      ytPlayFrom(videoId, startSec);
       if (btnEl) btnEl.querySelector('.yt-play-icon').textContent = '⏸';
       btnEl?.classList.add('playing');
     }
