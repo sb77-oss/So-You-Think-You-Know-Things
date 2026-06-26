@@ -55,7 +55,7 @@ const ROUNDS = [
       },
       {
         question: "This song peaked at number 3 in the UK in 1985, was critically adored, and then vanished from the charts for nearly four decades. Name the song and the artist.",
-        mediaType: "audio", mediaSrc: "yt:wp43OdtAAkM:20",
+        mediaType: "audio", mediaSrc: "yt:wp43OdtAAkM:10",
         answer: "Running Up That Hill (A Deal with God)",
         answerSubline: "Kate Bush · Hounds of Love · 1985",
         answerYear: "37 years later it became the biggest song on earth.",
@@ -66,7 +66,7 @@ const ROUNDS = [
       },
       {
         question: "This track was written on a paper bag between takes on a film set, won an Academy Award for Best Original Song, and the artist wasn't even in the room when it happened. Name the song and the artist.",
-        mediaType: "audio", mediaSrc: "yt:7YuAzR2XVAM:15",
+        mediaType: "audio", mediaSrc: "yt:7YuAzR2XVAM:60",
         answer: "Lose Yourself",
         answerSubline: "Eminem · 8 Mile Soundtrack · 2002",
         answerImg: "",
@@ -115,13 +115,13 @@ const ROUNDS = [
         multiChoice: ["A) Anastasia", "B) A Bug's Life", "C) Antz ← CORRECT", "D) Atlantis: The Lost Empire"]
       },
       {
-        question: "Whose leg is this?",
-        mediaType: "image", mediaSrc: "img_r1_q2_leg.jpg",
+        question: "Whose is this?",
+        mediaType: "image", mediaSrc: "img_r1_q2_leg_crop.jpg",
         answer: "B: Angelina Jolie's leg",
         answerSubline: "Oscars 2012. One of the first viral celebrity body-part moments",
         answerImg: "img_r1_q2_leg.jpg",
         note: "It got its own Twitter account before she left the building.",
-        multiChoice: ["A) Anne Hathaway's arm", "B) Angelina Jolie's leg ← CORRECT", "C) Adele's hand", "D) Amy Adams's ankle"]
+        multiChoice: ["A) Anne Hathaway", "B) Angelina Jolie ← CORRECT", "C) Adele", "D) Amy Adams"]
       },
       {
         question: "Anthropic, one of the world's leading AI safety companies, was co-founded by a brother and sister who both left OpenAI over concerns about the direction of the technology. What is their shared last name?",
@@ -313,10 +313,10 @@ const ROUNDS = [
       {
         question: "This couple just appeared on the stadium Kiss Cam.\n\nWhat happened next?",
         mediaType: "image", mediaSrc: "img_r4_q5_coldplay.gif",
-        answer: "They both called in sick to work that day",
-        answerSubline: "Busted by LinkedIn detectives",
+        answer: "They were having an affair",
+        answerSubline: "Astronomer CEO Andy Byron and CPO Kristin Cabot — both married, both busted",
         answerImg: "img_r4_q5_coldplay.gif",
-        note: "They tried to duck and hide the second they hit the screen. Within hours internet sleuths had matched their faces, found their LinkedIn profiles, and confirmed they were colleagues who had both called in sick. Chris Martin saw their reaction on the screen and said into the mic: either they're having an affair or they're very shy.",
+        note: "Internet sleuths identified them within hours. Andy Byron was the CEO of a billion-dollar AI company. Kristin Cabot was his Chief People Officer. Both were married to other people. Byron resigned days later. Chris Martin had said into the mic: either they're having an affair or they're very shy. He was right.",
         multiChoice: []
       }
     ]
@@ -585,7 +585,7 @@ const ROUNDS = [
         answerSubline: "Battle of Adwa, 1896. Emperor Menelik II defeated 17,000 Italian troops",
         answerImg: "",
         note: "That\'s why so many African flags are green, yellow, and red. Ethiopia\'s victory became proof that colonisation was not inevitable. Italy came back for a second attempt in 1935, using chemical weapons. It still didn\'t stick.",
-        multiChoice: ["A) Liberia", "B) Ethiopia ← CORRECT", "C) Egypt", "D) Morocco"]
+        multiChoice: ["A) Nigeria", "B) Ethiopia ← CORRECT", "C) Egypt", "D) Morocco"]
       },
       {
         question: "This Caribbean island is the smallest inhabited landmass in the world to be divided between two different nations. You can cross from one side to the other with zero passport control.\n\nName the island.",
@@ -2538,7 +2538,12 @@ function buildMedia(type, src) {
     }
     return `<audio controls src="${src}" style="width:100%;display:block"></audio>`;
   }
-  if (type==='video') return `<iframe src="${src}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+  if (type==='video') {
+    const embedSrc = isYtSrc(src)
+      ? `https://www.youtube.com/embed/${ytIdFrom(src)}?autoplay=1&rel=0`
+      : src;
+    return `<iframe src="${embedSrc}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+  }
   return '';
 }
 
