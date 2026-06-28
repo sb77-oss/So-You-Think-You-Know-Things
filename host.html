@@ -873,8 +873,8 @@ const ROUNDS = [
                 "name": "CURRENT EVENTS",
                 "subname": "THIS MONTH IN HISTORY",
                 "badge": "ROUND 10",
-                "format": "Wager round. Write your wager before each question is revealed. Right answer adds it. Wrong answer loses it.",
-                "hostNote": "Add questions here before game night using the same format as all other rounds.",
+                "format": "Wager round. Set your multiplier before the round begins. Every right answer earns you multiplier points. Every wrong answer costs you the same.",
+                "hostNote": "Collect multipliers on the declaration slide before questions begin.",
                 "questions": [
                         {
                                 "question": "What record did Messi break this month at the 2026 World Cup, aged 38?",
@@ -1395,7 +1395,115 @@ body{
 }
 .q-counter{font-family:var(--font-d);font-size:.95rem;color:var(--textDim);letter-spacing:.1em}
 
-/* ── HOST HINT OVERLAY ──────────────────────────────────── */
+/* ── TEAM SETUP SCREEN ───────────────────────────────────── */
+#teamSetupScreen { align-items:center; justify-content:center; }
+.ts-inner { display:flex;flex-direction:column;align-items:center;gap:1.5rem;width:min(700px,90vw); }
+.ts-eyebrow { font-family:var(--font-d);font-size:.75rem;letter-spacing:.25em;color:var(--textDim);text-transform:uppercase; }
+.ts-title { font-family:var(--font-d);font-size:clamp(2.5rem,6vw,5rem);font-weight:800;letter-spacing:-.02em;color:#fff;text-align:center; }
+.ts-sub { font-size:.95rem;color:var(--textMuted);text-align:center; }
+.ts-input-row { display:flex;gap:.75rem;width:100%; }
+.ts-input { flex:1;padding:.75rem 1rem;border-radius:var(--r);border:1px solid var(--border);background:var(--surface2);color:#fff;font-size:1.1rem;font-family:var(--font-b); }
+.ts-input:focus { outline:none;border-color:var(--purple); }
+.ts-teams-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.75rem;width:100%;min-height:4rem; }
+.ts-team-chip {
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);
+  padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem;
+  animation:fadeSlide .25s var(--ease) both;
+}
+.ts-team-name { font-family:var(--font-d);font-weight:700;font-size:1rem;color:#fff;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+.ts-team-remove { background:none;border:none;color:var(--textDim);cursor:pointer;font-size:1rem;padding:0;line-height:1; }
+.ts-team-remove:hover { color:var(--red); }
+.ts-footer { display:flex;flex-direction:column;align-items:center;gap:.5rem; }
+.ts-min { font-size:.8rem;color:var(--textDim); }
+
+/* ── FINAL SCORES INPUT ──────────────────────────────────── */
+.fs-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;width:100%; }
+.fs-card {
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);
+  padding:1rem;display:flex;flex-direction:column;gap:.5rem;
+}
+.fs-card-name { font-family:var(--font-d);font-weight:700;font-size:1rem;color:#fff; }
+.fs-inp {
+  width:100%;padding:.5rem .75rem;border-radius:var(--rsm);
+  border:1px solid var(--border);background:var(--surface);
+  color:#fff;font-size:1.3rem;font-family:var(--font-d);text-align:center;
+  box-sizing:border-box;
+}
+.fs-inp:focus { outline:none;border-color:var(--purple); }
+
+/* ── WINNER REVEAL ───────────────────────────────────────── */
+#winnerRevealScreen { align-items:center;justify-content:center; }
+.wr-content { display:flex;flex-direction:column;align-items:center;gap:1.5rem;text-align:center; }
+.wr-place {
+  font-family:var(--font-d);font-size:.85rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--textDim);
+}
+.wr-name {
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(3rem,8vw,7rem);letter-spacing:-.03em;
+  color:#fff;line-height:1;
+  animation:wrNamePop .5s var(--ease) both;
+}
+.wr-pts {
+  font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2.5rem);
+  font-weight:700;color:var(--textMuted);letter-spacing:.05em;
+}
+.wr-trophy { font-size:clamp(3rem,6vw,5rem);animation:wrNamePop .4s var(--ease) both; }
+.wr-next-btn {
+  position:fixed;bottom:5rem;right:2rem;
+  animation:fadeSlide .3s var(--ease) both;
+}
+@keyframes wrNamePop {
+  0% { transform:scale(.7);opacity:0; }
+  70% { transform:scale(1.05); }
+  100% { transform:scale(1);opacity:1; }
+}
+.wr-gold { color:#f59e0b; }
+.wr-silver { color:#9ca3af; }
+.wr-bronze { color:#b45309; }
+
+/* ── MULTIPLIER REVEAL SCREEN ────────────────────────────── */
+#multiplierRevealScreen { align-items:center; justify-content:center; }
+.mxr-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1.5rem;width:min(800px,90vw); }
+.mxr-card {
+  background:var(--surface2);border:2px solid var(--round-color);border-radius:var(--r);
+  padding:1.5rem 1rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  animation:fadeSlide .3s var(--ease) both;
+}
+.mxr-name { font-family:var(--font-d);font-weight:700;font-size:1rem;color:#fff;text-align:center; }
+.mxr-mult { font-family:var(--font-d);font-size:3.5rem;font-weight:800;color:var(--round-color);letter-spacing:-.02em; }
+.mxr-pts { font-size:.75rem;color:var(--textDim); }
+
+/* ── MULTIPLIER DECLARATION SCREEN ──────────────────────── */
+#multiplierScreen { align-items:center; justify-content:center; }
+.mx-inner { display:flex;flex-direction:column;align-items:center;gap:1.5rem;width:min(800px,90vw); }
+.mx-eyebrow { font-family:var(--font-d);font-size:.75rem;letter-spacing:.25em;color:var(--round-color);text-transform:uppercase; }
+.mx-title { font-family:var(--font-d);font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-.02em;color:#fff;text-align:center; }
+.mx-sub { font-size:.95rem;color:var(--textMuted);text-align:center;max-width:55ch;line-height:1.6; }
+.mx-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;width:100%; }
+.mx-card {
+  background:var(--surface2);border:2px solid var(--border);border-radius:var(--r);
+  padding:1rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;
+  transition:border-color .2s;
+}
+.mx-card.mx-set { border-color:var(--round-color); }
+.mx-card-name { font-family:var(--font-d);font-weight:700;font-size:1rem;color:#fff;text-align:center; }
+.mx-card-score { font-size:.75rem;color:var(--textDim); }
+.mx-multiplier-display {
+  font-family:var(--font-d);font-size:2.5rem;font-weight:800;
+  color:var(--textDim);letter-spacing:-.02em;transition:color .2s;
+}
+.mx-card.mx-set .mx-multiplier-display { color:var(--round-color); }
+.mx-inp-row { display:flex;gap:.4rem;align-items:center; }
+.mx-inp {
+  width:4rem;padding:.4rem .5rem;border-radius:var(--rsm);
+  border:1px solid var(--border);background:var(--surface);
+  color:#fff;font-size:1rem;font-family:var(--font-d);text-align:center;
+}
+.mx-inp:focus { outline:none;border-color:var(--purple); }
+.mx-set-btn { font-size:.75rem;padding:.35rem .7rem; }
+
+
 #hostHintOverlay{
   display:none;
   position:absolute;
@@ -2055,14 +2163,6 @@ body{
 
 
 <!-- WAGER MODAL -->
-<div id="wagerModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:300;background:rgba(8,4,18,0.96);flex-direction:column;align-items:center;justify-content:center;gap:3vh;padding:4vh 4vw;box-sizing:border-box;">
-  <p style="font-family:var(--font-d);font-size:.75rem;letter-spacing:.3em;color:var(--textDim);text-transform:uppercase;">Double Down</p>
-  <h2 style="font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,5vw,4rem);color:#fff;text-align:center;line-height:1;">Place Your Wagers</h2>
-  <p style="font-size:.85rem;color:var(--textMuted);text-align:center;">Place your bets</p>
-  <div id="wagerModalGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;width:100%;max-width:900px;"></div>
-  <button onclick="revealDoubleDownQuestion()" style="margin-top:1vh;padding:1.2rem 4rem;background:transparent;border:2px solid rgba(255,255,255,.8);border-radius:0;font-family:var(--font-d);font-weight:700;font-size:1rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;cursor:pointer;transition:background .3s;">REVEAL QUESTION →</button>
-</div>
-
 <!-- Hidden YouTube Player -->
 <div id="ytPlayerWrap" style="position:fixed;bottom:-400px;left:-400px;width:320px;height:180px;overflow:hidden;pointer-events:none;z-index:-1;">
   <div id="ytPlayer"></div>
@@ -2085,11 +2185,69 @@ body{
       <h1 class="title-main" id="titleMain">SO YOU THINK<br>YOU KNOW THINGS</h1>
       <p class="title-season">SEASON II</p>
       <div class="title-rule"></div>
-      <button class="title-btn" id="letsGoBtn" onclick="fireworksThenNav()"><span>LET'S GOOOOOOO</span></button>
+      <button class="title-btn" id="letsGoBtn" onclick="showScreen('teamSetupScreen', true)"><span>LET'S GOOOOOOO</span></button>
     </div>
   </div>
 
-  <!-- ROUND NAV -->
+  <!-- TEAM SETUP SCREEN -->
+  <div id="teamSetupScreen" class="screen">
+    <div class="ts-inner">
+      <p class="ts-eyebrow">before we begin</p>
+      <h2 class="ts-title">WHO'S PLAYING?</h2>
+      <p class="ts-sub">Call out your team name.</p>
+      <div class="ts-input-row">
+        <input id="tsTeamInput" class="ts-input" type="text" placeholder="Team name..." maxlength="20"
+          onkeydown="if(event.key==='Enter')tsAddTeam()">
+        <button class="btn btn-primary" onclick="tsAddTeam()">ADD</button>
+      </div>
+      <div class="ts-teams-grid" id="tsTeamsGrid"></div>
+      <div class="ts-footer">
+        <button class="btn btn-ghost" id="tsStartBtn" onclick="tsFinish()">LET'S PLAY →</button>
+        <p class="ts-min"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL SCORES INPUT SCREEN (host panel triggered) -->
+  <div id="finalScoresScreen" class="screen">
+    <div class="ts-inner">
+      <p class="ts-eyebrow">end of game</p>
+      <h2 class="ts-title">FINAL SCORES</h2>
+      <p class="ts-sub">Pens down. Pass your answer sheet to the team on your left.</p>
+      <div id="finalScoresGrid" class="fs-grid"></div>
+      <button class="btn btn-primary" onclick="startWinnerReveal()" style="margin-top:1.5rem">REVEAL WINNER →</button>
+    </div>
+  </div>
+
+  <!-- WINNER REVEAL SCREEN -->
+  <div id="winnerRevealScreen" class="screen">
+    <div id="winnerRevealContent" class="wr-content"></div>
+    <button class="btn btn-ghost wr-next-btn" id="wrNextBtn" onclick="winnerRevealNext()" style="display:none">NEXT →</button>
+  </div>
+
+  <!-- MULTIPLIER REVEAL SCREEN -->
+  <div id="multiplierRevealScreen" class="screen">
+    <div class="mx-inner">
+      <p class="mx-eyebrow">BEFORE YOU GRADE</p>
+      <h2 class="mx-title">MULTIPLIERS</h2>
+      <p class="mx-sub">Hand your answer sheet to the team next to you. These are the multipliers in play.</p>
+      <div class="mxr-grid" id="mxrGrid"></div>
+      <button class="btn btn-primary" onclick="showScreen('answerView', true); renderAnswer();" style="margin-top:2rem">REVEAL ANSWERS →</button>
+    </div>
+  </div>
+
+  <!-- MULTIPLIER DECLARATION SCREEN -->
+  <div id="multiplierScreen" class="screen">
+    <div class="mx-inner">
+      <p class="mx-eyebrow">CURRENT EVENTS — WAGER ROUND</p>
+      <h2 class="mx-title">SET YOUR MULTIPLIER</h2>
+      <p class="mx-sub">Minimum ×1. Every right answer earns you your multiplier in points. Every wrong answer costs you the same. Choose wisely.</p>
+      <div class="mx-grid" id="mxGrid"></div>
+      <button class="btn btn-primary" id="mxStartBtn" onclick="mxFinish()" style="margin-top:2rem">BEGIN ROUND →</button>
+    </div>
+  </div>
+
+
   <div id="roundNav" class="screen">
     <p class="rnav-title">This Evening's Quiz Selection</p>
     <div class="rnav-grid" id="rnavGrid"></div>
@@ -2222,6 +2380,9 @@ body{
   </div>
   <div class="hp-body">
     <div class="hp-note"><strong>HOST NOTE:</strong> <span id="hpNote">Select a round to begin.</span></div>
+    <div style="margin-bottom:.75rem">
+      <button class="hbtn hbtn-a" onclick="showFinalScores()">🏆 FINISH GAME — REVEAL WINNER</button>
+    </div>
     <div class="hp-row">
       <div class="hp-col">
         <div class="hp-sec-label">TEAMS</div>
@@ -2236,15 +2397,7 @@ body{
       <div class="hp-col" style="max-width:260px">
         <div class="hp-sec-label">STANDINGS</div>
         <div id="panelLb"></div>
-      </div>
-    </div>
-    <div id="wagerSection">
-      <div class="hp-sec-label">DOUBLE DOWN , WAGERS</div>
-      <p style="font-size:.72rem;color:var(--textDim);margin-bottom:.45rem">Enter each team's wager, then hit checkmark or X.</p>
-      <div class="wager-grid" id="wagerGrid"></div>
-      <div style="display:flex;gap:.4rem;margin-top:.5rem;flex-wrap:wrap">
-        <button class="hbtn hbtn-green hbtn-sm" onclick="applyAllWagers(1)">ALL CORRECT</button>
-        <button class="hbtn hbtn-red hbtn-sm" onclick="applyAllWagers(-1)">ALL WRONG</button>
+        <div id="panelMultipliers" style="display:none;margin-top:1rem"></div>
       </div>
     </div>
     <div id="buzzerTracker">
@@ -2344,7 +2497,7 @@ function _applyScreen(name) {
   if (name === 'titleScreen' && SFX.introLoop && !_introMusicUserPaused) {
     setTimeout(() => { SFX.introLoop.currentTime=0; SFX.introLoop.play().catch(()=>{}); }, 200);
   }
-  ['titleScreen','roundNav','roundIntro','questionView','answerView','roundupView','saraBoard','lbScreen']
+  ['titleScreen','teamSetupScreen','roundNav','roundIntro','multiplierScreen','multiplierRevealScreen','finalScoresScreen','winnerRevealScreen','questionView','answerView','roundupView','saraBoard','lbScreen']
     .forEach(id => document.getElementById(id)?.classList.remove('active'));
   const nb = document.getElementById('navBar');
   if (nb) {
@@ -2551,15 +2704,20 @@ function startRound() {
   sfxPlay('letsGo');
   setTimeout(() => {
     if (ROUNDS[rIdx].id==='sara') { showScreen('saraBoard', true); return; }
+    // Round 10 (currentevents) gets the multiplier declaration screen first
+    if (ROUNDS[rIdx].id==='currentevents') {
+      showMultiplierScreen();
+      return;
+    }
     showScreen('questionView', true);
-    if (['currentevents'].includes(ROUNDS[rIdx].id)) { showWagerModal(); } else { renderQuestion(); }
+    renderQuestion();
   }, 600);
 }
 
 // NAVIGATE
 function navigate(dir) {
   if (['lbScreen','saraBoard','roundIntro','roundNav','titleScreen'].includes(mode)) {
-    if (dir>0 && mode==='titleScreen') showRoundNav(); // wipe handled inside
+    if (dir>0 && mode==='titleScreen') showScreen('teamSetupScreen', true);
     return;
   }
   if (rIdx < 0 || !ROUNDS[rIdx]) return;
@@ -2568,12 +2726,7 @@ function navigate(dir) {
     if (dir>0) {
       if (qIdx < total-1) {
         // In Double Down , show wager modal before each new question
-        if (rIdx >= 0 && ['currentevents'].includes(ROUNDS[rIdx].id)) {
-          qIdx++;
-          showWagerModal();
-        } else {
-          qIdx++; renderQuestion();
-        }
+        qIdx++; renderQuestion();
       }
       else {
         // Fill progress bar to 100% and wait for transition before moving to answers
@@ -2583,7 +2736,14 @@ function navigate(dir) {
           fill.style.width = '100%';
           fill.classList.remove('last-question'); // stop pulsing, hold solid
         }
-        setTimeout(() => { aIdx=0; showScreen('answerView'); renderAnswer(); }, 650);
+        setTimeout(() => {
+          aIdx=0;
+          if(ROUNDS[rIdx] && ROUNDS[rIdx].id === 'currentevents') {
+            showMultiplierReveal();
+          } else {
+            showScreen('answerView'); renderAnswer();
+          }
+        }, 650);
       }
     } else {
       if (qIdx>0) { qIdx--; renderQuestion(); }
@@ -2752,6 +2912,8 @@ function renderQuestion() {
   clockReset(); clockStart();
   // Set host hint for this question
   setHint(q.hostHint || '');
+  // Update multiplier panel if in wager round
+  renderPanelMultipliers();
   // Play YouTube audio if this question uses it
   if (q.mediaType === 'audio' && isYtSrc(q.mediaSrc)) {
     const ytid = ytIdFrom(q.mediaSrc);
@@ -3007,6 +3169,188 @@ function renderFullLb() {
     </div>`).join('');
 }
 
+// ── TEAM SETUP SCREEN ────────────────────────────────────
+function tsAddTeam(){
+  const inp = document.getElementById('tsTeamInput');
+  const name = inp.value.trim();
+  if(!name || teams.length >= SCORING.maxTeams) return;
+  teams.push({name, score:0, multiplier:1});
+  inp.value='';
+  tsBuildGrid();
+  renderScoreboard(); renderPanelLb(); rebuildWagerGrid(); rebuildBzTeamBtns();
+}
+function tsRemoveTeam(idx){
+  teams.splice(idx,1);
+  tsBuildGrid();
+  renderScoreboard(); renderPanelLb(); rebuildWagerGrid(); rebuildBzTeamBtns();
+}
+function tsBuildGrid(){
+  const g = document.getElementById('tsTeamsGrid');
+  const btn = document.getElementById('tsStartBtn');
+  if(!g) return;
+  g.innerHTML = teams.map((t,i) => `
+    <div class="ts-team-chip">
+      <span class="ts-team-name">${esc(t.name)}</span>
+      <button class="ts-team-remove" onclick="tsRemoveTeam(${i})">✕</button>
+    </div>`).join('');
+  if(btn) btn.disabled = false;
+}
+function tsFinish(){
+  if(teams.length < 0) return;
+  showScreen('roundNav', true);
+}
+
+// ── FINAL SCORES & WINNER REVEAL ─────────────────────────
+let _wrTeams = [];
+let _wrIdx = 0;
+
+function showFinalScores(){
+  if(!teams.length){ alert('No teams yet — add teams first.'); return; }
+  const g = document.getElementById('finalScoresGrid');
+  if(g){
+    g.innerHTML = teams.map((t,i) => `
+      <div class="fs-card">
+        <div class="fs-card-name">${esc(t.name)}</div>
+        <input class="fs-inp" type="number" id="fsInp_${i}" placeholder="0" min="0" value="${t.score}">
+      </div>`).join('');
+  }
+  showScreen('finalScoresScreen', true);
+}
+
+function startWinnerReveal(){
+  if(!teams.length){ alert('No teams entered yet.'); return; }
+  // Read final scores from inputs
+  teams.forEach((t,i) => {
+    const val = parseInt(document.getElementById(`fsInp_${i}`)?.value) || t.score;
+    t.score = val;
+  });
+  renderScoreboard(); renderPanelLb();
+
+  // Sort descending and take top 3
+  _wrTeams = [...teams].sort((a,b) => b.score - a.score).slice(0,3);
+  _wrIdx = 0;
+
+  showScreen('winnerRevealScreen', true);
+  renderWinnerSlide();
+}
+
+function renderWinnerSlide(){
+  const content = document.getElementById('winnerRevealContent');
+  const nextBtn = document.getElementById('wrNextBtn');
+  if(!content) return;
+
+  const team = _wrTeams[_wrIdx];
+  if(!team) return; // guard against undefined
+
+  const isWinner = _wrIdx === 0;
+  const trophies = ['🥇','🥈','🥉'];
+  const places = ['WINNER','SECOND PLACE','THIRD PLACE'];
+  const colorClass = ['wr-gold','wr-silver','wr-bronze'][_wrIdx];
+
+  content.innerHTML = `
+    <div class="wr-trophy ${colorClass}">${trophies[_wrIdx]}</div>
+    <div class="wr-place">${places[_wrIdx]}</div>
+    <div class="wr-name ${colorClass}">${esc(team.name)}</div>
+    <div class="wr-pts">${team.score} points</div>
+  `;
+
+  // Sound
+  if(isWinner){
+    sfxPlay('winner');
+    // Trigger fireworks
+    if(typeof startFireworks === 'function') startFireworks();
+  } else {
+    sfxPlay('fanfare');
+  }
+
+  // Show next button if more teams to reveal
+  if(nextBtn){
+    nextBtn.style.display = _wrIdx < _wrTeams.length - 1 ? 'block' : 'none';
+  }
+}
+
+function winnerRevealNext(){
+  _wrIdx++;
+  if(_wrIdx < _wrTeams.length) renderWinnerSlide();
+}
+
+
+function showMultiplierReveal(){
+  const g = document.getElementById('mxrGrid');
+  if(g) {
+    g.innerHTML = teams.map(t => `
+      <div class="mxr-card">
+        <div class="mxr-name">${esc(t.name)}</div>
+        <div class="mxr-mult">×${t.multiplier||1}</div>
+      </div>`).join('');
+  }
+  showScreen('multiplierRevealScreen', true);
+}
+
+// ── MULTIPLIER DECLARATION SCREEN ────────────────────────
+function showMultiplierScreen(){
+  buildMxGrid();
+  showScreen('multiplierScreen', true);
+}
+function buildMxGrid(){
+  const g = document.getElementById('mxGrid');
+  if(!g) return;
+  g.innerHTML = teams.map((t,i) => `
+    <div class="mx-card ${t.multiplier > 1 ? 'mx-set' : ''}" id="mxCard_${i}">
+      <div class="mx-card-name">${esc(t.name)}</div>
+      <div class="mx-card-score">${t.score} pts</div>
+      <div class="mx-multiplier-display" id="mxDisp_${i}">×${t.multiplier}</div>
+      <div class="mx-inp-row">
+        <input class="mx-inp" type="number" id="mxInp_${i}" min="1" value="${t.multiplier}" placeholder="1">
+        <button class="btn btn-ghost mx-set-btn" onclick="mxSetTeam(${i})">SET</button>
+      </div>
+    </div>`).join('');
+}
+function mxSetTeam(idx){
+  const val = parseInt(document.getElementById(`mxInp_${idx}`)?.value) || 1;
+  teams[idx].multiplier = Math.max(1, val);
+  const card = document.getElementById(`mxCard_${idx}`);
+  const disp = document.getElementById(`mxDisp_${idx}`);
+  if(card) card.classList.add('mx-set');
+  if(disp) disp.textContent = `×${teams[idx].multiplier}`;
+}
+function mxFinish(){
+  // Apply default multiplier of 1 to any unset teams
+  teams.forEach(t => { if(!t.multiplier) t.multiplier = 1; });
+  // Go to first question
+  qIdx=0; aIdx=0;
+  showScreen('questionView', true); renderQuestion();
+}
+
+// Reset multipliers after Round 10 ends
+function resetMultipliers(){
+  teams.forEach(t => t.multiplier = 1);
+}
+
+// ── MULTIPLIER-AWARE SCORE ADJUSTMENT ────────────────────
+function adjustScoreMultiplied(idx, dir){
+  const r = ROUNDS[rIdx];
+  const isWagerRound = r && r.id === 'currentevents';
+  const mult = isWagerRound ? (teams[idx].multiplier || 1) : 1;
+  teams[idx].score += dir * mult;
+  renderScoreboard(); renderPanelLb(); rebuildWagerGrid();
+  renderPanelMultipliers();
+}
+
+function renderPanelMultipliers(){
+  const el = document.getElementById('panelMultipliers');
+  if(!el) return;
+  const r = ROUNDS[rIdx];
+  const isWagerRound = r && r.id === 'currentevents';
+  if(!isWagerRound || !teams.length){ el.style.display='none'; return; }
+  el.style.display='block';
+  el.innerHTML = `<div style="font-size:.7rem;letter-spacing:.1em;color:var(--textDim);margin-bottom:.4rem">MULTIPLIERS</div>` +
+    teams.map(t => `<div class="plb-row">
+      <span class="plb-name">${esc(t.name)}</span>
+      <span class="plb-pts" style="color:var(--round-color)">×${t.multiplier||1}</span>
+    </div>`).join('');
+}
+
 // HOST PANEL
 function togglePanel(){ panelOpen=!panelOpen; setClassToggle('hostPanel','open',panelOpen); }
 function setHpNote(txt){ document.getElementById('hpNote').textContent =txt||','; }
@@ -3029,14 +3373,16 @@ function renderScoreboard(){
   const el=document.getElementById('scoreboard');
   if(!el) return;
   if(!teams.length){el.innerHTML='<p style="font-size:.78rem;color:var(--textDim);margin-top:.5rem">No teams yet.</p>';return;}
+  const r = ROUNDS[rIdx];
+  const isWager = r && r.id === 'currentevents';
   el.innerHTML=teams.map((t,i)=>`
     <div class="sc-card">
-      <div class="sc-name" title="${esc(t.name)}">${esc(t.name)}</div>
+      <div class="sc-name" title="${esc(t.name)}">${esc(t.name)}${isWager ? `<span style="color:var(--round-color);font-size:.75rem;margin-left:.4rem">×${t.multiplier||1}</span>` : ''}</div>
       <div class="sc-bottom">
         <div class="sc-pts">${t.score}</div>
         <div class="sc-adj">
-          <button class="sc-btn sc-plus" onclick="adjustScore(${i},1)">+</button>
-          <button class="sc-btn sc-minus" onclick="adjustScore(${i},-1)">−</button>
+          <button class="sc-btn sc-plus" onclick="adjustScoreMultiplied(${i},1)">+</button>
+          <button class="sc-btn sc-minus" onclick="adjustScoreMultiplied(${i},-1)">−</button>
         </div>
       </div>
     </div>`).join('');
