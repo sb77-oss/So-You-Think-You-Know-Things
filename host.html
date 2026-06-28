@@ -2434,7 +2434,7 @@ document.addEventListener('DOMContentLoaded', () => {
   try {
     setEl('titleMain','textContent', QUIZ_META.title);
     buildRnavGrid(); buildSaraGrid(); buildBzGrid();
-    renderScoreboard(); renderPanelLb(); rebuildWagerGrid();
+    renderScoreboard(); renderPanelLb();
     showScreen('titleScreen');
     initTitleBg();
   try { /* initDiscoBalls(); , disabled, causing iOS script errors */ } catch(de) { }
@@ -2771,11 +2771,7 @@ function showRoundup() {
   if (pill) pill.textContent = r.badge;
   const ruPts = document.getElementById('roundupPts');
   if (ruPts) {
-    if (r.id === 'doubledown') {
-      ruPts.textContent = 'WAGER ROUND';
-    } else {
-      ruPts.textContent = `${r.questions.length} PTS TOTAL`;
-    }
+    ruPts.textContent = `${r.questions.length} PTS TOTAL`;
   }
 
   const grid = document.getElementById('roundupGrid');
@@ -2801,7 +2797,7 @@ function showRoundup() {
       <div>
         <div class="roundup-a">${esc(ansText)}</div>
         ${subText ? `<div class="roundup-a-sub">${esc(subText)}</div>` : ''}
-        <div class="roundup-row-pts">${r.id === 'doubledown' ? 'WAGER' : '1 PT'}</div>
+        <div class="roundup-row-pts">${'1 PT'}</div>
       </div>`;
     grid.appendChild(row);
   });
@@ -2938,11 +2934,7 @@ function renderAnswer() {
   setEl('ansCounter','textContent', `${aIdx+1} / ${total}`);
   const _ptsEl = document.getElementById('ansPts');
   if (_ptsEl) {
-    if (r.id === 'doubledown') {
-      _ptsEl.textContent = 'WAGER ROUND';
-    } else {
-      _ptsEl.textContent = `1 PT PER Q · ${r.questions.length} PTS THIS ROUND`;
-    }
+    _ptsEl.textContent = `1 PT PER Q · ${r.questions.length} PTS THIS ROUND`;
   }
   const mainEl = document.getElementById('ansMain');
   if(mainEl) mainEl[isA ? 'innerHTML' : 'textContent'] = isA ? highlightA(q.answer) : q.answer;
@@ -2980,8 +2972,8 @@ function renderAnswer() {
 
   // Fit answer text to viewport
   requestAnimationFrame(() => fitText(document.getElementById('ansMain'), 2.0, 4.2));
-  // Show wager result buttons for Double Down
-  if (rIdx >= 0 && ROUNDS[rIdx] && ['currentevents'].includes(ROUNDS[rIdx].id)) {
+  // Show wager result buttons for Double Down only
+  if (rIdx >= 0 && ROUNDS[rIdx] && ['doubledown'].includes(ROUNDS[rIdx].id)) {
     setTimeout(() => buildWagerResultOverlay(), 400);
   }
   sfxFadeLoop();
@@ -3177,12 +3169,12 @@ function tsAddTeam(){
   teams.push({name, score:0, multiplier:1});
   inp.value='';
   tsBuildGrid();
-  renderScoreboard(); renderPanelLb(); rebuildWagerGrid(); rebuildBzTeamBtns();
+  renderScoreboard(); renderPanelLb(); rebuildBzTeamBtns();
 }
 function tsRemoveTeam(idx){
   teams.splice(idx,1);
   tsBuildGrid();
-  renderScoreboard(); renderPanelLb(); rebuildWagerGrid(); rebuildBzTeamBtns();
+  renderScoreboard(); renderPanelLb(); rebuildBzTeamBtns();
 }
 function tsBuildGrid(){
   const g = document.getElementById('tsTeamsGrid');
@@ -3332,7 +3324,7 @@ function adjustScoreMultiplied(idx, dir){
   const isWagerRound = r && r.id === 'currentevents';
   const mult = isWagerRound ? (teams[idx].multiplier || 1) : 1;
   teams[idx].score += dir * mult;
-  renderScoreboard(); renderPanelLb(); rebuildWagerGrid();
+  renderScoreboard(); renderPanelLb();
   renderPanelMultipliers();
 }
 
@@ -3361,11 +3353,11 @@ function addTeam(){
   const name=inp.value.trim();
   if(!name||teams.length>=SCORING.maxTeams)return;
   teams.push({name,score:0}); inp.value='';
-  renderScoreboard();renderPanelLb();rebuildWagerGrid();rebuildBzTeamBtns();
+  renderScoreboard();renderPanelLb();rebuildBzTeamBtns();
 }
 function clearTeams(){
   if(!confirm('Clear all teams and scores?'))return;
-  teams=[];renderScoreboard();renderPanelLb();rebuildWagerGrid();rebuildBzTeamBtns();
+  teams=[];renderScoreboard();renderPanelLb();rebuildBzTeamBtns();
 }
 function adjustScore(idx,d){teams[idx].score+=d;renderScoreboard();renderPanelLb();}
 function renderScoreboard(){
@@ -3400,26 +3392,9 @@ function renderPanelLb(){
 }
 
 // WAGER
-function rebuildWagerGrid(){
-  const g=document.getElementById('wagerGrid');
-  if(!g) return;
-  if(!teams.length){g.innerHTML='<p style="font-size:.75rem;color:var(--textDim)">Add teams first.</p>';return;}
-  g.innerHTML=teams.map((t,i)=>`
-    <div class="wager-row">
-      <div class="wager-name">${esc(t.name)} (${t.score})</div>
-      <div class="wager-row-inp">
-        <input class="wager-inp" type="number" id="w${i}" min="0" max="${Math.max(t.score,0)}" placeholder="0">
-        <button class="hbtn hbtn-green hbtn-sm" onclick="applyWager(${i},1)">✓</button>
-        <button class="hbtn hbtn-red hbtn-sm" onclick="applyWager(${i},-1)">✗</button>
-      </div>
-    </div>`).join('');
-}
-function applyWager(idx,dir){
-  const inp=document.getElementById(`w${idx}`);
-  teams[idx].score+=dir*(parseInt(inp.value)||0);
-  inp.value='';renderScoreboard();renderPanelLb();rebuildWagerGrid();
-}
-function applyAllWagers(dir){teams.forEach((_,i)=>applyWager(i,dir));}
+
+
+
 
 // ══════════════════════════════════════════════════════════════
 // SOUND ENGINE
@@ -3747,16 +3722,9 @@ function adjustWager(idx, dir) {
   if (card) card.classList.toggle('active', _wagers[idx] > 0);
 }
 
-function showWagerModal() {
-  buildWagerModal();
-  const m = document.getElementById('wagerModal');
-  if (m) m.style.display = 'flex';
-}
 
-function hideWagerModal() {
-  const m = document.getElementById('wagerModal');
-  if (m) m.style.display = 'none';
-}
+
+
 
 function revealDoubleDownQuestion() {
   hideWagerModal();
