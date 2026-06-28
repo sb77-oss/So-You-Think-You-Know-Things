@@ -1480,7 +1480,7 @@ body{
 .mx-eyebrow { font-family:var(--font-d);font-size:.75rem;letter-spacing:.25em;color:var(--round-color);text-transform:uppercase; }
 .mx-title { font-family:var(--font-d);font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-.02em;color:#fff;text-align:center; }
 .mx-sub { font-size:.95rem;color:var(--textMuted);text-align:center;max-width:55ch;line-height:1.6; }
-.mx-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;width:100%; }
+.mx-grid { display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;width:min(800px,90vw); }
 .mx-card {
   background:var(--surface2);border:2px solid var(--border);border-radius:var(--r);
   padding:1rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;
@@ -3296,12 +3296,11 @@ function buildMxGrid(){
   const g = document.getElementById('mxGrid');
   if(!g) return;
   g.innerHTML = teams.map((t,i) => `
-    <div class="mx-card ${t.multiplier > 1 ? 'mx-set' : ''}" id="mxCard_${i}">
+    <div class="mx-card" id="mxCard_${i}">
       <div class="mx-card-name">${esc(t.name)}</div>
-      <div class="mx-card-score">${t.score} pts</div>
-      <div class="mx-multiplier-display" id="mxDisp_${i}">×${t.multiplier}</div>
+      <div class="mx-multiplier-display" id="mxDisp_${i}">×${t.multiplier > 1 ? t.multiplier : '?'}</div>
       <div class="mx-inp-row">
-        <input class="mx-inp" type="number" id="mxInp_${i}" min="1" value="${t.multiplier}" placeholder="1">
+        <input class="mx-inp" type="number" id="mxInp_${i}" min="1" value="" placeholder="1">
         <button class="btn btn-ghost mx-set-btn" onclick="mxSetTeam(${i})">SET</button>
       </div>
     </div>`).join('');
