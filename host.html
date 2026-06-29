@@ -324,11 +324,11 @@ const ROUNDS = [
                         },
                         {
                                 "question": "Honey is famous for being the only food in your pantry that never completely spoils.\n\nBiologically speaking, what is honey?",
-                                "mediaType": "image",
-                                "mediaSrc": "img_r3_q3_honey.jpg",
+                                "mediaType": "none",
+                                "mediaSrc": "",
                                 "answer": "C: Bee vomit",
                                 "answerSubline": "Technically it is regurgitated nectar stored in a specialised honey stomach",
-                                "answerImg": "",
+                                "answerImg": "img_r3_q3_honey.gif",
                                 "note": "Bees swallow nectar, break it down with enzymes, throw it back up, and then fan it with their wings to evaporate the water. The low moisture and high acidity create an environment where bacteria instantly dehydrates and dies.",
                                 "multiChoice": [
                                         "A) Bee sweat",
@@ -475,7 +475,7 @@ const ROUNDS = [
                                 "mediaSrc": "",
                                 "answer": "D: A strongly worded customer complaint",
                                 "answerSubline": "The world's oldest recorded customer complaint. Now in the British Museum",
-                                "answerImg": "img_r5_q2_tablet.jpg",
+                                "answerImg": "img_r5_q2_tablet.gif",
                                 "note": "Nanni was furious about substandard copper ingots. Ea-Nasir kept the tablet, nobody knows why. He has been publicly shamed for approximately 3,774 years and counting. He is also the subject of multiple Reddit threads, several TikToks, and at least one podcast episode.",
                                 "multiChoice": [
                                         "A) A stolen camel accusation",
@@ -492,7 +492,7 @@ const ROUNDS = [
                                 "mediaSrc": "",
                                 "answer": "A: \"It most definitely was not. I would never have forgotten my drugs.\"",
                                 "answerSubline": "The Secret Service ultimately closed the investigation without finding a suspect",
-                                "answerImg": "img_r5_q3_biden.jpg",
+                                "answerImg": "img_r5_q3_biden.gif",
                                 "note": "242,000 likes. He also went viral the same week for correcting a photoshopped meth pipe: \"A crack pipe doesn't have that little bowl at the end.\"",
                                 "multiChoice": [
                                         "A) \"It most definitely was not. I would never have forgotten my drugs.\" ← CORRECT",
@@ -660,11 +660,11 @@ const ROUNDS = [
                                 "question": "Before becoming the fire-breathing, blood-spitting frontman of KISS, Gene Simmons was seriously considering which profession?",
                                 "category": "MUSIC",
                                 "categoryIcon": "🎸",
-                                "mediaType": "none",
-                                "mediaSrc": "",
+                                "mediaType": "image",
+                                "mediaSrc": "img_r7_music_gene.jpg",
                                 "answer": "A Rabbi",
                                 "answerSubline": "Born Chaim Witz in Haifa, Israel",
-                                "answerImg": "img_r7_music_gene.jpg",
+                                "answerImg": "",
                                 "note": "He attended a theological seminary and genuinely considered the rabbinical path. Then pivoted to teaching sixth grade in Spanish Harlem. Then to KISS. KISS has sold over 100 million records. The distance between those two destinations is not small, but it is very funny.",
                                 "multiChoice": [],
                                 "hostHint": "Shout BUZZ first. Then answer. What career was Gene Simmons considering before KISS.",
@@ -1432,35 +1432,51 @@ body{
 .fs-inp:focus { outline:none;border-color:var(--purple); }
 
 /* ── WINNER REVEAL ───────────────────────────────────────── */
-#winnerRevealScreen { align-items:center;justify-content:center; }
-.wr-content { display:flex;flex-direction:column;align-items:center;gap:1.5rem;text-align:center; }
-.wr-place {
-  font-family:var(--font-d);font-size:.85rem;letter-spacing:.3em;
-  text-transform:uppercase;color:var(--textDim);
+#winnerRevealScreen {
+  align-items:center;justify-content:center;flex-direction:column;
+  background:#080412;text-align:center;
 }
+#winnerRevealScreen .title-content {
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2vh;padding:0 4vw;width:100%;height:100%;position:relative;z-index:2;
+}
+.wr-content { display:flex;flex-direction:column;align-items:center;text-align:center;gap:2rem;width:min(800px,90vw);position:relative;z-index:2; }
+.wr-welldown {
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(3.5rem,8vw,9rem);letter-spacing:-.04em;
+  line-height:.85;
+  will-change:background-position;
+  background:linear-gradient(90deg,#ff0000 0%,#ff8c00 16%,#ffed00 32%,#008026 48%,#004dff 64%,#750787 80%,#ff0000 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:prideShift 6s ease infinite, titleReveal .9s var(--ease) .3s both;
+  filter:drop-shadow(0 0 40px rgba(255,100,200,.25));
+}
+.wr-hearts {
+  font-size:clamp(1.5rem,3vw,2.5rem);letter-spacing:.2em;
+  animation:issueIn .8s var(--ease) .6s both;opacity:0;animation-fill-mode:both;
+}
+.wr-placements {
+  display:flex;gap:3rem;align-items:flex-start;justify-content:center;
+  animation:issueIn .8s var(--ease) .9s both;opacity:0;animation-fill-mode:both;
+}
+.wr-placement { display:flex;flex-direction:column;align-items:center;gap:.3rem; }
+.wr-place {
+  font-family:var(--font-d);font-size:.7rem;letter-spacing:.25em;
+  text-transform:uppercase;color:rgba(255,255,255,.35);
+}
+.wr-trophy { font-size:1.8rem; }
 .wr-name {
   font-family:var(--font-d);font-weight:800;
-  font-size:clamp(3rem,8vw,7rem);letter-spacing:-.03em;
-  color:#fff;line-height:1;
-  animation:wrNamePop .5s var(--ease) both;
+  font-size:clamp(1.2rem,2.5vw,2rem);letter-spacing:-.02em;line-height:1;
 }
-.wr-pts {
-  font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2.5rem);
-  font-weight:700;color:var(--textMuted);letter-spacing:.05em;
-}
-.wr-trophy { font-size:clamp(3rem,6vw,5rem);animation:wrNamePop .4s var(--ease) both; }
-.wr-next-btn {
-  position:fixed;bottom:5rem;right:2rem;
-  animation:fadeSlide .3s var(--ease) both;
-}
-@keyframes wrNamePop {
-  0% { transform:scale(.7);opacity:0; }
-  70% { transform:scale(1.05); }
-  100% { transform:scale(1);opacity:1; }
-}
+.wr-pts { font-size:.85rem;color:rgba(255,255,255,.35);letter-spacing:.05em; }
 .wr-gold { color:#f59e0b; }
 .wr-silver { color:#9ca3af; }
-.wr-bronze { color:#b45309; }
+@keyframes confettiFall {
+  0% { transform:translateY(0) rotate(0deg);opacity:1; }
+  100% { transform:translateY(100vh) rotate(720deg);opacity:0; }
+}
 
 /* ── MULTIPLIER REVEAL SCREEN ────────────────────────────── */
 #multiplierRevealScreen { align-items:center; justify-content:center; }
@@ -2035,6 +2051,13 @@ body{
 .sc-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:.55rem .7rem;display:flex;flex-direction:column;gap:.3rem}
 .sc-name{font-family:var(--font-d);font-size:.72rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sc-bottom{display:flex;align-items:center;gap:.3rem}
+.sc-pts-inp{
+  width:3.5rem;padding:.2rem .4rem;border-radius:var(--rsm);
+  border:1px solid var(--border);background:var(--surface);
+  color:var(--purple);font-family:var(--font-d);font-size:1.4rem;
+  font-weight:700;text-align:center;
+}
+.sc-pts-inp:focus{outline:none;border-color:var(--purple);}
 .sc-pts{font-family:var(--font-d);font-weight:800;font-size:1.3rem;color:var(--accent);flex:1}
 .sc-adj{display:flex;gap:.22rem}
 .sc-btn{width:24px;height:24px;border-radius:4px;font-weight:700;font-size:.85rem;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;transition:transform var(--t)}
@@ -2185,7 +2208,7 @@ body{
       <h1 class="title-main" id="titleMain">SO YOU THINK<br>YOU KNOW THINGS</h1>
       <p class="title-season">SEASON II</p>
       <div class="title-rule"></div>
-      <button class="title-btn" id="letsGoBtn" onclick="showScreen('teamSetupScreen', true)"><span>LET'S GOOOOOOO</span></button>
+      <button class="title-btn" id="letsGoBtn" onclick="fireworksThenNav()"><span>LET'S GOOOOOOO</span></button>
     </div>
   </div>
 
@@ -2222,7 +2245,6 @@ body{
   <!-- WINNER REVEAL SCREEN -->
   <div id="winnerRevealScreen" class="screen">
     <div id="winnerRevealContent" class="wr-content"></div>
-    <button class="btn btn-ghost wr-next-btn" id="wrNextBtn" onclick="winnerRevealNext()" style="display:none">NEXT →</button>
   </div>
 
   <!-- MULTIPLIER REVEAL SCREEN -->
@@ -2499,6 +2521,9 @@ function _applyScreen(name) {
   }
   ['titleScreen','teamSetupScreen','roundNav','roundIntro','multiplierScreen','multiplierRevealScreen','finalScoresScreen','winnerRevealScreen','questionView','answerView','roundupView','saraBoard','lbScreen']
     .forEach(id => document.getElementById(id)?.classList.remove('active'));
+  // Stop confetti if navigating away from winner screen
+  const wrScreen = document.getElementById('winnerRevealScreen');
+  if(wrScreen && wrScreen._confettiInterval){ clearInterval(wrScreen._confettiInterval); wrScreen._confettiInterval = null; }
   const nb = document.getElementById('navBar');
   if (nb) {
     if (['questionView','answerView','roundupView'].includes(name)) nb.classList.remove('hidden');
@@ -2539,11 +2564,9 @@ function doWipeTransition(callback) {
 function fireworksThenNav() {
   // Stop intro loop
   if (SFX.introLoop) { SFX.introLoop.pause(); SFX.introLoop.currentTime=0; }
-  // Small delay ensures audio context is fully unlocked before playing yeah
   setTimeout(() => sfxPlay('letsGo'), 30);
-
   launchFireworks();
-  setTimeout(() => showRoundNav(), 900); // showRoundNav now uses wipe internally
+  setTimeout(() => showScreen('teamSetupScreen', true), 900);
 }
 
 function launchFireworks() {
@@ -3198,76 +3221,98 @@ let _wrIdx = 0;
 
 function showFinalScores(){
   if(!teams.length){ alert('No teams yet — add teams first.'); return; }
-  const g = document.getElementById('finalScoresGrid');
-  if(g){
-    g.innerHTML = teams.map((t,i) => `
-      <div class="fs-card">
-        <div class="fs-card-name">${esc(t.name)}</div>
-        <input class="fs-inp" type="number" id="fsInp_${i}" placeholder="0" min="0" value="${t.score}">
-      </div>`).join('');
-  }
-  showScreen('finalScoresScreen', true);
+  rIdx = -1; // Clear round context so multiplier doesn't apply
+  // Sort descending and take top 3
+  _wrTeams = [...teams].sort((a,b) => b.score - a.score).slice(0,3);
+  _wrIdx = 0;
+  showScreen('winnerRevealScreen', true);
+  renderWinnerSlide();
 }
 
 function startWinnerReveal(){
   if(!teams.length){ alert('No teams entered yet.'); return; }
-  // Read final scores from inputs
-  teams.forEach((t,i) => {
-    const val = parseInt(document.getElementById(`fsInp_${i}`)?.value) || t.score;
-    t.score = val;
-  });
-  renderScoreboard(); renderPanelLb();
-
-  // Sort descending and take top 3
   _wrTeams = [...teams].sort((a,b) => b.score - a.score).slice(0,3);
   _wrIdx = 0;
-
   showScreen('winnerRevealScreen', true);
   renderWinnerSlide();
 }
 
 function renderWinnerSlide(){
   const content = document.getElementById('winnerRevealContent');
-  const nextBtn = document.getElementById('wrNextBtn');
   if(!content) return;
 
-  const team = _wrTeams[_wrIdx];
-  if(!team) return; // guard against undefined
-
-  const isWinner = _wrIdx === 0;
-  const trophies = ['🥇','🥈','🥉'];
-  const places = ['WINNER','SECOND PLACE','THIRD PLACE'];
-  const colorClass = ['wr-gold','wr-silver','wr-bronze'][_wrIdx];
+  const first = _wrTeams[0];
+  const second = _wrTeams[1];
+  if(!first) return;
 
   content.innerHTML = `
-    <div class="wr-trophy ${colorClass}">${trophies[_wrIdx]}</div>
-    <div class="wr-place">${places[_wrIdx]}</div>
-    <div class="wr-name ${colorClass}">${esc(team.name)}</div>
-    <div class="wr-pts">${team.score} points</div>
+    <div class="wr-welldown">Well done everyone!</div>
+    <div class="wr-hearts">❤️ ❤️ ❤️</div>
+    <div class="wr-placements">
+      <div class="wr-placement">
+        <div class="wr-trophy">🥇</div>
+        <div class="wr-place">Winner</div>
+        <div class="wr-name wr-gold">${esc(first.name)}</div>
+        <div class="wr-pts">${first.score} pts</div>
+      </div>
+      ${second ? `
+      <div class="wr-placement">
+        <div class="wr-trophy">🥈</div>
+        <div class="wr-place">Second Place</div>
+        <div class="wr-name wr-silver">${esc(second.name)}</div>
+        <div class="wr-pts">${second.score} pts</div>
+      </div>` : ''}
+    </div>
   `;
 
-  // Sound
-  if(isWinner){
-    sfxPlay('winner');
-    // Trigger fireworks
-    if(typeof startFireworks === 'function') startFireworks();
-  } else {
-    sfxPlay('fanfare');
-  }
-
-  // Show next button if more teams to reveal
-  if(nextBtn){
-    nextBtn.style.display = _wrIdx < _wrTeams.length - 1 ? 'block' : 'none';
-  }
+  sfxPlay('winner');
+  if(typeof launchFireworks === 'function') launchFireworks();
+  launchConfetti();
 }
 
-function winnerRevealNext(){
-  _wrIdx++;
-  if(_wrIdx < _wrTeams.length) renderWinnerSlide();
+function launchConfetti(){
+  const colors = ['#f59e0b','#9ca3af','#fff','#ff00aa','#a855f7','#22d3ee','#ff69b4','#ffd700'];
+
+  function spawnBatch(){
+    const container = document.createElement('div');
+    container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;overflow:hidden;';
+    document.body.appendChild(container);
+
+    for(let i = 0; i < 60; i++){
+      const piece = document.createElement('div');
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const size = Math.random() * 10 + 6;
+      const left = Math.random() * 100;
+      const delay = Math.random() * 1.5;
+      const duration = Math.random() * 2 + 2;
+      const rotation = Math.random() * 360;
+      piece.style.cssText = `
+        position:absolute;top:-20px;left:${left}%;
+        width:${size}px;height:${size * (Math.random() > 0.5 ? 1 : 2.5)}px;
+        background:${color};border-radius:${Math.random() > 0.5 ? '50%' : '2px'};
+        animation:confettiFall ${duration}s ${delay}s ease-in forwards;
+        transform:rotate(${rotation}deg);
+      `;
+      container.appendChild(piece);
+    }
+    setTimeout(() => container.remove(), 4000);
+  }
+
+  // Fire immediately then keep going
+  spawnBatch();
+  const interval = setInterval(spawnBatch, 1800);
+
+  // Store interval ID on the screen so we can stop it if we navigate away
+  const screen = document.getElementById('winnerRevealScreen');
+  if(screen) screen._confettiInterval = interval;
 }
+
+function winnerRevealNext(){ /* no longer used but kept to avoid reference errors */ }
 
 
 function showMultiplierReveal(){
+  // Ensure all teams have a multiplier set
+  teams.forEach(t => { if(!t.multiplier || t.multiplier < 1) t.multiplier = 1; });
   const g = document.getElementById('mxrGrid');
   if(g) {
     g.innerHTML = teams.map(t => `
@@ -3352,7 +3397,7 @@ function addTeam(){
   const inp=document.getElementById('newTeamInput');
   const name=inp.value.trim();
   if(!name||teams.length>=SCORING.maxTeams)return;
-  teams.push({name,score:0}); inp.value='';
+  teams.push({name,score:0,multiplier:1}); inp.value='';
   renderScoreboard();renderPanelLb();rebuildBzTeamBtns();
 }
 function clearTeams(){
@@ -3360,17 +3405,22 @@ function clearTeams(){
   teams=[];renderScoreboard();renderPanelLb();rebuildBzTeamBtns();
 }
 function adjustScore(idx,d){teams[idx].score+=d;renderScoreboard();renderPanelLb();}
+function setScore(idx, val){
+  const n = parseInt(val);
+  if(isNaN(n)) return;
+  teams[idx].score = n;
+  renderPanelLb();
+  renderPanelMultipliers();
+}
 function renderScoreboard(){
   const el=document.getElementById('scoreboard');
   if(!el) return;
   if(!teams.length){el.innerHTML='<p style="font-size:.78rem;color:var(--textDim);margin-top:.5rem">No teams yet.</p>';return;}
-  const r = ROUNDS[rIdx];
-  const isWager = r && r.id === 'currentevents';
   el.innerHTML=teams.map((t,i)=>`
     <div class="sc-card">
-      <div class="sc-name" title="${esc(t.name)}">${esc(t.name)}${isWager ? `<span style="color:var(--round-color);font-size:.75rem;margin-left:.4rem">×${t.multiplier||1}</span>` : ''}</div>
+      <div class="sc-name" title="${esc(t.name)}">${esc(t.name)}</div>
       <div class="sc-bottom">
-        <div class="sc-pts">${t.score}</div>
+        <input class="sc-pts-inp" type="number" value="${t.score}" onchange="setScore(${i},this.value)" oninput="setScore(${i},this.value)">
         <div class="sc-adj">
           <button class="sc-btn sc-plus" onclick="adjustScoreMultiplied(${i},1)">+</button>
           <button class="sc-btn sc-minus" onclick="adjustScoreMultiplied(${i},-1)">−</button>
