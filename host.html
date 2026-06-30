@@ -74,7 +74,7 @@ const ROUNDS = [
                         {
                                 "question": "This track was written on a paper bag between takes on a film set, won an Academy Award for Best Original Song, and the artist wasn't even in the room when it happened. Name the song and the artist.",
                                 "mediaType": "audio",
-                                "mediaSrc": "yt:7YuAzR2XVAM:40",
+                                "mediaSrc": "yt:7YuAzR2XVAM:35",
                                 "answer": "Lose Yourself",
                                 "answerSubline": "Eminem · 8 Mile Soundtrack · 2002",
                                 "answerImg": "img_warmup_q3_eminem_oscar.jpg",
@@ -1714,10 +1714,10 @@ body{
 /* A Round: colour the leading A */
 .a-highlight{color:var(--aColor)}
 
-.q-options{display:flex;flex-direction:column;gap:.4vh;margin-top:.5vh}
+.q-options{display:flex;flex-direction:column;gap:.6vh;margin-top:1vh}
 .q-opt{
   background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);
-  padding:.6vh 1.2vw;font-size:clamp(1rem,1.8vw,1.5rem);color:var(--textMuted);
+  padding:.9vh 1.2vw;font-size:clamp(1.1rem,2.1vw,1.8rem);color:var(--textMuted);
   transition:border-color var(--t);
 }
 .q-opt.correct{border-color:var(--green);color:var(--green);background:var(--greenGlow)}
@@ -2811,8 +2811,8 @@ function showRoundup() {
     const row = document.createElement('div');
     row.className = 'roundup-row';
 
-    // Strip A: B: C: D: prefix from answer for display
-    const ansText = (q.answer || '').replace(/^[A-D]:\s*/, '');
+    // Keep A: B: C: D: prefix for multiple choice questions so the letter is visible on roundup
+    const ansText = (q.answer || '').replace(/^([A-D]):\s*/, '$1) ');
     const subText = q.answerSubline || '';
 
     // Truncate question for display
@@ -2932,7 +2932,9 @@ function renderQuestion() {
   }
 
   // Fit question text to viewport , short = big, long = smaller
-  requestAnimationFrame(() => fitText(document.getElementById('qQuestion'), 1.8, 3.2));
+  // Single-column (no media) slides get extra room to be more readable from across a room
+  const _hasMediaNow = card && card.classList.contains('has-media');
+  requestAnimationFrame(() => fitText(document.getElementById('qQuestion'), _hasMediaNow ? 1.8 : 2.1, _hasMediaNow ? 3.2 : 3.8));
   // Remove any lingering wager overlay
   const _wo = document.getElementById('wagerResultOverlay');
   if(_wo) _wo.remove();
