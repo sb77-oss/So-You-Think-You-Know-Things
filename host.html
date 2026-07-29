@@ -44,7 +44,7 @@ const ROUNDS = [
       {
         "question": "The finale drew 19.3 million viewers and was reviewed like a national tragedy.",
         "mediaType": "audio",
-        "mediaSrc": "yt:_8Jtg_m7Ons",
+        "mediaSrc": "yt:s7L2PVdrb_8",
         "answer": "Game of Thrones",
         "answerSubline": "Composed by Ramin Djawadi · HBO · 2011-2019",
         "answerImg": "",
@@ -59,7 +59,7 @@ const ROUNDS = [
       {
         "question": "It invented the antihero era of television. Everything since owes it a debt.",
         "mediaType": "audio",
-        "mediaSrc": "yt:yGRMJRgFLac",
+        "mediaSrc": "yt:mJpNmYeooQE:2",
         "answer": "The Sopranos",
         "answerSubline": "Alabama 3 · Woke Up This Morning · HBO · 1999-2007",
         "answerImg": "",
@@ -74,7 +74,7 @@ const ROUNDS = [
       {
         "question": "It ran for seven seasons and introduced millions of people to a world they had never thought about.",
         "mediaType": "audio",
-        "mediaSrc": "yt:numPRT7Td3k",
+        "mediaSrc": "yt:fBITGyJynfA",
         "answer": "Orange Is the New Black",
         "answerSubline": "You've Got Time · Regina Spektor · Netflix · 2013-2019",
         "answerImg": "",
@@ -89,7 +89,7 @@ const ROUNDS = [
       {
         "question": "It took three seasons to find its audience and ended up changing what television was allowed to be.",
         "mediaType": "audio",
-        "mediaSrc": "yt:HhesHBHDTXE",
+        "mediaSrc": "yt:F1HNuAE9WdU",
         "answer": "Breaking Bad",
         "answerSubline": "Composed by Dave Porter · AMC · 2008-2013 · Br and Ba are the symbols for Bromine and Barium",
         "answerImg": "",
@@ -104,7 +104,7 @@ const ROUNDS = [
       {
         "question": "Its composer wrote five to ten new versions of the theme per season because every episode needed its own emotional temperature.",
         "mediaType": "audio",
-        "mediaSrc": "yt:MI4PBBFNBS8",
+        "mediaSrc": "yt:d2KeCQm4-PE",
         "answer": "Succession",
         "answerSubline": "Nicholas Britell · HBO · 2018-2023",
         "answerImg": "",
@@ -2853,7 +2853,6 @@ function hexToRgba(hex, alpha) {
   return `rgba(${r},${g},${b},${alpha})`;
 }
 function startRound() {
-  sfxPlay('letsGo');
   setTimeout(() => {
     if (ROUNDS[rIdx].id==='sara') { showScreen('saraBoard', true); return; }
     // Round 10 (currentevents) gets the multiplier declaration screen first
