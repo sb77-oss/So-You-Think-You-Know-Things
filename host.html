@@ -2310,7 +2310,7 @@ body{
 
 <!-- WAGER MODAL -->
 <!-- Hidden YouTube Player -->
-<div id="ytPlayerWrap" style="position:fixed;bottom:-400px;left:-400px;width:320px;height:180px;overflow:hidden;pointer-events:none;z-index:-1;">
+<div id="ytPlayerWrap" style="position:fixed;bottom:0;right:0;width:1px;height:1px;overflow:hidden;pointer-events:none;z-index:1;opacity:0;">
   <div id="ytPlayer"></div>
 </div>
 
@@ -3819,8 +3819,11 @@ function ytPlayFrom(videoId, startSeconds) {
       startSeconds: startSeconds || 0,
       suggestedQuality: 'small'
     });
-    _ytPlayer.setVolume(70);
+    _ytPlayer.mute();
     _ytPlayer.playVideo();
+    setTimeout(() => {
+      try { _ytPlayer.unMute(); _ytPlayer.setVolume(70); } catch(e){}
+    }, 300);
   } catch(e) { console.warn('YT play error:', e); }
 }
 
