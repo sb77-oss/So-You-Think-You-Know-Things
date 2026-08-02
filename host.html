@@ -797,7 +797,7 @@ const ROUNDS = [
         "note": "• The Frisbie Pie Company supplied pies to Yale University\n• Students discovered the empty tins flew well thrown upside down and started tossing them across campus, shouting 'Frisbie' as a warning\n• Inventor Fred Morrison independently designed a plastic flying disc in 1948\n• Wham-O bought his rights, heard about the Yale tradition, and named it Frisbee after the pie company, deliberately misspelled",
         "multiChoice": [],
         "hostHint": "Yummy.",
-        "hostAnswerNote": "The Frisbie Pie Company was founded by William Russell Frisbie in 1871 in Bridgeport, Connecticut. It sold pies throughout New England, including to Yale University. The company closed in 1958, one year after Wham-O started selling the plastic Frisbee. Fred Morrison, the inventor of the plastic version, sold his rights to Wham-O for $1 million in royalties over his lifetime.",
+        "hostAnswerNote": "The Frisbie Pie Company was founded by William Russell Frisbie in 1871 in Bridgeport, Connecticut. It sold pies throughout New England, including to Yale University. The company closed in 1958, one year after Wham-O started selling the plastic Frisbee. Fred Morrison, the inventor of the plastic version, sold his rights to Wham-O in 1957 in exchange for lifetime royalties that made him financially secure for the rest of his life.",
         "source": "Source: Phil Kennedy, The Frisbee Disc History; Wham-O corporate records"
       }
     ]
@@ -1900,9 +1900,9 @@ body{
 .q-text-col > *:not(.q-number-bg) { position:relative; z-index:1; }
 
 .q-question{
-  font-family:var(--font-d);font-weight:700;
+  font-family:var(--font-b);font-weight:600;
   font-size:2.8vw;
-  line-height:1.25;letter-spacing:-.01em;
+  line-height:1.35;letter-spacing:0;
   white-space:pre-line;
   color:var(--round-color);
   transition:color .5s ease;
@@ -2093,7 +2093,7 @@ body{
   font-size:clamp(.9rem,1.4vw,1.2rem);color:var(--textMuted);
   font-weight:300;line-height:1.65;max-width:58ch;
   border-left:2px solid var(--round-glow);padding-left:.9rem;
-  white-space:pre-line;
+  white-space:pre-line;text-align:justify;
 }
 .ans-media-col{display:flex;flex-direction:column;gap:.5rem;align-items:center;justify-content:center;height:100%;}
 .ans-media-wrap{
@@ -3208,6 +3208,9 @@ function renderQuestion() {
 function renderAnswer() {
   if (rIdx < 0 || !ROUNDS[rIdx]) return;
   const r=ROUNDS[rIdx], q=r.questions[aIdx], total=r.questions.length;
+  // Stop the question timer while viewing an answer, it should only ever count
+  // time spent on a live question, not time spent discussing the answer
+  clockStop();
   // Set answer hint for host panel
   setAnswerHint(q.hostAnswerNote || '');
   document.getElementById('ansPill').textContent = r.badge;
@@ -3262,6 +3265,7 @@ function renderAnswer() {
 
   // Fit answer text to viewport , single-column slides get a bigger range since they have the full frame to themselves
   requestAnimationFrame(() => fitText(document.getElementById('ansMain'), _hasMedia ? 2.0 : 2.6, _hasMedia ? 4.2 : 5.6));
+  requestAnimationFrame(() => requestAnimationFrame(() => fitAnswerBox()));
   sfxFadeLoop();
   // Hide answer text immediately to prevent flash during word-reveal setup
   const _am = document.getElementById('ansMain');
@@ -3288,6 +3292,34 @@ function fitText(el, minVw, maxVw) {
   else                 ratio = 0.3;
   const vw = minVw + (maxVw - minVw) * Math.max(0, Math.min(1, ratio));
   el.style.fontSize = vw.toFixed(2) + 'vw';
+}
+
+// PREVENT ANSWER CARD OVERFLOW , shrinks note/subline until content actually fits
+// Runs after fitText sizes the main answer text, since that's the biggest variable.
+// Guards against the note/subline running past the bottom of the card and getting clipped.
+function fitAnswerBox() {
+  const card = document.getElementById('ansCard');
+  const textCol = document.getElementById('ansTextCol');
+  const note = document.getElementById('ansNote');
+  const sub = document.getElementById('ansSub');
+  if (!card || !textCol) return;
+  // Reset to CSS defaults first so we're measuring fresh, not compounding a previous shrink
+  if (note) note.style.fontSize = '';
+  if (sub) sub.style.fontSize = '';
+  let guard = 0;
+  while (textCol.scrollHeight > card.clientHeight && guard < 30) {
+    let shrunk = false;
+    if (note) {
+      const cur = parseFloat(getComputedStyle(note).fontSize);
+      if (cur > 13) { note.style.fontSize = (cur - 1) + 'px'; shrunk = true; }
+    }
+    if (sub) {
+      const cur = parseFloat(getComputedStyle(sub).fontSize);
+      if (cur > 14) { sub.style.fontSize = (cur - 1) + 'px'; shrunk = true; }
+    }
+    if (!shrunk) break; // hit the floor, stop rather than loop forever
+    guard++;
+  }
 }
 
 
