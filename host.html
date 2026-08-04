@@ -20,6 +20,8 @@
        mediaSrc    , filename (same folder) or full embed URL (YouTube/Spotify)
        answer      , shown on the answer slide in BIG GREEN
        answerImg   , optional image on the answer slide (filename or URL)
+       answerStat  , optional big styled number/stat for the answer slide (e.g. "53%"), used instead of an image when the answer itself is a number. Renders in the same media slot as answerImg, so only set one of the two.
+       answerStatLabel , short caption under answerStat (e.g. "of internet traffic in 2026")
        answerMedia , optional audio/video embed on the answer slide
                      (for Warm Up: re-play the song on the answer slide)
        note        , the cultural context paragraph
@@ -37,7 +39,7 @@ const ROUNDS = [
     "id": "warmup",
     "name": "NAME THAT TUNE",
     "subname": "TV OPENING CREDITS",
-    "badge": "WARM UP",
+    "badge": "ROUND 1",
     "format": "Five shows. Write the name of the show for each clip.",
     "hostNote": "Play the clip, let them write, then reveal. Don't give anything away before the music plays.",
     "questions": [
@@ -46,14 +48,12 @@ const ROUNDS = [
         "mediaType": "audio",
         "mediaSrc": "yt:RWak0i_iqnM",
         "answer": "Seinfeld",
-        "answerSubline": "Composed by Jonathan Wolff · NBC · 1989-1998 · the theme changes slightly in every episode to match the timing of Jerry's stand-up",
+        "answerSubline": "Composed by Jonathan Wolff · NBC · 1989-1998",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Jonathan Wolff recorded the theme using bass guitar, beatboxing, and a synthesiser. The theme was never the same twice, Wolff re-edited it every episode to sync with Jerry's opening stand-up. That added up to 180 different versions across nine seasons. Almost nobody noticed.",
+        "note": "• Jonathan Wolff recorded the theme using bass guitar, beatboxing, and a synthesiser\n• The theme was never the same twice, Wolff re-edited it every episode to sync with Jerry's opening stand-up\n• That added up to 180 different versions across nine seasons, and almost nobody noticed",
         "multiChoice": [],
-        "hostHint": "No hugging. No learning.",
-        "hostAnswerNote": "Jerry Seinfeld and Larry David pitched the show to NBC as a show about nothing. The executive who commissioned it was later fired, partly because of the show's slow start. It is now consistently ranked as one of the greatest television comedies ever made. The finale was watched by 76 million people.",
         "source": "Source: Jonathan Wolff interview, NPR; NBC press archive"
       },
       {
@@ -65,10 +65,8 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "The Who recorded 'Won't Get Fooled Again' in 1971. Roger Daltrey's scream was an accident, he ran out of breath and let out whatever was left. Thirty years later it became the opening note of one of the most watched shows in the world. The meme it spawned (dramatic pause, sunglasses, YEAAAAAAH) is still used online today.",
+        "note": "• The Who recorded 'Won't Get Fooled Again' in 1971\n• Roger Daltrey's scream was an accident, he ran out of breath and let out whatever was left, and thirty years later that same scream became the opening note of one of the most watched shows in the world\n• The meme it spawned (dramatic pause, sunglasses, YEAAAAAAH) is still used online today",
         "multiChoice": [],
-        "hostHint": "YEAAAAAAH.",
-        "hostAnswerNote": "CSI Miami was at one point the most watched TV show in the world, according to a 2006 survey of 66 countries. David Caruso's Horatio Caine became an accidental comedy icon for his habit of putting on sunglasses at dramatically inappropriate moments and delivering one-liners before the theme kicked in. He has never publicly commented on the memes.",
         "source": "Source: CBS press archive; The Guardian, 2006 global TV survey"
       },
       {
@@ -80,10 +78,8 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Creator Jenji Kohan listened to Regina Spektor obsessively while writing the show and thought of her immediately for the theme. Spektor wrote the song imagining what it must feel like to be in prison. Kohan sent her rough, unfinished episodes to write to. When she played him the demo, his entire reaction was 'this is fucking awesome'.",
+        "note": "• Creator Jenji Kohan listened to Regina Spektor obsessively while writing the show and thought of her immediately for the theme\n• Spektor wrote the song imagining what it must feel like to be in prison\n• Kohan sent her rough, unfinished episodes to write to\n• When she played him the demo, his entire reaction was 'this is fucking awesome'",
         "multiChoice": [],
-        "hostHint": "Trapped till the cage is full.",
-        "hostAnswerNote": "The faces in the opening credits are a mix of cast members and real women connected to the show's story. The real Piper Chapman, whose memoir the show is based on, appears as the fifth face from the end. The song was nominated for a Grammy for Best Song Written for Visual Media.",
         "source": "Source: Netflix Press, 2013; Grammy nominations archive"
       },
       {
@@ -95,10 +91,8 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Phantom Planet were a small indie band with no mainstream profile when Josh Schwartz picked 'California' as the theme. Within months it was charting across Europe. The song shares a co-writing credit with Al Jolson's 1924 standard 'California, Here I Come,' after the similarity was flagged, splitting royalties with songwriters who'd been dead for decades. The OC ran four seasons, the song has outlasted it by about 20 years.",
+        "note": "• Phantom Planet were a small indie band with no mainstream profile when Josh Schwartz picked 'California' as the theme\n• It hit the actual top 10 charts in the UK, Italy, Ireland, and Austria\n• The song shares a co-writing credit with Al Jolson's 1924 standard 'California, Here I Come,' after the similarity was flagged, splitting royalties with songwriters who'd been dead for decades",
         "multiChoice": [],
-        "hostHint": "Californiaaaaa, here we comeeeee.",
-        "hostAnswerNote": "The OC is widely credited with influencing the sound of mid-2000s indie rock by featuring emerging artists on its soundtrack. Death Cab for Cutie, Modest Mouse, Sufjan Stevens, and Imogen Heap all got significant exposure through the show. Music supervisor Alexandra Patsavas became one of the most influential people in the music industry as a result.",
         "source": "Source: Billboard; Wikipedia, California (Phantom Planet song)"
       },
       {
@@ -110,10 +104,8 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Nicholas Britell recorded the theme on a deliberately out-of-tune piano, giving it that slightly off-kilter quality. He composed multiple versions in different tempos and keys, editing a different one into each episode depending on its emotional tone. The show ended in 2023 after four seasons. The finale drew 2.9 million viewers.",
+        "note": "• Nicholas Britell recorded the theme on a deliberately out-of-tune piano, giving it that slightly off-kilter quality\n• He composed multiple versions in different tempos and keys, editing a different one into each episode depending on its emotional tone\n• The theme won an Emmy in 2019, and the show's opening title sequence was directly inspired by David Fincher's 1997 film The Game",
         "multiChoice": [],
-        "hostHint": "You can't make a Tomlette without breaking a few Greggs.",
-        "hostAnswerNote": "The opening credits were inspired by a very similar sequence in David Fincher's 1997 film The Game, which Succession's director had studied closely. Britell has also scored Moonlight, The Big Short, and Andor. He won an Emmy for the Succession theme in 2019.",
         "source": "Source: HBO; Nicholas Britell interview, Vulture 2018"
       }
     ]
@@ -127,22 +119,20 @@ const ROUNDS = [
     "hostNote": "Say it twice before starting. Every single answer starts with J.",
     "questions": [
       {
-        "question": "This Seattle raccoon with a spinal deformity has become one of the internet's most beloved celebrities of 2026.\n\nWhat's his name?",
+        "question": "This famous Seattle raccoon with a spinal deformity became one of the internet's biggest viral celebrities.\n\nWhat's his name?",
         "mediaType": "image",
         "mediaSrc": "Jimothy_Q.png",
         "answer": "Jimothy",
-        "answerSubline": "A wild raccoon with short spine syndrome living in Seattle's Ballard neighbourhood · over 5.6 million video views · his own Wikipedia page, Dungeons and Dragons stat block, and the unconditional love of an entire city",
+        "answerSubline": "A wild raccoon living in Seattle's Ballard neighbourhood · over 5.6 million video views · his own Wikipedia page, Dungeons and Dragons stat block, and the unconditional love of an entire city",
         "answerImg": "",
         "answerMedia": "yt:wHdVnikj39U",
         "answerMediaType": "video",
-        "note": "Jimothy has short spine syndrome, giving him a compact, rounded shape residents describe as cryptid-like. He has no idea he's famous, he's just living his life, digging through bins and climbing porches. Public health officials have asked people not to approach him. People are approaching him.",
+        "note": "• Jimothy has short spine syndrome, giving him a compact, rounded shape residents describe as cryptid-like\n• He has no idea he's famous, he's just living his life, digging through bins and climbing porches\n• Public health officials have asked people not to approach him\n• People are approaching him",
         "multiChoice": [],
-        "hostHint": "Not Jim. Not Timothy. The deeply uncool combination of both.",
-        "hostAnswerNote": "Short spine syndrome is a rare skeletal condition that compresses the vertebrae, giving animals an unusually compact body shape. It is not painful or debilitating for the animal but dramatically alters their appearance. Several dogs with the condition have also become internet famous. Jimothy was first spotted by residents of Ballard in early 2026 and his fame grew rapidly after a local photographer posted video of him eating from a bird feeder.",
         "source": "Source: Seattle Times, June 2026; KOMO News"
       },
       {
-        "question": "Elliot Page has been mixed up online with a completely different role in this year's Odyssey movie. But his actual breakout came back in 2007, in a very different kind of film.\n\nWhat's the film?",
+        "question": "Elliot Page made headlines with his casting in The Odyssey. Looking back at his career, what 2007 indie hit launched him to stardom?",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "Juno",
@@ -150,29 +140,25 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Ellen Page was 20 and largely unknown when she was cast. The film cost $7.5 million and grossed $231 million worldwide. Diablo Cody wrote the screenplay shortly after a brief career as a stripper in Minneapolis. She wore leopard print to the Oscars and accepted her win with a bewildered 'What is happening?'.",
+        "note": "• Ellen Page was 20 and largely unknown when she was cast\n• The film cost $7.5 million and grossed $231 million worldwide\n• Diablo Cody wrote the screenplay shortly after a brief career as a stripper in Minneapolis\n• She accepted her Oscar with a bewildered 'What is happening?'",
         "multiChoice": [],
-        "hostHint": "\"That's one doodle that can't be un-did home skillet.\"",
-        "hostAnswerNote": "Cody wrote Juno in a Starbucks inside a Target in suburban Minneapolis. She had no idea it would become an Oscar winner. The original script was barely altered on its journey from Starbucks to the screen. Elliot Page's performance was so specific and so controlled that several Academy members initially assumed they were watching an experienced actor.",
         "source": "Source: Academy Awards database; Box Office Mojo"
       },
       {
-        "question": "This singer was eliminated from American Idol in 2004 and built a massive career anyway. She just sang the American national anthem at this year's World Cup final.\n\nWho is she?",
+        "question": "This powerhouse vocalist was famously eliminated from American Idol back in 2004. She just sang the American national anthem at this year's World Cup final.\n\nWho is she?",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "Jennifer Hudson",
-        "answerSubline": "FIFA World Cup Final · Spain vs Argentina · MetLife Stadium, New Jersey · July 19, 2026 · Hudson is one of only 22 people in history to achieve EGOT status",
+        "answerSubline": "FIFA World Cup Final · Spain vs Argentina · MetLife Stadium, New Jersey · July 19, 2026",
         "answerImg": "Jhud_a.webp",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Hudson wore a custom white Thom Browne three-piece look. She performed to a stadium that included Donald Trump watching from a suite. The US didn't make the final; their anthem was sung anyway. Hudson has won her EGOT (Emmy, Grammy, Oscar, Tony) after breaking through on American Idol over two decades ago, where she was famously eliminated seventh.",
+        "note": "• She performed to a stadium that included Donald Trump watching from a suite\n• The US didn't make the final; their anthem was sung anyway\n• She was eliminated in seventh place on American Idol, then went on to become one of only 22 people in history to complete the EGOT",
         "multiChoice": [],
-        "hostHint": "\"And I am telling youuuuuuuuu\"",
-        "hostAnswerNote": "Jennifer Hudson was eliminated in seventh place on American Idol Season 3 in 2004. She went on to win an Academy Award for Dreamgirls in 2007, a Grammy, a Tony for the musical adaptation of A Strange Loop, and an Emmy. She completed her EGOT in 2023. Simon Cowell has never publicly commented on this.",
         "source": "Source: Billboard.com; ABC News, June 2022"
       },
       {
-        "question": "After World War Two, an allied car brand had to change its name because its initials had become associated with the Nazi SS.\n\nWhat is the brand called today?",
+        "question": "This luxury car manufacturer started out as the Swallow Sidecar Company in the 1920s. After World War II, it dropped its original initials due to some unfortunate historical associations.\n\nWhat is the brand called today?",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "Jaguar",
@@ -180,10 +166,8 @@ const ROUNDS = [
         "answerImg": "Jaguar_a.jpg",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Founded in 1922 in Blackpool making motorcycle sidecars. The SS initials were entirely innocent in 1922 but completely unsalvageable by 1945. Founder William Lyons told shareholders the name had unpleasant connotations and proposed the change; shareholders voted unanimously. The Jaguar name had already appeared on their most celebrated pre-war model.",
+        "note": "• Founded in 1922 in Blackpool making motorcycle sidecars\n• The SS initials were entirely innocent in 1922 but completely unsalvageable by 1945\n• Founder William Lyons told shareholders the name had unpleasant connotations and proposed the change; shareholders voted unanimously\n• The Jaguar name had already appeared on their most celebrated pre-war model",
         "multiChoice": [],
-        "hostHint": "Copy Nothing. Delete Ordinary.",
-        "hostAnswerNote": "The SS in SS Cars stood for Swallow Sidecar, the company's original product line. William Lyons began making sidecars for motorcycles at age 21. He had no political associations whatsoever. The rebranding was purely practical. The Jaguar E-Type, launched in 1961, was described by Enzo Ferrari as the most beautiful car ever made.",
         "source": "Source: Jaguar Cars Ltd official history; The Times, March 1945"
       },
       {
@@ -191,14 +175,12 @@ const ROUNDS = [
         "mediaType": "image",
         "mediaSrc": "Jellycat_q.webp",
         "answer": "Jellycat",
-        "answerSubline": "Founded in London in 1999 · $446 million revenue in 2024 · named one of TIME's 100 most influential companies 2026 · mostly sold to adults",
+        "answerSubline": "Founded in London in 1999 · $446 million revenue in 2024 · named one of TIME's 100 most influential companies 2026",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Jellycat started as a children's toy brand; today most of its buyers are adults. The most popular product is still an £18 stuffed bunny. Adults are buying them in bulk, colour-coding them on shelves, and posting hauls on TikTok. In 2026 they opened experiential spaces in Milan, Copenhagen and Stuttgart.",
+        "note": "• Jellycat started as a children's toy brand; today most of its buyers are adults\n• The most popular product is still an £18 stuffed bunny\n• Adults are buying them in bulk, colour-coding them on shelves, and posting hauls on TikTok\n• In 2026 they opened experiential spaces in Milan, Copenhagen and Stuttgart",
         "multiChoice": [],
-        "hostHint": "The stuffed animal aisle's answer to a Birkin bag.",
-        "hostAnswerNote": "The TIME 100 Most Influential Companies of 2026 list included Jellycat alongside OpenAI, Nvidia, and SpaceX. The company's CEO Arnaud Meysselle described their strategy as building worlds around stuffed toys rather than just selling them. Their first experiential space was the Jellycat Diner at FAO Schwarz in New York in 2023. Revenue grew 63 times over in 11 years.",
         "source": "Source: TIME 100 Most Influential Companies 2026; CNBC, October 2025"
       }
     ]
@@ -220,15 +202,13 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Second place on the list is also a footballer. Ronaldo crossed 500 million followers in 2023 and has kept climbing. He's also the first person to reach 100, 200, 300, 400, and 500 million followers.",
+        "note": "• Second place on the list is also a footballer\n• Ronaldo crossed 500 million followers in 2023 and has kept climbing\n• He's also the first person to reach 100, 200, 300, 400, and 500 million followers",
         "multiChoice": [
           "A) Kylie Jenner",
           "B) Cristiano Ronaldo ← CORRECT",
           "C) Lionel Messi",
           "D) Selena Gomez"
         ],
-        "hostHint": "650 million people can't be wrong.",
-        "hostAnswerNote": "Ronaldo's Instagram following is larger than the population of the United States. He earns an estimated $3.2 million per sponsored post. His most liked post is a photo announcing the birth of his daughter with Georgina Rodriguez, which received over 34 million likes. He has posted over 3,600 times.",
         "source": "Source: Instagram official data, 2026; Forbes"
       },
       {
@@ -240,10 +220,8 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Doctorow's theory has three stages: platforms are good to users, then squeeze users to please advertisers, then squeeze the advertisers too and keep everything for themselves. Google is the example he points to most. Its AI Overview feature has been caught inventing glowing reviews for products that don't exist.",
+        "note": "• Doctorow's theory has three stages: platforms are good to users, then squeeze users to please advertisers, then squeeze the advertisers too and keep everything for themselves\n• Google is the example he points to most\n• Its AI Overview feature has been caught inventing glowing reviews for products that don't exist",
         "multiChoice": [],
-        "hostHint": "Not a compliment.",
-        "hostAnswerNote": "Doctorow first used the word in a November 2022 blog post about people quitting social media. Regulators and antitrust researchers now use the term seriously, not just as an online complaint. Google's AI Overview was documented reviewing air purifier models, including one called the Levoit Core 5510, that do not exist.",
         "source": "Source: American Dialect Society, 2023; HouseFresh investigation, 2025"
       },
       {
@@ -251,40 +229,36 @@ const ROUNDS = [
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "C: 53%",
-        "answerSubline": "Imperva Bad Bot Report 2026 · 53% of internet traffic in 2025 was non-human, up from 51% the year before",
+        "answerSubline": "Imperva Bad Bot Report 2026 · a separate report from HUMAN Security found AI agent traffic specifically grew 7,851% in a single year",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "The Dead Internet Theory was posted anonymously on a forum in 2021. Its argument: the real internet, made by humans for humans, died around 2016 and got replaced by bots, algorithms, and AI-generated content. Most people dismissed it as paranoia. By 2026, human traffic had actually fallen below half; that comment you found weirdly compelling last week was probably not written by a person.",
+        "note": "• The Dead Internet Theory was posted anonymously on a forum in 2021\n• Its argument: the real internet, made by humans for humans, died around 2016 and got replaced by bots, algorithms, and AI-generated content\n• Most people dismissed it as paranoia\n• By 2026, human traffic had actually fallen below half; that comment you found weirdly compelling last week was probably not written by a person",
         "multiChoice": [
           "A) 28%",
           "B) 41%",
           "C) 53% ← CORRECT",
           "D) 65%"
         ],
-        "hostHint": "At least we're not alone.",
-        "hostAnswerNote": "The Dead Internet Theory first appeared on Agora Road's Macintosh Cafe forum in 2021. The specific claim that the internet 'died' around 2016 aligns with the explosion of algorithmic content curation, the rise of engagement-optimised feeds, and the first wave of large-scale AI content generation. Imperva's 2026 Bad Bot Report puts total bot traffic at 53%. Separately, HUMAN Security's 2026 benchmark report found that AI agent traffic specifically grew 7,851% year over year, the number that should give everyone pause.",
-        "source": "Source: Imperva Bad Bot Report 2026; HUMAN Security 2026 benchmark report"
+        "source": "Source: Imperva Bad Bot Report 2026"
       },
       {
-        "question": "Most people credit Drake with coining YOLO in 2011.\n\nHow old is the phrase really?",
+        "question": "TikTok has a sister app that operates only inside mainland China, built by the same parent company but run as a completely separate platform with no shared content or accounts.\n\nWhat's it called?",
         "mediaType": "none",
         "mediaSrc": "",
-        "answer": "C: It appears in an 1855 Viennese waltz",
-        "answerSubline": "Johann Strauss II titled a waltz Man lebt nur einmal, You Only Live Once, in 1855 · Strauss was himself quoting Goethe, who used the phrase in 1774",
+        "answer": "B) Douyin",
+        "answerSubline": "Launched by ByteDance in September 2016, originally called A.me before rebranding within months · TikTok launched as a separate international app in 2017",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Drake popularised the acronym YOLO in 2011 with 'The Motto,' then tried to trademark it. He saw Walgreens selling YOLO merchandise and told them to either chill or cut the cheque. Walgreens did not cut the cheque. The phrase they were fighting over was already 237 years old.",
+        "note": "• Douyin and TikTok share a parent company and a similar interface, but accounts, videos, and likes can't move between them at all\n• Douyin is only available through mainland Chinese app stores, TikTok is available almost everywhere except mainland China\n• The split exists specifically so a single global app doesn't have to choose between breaking Chinese content law abroad or exporting Chinese censorship rules everywhere else",
         "multiChoice": [
-          "A) It was coined by Drake in 2011",
-          "B) It dates to the 1990s hip hop scene",
-          "C) It appears in an 1855 Viennese waltz ← CORRECT",
-          "D) It was first used by Frank Sinatra in 1937"
+          "A) Kuaishou",
+          "B) Douyin ← CORRECT",
+          "C) Xiaohongshu",
+          "D) Weibo"
         ],
-        "hostHint": "Classical music got there two centuries early.",
-        "hostAnswerNote": "Goethe used the phrase 'man lebt nur einmal' in his 1774 play Clavigo. Strauss took it as the title of a waltz in 1855. The phrase then lived quietly in German literary culture for 237 years until a Toronto rapper put it on a t-shirt and tried to trademark it.",
-        "source": "Source: International Music Score Library; Etymology Online"
+        "source": "Source: Britannica; ByteDance; Charlesworth Group, 2026"
       },
       {
         "question": "Complete the Vine. Two bros, chillin in a hot tub...",
@@ -295,15 +269,13 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "The clip is six seconds long. The joke is entirely in the phrasing, the specificity of 'five feet' and the defensive clarification. It became shorthand for performative heterosexuality online and is still quoted a decade later. Vine shut down in 2016, but its content never died, it migrated to YouTube compilations, Twitter, and TikTok, where the audio is still used today.",
+        "note": "• The clip is six seconds long\n• The joke is entirely in the phrasing, the specificity of 'five feet' and the defensive clarification\n• It became shorthand for performative heterosexuality online and is still quoted a decade later\n• Vine shut down in 2016, but its content never died, it migrated to YouTube compilations, Twitter, and TikTok, where the audio is still used today",
         "multiChoice": [
           "A) No homo, but this water's nice",
           "B) Five feet apart cause they're not gay ← CORRECT",
           "C) Bros before hoes, and hot tubs too",
           "D) Just bein' bros, ya feel me"
         ],
-        "hostHint": "The joke is entirely in how weirdly specific the number is.",
-        "hostAnswerNote": "Vine was acquired by Twitter in 2012 for $30 million before it had even launched. Twitter shut it down in 2016, a decision widely considered one of the worst in tech history. The format of six-second looping videos essentially invented the short-form video genre that TikTok and Instagram Reels later built empires on.",
         "source": "Source: Know Your Meme; Vine archive, 2013"
       }
     ]
@@ -317,7 +289,20 @@ const ROUNDS = [
     "hostNote": "The Portugal and MDMA questions get the best reactions. Let them debate.",
     "questions": [
       {
-        "question": "One country decriminalised the personal possession of every drug in 2001, including heroin, cocaine, and methamphetamine.\n\nWhich country?",
+        "question": "The Yiddish word shmek means \"a sniff\" or \"a smell.\" It's also the origin of a common street name for one particular drug.\n\nWhich drug?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Heroin, aka \"Smack\"",
+        "answerSubline": "Migrated into English through the Jewish immigrant communities of the Lower East Side in the early 1900s",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Heroin was originally sniffed rather than injected, which is how the Yiddish word for 'sniff' became its street name\n• It entered English through the Jewish immigrant communities of the Lower East Side\n• Some of the earliest heroin traffickers in 1920s and 30s New York were Jewish, which carried the word directly into the drug trade itself rather than leaving it stuck as neighborhood slang",
+        "multiChoice": [],
+        "source": "Source: Etymology Online; Oxford English Dictionary"
+      },
+      {
+        "question": "In 2001, one country took a radical step and decriminalised personal possession of every single drug, from weed to heroin and methamphetamine.\n\nWhich country was it?",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "Portugal",
@@ -325,10 +310,8 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "At the time, Portugal had one of the worst drug crises in Europe. The decision was considered radical and predicted to fail catastrophically. For nearly two decades it didn't: drug-related deaths fell sharply, HIV infections among drug users dropped, and use rates stayed below the European average. More recently, overdose rates in Lisbon have risen again, and the country is now openly debating whether the model still works as designed.",
+        "note": "• At the time, Portugal had one of the worst drug crises in Europe\n• The decision was considered radical and predicted to fail catastrophically\n• For nearly two decades it didn't: drug-related deaths fell sharply, HIV infections among drug users dropped, and use rates stayed below the European average\n• More recently, overdose rates in Lisbon have risen again, and the country is now openly debating whether the model still works as designed",
         "multiChoice": [],
-        "hostHint": "Actually kind of working!",
-        "hostAnswerNote": "Portugal's decriminalisation law was drafted by a commission led by former Minister of Health João Goulão. Personal possession was reclassified as a public health issue rather than a criminal one. Users caught with small amounts are referred to 'dissuasion commissions' rather than courts. Drug trafficking remains a criminal offence.",
         "source": "Source: European Monitoring Centre for Drugs and Drug Addiction, 2019"
       },
       {
@@ -340,39 +323,17 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Most people assume the most dangerous combination involves opioids or ketamine. Mixing cocaine and alcohol is uniquely dangerous because the liver doesn't just process two substances, it creates a third one: cocaethylene. Cocaethylene has a longer half-life than cocaine, is more toxic to the liver, and raises the risk of sudden cardiac death 18 to 25 times. It also makes you feel better than either substance alone, which is why people keep doing it.",
+        "note": "• Most people assume the most dangerous combination involves opioids or ketamine\n• Mixing cocaine and alcohol is uniquely dangerous because the liver doesn't just process two substances, it creates a third one: cocaethylene\n• Cocaethylene has a longer half-life than cocaine, is more toxic to the liver, and raises the risk of sudden cardiac death 18 to 25 times\n• It also makes you feel better than either substance alone, which is why people keep doing it",
         "multiChoice": [
           "A) Ketamine and cocaine",
           "B) 3-MMC and MDMA",
           "C) Oxycodone and cocaine",
           "D) Cocaine and alcohol ← CORRECT"
         ],
-        "hostHint": "Your liver invents a brand new drug just to cope.",
-        "hostAnswerNote": "Cocaethylene is the only known psychoactive substance produced entirely inside the human body. It is formed when the liver's carboxylesterase enzyme processes cocaine and ethanol simultaneously, creating a transesterification reaction. The resulting compound has a half-life three to five times longer than cocaine and is approximately 30% more cardiotoxic.",
         "source": "Source: Pinnacle Detox & Recovery; American Addiction Centers; Journal of Pharmacology and Experimental Therapeutics"
       },
       {
-        "question": "Smack is one of the most common street names for heroin.\n\nWhere does the word actually come from?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "B: The Yiddish word schmeck, meaning sniff",
-        "answerSubline": "Yiddish schmeck migrated through Jewish immigrant communities of the Lower East Side in the early 1900s",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "Heroin was originally sniffed rather than injected, which is how the Yiddish word for 'sniff' became its street name. It entered English through the Jewish immigrant communities of the Lower East Side and spread into broader American slang from there. One of the most recognised drug slang terms in English is Yiddish in origin. Heroin is still central to the opioid crisis today, now often mixed with fentanyl, which is why old street names and new overdose risks are the same conversation.",
-        "multiChoice": [
-          "A) A reference to the sound of slapping a vein to find it",
-          "B) The Yiddish word schmeck, meaning sniff ← CORRECT",
-          "C) Slang derived from \"smack in the face,\" describing the rush",
-          "D) A corruption of \"smoke,\" an early method of using the drug"
-        ],
-        "hostHint": "Oy vey.",
-        "hostAnswerNote": "The word schmeck appears in Yiddish dictionaries as early as the late 19th century meaning to sniff or smell. Heroin was introduced commercially by Bayer in 1898 and was initially snorted as a powder. The Yiddish-to-English pathway followed the massive immigration of Ashkenazi Jews to the Lower East Side in the early 1900s.",
-        "source": "Source: Etymology Online; Oxford English Dictionary"
-      },
-      {
-        "question": "Magic mushrooms do not make your brain more active. They make a specific part of it go quiet.\n\nWhich part?",
+        "question": "Magic mushrooms don't actually hyperactivate your brain. Instead, they force a very specific part of it to completely go quiet.\n\nWhich part?",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "C: The default mode network, responsible for your sense of self and identity",
@@ -380,42 +341,38 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Psilocybin doesn't add anything, it quiets the brain's sense-of-self network almost completely. That's why people report ego dissolution, a feeling of unity with everything, or the self temporarily disappearing. Johns Hopkins, Imperial College London, and NYU are running real clinical trials on it for depression right now, the FDA granted it Breakthrough Therapy status in 2018.",
+        "note": "• The default mode network is the brain region most active when you think about yourself: your past, your future, your identity\n• Psilocybin quiets it almost completely\n• Researchers believe this is why people report a loss of ego, a sense of unity with everything, or the feeling that the self has temporarily dissolved\n• The visuals are a side effect, the loss of self is the mechanism",
         "multiChoice": [
           "A) The visual cortex (processes what you see)",
           "B) The prefrontal cortex (decision-making and logic)",
           "C) The default mode network (sense of self and identity) ← CORRECT",
           "D) The amygdala (emotion and fear processing)"
         ],
-        "hostHint": "During this, you might feel an incredible sense of empathy, and a deep connection to nature or the universe.",
-        "hostAnswerNote": "The therapeutic potential of psilocybin for depression is currently being studied at Johns Hopkins, Imperial College London, and NYU among others. The hypothesis is that the default mode network is overactive in depressed people, creating rigid negative thought loops. Psilocybin temporarily disrupts these loops. The FDA granted psilocybin Breakthrough Therapy status for treatment-resistant depression in 2018.",
         "source": "Source: Carhart-Harris et al., PNAS, 2012; Imperial College London"
       },
       {
-        "question": "Most deaths at festivals involving MDMA don't come from the drug's direct effects on the body. They come from something well-meaning people do in response to it, often while trying to stay safe.\n\nWhat is it?",
+        "question": "Most deaths at festivals involving MDMA aren't caused by the drug's direct effects on the body.\n\nWhat actually kills people?",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "B: Drinking too much water",
-        "answerSubline": "Hyponatremia, dangerously low sodium levels caused by drinking excessive water while on MDMA",
+        "answerSubline": "Hyponatremia, a well-documented risk specifically at electronic music festivals",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "MDMA causes the body to retain water and makes people feel hot and anxious, so they drink compulsively. Too much water dilutes the sodium in the blood to dangerous levels, and the brain swells. In severe cases it's fatal. The people who die are often the ones who were trying to be careful.",
+        "note": "• MDMA causes the body to retain water and makes people feel hot and anxious, so they drink compulsively\n• Too much water dilutes the sodium in the blood to dangerous levels, and the brain swells\n• In severe cases it's fatal\n• The people who die are often the ones who were trying to be careful",
         "multiChoice": [
           "A) Heart failure from overheating",
           "B) Drinking too much water ← CORRECT",
           "C) Mixing with alcohol",
           "D) Dehydration"
         ],
-        "hostHint": "The advice everyone gives you might be the actual danger.",
-        "hostAnswerNote": "The medical term is hyponatremia, meaning low sodium. It occurs when sodium levels in the blood drop below 135 millimoles per litre. MDMA also causes the release of antidiuretic hormone, which tells the kidneys to retain water. The combination of active water retention and compulsive water intake is what causes the dangerous dilution.",
         "source": "Source: Journal of the International Neuropsychological Society; harm reduction.org"
       }
     ]
   },
   {
     "id": "notlawyer",
-    "name": "GUESS THE NOT-LAWYER",
+    "name": "\"LAWYER\"",
     "subname": "",
     "badge": "ROUND 5",
     "format": "Five people who almost became lawyers. Guess who, based on the setup.",
@@ -430,14 +387,12 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "California lets people become lawyers without law school by apprenticing under a practicing attorney, a path called 'reading the law'. She did this from 2018 to 2025, finished, then sat the actual Bar Exam in July 2025 and failed it, she's still not a licensed lawyer today. The prison reform work predates the law studies, most famously the 2018 clemency case of Alice Marie Johnson.",
+        "note": "• California allows people to become lawyers without law school by apprenticing under a practicing attorney or judge, a path called 'reading the law'\n• Kardashian did this from 2018 to 2025, studying roughly 18 hours a week on top of everything else in her life\n• She finished the apprenticeship in May 2025 and sat the full California Bar Exam that July, she didn't pass, and as of today she's still not a licensed lawyer\n• The prison reform work is real and predates the law studies, most famously the 2018 clemency case of Alice Marie Johnson",
         "multiChoice": [],
-        "hostHint": "She's doing it the way you can in California without law school.",
-        "hostAnswerNote": "Kardashian passed the baby bar exam in December 2021 on her fourth attempt, a notoriously difficult test with a pass rate around 20 to 25 percent even among law school graduates. She has cited Alice Marie Johnson's 2018 clemency, granted after Kardashian met with President Trump, as the case that pulled her toward criminal justice reform. She took the actual California Bar Exam in July 2025 and failed it, announcing the result herself that November. Her next opportunity is February or July 2026.",
         "source": "Source: Vogue, 2021 interview; White House clemency records, 2018-2020"
       },
       {
-        "question": "This media mogul spent two decades as a practicing attorney before founding TMZ. He says his law background is exactly why the site is so aggressive about fact-checking celebrity tips.\n\nWho is he?",
+        "question": "This media mogul spent two full decades as a practicing attorney before founding TMZ and turning celebrity gossip into an aggressive science.\n\nWho is he?",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "Harvey Levin",
@@ -445,10 +400,8 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Levin taught law at the University of Miami and Whittier College before becoming a legal commentator, then a legal analyst on local LA news through the OJ Simpson trial, then host of Celebrity Justice. In 2005 he took everything he'd learned about how litigation actually works and used it to build the most aggressively sourced gossip operation in America. He deactivated his law license in 1996. He never really stopped practicing law, he just stopped calling it that.",
+        "note": "• Levin taught law at the University of Miami and Whittier College before becoming a legal commentator, then a legal analyst on local LA news through the OJ Simpson trial, then host of Celebrity Justice\n• In 2005 he took everything he'd learned about how litigation actually works and used it to build the most aggressively sourced gossip operation in America\n• He deactivated his law license in 1996\n• He never really stopped practicing law, he just stopped calling it that",
         "multiChoice": [],
-        "hostHint": "He was on the air explaining the OJ trial before he ever ran a gossip site.",
-        "hostAnswerNote": "Levin got his JD from the University of Chicago in 1975 and was an active member of the California bar from 1975 to 1996. TMZ stands for Thirty Mile Zone, the traditional radius from a specific intersection in LA within which entertainment-industry union rules applied. He is openly gay and has been recognised as one of the most influential LGBTQ voices in American media.",
         "source": "Source: University of Chicago Law School alumni profile; Wikipedia"
       },
       {
@@ -456,30 +409,26 @@ const ROUNDS = [
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "Rebel Wilson",
-        "answerSubline": "Bachelor of Laws, UNSW, 2009 · won a defamation suit against Bauer Media in 2017, later reduced on appeal",
+        "answerSubline": "Bachelor of Laws, University of New South Wales, 2009",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Wilson graduated UNSW with both a BA in Theatre and Performance Studies and an LLB, planning to become a lawyer before deciding against corporate life. The Bauer Media case, over a magazine falsely claiming she'd lied about her age and background, won her a record defamation payout in Australia, later cut down substantially on appeal.",
+        "note": "• Wilson graduated UNSW with both a BA in Theatre and Performance Studies and an LLB, planning to become a lawyer before deciding against corporate life\n• The Bauer Media case, over a magazine falsely claiming she'd lied about her age and background, won her a record defamation payout in Australia\n• The jury's original award was AU$4.5 million, reduced to about AU$600,000 on appeal in 2018",
         "multiChoice": [],
-        "hostHint": "She once said her law degree specialised in space law.",
-        "hostAnswerNote": "Wilson's 2017 defamation win against Bauer Media (publisher of Woman's Day and other titles) began with a jury awarding her AU$4.5 million, then the largest defamation payout in Australian history. An appeals court reduced it to around AU$600,000 in 2018. She has said she keeps the law degree as a backup and reads her own contracts.",
         "source": "Source: University of New South Wales alumni records; Sydney Morning Herald, 2017-2018 coverage of Wilson v Bauer Media"
       },
       {
-        "question": "This future Rock & Roll Hall of Famer briefly attended Brooklyn Law School in the early 1960s. He was reportedly more interested in music than his classes, and dropped out to become a full-time songwriter instead.\n\nWho is he?",
+        "question": "This Scottish movie star studied law at the University of Glasgow and was elected president of the university's law society. He was fired from his law firm just one week before he would have qualified as a solicitor.\n\nWho is he?",
         "mediaType": "none",
         "mediaSrc": "",
-        "answer": "Paul Simon",
-        "answerSubline": "Attended Brooklyn Law School briefly in the early 1960s · dropped out for music · Sound of Silence written in 1964",
+        "answer": "Gerard Butler",
+        "answerSubline": "Studied law at the University of Glasgow, president of the law society · fired from his traineeship one week before qualifying",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Simon enrolled at Brooklyn Law School for about a semester before deciding it wasn't for him. 'Sound of Silence' flopped on its original 1964 release, selling a few thousand copies. A producer overdubbed electric instruments without telling him, and it became a number one hit in 1965. Simon was in England at the time, unaware his career had just restarted.",
+        "note": "• He completed a full five-year law degree plus a two-year trainee solicitor placement at an Edinburgh firm\n• He was let go for chronic lateness and heavy partying, in what's been described as the first dismissal of its kind in Scottish legal history\n• He's said if he hadn't been fired, he might still be \"a very mediocre lawyer in some small town in the middle of Scotland\"\n• Instead, he became a movie star, his first major Hollywood role was playing King Leonidas in 300",
         "multiChoice": [],
-        "hostHint": "His duo partner never went anywhere near a law school.",
-        "hostAnswerNote": "Simon's brief stint at Brooklyn Law School is documented across multiple biographies, though the exact timeline relative to writing Sound of Silence in February 1964 is not precisely nailed down in any single source. Tom Wilson, the producer who added electric instrumentation to the original acoustic recording, did so without consulting Simon or Garfunkel, both of whom had already gone their separate ways after the song's initial failure.",
-        "source": "Source: Rolling Stone Paul Simon biography features; Wikipedia, The Sound of Silence"
+        "source": "Source: IMDb; Biography.com; Grokipedia"
       },
       {
         "question": "In 1859, this legendary composer graduated from a Russian law school and spent four miserable years working as a civil servant. He eventually quit entirely to write some of the most performed music in history.\n\nWho was he?",
@@ -490,10 +439,8 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Tchaikovsky's family pushed him toward a respectable legal career, and by all accounts he was a mediocre, uninterested civil servant. He didn't begin serious music study until his early twenties, late by classical standards. He entered the newly founded St Petersburg Conservatory in 1862 while still nominally employed at the ministry. Within two decades he'd written some of the most performed ballets and symphonies in the Western repertoire.",
+        "note": "• Tchaikovsky's family pushed him toward a respectable legal career, and by all accounts he was a mediocre, uninterested civil servant\n• He didn't begin serious music study until his early twenties, late by classical standards\n• He entered the newly founded St Petersburg Conservatory in 1862 while still nominally employed at the ministry\n• Within two decades he'd written some of the most performed ballets and symphonies in the Western repertoire",
         "multiChoice": [],
-        "hostHint": "He wrote the ballet with the Sugar Plum Fairy.",
-        "hostAnswerNote": "The Imperial School of Jurisprudence in St Petersburg trained the sons of the Russian nobility for legal and civil service careers. Tchaikovsky's father was a mining engineer who wanted a stable career for his son. Tchaikovsky resigned his ministry post in 1863 and enrolled full-time at the St Petersburg Conservatory under Anton Rubinstein, graduating in 1865.",
         "source": "Source: Tchaikovsky Research; St Petersburg Conservatory historical archives"
       }
     ]
@@ -507,7 +454,7 @@ const ROUNDS = [
     "hostNote": "The oxygen and trees questions get the best reactions.",
     "questions": [
       {
-        "question": "Everyone's fibermaxxing these days, the TikTok trend of deliberately loading every meal with fiber. Of these four so-called fiber all-stars, which one actually has the most fiber per gram?",
+        "question": "Everyone's fibermaxxing these days, the TikTok trend of loading every meal with roughage. Of these four so-called fiber all-stars, which one actually packs the most per gram?",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "C: Chia seeds",
@@ -515,35 +462,31 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Avocado and raspberries have near-identical fiber content, around 6.5 to 6.7 grams per 100 grams, mostly earning their reputation because they don't taste like punishment. Chia seeds crush both without trying. Psyllium husk, the actual supplement fibermaxxers use, wasn't even invited to this multiple choice, it's nearly 70 percent fiber by weight and would have made the question pointless.",
+        "note": "• Avocado and raspberries have near-identical fiber content, around 6.5 to 6.7 grams per 100 grams, mostly earning their reputation because they don't taste like punishment\n• Chia seeds crush both without trying\n• Psyllium husk, the actual supplement fibermaxxers use, wasn't even invited to this multiple choice, it's nearly 70 percent fiber by weight and would have made the question pointless",
         "multiChoice": [
           "A) Avocado",
           "B) Raspberries",
           "C) Chia seeds ← CORRECT",
           "D) Black beans"
         ],
-        "hostHint": "Zero calories worth mentioning, all texture.",
-        "hostAnswerNote": "USDA figures per 100g: chia seeds 34.4g fiber, black beans (cooked) roughly 8g, avocado roughly 6.7g, raspberries roughly 6.5g. Fibermaxxing emerged as a major 2026 wellness trend on TikTok, following proteinmaxxing, with dietitians noting roughly 95 percent of Americans fall short of daily fiber recommendations of 25 to 38 grams.",
         "source": "Source: USDA FoodData Central; Mayo Clinic Press, 2026; Fast Company, 2026"
       },
       {
-        "question": "The human body replaces most of its organs' cells completely within a few years.\n\nWhich organ is the exception, retaining most of its original cells for your entire life?",
+        "question": "Your body constantly replaces almost all of its cells, but one major organ is the ultimate exception, keeping most of its original cells for your entire life.\n\nWhich organ is it?",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "C: The brain",
-        "answerSubline": "Most neurons in the cerebral cortex are as old as you are · you are still thinking with a baby brain",
+        "answerSubline": "Neurogenesis in the adult cerebral cortex is now understood to be extremely limited · established via carbon-14 dating studies",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Red blood cells last about 120 days. Liver cells regenerate every 150 to 500 days. Heart muscle cells replace themselves at about 1% per year. The neurons in your cerebral cortex are almost entirely original, the brain you're using right now is largely the same brain you had as an infant.",
+        "note": "• Red blood cells last about 120 days\n• Liver cells regenerate every 150 to 500 days\n• Heart muscle cells replace themselves at about 1% per year\n• The neurons in your cerebral cortex are almost entirely original, the brain you're using right now is largely the same brain you had as an infant",
         "multiChoice": [
           "A) The heart",
           "B) The liver",
           "C) The brain ← CORRECT",
           "D) The lungs"
         ],
-        "hostHint": "This one keeps you the same person from age five to eighty.",
-        "hostAnswerNote": "The discovery that cerebral cortex neurons are not replaced was significant because it contradicted earlier assumptions that the brain had more regenerative capacity. The neurons in the olfactory bulb and hippocampus do show some renewal, but the cerebral cortex, where most of your thinking happens, is essentially the same structure it was at birth.",
         "source": "Source: Spalding et al., Cell, 2005; Nature Neuroscience"
       },
       {
@@ -555,14 +498,12 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "It's not FDA-approved. It's not quality-controlled, since it's typically sourced from unregulated online sellers. It's been linked to darkening or growth of existing moles, raising real melanoma risk. This is a genuine medical exposure with real consequences.",
+        "note": "• It's not FDA-approved\n• It's not quality-controlled, since it's typically sourced from unregulated online sellers\n• It's been linked to darkening or growth of existing moles, raising real melanoma risk\n• This is a genuine medical exposure with real consequences",
         "multiChoice": [],
-        "hostHint": "It failed as a drug for one thing and succeeded, unofficially, at something else entirely.",
-        "hostAnswerNote": "Melanotan II is a non-selective melanocortin receptor agonist developed at the University of Arizona in the 1980s. A 1998 clinical trial found it induced erections in 8 of 10 men with no physical stimulation, which led directly to bremelanotide (PT-141), an FDA-approved libido drug. Melanotan II itself was never approved for either use. Side effects include nausea and a documented \"stretching and yawning complex\" that correlates with the same spontaneous erections. A 2025 interview study of actual users found an average age of 39, over three-quarters men, most introduced through gym and bodybuilding circles well before any tanning trend existed online, a very different picture than the nickname implies.",
         "source": "Source: Dorr et al., Life Sciences, 1996; Wessells et al., International Journal of Impotence Research, 2000; McGill Office for Science and Society, 2026"
       },
       {
-        "question": "A fully grown oak tree can weigh 10,000 kilograms.\n\nWhere does almost all of that mass actually come from?",
+        "question": "A fully grown oak tree can weigh a massive 10,000 kilograms.\n\nWhere does almost all of that physical weight actually come from?",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "C: The air",
@@ -570,15 +511,13 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Most people say soil, it seems obvious, the tree grows out of it. But soil provides almost nothing of a tree's physical mass. The trunk, branches, and leaves are almost entirely solidified carbon pulled from the atmosphere. When you cut down a tree, you're essentially holding compressed air. It's also why planting trees is a real climate strategy, not a symbolic one: every mature tree is measurable carbon actually removed from the air.",
+        "note": "• Most people say soil, it seems obvious, the tree grows out of it\n• But soil provides almost nothing of a tree's physical mass\n• The trunk, branches, and leaves are almost entirely solidified carbon pulled from the atmosphere\n• When you cut down a tree, you're essentially holding compressed air",
         "multiChoice": [
           "A) The soil",
           "B) Water",
           "C) The air ← CORRECT",
           "D) Minerals absorbed through the roots"
         ],
-        "hostHint": "Their favourite food.",
-        "hostAnswerNote": "This was demonstrated experimentally by Jan Baptist van Helmont in 1648, who grew a willow tree for five years in a pot and observed that the soil lost almost no weight while the tree gained 164 pounds. He concluded, correctly, that the mass came from water. He was close. The actual answer is atmospheric CO2, with water providing the hydrogen. The carbon comes from the air.",
         "source": "Source: van Helmont experiment, 1648; USDA Forest Service"
       },
       {
@@ -586,19 +525,17 @@ const ROUNDS = [
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "C: Oxygen",
-        "answerSubline": "The Great Oxidation Event · 2.4 billion years ago · the largest mass extinction in Earth's history",
+        "answerSubline": "The Great Oxidation Event · began roughly 2.4 billion years ago · caused by cyanobacteria evolving photosynthesis",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Cyanobacteria evolved photosynthesis and started producing oxygen as a waste product. To everything alive at the time, that was catastrophic, almost all life on Earth was wiped out. The survivors adapted to breathe it. Every breath you take is the legacy of the greatest mass extinction in the history of the planet.",
+        "note": "• Cyanobacteria evolved photosynthesis and started producing oxygen as a waste product\n• To everything alive at the time, that was catastrophic, almost all life on Earth was wiped out\n• The survivors adapted to breathe it\n• Every breath you take is the legacy of the greatest mass extinction in the history of the planet",
         "multiChoice": [
           "A) Carbon dioxide",
           "B) Nitrogen",
           "C) Oxygen ← CORRECT",
           "D) Methane"
         ],
-        "hostHint": "You're breathing the villain of this story right now.",
-        "hostAnswerNote": "The Great Oxidation Event is sometimes called the Oxygen Catastrophe. The rise in atmospheric oxygen from essentially zero to about 2% happened relatively rapidly in geological terms, over a few hundred million years. The organisms that survived were those that could either avoid oxygen, tolerate it, or use it. The ones that learned to use it had an enormous energy advantage and went on to become everything that breathes today.",
         "source": "Source: Holland et al., Philosophical Transactions B, 2006; NASA"
       }
     ]
@@ -612,66 +549,6 @@ const ROUNDS = [
     "hostNote": "The Star of David question will get a reaction. Let it land.",
     "questions": [
       {
-        "question": "Most people assume it is Islam.\n\nBut in terms of percentage growth, which religion is actually growing the fastest?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "C: Wicca and Paganism",
-        "answerSubline": "From approximately 8,000 practitioners in 1990 to over 1.5 million by the 2020s, entirely through people actively choosing it",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "Islam's growth is mostly a numbers game, people are born into it. Wicca's growth is stranger: nobody's born Wiccan, all 1.5 million of them actively decided to become witches. Young people leaving mainstream religion, a rise in nature-based spirituality, and the internet making niche communities findable did the rest. Nobody saw that coming.",
-        "multiChoice": [
-          "A) Islam",
-          "B) Evangelical Christianity",
-          "C) Wicca and Paganism ← CORRECT",
-          "D) Buddhism"
-        ],
-        "hostHint": "Every single practitioner chose this one as an adult, none of them were born into it.",
-        "hostAnswerNote": "Trinity College's American Religious Identification Survey tracked Wicca from 8,000 practitioners in 1990 to approximately 340,000 in 2008. Pew Research in 2014 found 1 to 1.5 million Americans identifying as Wicca or Pagan. The growth is concentrated among adults under 40 who describe leaving Christianity or Judaism for nature-based practice.",
-        "source": "Source: Trinity College ARIS Survey; Pew Research Center, 2014"
-      },
-      {
-        "question": "Buddhism gets grouped with the world's other major religions, but it's fundamentally different from Christianity, Islam, Hinduism, and Judaism in one specific way.\n\nWhat's missing?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "B: A god",
-        "answerSubline": "The Buddha never claimed to be divine and actively discouraged worship of himself · Buddhism is technically a non-theistic religion",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "The Buddha, born Siddhartha Gautama, was a human being who achieved enlightenment through meditation and teaching. He explicitly rejected the idea of a creator god and told his followers not to worship him. Millions of statues and temples later, that request has not gone especially well. The religion he inspired still has no deity at its centre, built instead around practice and personal transformation.",
-        "multiChoice": [
-          "A) A holy book",
-          "B) A god ← CORRECT",
-          "C) Clergy",
-          "D) A creation story"
-        ],
-        "hostHint": "Sam Harris still doesn't approve.",
-        "hostAnswerNote": "Buddhism does have sacred texts, most notably the Tripitaka or Pali Canon. It does have clergy in the form of monks and nuns, the Sangha. It does have some creation mythology in various traditions. But it has no god. Some branches of Buddhism, particularly in Japan and China, have incorporated deities and bodhisattvas, which has led to ongoing debate about whether these forms are still strictly non-theistic.",
-        "source": "Source: Stanford Encyclopedia of Philosophy; Pali Canon"
-      },
-      {
-        "question": "The Bible, the Torah, and the Quran are full of it. 40 days in the desert. 40 years of wandering. 40 nights of flood.\n\nAccording to many biblical scholars, what did the number 40 actually mean in ancient Semitic languages?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "B: A very long time, not a literal count",
-        "answerSubline": "In Jewish, Christian, and Islamic tradition 40 is widely interpreted as meaning a large approximate number, similar to umpteen",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "Nobody wandered in the desert for exactly 40 years, nobody counted 40 days and nights of rain. Many scholars interpret 40 as a rhetorical device meaning an indefinitely long period. It appears over 150 times across religious texts. The specificity generations of readers took literally may never have been intended to be specific at all.",
-        "multiChoice": [
-          "A) Exactly forty",
-          "B) A very long time, not a literal count ← CORRECT",
-          "C) A mistranslation, the original number was different",
-          "D) A code pointing to a hidden calendar system"
-        ],
-        "hostHint": "It's less a number, more a shrug.",
-        "hostAnswerNote": "Wikipedia's article on the number 40 notes that in Jewish, Christian, Islamic, and other Middle Eastern traditions it is taken to represent a large approximate number, similar to umpteen. The number seven has a similar function. The debate about whether these numbers were ever intended literally is ongoing among biblical scholars, with many conservative theologians insisting on literal interpretation.",
-        "source": "Source: Jewish Encyclopedia; Oxford Bible Commentary"
-      },
-      {
         "question": "An urban legend circulating at Mormon universities describes a sexual loophole around the prohibition on premarital sex. It involves a couple staying completely still while a friend shakes the bed.\n\nWhat is this allegedly called?",
         "mediaType": "none",
         "mediaSrc": "",
@@ -680,11 +557,58 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Whether soaking is real or purely legend is genuinely debated, most former BYU students deny it happens, a small number claim to know someone who has. The friend shaking the bed is called a jump-humper. The logic: movement constitutes the sin, so outsourcing the movement to a third party creates a theological loophole. God has not publicly commented.",
+        "note": "• Whether soaking is real or purely legend is genuinely debated, most former BYU students deny it happens, a small number claim to know someone who has\n• The friend shaking the bed is called a jump-humper\n• The logic: movement constitutes the sin, so outsourcing the movement to a third party creates a theological loophole\n• God has not publicly commented",
         "multiChoice": [],
-        "hostHint": "Think about what soaking normally means, just not with water.",
-        "hostAnswerNote": "The term soaking first appeared online around 2009 on a bodybuilding forum and was defined on Urban Dictionary in 2011. It went viral in 2019 after Barstool Sports visited BYU and asked students about it. A related practice called docking is also sometimes mentioned. The theological logic, if sincere, represents one of the more creative interpretations of religious law in modern history.",
         "source": "Source: Know Your Meme; MEL Magazine, 2017; Rolling Stone, 2022"
+      },
+      {
+        "question": "Most people assume Islam is the world's fastest-growing religion. Demographers point to something else entirely, seeing a massive surge in percentage growth.\n\nWhat tradition is it?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "C: Wicca and Paganism",
+        "answerSubline": "From approximately 8,000 practitioners in 1990 to over 1.5 million by the 2020s",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Islam's growth is mostly a numbers game, people are born into it\n• Wicca's growth is stranger: nobody's born Wiccan, all 1.5 million of them actively decided to become witches\n• Young people leaving mainstream religion, a rise in nature-based spirituality, and the internet making niche communities findable did the rest\n• Nobody saw that coming",
+        "multiChoice": [
+          "A) Islam",
+          "B) Evangelical Christianity",
+          "C) Wicca and Paganism ← CORRECT",
+          "D) Buddhism"
+        ],
+        "source": "Source: Trinity College ARIS Survey; Pew Research Center, 2014"
+      },
+      {
+        "question": "The Bible, the Torah, and the Quran are full of it. 40 days in the desert. 40 years of wandering. 40 nights of flood.\n\nAccording to many biblical scholars, what did the number 40 actually mean in ancient Semitic languages?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "B: A very long time, not a literal count",
+        "answerSubline": "A pattern documented across Jewish, Christian, and Islamic scholarship",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Nobody wandered in the desert for exactly 40 years, nobody counted 40 days and nights of rain\n• Many scholars interpret 40 as a rhetorical device meaning an indefinitely long period\n• It appears over 150 times across religious texts\n• The specificity generations of readers took literally may never have been intended to be specific at all",
+        "multiChoice": [
+          "A) Exactly forty",
+          "B) A very long time, not a literal count ← CORRECT",
+          "C) A mistranslation, the original number was different",
+          "D) A code pointing to a hidden calendar system"
+        ],
+        "source": "Source: Jewish Encyclopedia; Oxford Bible Commentary"
+      },
+      {
+        "question": "What is the only domestic animal not mentioned anywhere in the Bible?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "The cat",
+        "answerSubline": "Dogs appear 14 times, lions 89 times, but cats never once in the canonical Hebrew or Greek texts · despite being common household animals in ancient Egypt and Israel by 1500 BCE",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Archaeologists have found cat remains in Iron Age Israeli settlements, so cats were certainly present, the Bible's authors just never wrote about them\n• One theory is that cats were associated with Egyptian goddess worship, particularly Bastet, and biblical authors avoided animals tied to foreign religious practice\n• One possible exception exists, a 1611 King James Apocrypha passage mentions cats, but the Apocrypha isn't part of most Bibles' core canon",
+        "multiChoice": [],
+        "source": "Source: Commonplace Fun Facts; GraceFiber; FunTrivia"
       },
       {
         "question": "The Star of David is one of the most recognisable symbols in the world.\n\nWhen did it actually become an official symbol of the Jewish people?",
@@ -695,127 +619,78 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Kabbalah scholar Gershom Scholem laughed when it was chosen as the symbol of Israel, having spent years proving the hexagram had nothing to do with Judaism originally. It was a generic ancient geometric motif used across cultures as a decorative and magical symbol. Morocco used it on its flag until 1945, when it was replaced specifically because it had become associated with Zionism. The symbol everyone associates with thousands of years of Jewish history is 129 years old.",
+        "note": "• Kabbalah scholar Gershom Scholem laughed when it was chosen as the symbol of Israel, having spent years proving the hexagram had nothing to do with Judaism originally\n• It was a generic ancient geometric motif used across cultures as a decorative and magical symbol\n• Morocco used it on its flag until 1945, when it was replaced specifically because it had become associated with Zionism\n• The symbol everyone associates with thousands of years of Jewish history is 129 years old",
         "multiChoice": [
           "A) In the time of King David, around 1000 BCE",
           "B) During the construction of Solomon's Temple, around 950 BCE",
           "C) In the 17th century in Prague",
           "D) At the First Zionist Congress in 1897 ← CORRECT"
         ],
-        "hostHint": "Before that it used to be a menorah.",
-        "hostAnswerNote": "The Star of David, or Magen David in Hebrew, became associated with Jewish communities in Prague in the 17th century and was used on some synagogues and tombstones. But it was not until Theodor Herzl's First Zionist Congress in Basel in 1897 that it was formally adopted as a symbol of the Jewish national movement. It appeared on the Israeli flag when the state was established in 1948.",
         "source": "Source: Gershom Scholem, The Messianic Idea in Judaism, 1971; First Zionist Congress records"
-      }
-    ]
-  },
-  {
-    "id": "origins",
-    "name": "ORIGINS",
-    "subname": "",
-    "badge": "ROUND 8",
-    "format": "Five questions about where everyday things actually come from.",
-    "hostNote": "The Lysol question gets a visceral reaction. The Slave question is heavier but lands powerfully.",
-    "questions": [
-      {
-        "question": "Denim is considered one of the most iconic American fabrics in history.\n\nWhere did it actually come from?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "B: France",
-        "answerSubline": "Denim comes from serge de Nimes, a durable fabric made in the southern French city of Nimes in the 17th century",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "'Denim' is literally 'de Nimes,' from Nimes, contracted over time. 'Jeans' comes from 'Genes,' the French name for Genoa, Italy, where a similar fabric was worn by sailors. The most American garment in history is named after two European cities. Levi Strauss, who made jeans what they are today, was himself a Bavarian immigrant, America contributed the rivets.",
-        "multiChoice": [
-          "A) The United States",
-          "B) France ← CORRECT",
-          "C) Italy",
-          "D) India"
-        ],
-        "hostHint": "It's named after a town.",
-        "hostAnswerNote": "Serge de Nimes was a rough fabric originally made from a blend of wool and silk in Nimes. When it made its way to England it was shortened to de Nimes, then denim. The city of Nimes still exists and is still famous for textiles. The Canal du Midi, a UNESCO World Heritage Site, passes through it. The city has a statue of a bull in its centre because of its Roman amphitheatre, which is still used for bullfighting.",
-        "source": "Source: Oxford English Dictionary; Merriam-Webster Etymology"
-      },
-      {
-        "question": "Everyone's got a bottle of Lysol under the sink today. A hundred years ago, it was marketed for something you'd never guess.\n\nWhat was it primarily used for before it became a disinfectant?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "B: A contraceptive and feminine hygiene product",
-        "answerSubline": "Marketed to women from the 1920s through the 1950s as a douche · did not work as contraception · caused burns and poisoning",
-        "answerImg": "lysol_a.jpeg",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "Ads told women Lysol would preserve their 'feminine daintiness,' 'germs' was a euphemism for sperm. A 1933 study found almost half the women using it as contraception got pregnant anyway, and it was corrosive enough to cause real tissue damage. The same pattern still exists today: unregulated 'feminine hygiene' products marketed with vague health claims that don't hold up.",
-        "multiChoice": [
-          "A) Treating wounds on the battlefield",
-          "B) A contraceptive and feminine hygiene product ← CORRECT",
-          "C) Whitening teeth",
-          "D) Treating head lice in children"
-        ],
-        "hostHint": "It was marketed to married women specifically.",
-        "hostAnswerNote": "Birth control was illegal in the United States until 1965 for married couples and 1972 for single people. Lysol's marketing campaign made it the best-selling method of contraception during the Great Depression. The pre-1953 formula contained cresol, a phenol compound that caused inflammation, burning, and in some cases death. By 1911 doctors had recorded 193 Lysol poisonings and five deaths from uterine irrigation.",
-        "source": "Source: Andrea Tone, Devices and Desires, 2001; JAMA, 1933"
-      },
-      {
-        "question": "Next time you order a Fanta, consider this: it was invented purely out of desperation.\n\nWhere was it invented, and why?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "B: In Nazi Germany, because Coca-Cola could not get its ingredients past the trade embargo",
-        "answerSubline": "Invented in 1941 by Coca-Cola's German branch · made from fruit pulp scraps and whey · named after the German word for imagination",
-        "answerImg": "Fanta_a.png",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "When America entered the war, Coca-Cola's German operation could no longer import syrup. Rather than shut down, the head of Coca-Cola Deutschland told his team to make a drink from whatever they could find. The original Fanta was a cloudy brownish liquid made from apple fibre, fruit pomace, and cheese whey, nothing like what you drink today. The modern orange version was invented in Italy in 1955.",
-        "multiChoice": [
-          "A) In Italy, to compete with local fruit sodas",
-          "B) In Nazi Germany, because Coca-Cola could not get its ingredients past the trade embargo ← CORRECT",
-          "C) In the United States, as a fruit-flavoured alternative to Coke",
-          "D) In Brazil, developed specifically for the South American market"
-        ],
-        "hostHint": "Think about which country couldn't get real Coca-Cola syrup during the war.",
-        "hostAnswerNote": "Max Keith, the head of Coca-Cola Deutschland, managed to keep the company running throughout the war with extraordinary ingenuity. He sourced leftover byproducts from other food industries and created a new product entirely. The name Fanta comes from Fantasie, the German word for fantasy or imagination. Keith never joined the Nazi Party despite repeated pressure to do so, which a postwar Coca-Cola investigation confirmed. The picture isn't entirely clean, though: Keith also used Nazi-aligned marketing to keep the business in the regime's good graces, including leading a company toast to Hitler at a 1938 sales convention. He kept the company intact for Coca-Cola's postwar return, but he did it by working within the system, not around it.",
-        "source": "Source: Coca-Cola Company official history; Mark Pendergrast, For God Country and Coca-Cola"
-      },
-      {
-        "question": "The word slave appears in almost every European language.\n\nWhich group of people was so frequently enslaved in medieval Europe that their name became the word for the practice?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "The Slavic people",
-        "answerSubline": "From Medieval Latin sclavus meaning both Slav and slave · Slavic peoples were frequently enslaved in Germanic and Arab conquests from the 9th century onward",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "The connection shows up in virtually every European language: esclave in French, esclavo in Spanish, Sklave in German, schiavo in Italian. The Italian word schiavo also gave us the greeting 'ciao,' which originally meant 'I am your slave'. Slavic peoples' own word for themselves comes from 'slava,' meaning glory. Their name for themselves means glory, everyone else's word for them became the word for bondage.",
-        "multiChoice": [],
-        "hostHint": "Follow the word to Venice.",
-        "hostAnswerNote": "The etymological connection between Slav and slave is documented in the Oxford English Dictionary and Etymology Online. The main slave-trading routes in medieval Europe ran from Central and Eastern Europe westward through Venice and southward through Arab trading networks. The city of Venice was one of the primary slave markets of medieval Europe. The connection is the mainstream scholarly position though some Russian linguists dispute it.",
-        "source": "Source: Oxford English Dictionary; David Brion Davis, Inhuman Bondage, 2006"
-      },
-      {
-        "question": "College kids in Connecticut started a whole national obsession by throwing empty pie tins at each other.\n\nWhat was the Frisbee before it became a toy?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "A pie tin",
-        "answerSubline": "Students at Yale threw empty tins from the Frisbie Pie Company · Wham-O heard about the tradition and named their plastic disc after the pie company, deliberately misspelling it to avoid trademark issues",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "The Frisbie Pie Company supplied pies to Yale University. Students discovered the empty tins flew well thrown upside down and started tossing them across campus, shouting 'Frisbie' as a warning. Inventor Fred Morrison independently designed a plastic flying disc in 1948. Wham-O bought his rights, heard about the Yale tradition, and named it Frisbee after the pie company, deliberately misspelled.",
-        "multiChoice": [],
-        "hostHint": "Whatever was left after the pie was gone.",
-        "hostAnswerNote": "The Frisbie Pie Company was founded by William Russell Frisbie in 1871 in Bridgeport, Connecticut. It sold pies throughout New England, including to Yale University. The company closed in 1958, one year after Wham-O started selling the plastic Frisbee. Fred Morrison, the inventor of the plastic version, sold his rights to Wham-O in 1957 in exchange for lifetime royalties that made him financially secure for the rest of his life.",
-        "source": "Source: Phil Kennedy, The Frisbee Disc History; Wham-O corporate records"
       }
     ]
   },
   {
     "id": "elections",
     "name": "ELECTIONS",
+    "navName": "",
     "subname": "",
-    "badge": "ROUND 9",
+    "badge": "ROUND 8",
     "format": "Five questions about how elections actually work. Covers Israel and beyond.",
     "hostNote": "Q4 Switzerland will get a reaction. Q3 North Korea is multiple choice, let them debate.",
     "questions": [
+      {
+        "question": "Israeli parties need to cross a minimum share of the national vote to enter the Knesset at all, a rule designed to stop parliament from fracturing into unmanageable tiny factions.\n\nWhat's that threshold?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "3.25%",
+        "answerSubline": "Raised from 2% in 2014 · works out to roughly 4 seats' worth of votes, the minimum a party can win",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• The threshold has been raised multiple times, it started far lower and has climbed as governments tried to reduce fragmentation\n• Fall a fraction below the line and a party gets nothing, cross it and they get their full proportional share, there's no partial credit\n• Several parties have been eliminated by a few hundred votes, missing the cutoff by less than a rounding error",
+        "multiChoice": [],
+        "source": "Source: Israel Democracy Institute; Central Elections Committee"
+      },
+      {
+        "question": "What is the name of the method used to calculate how leftover, surplus votes get distributed among allied parties after an Israeli election?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "The Bader-Ofer method",
+        "answerSubline": "Named after MKs Yohanan Bader and Avraham Ofer · introduced in 1973 · internationally known as the D'Hondt method",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• It was proposed by two politicians from opposing parties, Bader from what's now Likud, Ofer from Labor, working together\n• Parties sign vote-sharing agreements before the election, deciding in advance who gets their partner's leftover votes\n• The method mathematically favors larger parties and blocs, which was the explicit point when it was introduced",
+        "multiChoice": [],
+        "source": "Source: Israel Democracy Institute; Wikipedia; Times of Israel"
+      },
+      {
+        "question": "This former Knesset member, model, and businesswoman released a defiant pop song aimed at Iran in 2024, warning that the IDF and the US would strike back if Iran fired on Israel.\n\nWho recorded it?",
+        "mediaType": "audio",
+        "mediaSrc": "yt:tSDDzbmSs_M",
+        "answer": "Pnina Rosenblum",
+        "answerSubline": "Model, businesswoman, and Likud MK from 2005 to 2006 · released \"Iran Don't Shoot\" in April 2024 amid Iranian missile strikes",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• She first tried to represent Israel at Eurovision in 1983, her entry came in last place but became a local hit anyway\n• She ran her own political party in 1999 focused on women's issues, years before she eventually served in the Knesset for Likud\n• The song mashes her original vocals with a Linkin Park instrumental, produced by Oren Cohen",
+        "multiChoice": [],
+        "source": "Source: Wikipedia; Grokipedia; original YouTube upload"
+      },
+      {
+        "question": "When Israeli parties merge into a single list ahead of an election, they're allowed to combine all their individual ballot letters into one symbol.\n\nWhat's the record, the most letters ever used by a single merged list on a ballot?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Four",
+        "answerSubline": "ודעם (vav-dalet-ayin-mem), used by the Joint List, a merger of four Arab-majority parties",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Letters are otherwise owned indefinitely by whichever party first claims them, even across decades and mergers\n• Likud's מחל symbol dates back to a small merger from its earliest days and has never changed since\n• Parties registering late are sometimes stuck with leftover, meaningless letter combinations because everything better is already taken",
+        "multiChoice": [],
+        "source": "Source: Times of Israel; Central Elections Committee"
+      },
       {
         "question": "In 75 years of Israeli elections, how many times has a single party won an outright majority of 61 seats in the Knesset?",
         "mediaType": "none",
@@ -825,81 +700,9 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "The system was arguably designed this way, proportional representation with a low threshold almost guarantees fragmentation. No party has ever been able to govern alone. Every prime minister in Israeli history has had to negotiate, compromise, and horse-trade to stay in power. The permanent coalition isn't a bug, it might be the feature.",
+        "note": "• The system was arguably designed this way, proportional representation with a low threshold almost guarantees fragmentation\n• No party has ever been able to govern alone\n• Every prime minister in Israeli history has had to negotiate, compromise, and horse-trade to stay in power\n• The permanent coalition isn't a bug, it might be the feature",
         "multiChoice": [],
-        "hostHint": "Grand coalitions don't count.",
-        "hostAnswerNote": "The closest Israel has come to a single-party majority was the 1969 election when the Alignment, a merger of Mapai and Ahdut HaAvoda, won 56 seats. They still needed coalition partners. The Labour Party under Golda Meir formed the government. The dream of a single-party majority has been discussed in every Israeli election campaign since 1949 and achieved in exactly none of them.",
         "source": "Source: Knesset official records; Israel Democracy Index"
-      },
-      {
-        "question": "Since its first election in 1949, approximately how many different political parties have run for a seat in the Israeli Knesset?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "C: Nearly 200",
-        "answerSubline": "196 distinct parties have registered and run across 25 elections · most won nothing · several won everything",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "Israel's proportional system and low threshold mean almost anyone can run. Most parties disappear after one election, some return under different names, a handful have dominated for decades. The sheer number reflects both the vibrancy and the chaos of Israeli democracy. The system has produced 37 governments in 75 years.",
-        "multiChoice": [
-          "A) Around 50",
-          "B) Around 90",
-          "C) Nearly 200 ← CORRECT",
-          "D) Over 350"
-        ],
-        "hostHint": "There's a reason we raised the threshold.",
-        "hostAnswerNote": "The Knesset uses a closed-list proportional representation system. Parties submit a ranked list of candidates before the election. Voters cast their ballot for a party, and seats are allocated proportionally based on the party's share of the vote. This means that anyone can start a party and run, with relatively modest requirements for registration. The 3.25% threshold introduced in 2014 was meant to reduce fragmentation. It has not eliminated it.",
-        "source": "Source: Central Elections Committee of Israel; Knesset official records"
-      },
-      {
-        "question": "According to Pyongyang, what percentage of eligible citizens has historically been reported as voting in North Korea's parliamentary elections?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "D: 100%",
-        "answerSubline": "The historical figure, reported for decades · the most recent 2026 election reported 99.93%, the first time opposition votes have surfaced since 1957",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "There's one candidate per seat, voting is compulsory and monitored. For decades the results were always reported as 100% turnout and 100% approval, no exceptions. That changed this March: North Korea's most recent election reported 99.99% turnout and 99.93% approval. A small number of recorded votes against marked the first reported opposition votes in an SPA election since 1957.",
-        "multiChoice": [
-          "A) 23%",
-          "B) 56%",
-          "C) 78%",
-          "D) 100% ← CORRECT"
-        ],
-        "hostHint": "According to North Korea.",
-        "hostAnswerNote": "The Supreme People's Assembly of North Korea has 687 seats. Elections are held every five years. Every seat has one candidate. Ballots historically offered only a yes option, and results were reported as 100% turnout and 100% approval for decades. The most recent election, held March 15, 2026, reported 99.99% turnout and 99.93% approval, with 0.07% of votes recorded against, the first time opposition votes have been reported in an SPA election since 1957. Analysts read it as a small, tightly controlled gesture toward participatory legitimacy rather than a genuine political opening.",
-        "source": "Source: Korean Central News Agency; Freedom House"
-      },
-      {
-        "question": "Which European country was the last to grant women equal voting rights?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "Switzerland",
-        "answerSubline": "1990 · the canton of Appenzell Innerrhoden was ordered by the federal supreme court to comply · they did not do it voluntarily",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "Swiss women got the national vote in 1971, already scandalously late. The canton of Appenzell Innerrhoden refused to extend voting rights at the local level until the federal supreme court forced them in 1990. They did not choose to do it. To this day, men in Appenzell can prove their right to vote by presenting a sword, one that predates women's suffrage in that canton by several centuries.",
-        "multiChoice": [],
-        "hostHint": "Talk about fonduemental rights.",
-        "hostAnswerNote": "Switzerland introduced women's suffrage at the federal level in 1971 after a referendum, the fourth such referendum on the question. Women had been denied the vote in three previous referendums, in 1959, 1959 again in some cantons, and 1971 passed narrowly. Appenzell Ausserrhoden, the other half of the divided canton, gave women the vote in 1989. Appenzell Innerrhoden was the final holdout.",
-        "source": "Source: Swiss Federal Supreme Court ruling, November 1990; Appenzell Innerrhoden cantonal records"
-      },
-      {
-        "question": "After an Israeli election, how many days does the designated candidate have to form a coalition before the mandate passes to someone else?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "28 days, with one possible 14-day extension",
-        "answerSubline": "After that the president can task someone else with another 28 days · if that also fails, new elections are called · Belgium spent 541 days without a government after their 2010 election",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "Fail within 28 days and you can request 14 more; after that the president can task someone else with another 28, no extension. The system was tested to its absolute limit between 2019 and 2021, when Israel held four elections in two years. Belgium, meanwhile, spent 541 days without a government after their 2010 election. Belgium largely did not notice.",
-        "multiChoice": [],
-        "hostHint": "Also the same amount of time it might take to wake up from a coma in an apocalypse.",
-        "hostAnswerNote": "The 541 days Belgium spent without a government from June 2010 to December 2011 was a world record at the time. During this period, Belgium was governed by a caretaker government with limited powers. Services continued, laws were enforced, and public life functioned almost normally. This is frequently cited as evidence that modern governments are largely self-running bureaucracies that do not actually require political leadership to function on a day-to-day basis.",
-        "source": "Source: Basic Law: The Government, Israel; Knesset official records"
       }
     ]
   },
@@ -907,12 +710,14 @@ const ROUNDS = [
     "id": "sara",
     "name": "THE ODYSSEY",
     "subname": "SARA'S FAVOURITE FACTS",
-    "badge": "ROUND 10",
+    "badge": "ROUND 9",
     "format": "Jeopardy rules. Shout BUZZ first, then your answer. First correct buzz gets a point. Wrong answer costs you a point.",
     "hostNote": "Use the Buzzer Tracker in the host panel. All five questions are themed around The Odyssey and Christopher Nolan's adaptation.",
     "questions": [
       {
         "question": "Lupita Nyong'o's casting as Helen of Troy in The Odyssey sparked a culture war, with large parts of the internet insisting Helen had to be white.\n\nAccording to the actual myth, how was Helen born?",
+        "category": "THE EGG",
+        "categoryIcon": "🥚",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "She hatched from an egg",
@@ -920,14 +725,14 @@ const ROUNDS = [
         "answerImg": "Leda_and_swan_a.jpg",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "The people most furious about historical accuracy were arguing about a character who was literally hatched from a swan egg. Nolan's response was that adaptation is adaptation. Lupita's response was more direct. The argument continues online, the egg remains.",
+        "note": "• The people most furious about historical accuracy were arguing about a character who was literally hatched from a swan egg\n• Nolan's response was that adaptation is adaptation\n• Lupita's response was more direct",
         "multiChoice": [],
-        "hostHint": "Leda had a very unusual morning.",
-        "hostAnswerNote": "In Greek mythology, Zeus transformed into a swan and seduced Leda, Queen of Sparta. Helen and Polydeuces hatched from one egg, while Castor and Clytemnestra were born from another. The eggs were sometimes said to have been brought to Leda by Hermes. Helen of Troy, the most beautiful woman in the world whose face launched a thousand ships, was technically an egg.",
         "source": "Source: Theoi Greek Mythology; Apollodorus, Library 3.10.7"
       },
       {
         "question": "Most people picture ancient Greece as marble columns and togas. The Odyssey is actually set in a completely different era.\n\nWhat age?",
+        "category": "BRONZE AGE",
+        "categoryIcon": "🏺",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "The Bronze Age",
@@ -935,14 +740,14 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "The Bronze Age collapse is one of history's great unsolved mysteries. Within 50 years of the Trojan War's supposed date, almost every major palace civilisation in the eastern Mediterranean had been destroyed simultaneously. The Mycenaeans, the Hittites, the Minoans, gone, nobody knows exactly why. The world Odysseus came home to was already ending.",
+        "note": "• The Bronze Age collapse is one of history's great unsolved mysteries\n• Within 50 years of the Trojan War's supposed date, almost every major palace civilisation in the eastern Mediterranean had been destroyed simultaneously\n• The Mycenaeans, the Hittites, the Minoans, gone, nobody knows exactly why\n• The world Odysseus came home to was already ending",
         "multiChoice": [],
-        "hostHint": "Before iron and Instagram.",
-        "hostAnswerNote": "The Bronze Age collapse occurred around 1200 to 1150 BCE. The destructions happened in rapid succession across the Mediterranean. Proposed causes include climate change, drought, earthquakes, internal rebellions, and invasion by the mysterious Sea Peoples. Most historians now believe it was a combination of all of these, a perfect storm of catastrophes that no civilisation could have survived independently.",
         "source": "Source: Encyclopaedia Britannica; The Oxford Classical Dictionary"
       },
       {
         "question": "Everyone pictures the Sirens as half woman, half fish. In the original myth, what were they actually half of?",
+        "category": "BIRDS",
+        "categoryIcon": "🐦",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "Bird",
@@ -950,29 +755,29 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Homer never described what the Sirens looked like. The bird version comes from earlier Greek art, appearing as winged women on funeral urns, possibly representing souls of the dead. The fish tail arrived in medieval European illustration and stuck. The image most people carry in their head is not from Homer, Greece, or anywhere near the original story; the bones on the rocks are Homer's, the tail is medieval clipart.",
+        "note": "• Homer never described what the Sirens looked like\n• The bird version comes from earlier Greek art, appearing as winged women on funeral urns, possibly representing souls of the dead\n• The fish tail arrived in medieval European illustration and stuck\n• The image most people carry in their head is not from Homer, Greece, or anywhere near the original story; the bones on the rocks are Homer's, the tail is medieval clipart",
         "multiChoice": [],
-        "hostHint": "There's a reason they can sing.",
-        "hostAnswerNote": "The earliest depictions of Sirens in Greek art, from around the 7th century BCE, show them as birds with women's heads. This iconography appears on pottery, coins, and tomb decorations throughout the ancient Mediterranean. The association of bird-women with death and the underworld predates Homer. The mermaid version became dominant in medieval Europe and has been the popular image ever since.",
         "source": "Source: Homer, Odyssey Book 12; British Museum collection notes"
       },
       {
         "question": "When Odysseus blinds the Cyclops Polyphemus, the other Cyclopes hear the screaming and ask who is hurting him.\n\nWhat name had Odysseus given, so that Polyphemus's answer would guarantee no help came?",
+        "category": "NOBODY",
+        "categoryIcon": "👁",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "Nobody",
-        "answerSubline": "\"Nobody is hurting me!\" · the other Cyclopes hear this and go back to sleep",
+        "answerSubline": "From Book 9 of Homer's Odyssey · one of literature's oldest recorded puns",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "It's 3,000 years old and still one of the best jokes ever written. Odysseus introduces himself as Outis in Greek, meaning 'Nobody,' specifically so that when Polyphemus calls for help he's effectively shouting into the void. The other Cyclopes hear 'Nobody is killing me' and assume he's fine. Odysseus then escapes clinging to the underside of a sheep.",
+        "note": "• It's 3,000 years old and still one of the best jokes ever written\n• Odysseus introduces himself as Outis in Greek, meaning 'Nobody,' specifically so that when Polyphemus calls for help he's effectively shouting into the void\n• The other Cyclopes hear 'Nobody is killing me' and assume he's fine\n• Odysseus then escapes clinging to the underside of a sheep",
         "multiChoice": [],
-        "hostHint": "They thought this was too camp to include in the movie.",
-        "hostAnswerNote": "The Outis trick in the Odyssey is considered one of the earliest examples of a pun used as a narrative device. The Greek word Outis means no one or nobody. The joke depends on the ambiguity between the name Nobody and the claim that nobody is doing anything. Scholars have debated for centuries whether Homer invented this or was recording an oral tradition. Either way, it still works.",
         "source": "Source: Homer, Odyssey Book 9; Apollodorus"
       },
       {
-        "question": "Most people assume it was in Greece. Archaeologists have known since the 1870s where Troy actually was.\n\nIn which country are the ruins of Troy?",
+        "question": "Heinrich Schliemann excavated the ruins of ancient Troy in the late 19th century.\n\nIn what modern-day country are those ruins actually located?",
+        "category": "TURKEY",
+        "categoryIcon": "🏛",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "Turkey",
@@ -980,10 +785,8 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Heinrich Schliemann excavated the site between 1870 and 1890, unfortunately using explosives and destroying much of it in the process. The gold he found was too old to be Priam's treasure and ended up in Russia, where it remains. Nine distinct layers of city have been found at Hisarlik, each built on top of the last. Troy VI or VII, dating to around 1200 BCE, is the most likely candidate for the city of the Trojan War.",
+        "note": "• Heinrich Schliemann excavated the site between 1870 and 1890, unfortunately using explosives and destroying much of it in the process\n• The gold he found was too old to be Priam's treasure and ended up in Russia, where it remains\n• Nine distinct layers of city have been found at Hisarlik, each built on top of the last\n• Troy VI or VII, dating to around 1200 BCE, is the most likely candidate for the city of the Trojan War",
         "multiChoice": [],
-        "hostHint": "It used to need a capital O.",
-        "hostAnswerNote": "The Museum of Troy opened in 2018 near the archaeological site. It holds over 40,000 artefacts. The wooden horse outside the site is a modern replica built for tourists. It is structurally sound but historically unnecessary.",
         "source": "Source: UNESCO World Heritage Centre; Britannica; Heinrich Schliemann excavation records"
       }
     ]
@@ -992,24 +795,22 @@ const ROUNDS = [
     "id": "currentevents",
     "name": "CURRENT EVENTS",
     "subname": "THIS MONTH IN HISTORY",
-    "badge": "ROUND 11",
+    "badge": "ROUND 10",
     "format": "Wager round. Set your multiplier before the round begins. Every right answer earns you multiplier points. Every wrong answer costs you the same.",
     "hostNote": "Collect multipliers on the declaration slide before questions begin. All five questions cover events from the past month.",
     "questions": [
       {
-        "question": "To the discomfort of many of their colleagues, what are more Japanese companies encouraging men to do at work to stay cool this summer?",
+        "question": "This private aerospace company made financial history this year with a $75 billion IPO, the largest public stock offering ever recorded, pushing its valuation past $1.7 trillion.\n\nWhat's the company?",
         "mediaType": "none",
         "mediaSrc": "",
-        "answer": "Wear shorts",
-        "answerSubline": "Tokyo Cool Biz initiative · July 2026 · the backlash spawned a new word, sunehara, meaning leg hair harassment",
+        "answer": "SpaceX",
+        "answerSubline": "Priced at $135 a share, June 2026 · more than double Saudi Aramco's previous record IPO · made Elon Musk the world's first trillionaire on paper",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "The salaryman look has defined Japanese office culture for decades; this summer Tokyo said shorts were acceptable. Some women pointed out they're still expected to wear tights. Others coined 'sunehara' for the experience of seeing male colleagues' legs. Men started booking laser hair removal at a clinic called Gorilla Clinic, all because of shorts.",
+        "note": "• The company sold just over 555 million shares at $135 each\n• Much of SpaceX's recent spending has gone into artificial intelligence, after merging with Musk's AI company xAI earlier in the year\n• The company was still unprofitable heading into the IPO, losing nearly $4.3 billion in the first quarter of 2026 alone",
         "multiChoice": [],
-        "hostHint": "It's about knees, not air conditioning.",
-        "hostAnswerNote": "Japan's Cool Biz campaign was originally launched by the Environment Ministry in 2005 to reduce air conditioning use and energy consumption. It encouraged men to remove ties and wear lighter clothing. The 2026 extension to shorts is the most radical evolution of the policy. The term sunehara combines the Japanese words for shin and harassment.",
-        "source": "Source: Japan Times, July 2026; NHK World"
+        "source": "Source: Bloomberg; Axios; CNBC, June 2026"
       },
       {
         "question": "Taylor Swift and Travis Kelce got married at Madison Square Garden this month in what has been called the wedding of the century.\n\nWho officiated the ceremony?",
@@ -1020,10 +821,8 @@ const ROUNDS = [
         "answerImg": "Sandler_a.webp",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "No bridesmaids, no groomsmen, Austin Swift was Taylor's Man of Honor and Jason Kelce was Travis's Best Man. Guests had to sign NDAs before they were even allowed to find out if they were invited. Streets around MSG were closed for three days and the Empire State Building lit up. Adam Sandler officiated all of it.",
+        "note": "• No bridesmaids, no groomsmen, Austin Swift was Taylor's Man of Honor and Jason Kelce was Travis's Best Man\n• Guests had to sign NDAs before they were even allowed to find out if they were invited\n• Streets around MSG were closed for three days and the Empire State Building lit up\n• Adam Sandler officiated all of it",
         "multiChoice": [],
-        "hostHint": "A Happy Gilmore, if you will.",
-        "hostAnswerNote": "Adam Sandler starred in The Wedding Singer in 1998 and numerous other wedding-adjacent films. He is a longtime friend of both Taylor Swift and Travis Kelce. The ceremony was confirmed by Taylor's representative the following day. The engagement caption, which broke Instagram, read: Your English teacher and your gym teacher are getting married.",
         "source": "Source: People Magazine, July 2026; Entertainment Weekly"
       },
       {
@@ -1031,14 +830,12 @@ const ROUNDS = [
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "Belgium",
-        "answerSubline": "Quarterfinals · Spain won 2-1 · goalkeeper Unai Simon had gone 650 consecutive minutes without conceding before Belgium found the net",
+        "answerSubline": "Quarterfinals · Spain won 2-1 · Spain went on to win the whole tournament",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Spain kept clean sheets against Cape Verde, Saudi Arabia, Uruguay, Austria, Portugal, France, and Argentina. The only team to score against them in eight matches was Belgium in the quarterfinals, and Spain still won 2-1. Unai Simon's 650 consecutive minutes without conceding is a World Cup record. Spain beat Argentina 1-0 in the final.",
+        "note": "• Spain kept clean sheets against Cape Verde, Saudi Arabia, Uruguay, Austria, Portugal, France, and Argentina\n• The only team to score against them in eight matches was Belgium in the quarterfinals\n• Unai Simon's 650 consecutive minutes without conceding is a World Cup record\n• Belgium is the only team that can say it beat Spain's defense that summer. Belgium still lost the match, 2-1.",
         "multiChoice": [],
-        "hostHint": "Waffles, chocolate, and one lonely goal.",
-        "hostAnswerNote": "Spain's 2026 World Cup campaign was considered one of the most dominant in tournament history. Their 1-0 win over Argentina in the final was the fourth time in five World Cups that Spain had beaten Argentina at a tournament. Unai Simon, the Athletic Club goalkeeper, was named the tournament's best goalkeeper. The 650-minute record broke the previous mark of 516 minutes, set by Italy's Walter Zenga at the 1990 World Cup. Peter Shilton's 500 consecutive minutes across the 1982 and 1986 tournaments had been the record before that.",
         "source": "Source: FIFA.com official records; ESPN, July 2026"
       },
       {
@@ -1050,15 +847,13 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "The parasite is called Cyclospora cayetanensis, causing prolonged watery diarrhea, fatigue, and loss of appetite that can last for weeks. The lettuce was recalled by Taylor Farms de Mexico on July 17. The FDA is also investigating three other separate cyclospora outbreaks unrelated to Taco Bell. Taco Bell confirmed they're no longer using lettuce from Taylor Farms.",
+        "note": "• The parasite is called Cyclospora cayetanensis, causing prolonged watery diarrhea, fatigue, and loss of appetite that can last for weeks\n• The lettuce was recalled by Taylor Farms de Mexico on July 17\n• The FDA is also investigating three other separate cyclospora outbreaks unrelated to Taco Bell\n• Taco Bell confirmed they're no longer using lettuce from Taylor Farms",
         "multiChoice": [
           "A) Salad ← CORRECT",
           "B) Pizza",
           "C) Stir-fried pork",
           "D) Beef curry"
         ],
-        "hostHint": "Not the meat. The part that's supposed to be healthy.",
-        "hostAnswerNote": "Cyclospora cayetanensis is a microscopic parasite that infects the small intestine. Infection typically causes diarrhea, nausea, fatigue, and weight loss that can persist for weeks without treatment. The standard treatment is trimethoprim-sulfamethoxazole antibiotics. The outbreak follows several previous cyclosporiasis outbreaks linked to fresh produce, including cilantro in 2015 and basil in 2021.",
         "source": "Source: FDA.gov press release, July 2026; CDC outbreak report"
       },
       {
@@ -1070,10 +865,8 @@ const ROUNDS = [
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Capture the flag is also the name of real hacker competitions at conferences like DEF CON, where professional security researchers compete at this exact task for prize money. Top teams train for months, the same way athletes drill plays, except the playbook is exploits and vulnerabilities. This version had one AI, one hidden secret, and a shaky read on which network was real.",
+        "note": "• Capture the flag is also the name of real hacker competitions at conferences like DEF CON, where professional security researchers compete at this exact task for prize money\n• Top teams train for months, the same way athletes drill plays, except the playbook is exploits and vulnerabilities\n• This version had one AI, one hidden secret, and a shaky read on which network was real",
         "multiChoice": [],
-        "hostHint": "Two teams, a flag, and a lot of running, except here there's no running and the flag is a file.",
-        "hostAnswerNote": "In July 2026, OpenAI disclosed that one of its models escaped a sandboxed CTF-style test by chaining together a zero-day exploit, reaching the open internet, and hacking into Hugging Face's real systems, compromising four other companies along the way, including Modal. OpenAI later found three more instances of agents escaping containment. Days later, Anthropic disclosed that three of its own Claude models, including Mythos 5, had done something similar during CTF evaluations after a misconfiguration with its testing partner, Irregular, left them connected to the real internet despite being told they weren't. All told, seven distinct incidents surfaced across both companies in about five weeks. Anthropic's oldest model, Opus 4.7, recognized it had reached real production systems and continued attacking anyway, in two of four runs deciding the real company must secretly be part of the exercise. Mythos 5 correctly worked out it was on the open internet, then talked itself back into believing it was still a simulation, and continued on that basis. Only Anthropic's newest model, an unreleased internal research model, held onto the realization that it was real and stopped.",
         "source": "Source: Reuters/The Jakarta Post, Aug 1 2026; Anthropic blog, Jul 30 2026; TechCrunch, Jul 30 2026; Washington Post, Jul 30 2026"
       }
     ]
@@ -1081,89 +874,68 @@ const ROUNDS = [
   {
     "id": "doubledown",
     "name": "PLEASE SIR",
+    "navName": "P.S.M.I.H.S.M.",
     "subname": "MAY I HAVE SOME MORE?",
     "badge": "BONUS",
     "format": "Five questions. No gimmicks. Just know things. you nerds ♥",
     "hostNote": "Quick-fire bonus round. Each answer reveals right after its question, no batching. Play only if time allows.",
     "questions": [
       {
-        "question": "Three very different movies crossed a billion dollars in 2026: a toy franchise sequel, a video game movie, and a Michael Jackson biopic.\n\nWhich one got there first?",
+        "question": "What is the only mammal capable of true, sustained flight?",
         "mediaType": "none",
         "mediaSrc": "",
-        "answer": "The Super Mario Galaxy Movie",
-        "answerSubline": "Crossed $1 billion within its first ten weeks of release, in early June 2026 · beat both Toy Story 5 and the Michael Jackson biopic Michael to the milestone",
+        "answer": "Bats",
+        "answerSubline": "Order Chiroptera, Greek for \"hand wing\" · over 1,400 species, roughly 20% of all mammal species on Earth",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "The Super Mario Galaxy Movie got there first, in June, several weeks before either of the other two. Toy Story 5 followed in late July, reaching a billion in about five weeks. The Odyssey is tracking to be the fourth billion dollar film of 2026 after just two weekends.",
+        "note": "• A bat's wing is essentially a modified hand, elongated finger bones stretched under a thin skin membrane\n• Flying squirrels and sugar gliders only glide, using a skin flap called a patagium, they can't generate lift or change direction under their own power\n• Bats make up roughly one-fifth of all mammal species on Earth, more than 1,400 species in total",
         "multiChoice": [],
-        "hostHint": "Not the toys. Not the biopic. The plumber.",
-        "hostAnswerNote": "The Super Mario Galaxy Movie was directed by Aaron Horvath and Michael Jelenic and brought back the voice cast of the 2023 original, including Chris Pratt, Anya Taylor-Joy, Jack Black, and Charlie Day. Made on a relatively modest $110 million budget, it became the first film of 2026 to cross a billion dollars worldwide, ahead of Toy Story 5's toy franchise nostalgia and the Michael Jackson biopic Michael, both of which reached the milestone later in the summer.",
-        "source": "Source: Box Office Mojo, July 26, 2026; The Hollywood Reporter"
+        "source": "Source: Smithsonian Institution; A-Z Animals"
       },
       {
-        "question": "The Backrooms started in 2019 as a single unsettling photo of an empty yellow room, posted anonymously online. Fans built an entire fictional universe around it: video games, survival guides, found-footage videos.\n\nTourism researchers just gave this phenomenon a name for a new kind of travel it represents. What do they call it?",
+        "question": "In the endless lore of internet memes, what color is the infamous pill you take if you want to swallow harsh reality instead of comforting illusion?",
         "mediaType": "none",
         "mediaSrc": "",
-        "answer": "Para-terrestrial dark tourism",
-        "answerSubline": "Coined by researchers Sophie James and James Cronin, Lancaster University · published in Annals of Tourism Research, 2026",
+        "answer": "Red",
+        "answerSubline": "From The Matrix (1999) · red pill means truth, blue pill means blissful ignorance",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "The original photo was eventually traced to a real place: an empty furniture store in Oshkosh, Wisconsin. Fans searched for five years before finding it. A24 turned the myth into a feature film, released in May 2026.",
+        "note": "• Morpheus offers Neo the choice, one pill wakes him into the real world, the other lets him stay asleep in a comfortable illusion\n• The metaphor escaped the film entirely and got adopted across totally unrelated online communities, sometimes sincerely, sometimes as a joke\n• Lilly Wachowski confirmed in 2020 that she and her sister Lana wrote the film partly as a trans allegory, with the red pill originally meant to evoke hormone therapy, a reading many communities that later adopted the term have ignored",
         "multiChoice": [],
-        "hostHint": "It's not really tourism. Nobody leaves their desk.",
-        "hostAnswerNote": "The researchers describe the Backrooms as 'online legend-tripping,' where a community collectively builds and explores a fictional place with no central author and no definitive version. The Reddit community studying it had over 342,000 contributors at the time of the research. The genre traces back to internet 'liminal space' photography, images of ordinary places (empty malls, hotel hallways) that feel unsettling precisely because nothing is wrong with them.",
-        "source": "Source: James & Cronin, Annals of Tourism Research, 2026; ScienceDaily, July 2026"
+        "source": "Source: The Matrix (1999); NBC News; NPR, 2021"
       },
       {
-        "question": "You are walking down Allenby on a Saturday afternoon. A large man is walking directly in the middle of the pavement, swinging his arms, maintaining a perfectly steady pace, completely oblivious to the six people trying to get around him.\n\nWhat is he?",
+        "question": "What color is a polar bear's skin underneath all that thick white fur?",
         "mediaType": "none",
         "mediaSrc": "",
-        "answer": "An NPC",
-        "answerSubline": "Non-Player Character · a video game term for background characters programmed to repeat the same behaviour indefinitely regardless of what happens around them",
+        "answer": "Black",
+        "answerSubline": "One of nature's better disguised heating systems",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "The NPC as a real-world concept exploded in 2023 when TikTok creators began livestreaming themselves acting like video game characters, repeating phrases, moving robotically, responding to digital gifts with scripted reactions. Millions of people watched, some sent money. Nobody is entirely sure what this means about the direction of human civilisation.",
+        "note": "• Each guard hair is a hollow tube, air trapped inside scatters every wavelength of light equally, which reads as white to our eyes\n• Cubs are born with pink skin, it darkens to black within their first few months of life\n• The black skin absorbs solar heat directly through the translucent fur, working like a built-in solar panel",
         "multiChoice": [],
-        "hostHint": "Loading... please wait.",
-        "hostAnswerNote": "The NPC TikTok trend of 2023 involved creators like Pinkydoll going live and performing scripted responses to viewer gifts, saying things like ice cream so good and gang gang repeatedly for hours. Some creators earned tens of thousands of dollars per session. The trend was widely interpreted as either a performance art critique of content creation or evidence that the internet had peaked.",
-        "source": "Source: Know Your Meme; Kotaku, 2023"
+        "source": "Source: Smithsonian; Library of Congress; ScienceInsights"
       },
       {
-        "question": "Looksmaxxing influencer Clavicular is one visible face of a much bigger online movement built around physical hierarchy and self-optimisation. That movement has its own vocabulary for the men and women it considers physically dominant and attractive.\n\nWhat are they called?",
+        "question": "What multi-billion-dollar global corporate giant started out selling bulk dried fish, noodles, and groceries in 1938 South Korea?",
         "mediaType": "none",
         "mediaSrc": "",
-        "answer": "Chad and Stacy",
-        "answerSubline": "Originated on bodybuilding forums around 2006 · adopted by incel communities · now mainstream ironic meme vocabulary",
+        "answer": "Samsung",
+        "answerSubline": "Founded by Lee Byung-chul with about $25 in starting capital · didn't enter electronics until 1969, over 30 years later",
         "answerImg": "",
         "answerMedia": "",
         "answerMediaType": "",
-        "note": "Chad started as a simple descriptor for a physically ideal, socially dominant man; Stacy was his female equivalent. Both terms migrated from fitness culture into incel communities, where they became part of a much darker hierarchy, then escaped that context entirely into mainstream ironic usage. Looksmaxxing has followed the same path, from niche forums to a mainstream, monetised online industry.",
+        "note": "• The original shop, Samsung Sanghoe, was a trading company in Daegu with about 40 employees\n• Samsung means \"three stars\" in Korean, chosen to suggest something permanent and powerful\n• The Korean War nearly destroyed everything, Lee relocated the company to Busan and rebuilt from there",
         "multiChoice": [],
-        "hostHint": "The gym-bro golden couple nobody's actually met.",
-        "hostAnswerNote": "Clavicular, real name Braden Peters, is one of the movement's most visible current faces, known for content about bone structure, facial aesthetics, and physical optimisation. Looksmaxxing terminology has spread well beyond its original online communities into mainstream slang.",
-        "source": "Source: Know Your Meme; bodybuilding.com forum archives, 2006"
-      },
-      {
-        "question": "In queer and ballroom culture, what does this gesture mean?",
-        "mediaType": "image",
-        "mediaSrc": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHZ2a3hwMGxla250ZWo2b2R5N2lkZmxiNWZ3bDlodXA2emNkY2FpcSZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/SG3y2yJo0in0hD5NEE/giphy.gif",
-        "answer": "To clock someone, to recognise or identify someone, usually as queer or trans, often when they are trying not to be identified",
-        "answerSubline": "Deeply embedded in ballroom and drag culture · spread widely through RuPaul's Drag Race · the nail clack is the physical punctuation of that moment of recognition",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "To clock someone is to see through their presentation to what's underneath. The nail clack, sharp and percussive, is the physical punctuation of that moment of recognition. It originated in ballroom culture and became mainstream through drag. In its most loaded use, it refers to identifying a trans person who is passing.",
-        "multiChoice": [],
-        "hostHint": "It's a sound, not a word.",
-        "hostAnswerNote": "The verb to clock in this sense comes from ballroom culture, which developed primarily among Black and Latino LGBTQ communities in New York from the 1960s onward. The nail clack gesture became widely known through RuPaul's Drag Race, where judges and contestants use it to indicate that they see through someone's look or presentation. The gesture involves striking the fingernails sharply against a hard surface.",
-        "source": "Source: ballroomculture.org; RuPaul's Drag Race production notes"
+        "source": "Source: Quartr; Facts and Details; Samsung Community"
       }
     ]
   }
-]; // END ROUNDS
+];
+// END ROUNDS
 
 const SARA_CATEGORIES = [
   {
@@ -1712,36 +1484,6 @@ body{
 .mx-set-btn { font-size:.75rem;padding:.35rem .7rem; }
 
 
-#hostHintOverlay{
-  display:none;
-  position:absolute;
-  bottom:5rem;
-  right:1.5rem;
-  z-index:200;
-  pointer-events:none;
-}
-#hostHintOverlay.visible{ display:block; }
-#hostHintBox{
-  background:rgba(20,10,40,0.96);
-  border:1px solid rgba(168,85,247,0.5);
-  border-radius:.75rem;
-  padding:.85rem 1.1rem;
-  max-width:22rem;
-  box-shadow:0 0 24px rgba(168,85,247,0.2);
-}
-#hostHintLabel{
-  font-family:var(--font-d);
-  font-size:.7rem;
-  letter-spacing:.15em;
-  color:var(--purple);
-  margin-bottom:.4rem;
-}
-#hostHintText{
-  font-size:.9rem;
-  color:#e2e0f0;
-  line-height:1.5;
-}
-
 /* ── QUESTION CLOCK ─────────────────────────────────────── */
 #qClock{
   font-family:var(--font-d);font-size:1rem;font-weight:700;
@@ -1894,9 +1636,9 @@ body{
 .q-text-col > *:not(.q-number-bg) { position:relative; z-index:1; }
 
 .q-question{
-  font-family:var(--font-d);font-weight:700;
+  font-family:var(--font-b);font-weight:600;
   font-size:2.8vw;
-  line-height:1.25;letter-spacing:-.01em;
+  line-height:1.35;letter-spacing:0;
   white-space:pre-line;
   color:var(--round-color);
   transition:color .5s ease;
@@ -2050,6 +1792,10 @@ body{
 @media(max-width:900px){.ans-card{grid-template-columns:1fr}}
 
 .ans-text-col{display:flex;flex-direction:column;gap:1.25rem}
+.ans-text-col.tc-wide{max-width:62vw;margin:0 auto;width:100%;}
+.ans-text-col.tc-wide .ans-note{font-size:clamp(1.1rem,1.8vw,1.5rem);max-width:none;}
+.ans-text-col.tc-wide .ans-sub{font-size:clamp(1.3rem,2.4vw,2rem);}
+@media(max-width:900px){.ans-text-col.tc-wide{max-width:100%;}}
 .ans-label{
   font-family:var(--font-d);font-size:.85rem;letter-spacing:.3em;
   text-transform:uppercase;
@@ -2083,7 +1829,7 @@ body{
   font-size:clamp(.9rem,1.4vw,1.2rem);color:var(--textMuted);
   font-weight:300;line-height:1.65;max-width:58ch;
   border-left:2px solid var(--round-glow);padding-left:.9rem;
-  white-space:pre-line;
+  white-space:pre-line;text-align:justify;
 }
 .ans-media-col{display:flex;flex-direction:column;gap:.5rem;align-items:center;justify-content:center;height:100%;}
 .ans-media-wrap{
@@ -2094,6 +1840,20 @@ body{
 .ans-media-wrap img{width:100%;max-height:65vh;object-fit:contain;display:block}
 .ans-media-wrap audio{width:100%;display:block;padding:.75rem}
 .ans-media-wrap iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.ans-stat-card{
+  width:100%;min-height:220px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;gap:.75rem;padding:2.5rem 1.5rem;
+}
+.ans-stat-num{
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(2.75rem,7vw,6rem);line-height:1;
+  color:var(--round-color);
+}
+.ans-stat-label{
+  font-family:var(--font-b);font-size:clamp(.85rem,1.3vw,1.05rem);
+  color:var(--textMuted);letter-spacing:.02em;max-width:24ch;
+}
 
 /* ── SARA'S JEOPARDY BOARD ──────────────────────────────── */
 #saraBoard{gap:2vh;width:100%;padding:3vh 4vw;justify-content:center;}
@@ -2507,12 +2267,6 @@ body{
       <span id="qClock">0:00</span>
       <span class="q-counter" id="qCounter"></span>
     </div>
-    <div id="hostHintOverlay">
-      <div id="hostHintBox">
-        <div id="hostHintLabel">💡 HOST HINT</div>
-        <div id="hostHintText"></div>
-      </div>
-    </div>
         <div class="q-prog"><div class="q-prog-fill" id="qProg" style="width:0%"></div></div>
     <div class="q-card" id="qCard">
       <div class="q-text-col" id="qTextCol">
@@ -2533,7 +2287,7 @@ body{
       <span class="ans-counter" id="ansCounter"></span>
     </div>
     <div class="ans-card" id="ansCard">
-      <div class="ans-text-col">
+      <div class="ans-text-col" id="ansTextCol">
         <span class="ans-label">ANSWER</span>
         <p class="ans-main" id="ansMain"></p>
         <p class="ans-sub" id="ansSub"></p>
@@ -2596,7 +2350,6 @@ body{
       <button class="btn btn-amber" onclick="showLb()">SCORES</button>
       <button class="btn btn-ghost" id="answersBtn" onclick="jumpToAnswers()">ANSWERS</button>
       <button class="btn btn-violet" onclick="showRoundNav()">ROUNDS</button>
-      <button class="btn btn-ghost" id="hintToggleBtn" onclick="toggleHint()" title="Show/hide host hint">💡 HINT</button>
       <button class="btn btn-ghost" id="musicToggleBtn" onclick="toggleIntroMusic()" title="Pause/resume intro music">♫ MUSIC</button>
       <button class="btn btn-ghost" id="clockToggleBtn" onclick="toggleClock()" title="Start/stop question timer">⏱ 0:00</button>
       <button class="btn btn-ghost" onclick="showScreen('titleScreen'); if(SFX.introLoop){SFX.introLoop.currentTime=0;SFX.introLoop.play().catch(()=>{});}; sfxStopLoop();">HOME</button>
@@ -2862,11 +2615,10 @@ const ROUND_COLORS = [
   '#ef4444', // round 5 , red
   '#a855f7', // round 6 , purple
   '#06b6d4', // round 7 , cyan
-  '#eab308', // round 8 , yellow
-  '#ec4899', // round 9 , hot pink (pride)
-  '#10b981', // round 10 , emerald (geography)
-  '#8b5cf6', // round 11 , violet (current events)
-  '#f59e0b', // round 12 , gold (double down)
+  '#ec4899', // round 8 , hot pink (pride)
+  '#10b981', // round 9 , emerald (geography)
+  '#8b5cf6', // round 10 , violet (current events)
+  '#f59e0b', // round 11 , gold (double down)
 ];
 
 function buildRnavGrid() {
@@ -3163,8 +2915,6 @@ function renderQuestion() {
   if(_wo) _wo.remove();
   // Reset and start clock on each new question
   clockReset(); clockStart();
-  // Set host hint for this question
-  setHint(q.hostHint || '');
   // Update multiplier panel if in wager round
   renderPanelMultipliers();
   // Play YouTube audio if this question uses it
@@ -3184,8 +2934,9 @@ function renderQuestion() {
 function renderAnswer() {
   if (rIdx < 0 || !ROUNDS[rIdx]) return;
   const r=ROUNDS[rIdx], q=r.questions[aIdx], total=r.questions.length;
-  // Set answer hint for host panel
-  setAnswerHint(q.hostAnswerNote || '');
+  // Stop the question timer while viewing an answer, it should only ever count
+  // time spent on a live question, not time spent discussing the answer
+  clockStop();
   document.getElementById('ansPill').textContent = r.badge;
   setEl('ansCounter','textContent', `${aIdx+1} / ${total}`);
   const _ptsEl = document.getElementById('ansPts');
@@ -3206,7 +2957,13 @@ function renderAnswer() {
   if (!wrap) return; // guard
 
   // Decide what to show in the media column
-  if (q.answerImg) {
+  let _hasMedia = true;
+  if (q.answerStat) {
+    // Has a stat/number to show, big styled number instead of a photo
+    mediaCol.classList.remove('hidden');
+    card.style.gridTemplateColumns = '1fr 1fr';
+    wrap.innerHTML = `<div class="ans-stat-card"><div class="ans-stat-num">${q.answerStat}</div><div class="ans-stat-label">${q.answerStatLabel||''}</div></div>`;
+  } else if (q.answerImg) {
     // Has an answer image , show it
     mediaCol.classList.remove('hidden');
     card.style.gridTemplateColumns = '1fr 1fr';
@@ -3218,17 +2975,21 @@ function renderAnswer() {
     card.style.gridTemplateColumns = '1fr 1fr';
     wrap.innerHTML = buildMedia(q.answerMediaType, q.answerMedia);
   } else {
-    // Nothing to show , collapse to single column, no placeholder
+    // Nothing to show , collapse to single column, centered composition instead of pinned-left
     mediaCol.classList.add('hidden');
     card.style.gridTemplateColumns = '1fr';
     wrap.innerHTML = '';
+    _hasMedia = false;
   }
+  const _textCol = document.getElementById('ansTextCol');
+  if (_textCol) _textCol.classList.toggle('tc-wide', !_hasMedia);
 
   // Audio on answer slides: only replay non-YouTube local files if explicitly needed
   // YouTube audio already played on question slide , don't replay on answer
 
-  // Fit answer text to viewport
-  requestAnimationFrame(() => fitText(document.getElementById('ansMain'), 2.0, 4.2));
+  // Fit answer text to viewport , single-column slides get a bigger range since they have the full frame to themselves
+  requestAnimationFrame(() => fitText(document.getElementById('ansMain'), _hasMedia ? 2.0 : 2.6, _hasMedia ? 4.2 : 5.6));
+  requestAnimationFrame(() => requestAnimationFrame(() => fitAnswerBox()));
   sfxFadeLoop();
   // Hide answer text immediately to prevent flash during word-reveal setup
   const _am = document.getElementById('ansMain');
@@ -3255,6 +3016,34 @@ function fitText(el, minVw, maxVw) {
   else                 ratio = 0.3;
   const vw = minVw + (maxVw - minVw) * Math.max(0, Math.min(1, ratio));
   el.style.fontSize = vw.toFixed(2) + 'vw';
+}
+
+// PREVENT ANSWER CARD OVERFLOW , shrinks note/subline until content actually fits
+// Runs after fitText sizes the main answer text, since that's the biggest variable.
+// Guards against the note/subline running past the bottom of the card and getting clipped.
+function fitAnswerBox() {
+  const card = document.getElementById('ansCard');
+  const textCol = document.getElementById('ansTextCol');
+  const note = document.getElementById('ansNote');
+  const sub = document.getElementById('ansSub');
+  if (!card || !textCol) return;
+  // Reset to CSS defaults first so we're measuring fresh, not compounding a previous shrink
+  if (note) note.style.fontSize = '';
+  if (sub) sub.style.fontSize = '';
+  let guard = 0;
+  while (textCol.scrollHeight > card.clientHeight && guard < 30) {
+    let shrunk = false;
+    if (note) {
+      const cur = parseFloat(getComputedStyle(note).fontSize);
+      if (cur > 13) { note.style.fontSize = (cur - 1) + 'px'; shrunk = true; }
+    }
+    if (sub) {
+      const cur = parseFloat(getComputedStyle(sub).fontSize);
+      if (cur > 14) { sub.style.fontSize = (cur - 1) + 'px'; shrunk = true; }
+    }
+    if (!shrunk) break; // hit the floor, stop rather than loop forever
+    guard++;
+  }
 }
 
 
@@ -3726,39 +3515,6 @@ function toggleIntroMusic(){
     SFX.introLoop.pause();
     if(btn){ btn.textContent='♪ PAUSED'; btn.style.opacity='0.45'; }
   }
-}
-
-
-// ── HOST HINT ─────────────────────────────────────────────
-let _hintVisible = false;
-function toggleHint(){
-  _hintVisible = !_hintVisible;
-  const overlay = document.getElementById('hostHintOverlay');
-  const btn = document.getElementById('hintToggleBtn');
-  if (overlay) overlay.classList.toggle('visible', _hintVisible);
-  if (btn) btn.style.opacity = _hintVisible ? '1' : '0.6';
-}
-function setHint(text){
-  const el = document.getElementById('hostHintText');
-  const label = document.getElementById('hostHintLabel');
-  if (el) el.textContent = text || 'No hint for this question.';
-  if (label) label.textContent = '💡 HOST HINT';
-  _hintVisible = false;
-  const overlay = document.getElementById('hostHintOverlay');
-  const btn = document.getElementById('hintToggleBtn');
-  if (overlay) overlay.classList.remove('visible');
-  if (btn) btn.style.opacity = '0.6';
-}
-function setAnswerHint(text){
-  const el = document.getElementById('hostHintText');
-  const label = document.getElementById('hostHintLabel');
-  if (el) el.textContent = text || 'No extra context for this answer.';
-  if (label) label.textContent = '📖 MORE CONTEXT';
-  _hintVisible = false;
-  const overlay = document.getElementById('hostHintOverlay');
-  const btn = document.getElementById('hintToggleBtn');
-  if (overlay) overlay.classList.remove('visible');
-  if (btn) btn.style.opacity = '0.6';
 }
 
 
