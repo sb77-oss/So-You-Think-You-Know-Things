@@ -1,0 +1,4244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SO YOU THINK YOU KNOW THINGS · S4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- ════════════════════════════════════════════════════════════
+     ██  CONFIGURATION DATA MENU  ██
+     ════════════════════════════════════════════════════════════
+     This is the ONLY section you need to edit.
+     Change question text, answers, image filenames, media URLs here.
+     Do not edit anything below the closing </script> of this block.
+
+     QUESTION FIELDS:
+       question    , the question text shown on screen
+       mediaType   , "image" | "audio" | "video" | "none"
+       mediaSrc    , filename (same folder) or full embed URL (YouTube/Spotify)
+       answer      , shown on the answer slide in BIG GREEN
+       answerImg   , optional image on the answer slide (filename or URL)
+       answerStat  , optional big styled number/stat for the answer slide (e.g. "53%"), used instead of an image when the answer itself is a number. Renders in the same media slot as answerImg, so only set one of the two.
+       answerStatLabel , short caption under answerStat (e.g. "of internet traffic in 2026")
+       answerMedia , optional audio/video embed on the answer slide
+                     (for Warm Up: re-play the song on the answer slide)
+       note        , the cultural context paragraph
+       multiChoice , array of options; mark correct with ← CORRECT or ← NOT REAL
+     ════════════════════════════════════════════════════════════ -->
+<script id="QUIZ_DATA_MENU">
+const QUIZ_META = {
+  "title": "SO YOU THINK YOU KNOW THINGS",
+  "subtitle": "4",
+  "tagline": "Season IV"
+};
+
+const ROUNDS = [
+  {
+    "id": "nanana",
+    "name": "NAME THAT NANANA",
+    "subname": "Na na na na na",
+    "badge": "ROUND 1",
+    "format": "Play only the na-na-na hook. Name the song.",
+    "hostNote": "Play only the na-na-na hook, let them write, then reveal. Don't say anything before the clip plays.",
+    "questions": [
+      {
+        "question": "",
+        "mediaType": "audio",
+        "mediaSrc": "yt:9Ht5RZpzPqw:49",
+        "answer": "All the Small Things",
+        "answerSubline": "Blink-182 · 1999",
+        "answerImg": "r1q1_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Mark Hoppus wrote it for his girlfriend, Skye, late in the sessions, after the label asked for a radio single.\n• The video spoofs the boy band videos of the day. The Backstreet Boys and NSYNC are among the targets.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "",
+        "mediaType": "audio",
+        "mediaSrc": "yt:Sv6dMFF_yts:153",
+        "answer": "We Are Young",
+        "answerSubline": "fun. featuring Janelle Monáe · 2012",
+        "answerImg": "r1q2_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• A Chevrolet ad during the 2012 Super Bowl and a Glee cover pushed it to number one on the Billboard Hot 100.\n• It won the Grammy for Song of the Year in 2013.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "",
+        "mediaType": "audio",
+        "mediaSrc": "yt:9rlNpWYQunY:214",
+        "answer": "Rich Girl",
+        "answerSubline": "Gwen Stefani featuring Eve · 2004",
+        "answerImg": "r1q3_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• The hook borrows from \"If I Were a Rich Man,\" from Fiddler on the Roof, by way of a 1990s reggae version by Louchie Lou and Michie One.\n• Fiddler on the Roof opened on Broadway in 1964, with songs by Jerry Bock and Sheldon Harnick.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "",
+        "mediaType": "audio",
+        "mediaSrc": "yt:v12drFTUKIc:113",
+        "answer": "Na Na Na",
+        "answerSubline": "One Direction · 2011",
+        "answerImg": "r1q4_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• It was the B-side to their debut single, \"What Makes You Beautiful.\"\n• Savan Kotecha co-wrote both songs.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "",
+        "mediaType": "audio",
+        "mediaSrc": "yt:mQER0A0ej0M:189",
+        "answer": "Hey Jude",
+        "answerSubline": "The Beatles · 1968",
+        "answerImg": "r1q5_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Paul McCartney wrote it to comfort John Lennon's son Julian during his parents' divorce. The working title was \"Hey Jules.\"\n• The na-na-na coda runs about four minutes of a seven minute single, which was very long for 1968 radio.",
+        "multiChoice": [],
+        "source": ""
+      }
+    ]
+  },
+  {
+    "id": "bround",
+    "name": "THE B ROUND",
+    "subname": "Every answer starts with B",
+    "badge": "ROUND 2",
+    "format": "Every answer starts with B. Say it twice before you start.",
+    "hostNote": "Say it twice before starting. Every single answer starts with B.",
+    "questions": [
+      {
+        "question": "This album cover is a plain green square. Charli XCX released the album in 2024.\n\nName it.",
+        "mediaType": "image",
+        "mediaSrc": "r2q1_q.jpg",
+        "answer": "Brat",
+        "answerSubline": "Collins Dictionary Word of the Year 2024",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• It peaked at number one on the UK Albums Chart after its June 2024 release and turned the summer into \"brat summer,\" a trend in fashion, memes and politics.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Greta Gerwig directed the highest-grossing film ever made by a woman working alone. Name it.",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Barbie",
+        "answerSubline": "More than $1.4 billion worldwide · 2023",
+        "answerImg": "r2q2_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• It opened on the same day as Oppenheimer, 21 July 2023. The pairing became \"Barbenheimer.\"\n• The production reportedly used so much pink paint that the supplier ran out.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Which artist has won the most Grammys in history?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Beyoncé",
+        "answerSubline": "Passed Georg Solti's record in 2023",
+        "answerImg": "r2q3_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Solti, a Hungarian-born conductor, held the record from 1997 with 31 wins, almost all for classical recordings.\n• Her total has grown since then, so quote the record and skip the number.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Which German sandal maker, founded in 1774, listed on the New York Stock Exchange in 2023?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Birkenstock",
+        "answerSubline": "Listed October 2023",
+        "answerImg": "r2q4_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Konrad Birkenstock designed the first contoured footbed in the 1890s, after generations of making ordinary shoes.\n• In 2021 the family sold a majority stake for a reported 4 billion euros, about $4.3 billion, to L Catterton, an investment firm backed by the family of LVMH's Bernard Arnault.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "This wireless standard is named after a Danish king who united Denmark in the 10th century. What is it?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Bluetooth",
+        "answerSubline": "After King Harald Bluetooth",
+        "answerImg": "r2q5_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• An Intel engineer, Jim Kardach, suggested the name in 1997 as a temporary code name. The idea was that the standard would unite devices the way Harald united Denmark.\n• The logo is a bind rune that joins Harald's initials, H and B, in the old Norse alphabet.",
+        "multiChoice": [],
+        "source": ""
+      }
+    ]
+  },
+  {
+    "id": "chronicallyonline",
+    "name": "CHRONICALLY ONLINE",
+    "subname": "The internet and online culture",
+    "badge": "ROUND 3",
+    "format": "Internet culture, easy to hard. Some open, some multiple choice.",
+    "hostNote": "High energy round. The room will either know these immediately or be delighted to learn them.",
+    "questions": [
+      {
+        "question": "In 2007, people began tricking each other into clicking links that secretly played a 1987 music video. The prank is named after the singer. Who?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Rick Astley",
+        "answerSubline": "\"Never Gonna Give You Up\" · the Rickroll",
+        "answerImg": "r3q1_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• It grew out of an earlier prank, duckrolling, which swapped links for a photo of a duck on wheels.\n• In November 2008, Astley turned up unannounced on a float at the Macy's Thanksgiving Day Parade and Rickrolled a live television audience.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "The \"Doge\" meme, with its captions in Comic Sans, shows which breed of dog?",
+        "mediaType": "image",
+        "mediaSrc": "r3q2_q.jpg",
+        "answer": "Shiba Inu",
+        "answerSubline": "The dog's name was Kabosu",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• The photo was taken by her owner, a kindergarten teacher in Japan, in 2010.\n• It inspired Dogecoin, a cryptocurrency launched in 2013 as a joke.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "In summer 2014, millions of people poured ice water over their heads for charity. About how much did it raise for the ALS Association in 2014?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "C: $115 million",
+        "answerSubline": "$94.3 million came in the first month, against $2.7 million in the same month of 2013",
+        "answerImg": "",
+        "answerStat": "$115M",
+        "answerStatLabel": "raised for the ALS Association in 2014",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Pete Frates, a former Boston College baseball captain with ALS, helped spread the challenge.\n• Part of the money paid for research that linked the NEK1 gene to ALS in 2016.",
+        "multiChoice": [
+          "A) $5 million",
+          "B) $25 million",
+          "C) $115 million ← CORRECT",
+          "D) $500 million"
+        ],
+        "source": ""
+      },
+      {
+        "question": "Dictionary.com picked a pair of numbers as its 2025 Word of the Year. By most accounts it has no fixed meaning. Which pair?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "B: 6-7",
+        "answerSubline": "Pronounced \"six seven\"",
+        "answerImg": "",
+        "answerStat": "6-7",
+        "answerStatLabel": "Dictionary.com Word of the Year, 2025",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• It spread from \"Doot Doot (6 7),\" a track by the rapper Skrilla, and from basketball clips. LaMelo Ball is 6'7\".",
+        "multiChoice": [
+          "A) 4-20",
+          "B) 6-7 ← CORRECT",
+          "C) 9-1-1",
+          "D) 7-11"
+        ],
+        "source": ""
+      },
+      {
+        "question": "Grumpy Cat became famous on Reddit in 2012 for her permanent frown. What was her real name?",
+        "mediaType": "image",
+        "mediaSrc": "r3q5_q.jpg",
+        "answer": "B: Tardar Sauce",
+        "answerSubline": "Grumpy Cat was her stage name",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Her look came from feline dwarfism and an underbite.\n• She died in May 2019, aged seven.",
+        "multiChoice": [
+          "A) Sour Puss",
+          "B) Tardar Sauce ← CORRECT",
+          "C) Mrs. Grumbles",
+          "D) Pickle Juice"
+        ],
+        "source": ""
+      }
+    ]
+  },
+  {
+    "id": "survival",
+    "name": "SURVIVAL",
+    "subname": "Practical questions",
+    "badge": "ROUND 4",
+    "format": "Practical questions, some multiple choice.",
+    "hostNote": "Practical round. Let the table argue before you reveal.",
+    "questions": [
+      {
+        "question": "You may have just been exposed to radiation. You shower to decontaminate. Which product should you avoid?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "C: Conditioner",
+        "answerSubline": "CDC decontamination guidance",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Conditioner coats the hair and holds particles against it.\n• Removing outer clothing is the first step. The CDC says it can remove up to 90 percent of contamination.\n• Wash gently. Scrubbing can break the skin.",
+        "multiChoice": [
+          "A) Shampoo",
+          "B) Shaving cream",
+          "C) Conditioner ← CORRECT",
+          "D) Bar soap"
+        ],
+        "source": ""
+      },
+      {
+        "question": "A rip current is pulling you away from the beach. What do you do?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "B: Swim parallel to the shore",
+        "answerSubline": "Then angle back in",
+        "answerImg": "r4q2_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• A rip is a narrow channel, so a few strokes sideways take you out of it.\n• Rips cause most beach rescues. Swimmers tire by fighting them head on.",
+        "multiChoice": [
+          "A) Swim straight back to shore",
+          "B) Swim parallel to the shore ← CORRECT",
+          "C) Swim straight out until it stops",
+          "D) Tread water and wait"
+        ],
+        "source": ""
+      },
+      {
+        "question": "Survival guides use \"the Rule of ___.\" It sets how long humans can survive without the essentials: the amount of  minutes without air, hours without shelter in harsh conditions, days without water and weeks without food. What number fills the blank?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Three",
+        "answerSubline": "The Rule of Threes",
+        "answerImg": "",
+        "answerStat": "3",
+        "answerStatLabel": "minutes · hours · days · weeks",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• These are rough estimates for a healthy adult, not medical advice. Real limits vary with age, health, temperature and water.\n• The hours figure falls sharply in cold water.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "In most survival situations, what comes first: shelter, water or food?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Shelter",
+        "answerSubline": "Then water, then food",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Hypothermia begins when core body temperature drops below 35 degrees Celsius.\n• Wind and wet clothing take heat away faster than most people expect.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "True or false: quicksand can pull a person completely under.",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "False",
+        "answerSubline": "You float",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Quicksand is denser than the human body, so people sink to about the waist.\n• A 2005 study estimated that pulling a foot out takes about the force needed to lift a medium-sized car.\n• Lean back, spread out and wiggle your legs slowly.",
+        "multiChoice": [],
+        "source": ""
+      }
+    ]
+  },
+  {
+    "id": "food",
+    "name": "FOOD",
+    "subname": "What's on the plate",
+    "badge": "ROUND 5",
+    "format": "Mixed, easy to hard.",
+    "hostNote": "Easy to hard. The wasabi and Hawaiian pizza answers get the best reactions.",
+    "questions": [
+      {
+        "question": "Which spice is the most expensive in the world by weight?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Saffron",
+        "answerSubline": "From the crocus Crocus sativus",
+        "answerImg": "r5q1_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Each flower produces three red stigmas, picked by hand, usually in the morning before the bloom wilts.\n• It takes roughly 150 flowers to make one gram.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Cashews are never sold in their shells. The shell holds a caustic oil that can burn skin. Which plant, known for its rash, belongs to the same family?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "B: Poison ivy",
+        "answerSubline": "The cashew family, Anacardiaceae, also includes mango",
+        "answerImg": "r5q2_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• The oil is chemically close to the one that causes the poison ivy rash.\n• Cashews labeled raw have been steamed to make them safe to handle.",
+        "multiChoice": [
+          "A) Stinging nettle",
+          "B) Poison ivy ← CORRECT",
+          "C) Giant hogweed",
+          "D) Venus flytrap"
+        ],
+        "source": ""
+      },
+      {
+        "question": "Hawaiian pizza was invented in 1962 in which country?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Canada",
+        "answerSubline": "Chatham, Ontario",
+        "answerImg": "r5q3_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Sam Panopoulos, a Greek immigrant, put canned pineapple on a pizza at his restaurant, the Satellite, to see what would happen.\n• The name comes from the brand of canned pineapple he used.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Wasabi is a real plant, but most restaurants substitute a green paste for it. What is that paste usually made of?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Horseradish",
+        "answerSubline": "Colored green and often mixed with mustard",
+        "answerImg": "r5q4_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Real wasabi grows slowly in cold running water and is hard to farm.\n• Freshly grated, it loses most of its heat in about fifteen minutes.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Almost every banana you buy is the same variety, grown from cuttings. Which one?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "B: Cavendish",
+        "answerSubline": "Named for the Duke of Devonshire, whose gardener grew it at Chatsworth in the 1830s",
+        "answerImg": "r5q5_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• It replaced the Gros Michel in the 1950s, after a fungus called Panama disease wiped that variety out.\n• Cavendish bananas are seedless clones, so one disease can hit all of them. A newer strain, TR4, is already spreading.",
+        "multiChoice": [
+          "A) Gros Michel",
+          "B) Cavendish ← CORRECT",
+          "C) Lady Finger",
+          "D) Red Dacca"
+        ],
+        "source": ""
+      }
+    ]
+  },
+  {
+    "id": "nepo",
+    "name": "NAME THE NEPO PARENTS",
+    "subname": "Famous families",
+    "badge": "ROUND 6",
+    "format": "I name the actor. You name the famous parents.",
+    "hostNote": "Show the actor, let them write the parents. The answer photo shows the family resemblance.",
+    "questions": [
+      {
+        "question": "Zoë Kravitz. Name her most famous parent.",
+        "mediaType": "image",
+        "mediaSrc": "r6q1_q.jpg",
+        "answer": "Lenny Kravitz and Lisa Bonet",
+        "answerSubline": "A musician and an actor",
+        "answerImg": "r6q1_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Lenny's mother was Roxie Roker, who played Helen Willis on The Jeffersons.\n• Zoë was on the December 2022 New York magazine cover that made \"nepo baby\" a mainstream phrase.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Jack Quaid, star of The Boys. Name both of his parents.",
+        "mediaType": "image",
+        "mediaSrc": "r6q2_q.jpg",
+        "answer": "Meg Ryan and Dennis Quaid",
+        "answerSubline": "Two leads from the 1980s and 1990s",
+        "answerImg": "r6q2_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• In 2024 he told the Daily Beast that the label fits and that he has tried to work as hard as he can to earn his place.\n• His first film role was in The Hunger Games in 2012.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Lily-Rose Depp. Name both of her parents.",
+        "mediaType": "image",
+        "mediaSrc": "r6q3_q.jpg",
+        "answer": "Johnny Depp and Vanessa Paradis",
+        "answerSubline": "An actor and a French singer",
+        "answerImg": "r6q3_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Paradis had a French hit at fourteen, \"Joe le taxi,\" in 1987.\n• Lily-Rose was also on the 2022 New York magazine cover.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Maya Hawke, from Stranger Things. Name  both of her parents.",
+        "mediaType": "image",
+        "mediaSrc": "r6q4_q.jpg",
+        "answer": "Uma Thurman and Ethan Hawke",
+        "answerSubline": "Two film actors",
+        "answerImg": "r6q4_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• They met on the set of Gattaca in 1997 and married the next year.\n• They divorced in 2005.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Dakota Johnson is a third-generation actor. Name her famous mother.",
+        "mediaType": "image",
+        "mediaSrc": "r6q5_q.jpg",
+        "answer": "Melanie Griffith",
+        "answerSubline": "Her father is Don Johnson",
+        "answerImg": "r6q5_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Alfred Hitchcock cast her grandmother, Tippi Hedren in The Birds after seeing her in a diet drink commercial.\n• Three generations means three different eras of Hollywood in one family.",
+        "multiChoice": [],
+        "source": ""
+      }
+    ]
+  },
+  {
+    "id": "space",
+    "name": "OUTER SPACE",
+    "subname": "Planets, probes and money",
+    "badge": "ROUND 7",
+    "format": "One classic, four from this year.",
+    "hostNote": "One classic, then modern space.",
+    "questions": [
+      {
+        "question": "Which planet in our solar system is the hottest?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Venus",
+        "answerSubline": "About 465 degrees Celsius at the surface",
+        "answerImg": "r7q1_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Its atmosphere is almost entirely carbon dioxide, which traps heat.\n• The surface pressure is about 90 times Earth's.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Which planet in our solar system has the most moons?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Saturn",
+        "answerSubline": "More than 280 confirmed moons",
+        "answerImg": "r7q2_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Astronomers added 128 new moons to its count in 2025.\n• Jupiter comes second, with about 100.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "About how long does sunlight take to reach Earth?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "B: 8 minutes",
+        "answerSubline": "About 8 minutes and 20 seconds",
+        "answerImg": "",
+        "answerStat": "8:20",
+        "answerStatLabel": "minutes and seconds for sunlight to reach Earth",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Light from the Moon takes only about 1.3 seconds.\n• Light made in the Sun's core takes tens of thousands of years to reach its surface.",
+        "multiChoice": [
+          "A) 8 seconds",
+          "B) 8 minutes ← CORRECT",
+          "C) 8 hours",
+          "D) 8 days"
+        ],
+        "source": ""
+      },
+      {
+        "question": "Who was the first human in space?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Yuri Gagarin",
+        "answerSubline": "Soviet Union, 12 April 1961",
+        "answerImg": "r7q4_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• His flight orbited Earth once and lasted 108 minutes.\n• The first woman in space was Valentina Tereshkova, in 1963.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "SpaceX went public in June 2026 in the largest IPO ever. About how much did it raise?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "C: $85 billion",
+        "answerSubline": "$85.7 billion, at $135 a share",
+        "answerImg": "",
+        "answerStat": "$85.7B",
+        "answerStatLabel": "raised in the SpaceX IPO",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• The previous record was Saudi Aramco's listing in 2019, at about $29 billion.\n• SpaceX reported its first earnings as a public company on 4 August.",
+        "multiChoice": [
+          "A) $10 billion",
+          "B) $30 billion",
+          "C) $85 billion ← CORRECT",
+          "D) $200 billion"
+        ],
+        "source": ""
+      }
+    ]
+  },
+  {
+    "id": "geography",
+    "name": "GEOGRAPHY",
+    "subname": "Maps, flags and coastlines",
+    "badge": "ROUND 8",
+    "format": "Mixed, easy to hard.",
+    "hostNote": "Easy to hard. Let them guess the Dead Sea figure before the options.",
+    "questions": [
+      {
+        "question": "One national flag is neither a rectangle nor a square. Which country's?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Nepal",
+        "answerSubline": "Two stacked pennants",
+        "answerImg": "r8q1_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Nepal's constitution gives the construction of the flag in geometric steps.\n• The two points stand for the Himalayas. The two pennants have been tied to the country's old ruling houses.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Lesotho is surrounded entirely by one country. Which?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "South Africa",
+        "answerSubline": "An enclave",
+        "answerImg": "r8q2_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Lesotho's lowest point is 1,400 meters above sea level, the highest lowest point of any country.\n• Snow falls in its mountains most winters.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Which country has the longest coastline in the world?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Canada",
+        "answerSubline": "About 200,000 kilometers",
+        "answerImg": "",
+        "answerStat": "200,000 km",
+        "answerStatLabel": "of coastline",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Most of it is Arctic islands and inlets, which is why it far exceeds the next country.\n• Norway and Indonesia come next, each at under a third of Canada's length.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "The Dead Sea is the lowest point on land. About how far below sea level is its shore?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "B: 430 meters",
+        "answerSubline": "And dropping",
+        "answerImg": "r8q4_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• The level falls about a meter a year, because most of the Jordan River's water is diverted before it arrives.\n• Its water is roughly ten times saltier than the ocean's.",
+        "multiChoice": [
+          "A) 100 meters",
+          "B) 430 meters ← CORRECT",
+          "C) 1,000 meters",
+          "D) 2,000 meters"
+        ],
+        "source": ""
+      },
+      {
+        "question": "Which country has the most islands in the world?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Sweden",
+        "answerSubline": "More than 260,000",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Most are tiny, and only a small share is inhabited.\n• Finland comes second, with close to 200,000.",
+        "multiChoice": [],
+        "source": ""
+      }
+    ]
+  },
+  {
+    "id": "pets",
+    "name": "PETS",
+    "subname": "Cats, dogs and hamsters",
+    "badge": "ROUND 9",
+    "format": "Mixed, easy to hard.",
+    "hostNote": "Easy to hard. The cat and dog biology answers surprise people.",
+    "questions": [
+      {
+        "question": "What color are Dalmatian puppies when they are born?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "White",
+        "answerSubline": "The spots come later",
+        "answerImg": "r9q1_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• The spots develop over the first few weeks.\n• Dalmatians have a gene variant that makes them excrete high levels of uric acid, which can cause urinary stones.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Which breed has been the most popular dog in America for the last four years?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "The French bulldog",
+        "answerSubline": "American Kennel Club ranking for 2025",
+        "answerImg": "r9q2_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• It ended the Labrador's 31-year run at number one in 2022.\n• In 2012, the French bulldog ranked 14th.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Of the five basic tastes, which one can cats not detect?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Sweet",
+        "answerSubline": "A broken gene",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• The gene for the sweet receptor is damaged in cats, and in other strict meat eaters.\n• Several other meat-eating mammals, including sea lions and hyenas, lack the same receptor.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Where do dogs sweat?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Their paws",
+        "answerSubline": "The pads",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Panting does most of their cooling.\n• Sweat glands elsewhere on their bodies work mainly to release scent.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Nearly every pet golden hamster descends from one wild litter found in 1930. In which country?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "A: Syria",
+        "answerSubline": "Found near Aleppo",
+        "answerImg": "r9q5_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Israel Aharoni, a zoologist at the Hebrew University, captured the mother and her pups.\n• He bred them in Jerusalem, and the lab colony spread to pet shops around the world.",
+        "multiChoice": [
+          "A) Syria ← CORRECT",
+          "B) China",
+          "C) Turkey",
+          "D) Mongolia"
+        ],
+        "source": ""
+      }
+    ]
+  },
+  {
+    "id": "currentevents",
+    "name": "CURRENT EVENTS",
+    "subname": "January to July 2026",
+    "badge": "ROUND 10",
+    "format": "Wager round. Set your multiplier before the round begins. Every right answer earns you multiplier points. Every wrong answer costs you the same.",
+    "hostNote": "Collect multipliers on the declaration slide before questions begin. All five questions cover events from 2026.",
+    "questions": [
+      {
+        "question": "Who won the men's World Cup final on 19 July?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Spain",
+        "answerSubline": "1-0 over Argentina, after extra time",
+        "answerImg": "r10q1_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Substitute Ferran Torres scored in the 106th minute.\n• Spain became the first country to hold the men's and women's World Cup titles at the same time.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Who replaced Keir Starmer as prime minister of the United Kingdom on 20 July?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Andy Burnham",
+        "answerSubline": "Unopposed Labour leader",
+        "answerImg": "r10q2_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Labour rules require leadership candidates to be MPs, so Burnham, then mayor of Greater Manchester, first won the Makerfield by-election on 18 June.\n• He became the seventh British prime minister in ten years.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Which cyclist won his fifth Tour de France in July, equaling the record?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Tadej Pogačar",
+        "answerSubline": "Joins Anquetil, Merckx, Hinault and Induráin",
+        "answerImg": "r10q3_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• At 27, he is the youngest of the five-time winners.\n• He finished 6 minutes 26 seconds ahead of Remco Evenepoel and won five stages.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "Who became mayor of New York City on 1 January?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Zohran Mamdani",
+        "answerSubline": "A self-described democratic socialist",
+        "answerImg": "r10q4_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• He is the city's first Muslim mayor and the first born in Africa.\n• He was born in Kampala, Uganda.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "On 3 January, US forces captured the president of which country and flew him to New York?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Venezuela",
+        "answerSubline": "Nicolás Maduro, with his wife, Cilia Flores",
+        "answerImg": "r10q5_a.jpg",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• He was charged with narco-terrorism and cocaine trafficking.\n• He appeared in a New York courthouse two days later.",
+        "multiChoice": [],
+        "source": ""
+      }
+    ]
+  },
+  {
+    "id": "doubledown",
+    "name": "PLEASE SIR",
+    "navName": "P.S.M.I.H.S.M.",
+    "subname": "MAY I HAVE SOME MORE?",
+    "badge": "BONUS",
+    "format": "Bonus questions and tie breakers. Does not count toward the score.",
+    "hostNote": "Quick-fire bonus round. Each answer reveals right after its question, no batching. Play only if time allows.",
+    "questions": [
+      {
+        "question": "Which planet has a day that is longer than its year?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Venus",
+        "answerSubline": "243 Earth days to turn, 225 to orbit",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• It also spins backward, so the Sun rises in the west.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "What do you call a group of flamingos?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "A flamboyance",
+        "answerSubline": "Also a colony",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• The pink comes from pigments in their food, mostly algae and small crustaceans.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "How many hearts does an octopus have?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "Three",
+        "answerSubline": "Two for the gills, one for the body",
+        "answerImg": "",
+        "answerStat": "3",
+        "answerStatLabel": "hearts",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• The main heart stops beating when an octopus swims, so it tires and prefers to crawl.",
+        "multiChoice": [],
+        "source": ""
+      },
+      {
+        "question": "How many countries are full members of the United Nations?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "193",
+        "answerSubline": "Closest answer wins",
+        "answerImg": "",
+        "answerStat": "193",
+        "answerStatLabel": "UN member states",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• The Vatican and Palestine are permanent observers and do not count.",
+        "multiChoice": [],
+        "source": ""
+      }
+    ]
+  }
+];
+// END ROUNDS
+
+const SARA_CATEGORIES = [
+  {
+    "id": "egg",
+    "label": "Α",
+    "icon": "Α"
+  },
+  {
+    "id": "bronzeage",
+    "label": "Β",
+    "icon": "Β"
+  },
+  {
+    "id": "birds",
+    "label": "Γ",
+    "icon": "Γ"
+  },
+  {
+    "id": "nobody",
+    "label": "Δ",
+    "icon": "Δ"
+  },
+  {
+    "id": "turkey",
+    "label": "Ε",
+    "icon": "Ε"
+  }
+];
+
+const SCORING = {"maxTeams":10};
+</script>
+<!-- ════════════ END CONFIGURATION DATA MENU ════════════ -->
+
+<style>
+/* ── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --bg:        #0b0b0f;
+  --surface:   #13131a;
+  --surface2:  #1a1a24;
+  --border:    #252535;
+  --accent:    #7c3aed;
+  --accent2:   #4f46e5;
+  --accentGlow:rgba(124,58,237,0.15);
+  --green:     #22c55e;
+  --greenGlow: rgba(34,197,94,0.12);
+  --red:       #ef4444;
+  --amber:     #f59e0b;
+  --aColor:    #f59e0b;   /* The A Round accent , amber gold */
+  --text:      #f0f0f5;
+  --textMuted: #7777a0;
+  --textDim:   #44445a;
+  --r:         14px;
+  --rsm:       7px;
+  --ease:      cubic-bezier(.4,0,.2,1);
+  --t:         260ms;
+  --font-d:    'Syne', system-ui, sans-serif;
+  --font-b:    'DM Sans', system-ui, sans-serif;
+  --round-color: #7c3aed;  /* set per round by JS */
+  --round-glow:  rgba(124,58,237,0.15);
+}
+
+/* ── RESET ──────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;background:#080412;}body,#stage{background:#080412;}
+body{
+  background:#080412;color:var(--text);font-family:var(--font-b);
+  height:100vh;max-height:100vh;
+  display:flex;flex-direction:column;
+  overflow:hidden;-webkit-font-smoothing:antialiased;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* ── STAGE , exact viewport height ──────────────────────── */
+#stage{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  width:100%;
+  height:calc(100vh - 3.5rem);
+  max-height:calc(100vh - 3.5rem);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+  box-sizing:border-box;
+}
+/* ambient glow */
+#stage::before{
+  content:'';position:fixed;top:-15vh;left:50%;transform:translateX(-50%);
+  width:70vw;height:70vw;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(124,58,237,0.09) 0%,transparent 68%);
+}
+
+/* ── SHARED SCREEN WRAPPER ──────────────────────────────── */
+.screen{
+  display:none;
+  width:100%;height:100%;
+  flex-direction:column;align-items:center;justify-content:center;
+  position:relative;z-index:1;
+  overflow:hidden;
+  box-sizing:border-box;
+  background:#080412;
+}
+.screen.active{display:flex;}
+/* Title screen needs its content wrapper to handle centering */
+#titleScreen.active { align-items:stretch; justify-content:stretch; }
+
+/* ── COLOUR WIPE TRANSITION ─────────────────────────────── */
+#wipeOverlay {
+  position:fixed;
+  top:0;left:0;width:100vw;height:100vh;
+  pointer-events:none;
+  z-index:500;
+  transform:translateX(-100%);
+  background:rgba(8,4,18,0.92);
+  transition:none;
+  will-change:transform;
+}
+#wipeOverlay.wipe-in  { animation: wipeIn  .45s cubic-bezier(.86,0,.07,1) forwards; }
+#wipeOverlay.wipe-out { animation: wipeOut .45s cubic-bezier(.86,0,.07,1) forwards; }
+
+@keyframes wipeIn  {
+  from { transform:translateX(-101%); }
+  to   { transform:translateX(0%); }
+}
+@keyframes wipeOut {
+  from { transform:translateX(0%); }
+  to   { transform:translateX(101%); }
+}
+
+/* Screen appears instantly , wipe handles the transition */
+@keyframes screenFadeIn{from{opacity:0}to{opacity:1}}
+
+/* ── LEADERBOARD FANFARE ANIMATIONS ─────────────────────── */
+@keyframes suspensePulse {
+  0%,100% { opacity:.35; transform:scale(1); }
+  50%      { opacity:1;   transform:scale(1.04); letter-spacing:.15em; }
+}
+@keyframes trophySpin {
+  from { transform:scale(0) rotate(-180deg); opacity:0; }
+  to   { transform:scale(1) rotate(0deg);    opacity:1; }
+}
+@keyframes winnerSlam {
+  from { transform:scale(0.4) translateY(50px); opacity:0; }
+  to   { transform:scale(1)   translateY(0);    opacity:1; }
+}
+
+/* ── TITLE SCREEN ───────────────────────────────────────── */
+#titleScreen {
+  background: #080412;
+  text-align: center;
+}
+
+/* #sparkle2Text removed , replaced by SEASON IV marker */
+
+/* Content wrapper , fills screen, centres content */
+.title-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2vh;
+  padding: 0 4vw;
+  width: 100%;
+  height: 100%;
+}
+
+
+#titleBg {
+  position:fixed;
+  top:0;left:0;width:100vw;height:100vh;
+  z-index:0;pointer-events:none;
+  opacity:0.55;
+}
+
+/* Title screen content sits above canvas */
+#titleScreen > * { position:relative; z-index:1; }
+
+/* ── KEYFRAMES ───────────────────────────────────────────── */
+@keyframes prideShift {
+  0%   { background-position: 0% 50% }
+  50%  { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+@keyframes firework {
+  0%   { transform: scale(0) translateY(0); opacity:1; }
+  80%  { opacity:1; }
+  100% { transform: scale(1) translateY(-120px); opacity:0; }
+}
+@keyframes titleReveal {
+  from { opacity:0; transform:translateY(30px) skewY(-1deg); }
+  to   { opacity:1; transform:translateY(0) skewY(0); }
+}
+@keyframes issueIn {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ── MASTHEAD , fine editorial sans ─────────────────────── */
+.title-masthead {
+  font-family: var(--font-d);
+  font-weight: 300;
+  font-size: clamp(.8rem, 1.1vw, 1rem);
+  letter-spacing: .4em;
+  text-transform: lowercase;
+  color: rgba(255,255,255,.38);
+  display: inline-block;
+  animation: issueIn .8s var(--ease) .1s both;
+  margin-bottom: .5vh;
+}
+
+/* ── MAIN TITLE ──────────────────────────────────────────── */
+.title-main{
+  font-family: var(--font-d);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 7.5vw, 9rem);
+  line-height: .85;
+  letter-spacing: -.04em;
+  will-change:background-position;
+  background: linear-gradient(
+    90deg,
+    #ff0000 0%,
+    #ff8c00 16%,
+    #ffed00 32%,
+    #008026 48%,
+    #004dff 64%,
+    #750787 80%,
+    #ff0000 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: prideShift 6s ease infinite, titleReveal .9s var(--ease) .3s both;
+  filter: drop-shadow(0 0 40px rgba(255,100,200,.25));
+}
+
+
+
+/* ── SEASON IV marker ───────────────────────────────────── */
+.title-season {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: clamp(.7rem, 1vw, .9rem);
+  letter-spacing: .55em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  margin-top: -.5vh;
+  animation: issueIn .8s var(--ease) .6s both;
+}
+
+/* ── THIN RULE ───────────────────────────────────────────── */
+.title-rule {
+  width: 48px;
+  height: 1px;
+  background: rgba(255,255,255,.18);
+  margin: .5vh 0;
+}
+
+/* ── BUTTON , typographic, editorial ─────────────────────── */
+.title-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  width: fit-content;
+  max-width:320px;
+  align-self: center;
+  padding: .9rem 2.5rem;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,.85);
+  border-radius: 0;  /* sharp corners , editorial */
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--t) var(--ease), color var(--t) var(--ease);
+  animation: issueIn .8s var(--ease) 1.1s both;
+}
+/* Pride fill sweeps in on hover */
+.title-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    #ff0000,#ff8c00,#ffed00,#008026,#004dff,#750787);
+  background-size: 200% 100%;
+  animation: prideShift 3s ease infinite;
+  transform: translateX(-101%);
+  transition: transform .4s var(--ease);
+  z-index: 0;
+}
+.title-btn:hover::before { transform: translateX(0); }
+.title-btn:hover { color: #fff; transform: translateY(-2px); }
+.title-btn span { position: relative; z-index: 1; }
+
+/* firework particles */
+.firework-particle {
+  position:fixed;
+  width:8px;height:8px;border-radius:50%;
+  pointer-events:none;z-index:9999;
+  animation: firework 0.8s ease-out forwards;
+}
+
+/* back to title button removed */
+
+/* ── ROUND NAV ──────────────────────────────────────────── */
+#roundNav{gap:1.5vh;width:100%;height:100%;padding:2.5vh 2.5vw;justify-content:flex-start;}
+.rnav-title{
+  font-family:var(--font-d);font-size:clamp(.85rem,1.5vw,1.1rem);
+  letter-spacing:.3em;color:var(--textMuted);text-transform:uppercase;
+  flex-shrink:0;
+}
+.rnav-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:repeat(3,1fr);
+  gap:.75rem;width:100%;
+  flex:1;min-height:0;
+}
+/* round card accent colours , one per round slot */
+.rnav-card{
+  background:var(--surface);border:2px solid var(--border);border-radius:var(--r);
+  padding:1.1rem 1.25rem;cursor:pointer;text-align:left;
+  transition:border-color var(--t) var(--ease),background var(--t) var(--ease),transform var(--t) var(--ease),box-shadow var(--t) var(--ease);
+  position:relative;overflow:hidden;
+}
+.rnav-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--card-accent,var(--accent));
+  border-radius:0 0 var(--r) var(--r);
+}
+.rnav-card:hover{
+  border-color:var(--card-accent,var(--accent));
+  background:var(--surface2);transform:translateY(-3px);
+  box-shadow:0 8px 32px rgba(0,0,0,.3);
+}
+.rnav-card.done{opacity:.35}
+.rnav-badge{font-family:var(--font-d);font-size:.8rem;letter-spacing:.18em;color:var(--card-accent,var(--accent));text-transform:uppercase;margin-bottom:.4rem}
+.rnav-label{font-family:var(--font-d);font-weight:700;font-size:1.3rem;line-height:1.2}
+.rnav-pts{font-family:var(--font-d);font-size:.72rem;color:var(--textDim);margin-top:.4rem;letter-spacing:.04em}
+
+.rnav-menu-foot{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-style:italic;font-size:clamp(1.1rem,2.5vw,1.6rem);
+  color:var(--textDim);letter-spacing:.08em;margin-top:.5rem;
+  opacity:.6;
+}
+
+/* ── ROUND INTRO ────────────────────────────────────────── */
+#roundIntro{gap:2vh;text-align:center;width:100%;height:100%;position:relative;justify-content:center;padding:4vh 8vw;}
+#roundIntro::before{
+  content:'';position:absolute;top:-30vh;left:50%;transform:translateX(-50%);
+  width:80vw;height:80vw;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle, var(--round-glow) 0%,transparent 65%);
+  transition:background 0.5s ease;
+}
+#roundIntro > *{position:relative;z-index:1;}
+
+/* Faded round number watermark */
+.ri-number-bg {
+  position:absolute;
+  bottom:-4vh;right:2vw;
+  font-family:var(--font-d);
+  font-weight:800;
+  font-size:clamp(10rem,25vw,22rem);
+  line-height:1;
+  color:var(--round-color);
+  opacity:.06;
+  pointer-events:none;
+  user-select:none;
+  z-index:0;
+  letter-spacing:-.05em;
+  transition:color .5s ease;
+}
+.ri-badge{
+  font-family:var(--font-d);font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--round-color);background:var(--round-glow);
+  border:1px solid var(--round-glow);
+  padding:.5rem 1.4rem;border-radius:100px;
+}
+.ri-name{
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(3rem,8vw,7rem);line-height:.9;letter-spacing:-.02em;
+  animation:slideUp .5s var(--ease) both;
+  color:var(--round-color);
+  text-shadow: 0 0 80px var(--round-glow);
+  transition:color .5s ease;
+}
+.ri-subname{
+  font-family:var(--font-d);font-weight:700;
+  font-size:clamp(1.2rem,3vw,2.5rem);color:var(--round-color);letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.ri-format{font-size:clamp(.9rem,1.6vw,1.2rem);color:var(--textMuted);line-height:1.5;max-width:55ch}
+.ri-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1vh}
+
+/* ── QUESTION SCREEN ────────────────────────────────────── */
+#questionView{gap:.5vh;width:100%;height:100%;flex-direction:column;justify-content:space-between;padding:.5vh 2vw;}
+
+.q-topbar{
+  display:flex;align-items:center;justify-content:space-between;width:100%;gap:1rem;
+  flex-shrink:0;
+}
+.q-pill{
+  font-family:var(--font-d);font-size:.8rem;font-weight:700;
+  letter-spacing:.25em;text-transform:uppercase;
+  color:var(--round-color);background:var(--round-glow);
+  border:1px solid var(--round-glow);
+  padding:.4rem 1rem;border-radius:100px;
+  animation:pillShimmer 3s ease-in-out infinite;
+}
+@keyframes pillShimmer {
+  0%,40%,100% { opacity:1; }
+  70%         { opacity:.7; }
+}
+.q-counter{font-family:var(--font-d);font-size:.95rem;color:var(--textDim);letter-spacing:.1em}
+
+/* ── TEAM SETUP SCREEN ───────────────────────────────────── */
+#teamSetupScreen { align-items:center; justify-content:center; }
+.ts-inner { display:flex;flex-direction:column;align-items:center;gap:1.5rem;width:min(700px,90vw); }
+.ts-eyebrow { font-family:var(--font-d);font-size:.75rem;letter-spacing:.25em;color:var(--textDim);text-transform:uppercase; }
+.ts-title { font-family:var(--font-d);font-size:clamp(2.5rem,6vw,5rem);font-weight:800;letter-spacing:-.02em;color:#fff;text-align:center; }
+.ts-sub { font-size:.95rem;color:var(--textMuted);text-align:center; }
+.ts-input-row { display:flex;gap:.75rem;width:100%; }
+.ts-input { flex:1;padding:.75rem 1rem;border-radius:var(--r);border:1px solid var(--border);background:var(--surface2);color:#fff;font-size:1.1rem;font-family:var(--font-b); }
+.ts-input:focus { outline:none;border-color:var(--purple); }
+.ts-teams-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.75rem;width:100%;min-height:4rem; }
+.ts-team-chip {
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);
+  padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem;
+  animation:fadeSlide .25s var(--ease) both;
+}
+.ts-team-name { font-family:var(--font-d);font-weight:700;font-size:1rem;color:#fff;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+.ts-team-remove { background:none;border:none;color:var(--textDim);cursor:pointer;font-size:1rem;padding:0;line-height:1; }
+.ts-team-remove:hover { color:var(--red); }
+.ts-footer { display:flex;flex-direction:column;align-items:center;gap:.5rem; }
+.ts-min { font-size:.8rem;color:var(--textDim); }
+
+/* ── FINAL SCORES INPUT ──────────────────────────────────── */
+.fs-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;width:100%; }
+.fs-card {
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);
+  padding:1rem;display:flex;flex-direction:column;gap:.5rem;
+}
+.fs-card-name { font-family:var(--font-d);font-weight:700;font-size:1rem;color:#fff; }
+.fs-inp {
+  width:100%;padding:.5rem .75rem;border-radius:var(--rsm);
+  border:1px solid var(--border);background:var(--surface);
+  color:#fff;font-size:1.3rem;font-family:var(--font-d);text-align:center;
+  box-sizing:border-box;
+}
+.fs-inp:focus { outline:none;border-color:var(--purple); }
+
+/* ── WINNER REVEAL ───────────────────────────────────────── */
+#winnerRevealScreen {
+  align-items:center;justify-content:center;flex-direction:column;
+  background:#080412;text-align:center;
+}
+#winnerRevealScreen .title-content {
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2vh;padding:0 4vw;width:100%;height:100%;position:relative;z-index:2;
+}
+.wr-content { display:flex;flex-direction:column;align-items:center;text-align:center;gap:2rem;width:min(800px,90vw);position:relative;z-index:2; }
+.wr-welldown {
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(3.5rem,8vw,9rem);letter-spacing:-.04em;
+  line-height:.85;
+  will-change:background-position;
+  background:linear-gradient(90deg,#ff0000 0%,#ff8c00 16%,#ffed00 32%,#008026 48%,#004dff 64%,#750787 80%,#ff0000 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:prideShift 6s ease infinite, titleReveal .9s var(--ease) .3s both;
+  filter:drop-shadow(0 0 40px rgba(255,100,200,.25));
+}
+.wr-hearts {
+  font-size:clamp(1.5rem,3vw,2.5rem);letter-spacing:.2em;
+  animation:issueIn .8s var(--ease) .6s both;opacity:0;animation-fill-mode:both;
+}
+.wr-placements {
+  display:flex;gap:3rem;align-items:flex-start;justify-content:center;
+  animation:issueIn .8s var(--ease) .9s both;opacity:0;animation-fill-mode:both;
+}
+.wr-placement { display:flex;flex-direction:column;align-items:center;gap:.3rem; }
+.wr-place {
+  font-family:var(--font-d);font-size:.7rem;letter-spacing:.25em;
+  text-transform:uppercase;color:rgba(255,255,255,.35);
+}
+.wr-trophy { font-size:1.8rem; }
+.wr-name {
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(1.2rem,2.5vw,2rem);letter-spacing:-.02em;line-height:1;
+}
+.wr-pts { font-size:.85rem;color:rgba(255,255,255,.35);letter-spacing:.05em; }
+.wr-gold { color:#f59e0b; }
+.wr-silver { color:#9ca3af; }
+@keyframes confettiFall {
+  0% { transform:translateY(0) rotate(0deg);opacity:1; }
+  100% { transform:translateY(100vh) rotate(720deg);opacity:0; }
+}
+
+/* ── MULTIPLIER REVEAL SCREEN ────────────────────────────── */
+#multiplierRevealScreen { align-items:center; justify-content:center; }
+.mxr-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1.5rem;width:min(800px,90vw); }
+.mxr-card {
+  background:var(--surface2);border:2px solid var(--round-color);border-radius:var(--r);
+  padding:1.5rem 1rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  animation:fadeSlide .3s var(--ease) both;
+}
+.mxr-name { font-family:var(--font-d);font-weight:700;font-size:1rem;color:#fff;text-align:center; }
+.mxr-mult { font-family:var(--font-d);font-size:3.5rem;font-weight:800;color:var(--round-color);letter-spacing:-.02em; }
+.mxr-pts { font-size:.75rem;color:var(--textDim); }
+
+/* ── MULTIPLIER DECLARATION SCREEN ──────────────────────── */
+#multiplierScreen { align-items:center; justify-content:center; }
+.mx-inner { display:flex;flex-direction:column;align-items:center;gap:1.5rem;width:min(800px,90vw); }
+.mx-eyebrow { font-family:var(--font-d);font-size:.75rem;letter-spacing:.25em;color:var(--round-color);text-transform:uppercase; }
+.mx-title { font-family:var(--font-d);font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-.02em;color:#fff;text-align:center; }
+.mx-sub { font-size:.95rem;color:var(--textMuted);text-align:center;max-width:55ch;line-height:1.6; }
+.mx-grid { display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;width:min(800px,90vw); }
+.mx-card {
+  background:var(--surface2);border:2px solid var(--border);border-radius:var(--r);
+  padding:1rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;
+  transition:border-color .2s;
+}
+.mx-card.mx-set { border-color:var(--round-color); }
+.mx-card-name { font-family:var(--font-d);font-weight:700;font-size:1rem;color:#fff;text-align:center; }
+.mx-card-score { font-size:.75rem;color:var(--textDim); }
+.mx-multiplier-display {
+  font-family:var(--font-d);font-size:2.5rem;font-weight:800;
+  color:var(--textDim);letter-spacing:-.02em;transition:color .2s;
+}
+.mx-card.mx-set .mx-multiplier-display { color:var(--round-color); }
+.mx-inp-row { display:flex;gap:.4rem;align-items:center; }
+.mx-inp {
+  width:4rem;padding:.4rem .5rem;border-radius:var(--rsm);
+  border:1px solid var(--border);background:var(--surface);
+  color:#fff;font-size:1rem;font-family:var(--font-d);text-align:center;
+}
+.mx-inp:focus { outline:none;border-color:var(--purple); }
+.mx-set-btn { font-size:.75rem;padding:.35rem .7rem; }
+
+
+/* ── QUESTION CLOCK ─────────────────────────────────────── */
+#qClock{
+  font-family:var(--font-d);font-size:1rem;font-weight:700;
+  letter-spacing:.15em;color:var(--textMuted);
+  transition:color .3s ease;
+  min-width:4.5ch;text-align:center;
+}
+#qClock.clock-warning{ color:#ff00aa; }
+#qClock.clock-over{ color:#ff00aa; animation:clockPulse .6s ease-in-out infinite; }
+@keyframes clockPulse{0%,100%{opacity:1;color:#ff00aa;}50%{opacity:1;color:#f59e0b;}}
+
+/* progress */
+.q-prog{width:100%;height:4px;background:var(--border);border-radius:99px;overflow:hidden;flex-shrink:0;}
+.q-prog-fill{height:100%;background:var(--round-color);border-radius:99px;transition:width .6s var(--ease),background .5s ease;will-change:width;}
+.q-prog-fill.last-question{animation:progPulse 1s ease-in-out infinite;}
+@keyframes progPulse{0%,100%{opacity:1;}50%{opacity:.45;}}
+
+/* the main card , fills remaining flex space */
+.q-card{
+  width:100%;
+  background:linear-gradient(135deg, var(--surface) 0%, var(--round-tint, var(--surface)) 100%);
+  border:1px solid var(--border);border-radius:var(--r);
+  padding:2.5vh 3vw;
+  display:grid;grid-template-columns:1fr;gap:1.5vh;
+  flex:1;min-height:0;
+  position:relative;overflow:hidden;
+  animation:fadeSlide .35s var(--ease) both;
+  box-sizing:border-box;
+  align-content:center;
+  transition:background .5s ease;
+}
+
+/* Spinning vinyl record , shown behind audio questions */
+.q-card.has-audio::before {
+  content:'';
+  position:absolute;
+  width:min(55vh,55vw);
+  height:min(55vh,55vw);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%, #1a1a1a 0%, #1a1a1a 12%,
+      transparent 12%, transparent 14%,
+      #111 14%, #111 15%,
+      #222 15%, #222 16%,
+      #111 16%, #111 100%),
+    repeating-conic-gradient(
+      from 0deg,
+      #1a1a1a 0deg 1deg,
+      #2a2a2a 1deg 2deg
+    );
+  box-shadow:
+    0 0 0 2px #333,
+    0 0 60px rgba(var(--round-color-rgb, 124,58,237),.2),
+    0 0 120px rgba(var(--round-color-rgb, 124,58,237),.1);
+  animation: spinRecord 4s linear infinite;
+  opacity:.18;
+  pointer-events:none;
+  z-index:0;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}
+@keyframes spinRecord {
+  from { transform:translate(-50%,-50%) rotate(0deg); }
+  to   { transform:translate(-50%,-50%) rotate(360deg); }
+}
+/* Label in centre of record */
+.q-card.has-audio::after {
+  content:'';
+  position:absolute;
+  width:min(16vh,16vw);
+  height:min(16vh,16vw);
+  border-radius:50%;
+  background:radial-gradient(circle, var(--round-color) 0%, rgba(0,0,0,.8) 100%);
+  opacity:.15;
+  pointer-events:none;
+  z-index:0;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  animation: spinRecord 4s linear infinite;
+}
+
+/* image questions: side by side */
+.q-card.has-media{
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+}
+/* audio questions , full width, question at top, play button centered on record */
+.q-card.has-audio{
+  grid-template-columns:1fr;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+.q-card.has-audio .q-media-col{
+  display:none !important;
+}
+.q-card.has-audio .q-text-col{
+  width:100%;
+  height:100%;
+  align-items:center;
+  justify-content:flex-start;
+  text-align:center;
+  padding-top:1.5vh;
+  padding-bottom:50%; /* keep text out of the lower half where the record lives */
+}
+.q-card.has-audio .q-question{
+  text-align:center;
+  max-width:80%;
+}
+/* Play button sits centered on the card, over the record graphic */
+.q-card.has-audio .yt-play-btn {
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+  z-index:2;
+}
+@media(max-width:900px){.q-card.has-media{grid-template-columns:1fr}}
+
+/* accent line at left edge , uses round color */
+.q-card::before{
+  content:'';position:absolute;left:0;top:10%;bottom:10%;
+  width:3px;border-radius:0 3px 3px 0;
+  background:linear-gradient(180deg,transparent,var(--round-color),transparent);
+  opacity:.55;
+  transition:background .5s ease;
+}
+
+.q-text-col{display:flex;flex-direction:column;justify-content:center;gap:1.2rem;position:relative;height:100%;}
+
+/* Large faded question number watermark */
+.q-number-bg {
+  position:absolute;
+  top:50%;left:-.5vw;
+  transform:translateY(-50%);
+  font-family:var(--font-d);
+  font-weight:800;
+  font-size:clamp(8rem,20vw,18rem);
+  line-height:1;
+  color:var(--round-color);
+  opacity:.07;
+  pointer-events:none;
+  user-select:none;
+  letter-spacing:-.04em;
+  z-index:0;
+  transition:color .5s ease;
+}
+.q-text-col > *:not(.q-number-bg) { position:relative; z-index:1; }
+
+.q-question{
+  font-family:var(--font-b);font-weight:600;
+  font-size:2.8vw;
+  line-height:1.35;letter-spacing:0;
+  white-space:pre-line;
+  color:var(--round-color);
+  transition:color .5s ease;
+}
+/* A Round: colour the leading A */
+.a-highlight{color:var(--aColor)}
+
+.q-options{display:flex;flex-direction:column;gap:.6vh;margin-top:1vh}
+.q-opt{
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);
+  padding:.9vh 1.2vw;font-size:clamp(1.1rem,2.1vw,1.8rem);color:var(--textMuted);
+  transition:border-color var(--t);
+}
+.q-opt.correct{border-color:var(--green);color:var(--green);background:var(--greenGlow)}
+
+.q-media-col{display:flex;flex-direction:column;gap:1rem;align-items:center;justify-content:center;padding:1vh 0}
+.q-media-wrap{
+  width:100%;border-radius:var(--rsm);overflow:hidden;
+  background:var(--surface2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;padding:1rem;
+}
+.q-media-wrap img{width:100%;max-height:55vh;object-fit:contain;display:block}
+.q-media-wrap audio{width:100%;display:block;padding:.75rem}
+.q-media-wrap iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.q-media-wrap .ph{
+  padding:3rem 2rem;text-align:center;color:var(--textDim);
+}
+.ph-icon{font-size:3rem;display:block;margin-bottom:.75rem;opacity:.4}
+.ph-file{font-size:.7rem;font-family:monospace;color:var(--accent);opacity:.6;margin-top:.4rem;display:block}
+
+/* ── ANSWER SCREEN ──────────────────────────────────────── */
+
+/* ── ANSWER ROUND-UP SCREEN ─────────────────────────────────────────────── */
+#roundupView{gap:1.5vh;width:100%;height:100%;flex-direction:column;padding:.75vh 2vw 1vh;}
+.roundup-header{
+  display:flex;align-items:center;justify-content:space-between;width:100%;flex-shrink:0;
+}
+.roundup-title{
+  font-family:var(--font-d);font-size:clamp(.8rem,1.4vw,1.1rem);
+  font-weight:700;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--round-color);background:var(--round-glow);
+  border:1px solid var(--round-glow);padding:.4rem 1rem;border-radius:100px;
+  transition:color .5s,background .5s,border-color .5s;
+}
+.roundup-label{
+  font-family:var(--font-d);font-size:clamp(.75rem,1.1vw,1rem);
+  letter-spacing:.2em;text-transform:uppercase;color:var(--textDim);
+}
+.roundup-grid{
+  display:flex;flex-direction:column;gap:.6vh;flex:1;min-height:0;
+}
+.roundup-row{
+  display:grid;grid-template-columns:2fr 3fr;gap:1.5vw;align-items:center;
+  background:var(--surface);border:1px solid rgba(255,255,255,.06);
+  border-radius:calc(var(--r) * .6);
+  padding:.7vh 1.5vw;
+  animation:fadeSlide .35s var(--ease) both;
+  flex:1;min-height:0;
+  transition:border-color .5s;
+  position:relative;overflow:hidden;
+}
+.roundup-row::before{
+  content:'';position:absolute;left:0;top:15%;bottom:15%;
+  width:2px;border-radius:0 2px 2px 0;
+  background:linear-gradient(180deg,transparent,var(--round-color),transparent);
+  opacity:.5;transition:background .5s;
+}
+.roundup-row:nth-child(1){animation-delay:.05s}
+.roundup-row:nth-child(2){animation-delay:.1s}
+.roundup-row:nth-child(3){animation-delay:.15s}
+.roundup-row:nth-child(4){animation-delay:.2s}
+.roundup-row:nth-child(5){animation-delay:.25s}
+.roundup-q{
+  font-family:var(--font-b);font-size:clamp(.7rem,1.15vw,.95rem);
+  color:var(--textMuted);line-height:1.35;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.roundup-q-num{
+  font-family:var(--font-d);font-size:clamp(.65rem,1vw,.85rem);
+  color:var(--round-color);font-weight:700;letter-spacing:.1em;
+  margin-bottom:.2em;opacity:.8;
+}
+.roundup-a{
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(.9rem,1.6vw,1.4rem);
+  color:#fff;line-height:1.1;letter-spacing:-.01em;
+}
+.roundup-a-sub{
+  font-family:var(--font-d);font-size:clamp(.6rem,.9vw,.8rem);
+  color:var(--textDim);letter-spacing:.04em;margin-top:.15em;
+}
+
+#answerView{gap:.5vh;width:100%;height:100%;flex-direction:column;justify-content:space-between;padding:.5vh 2vw;}
+
+.ans-topbar{
+  display:flex;align-items:center;justify-content:space-between;width:100%;
+}
+.ans-pill{
+  font-family:var(--font-d);font-size:.8rem;font-weight:700;
+  letter-spacing:.25em;text-transform:uppercase;
+  color:var(--round-color);background:var(--round-glow);
+  border:1px solid var(--round-glow);
+  padding:.4rem 1rem;border-radius:100px;
+}
+.ans-counter{font-family:var(--font-d);font-size:.95rem;color:var(--textDim);letter-spacing:.1em}
+
+.ans-pts{
+  font-family:var(--font-d);font-size:.78rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--round-color);opacity:.75;
+  transition:color .5s;
+}
+.roundup-pts-badge{
+  font-family:var(--font-d);font-size:.78rem;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:var(--round-color);opacity:.8;
+  transition:color .5s;
+}
+.roundup-row-pts{
+  font-family:var(--font-d);font-size:.65rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--round-color);opacity:.6;
+  margin-top:.3em;
+}
+
+
+.ans-card{
+  width:100%;background:var(--surface);
+  border:1px solid var(--round-glow);
+  border-radius:var(--r);
+  padding:2.5vh 3vw;
+  display:grid;grid-template-columns:1fr 1fr;gap:3vw;
+  flex:1;min-height:0;align-items:center;
+  animation:fadeSlide .35s var(--ease) both, ansBloom .8s var(--ease) both;
+  position:relative;overflow:hidden;
+  transition:border-color .5s ease;
+  box-sizing:border-box;
+}
+@keyframes ansBloom {
+  0%   { box-shadow: 0 0 0 0 var(--round-glow); }
+  40%  { box-shadow: 0 0 80px 20px var(--round-glow); }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.ans-card::before{
+  content:'';position:absolute;left:0;top:10%;bottom:10%;
+  width:3px;border-radius:0 3px 3px 0;
+  background:linear-gradient(180deg,transparent,var(--round-color),transparent);
+  opacity:.6;
+  transition:background .5s ease;
+}
+@media(max-width:900px){.ans-card{grid-template-columns:1fr}}
+
+.ans-text-col{display:flex;flex-direction:column;gap:1.25rem}
+.ans-text-col.tc-wide{max-width:62vw;margin:0 auto;width:100%;}
+.ans-text-col.tc-wide .ans-note{font-size:clamp(1.1rem,1.8vw,1.5rem);max-width:none;}
+.ans-text-col.tc-wide .ans-sub{font-size:clamp(1.3rem,2.4vw,2rem);}
+@media(max-width:900px){.ans-text-col.tc-wide{max-width:100%;}}
+.ans-label{
+  font-family:var(--font-d);font-size:.85rem;letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--round-color);
+  opacity:.9;
+  transition:color .5s ease;
+}
+.ans-main{
+  font-family:var(--font-d);font-weight:800;
+  font-size:4.5vw;
+  line-height:1.05;letter-spacing:-.02em;
+  color:#ffffff;
+}
+/* A Round: colour leading A in answer , highlight stays amber on white */
+.ans-main .a-highlight{color:var(--aColor)}
+
+.ans-source{
+  font-family:var(--font-b);
+  font-size:clamp(.65rem,.9vw,.75rem);
+  color:var(--textDim);
+  letter-spacing:.03em;
+  font-style:italic;
+  opacity:.55;
+}
+.ans-sub{
+  font-family:var(--font-d);font-weight:400;
+  font-size:clamp(1rem,2vw,1.8rem);color:var(--textMuted);letter-spacing:.02em;
+  white-space:pre-line;
+}
+.ans-note{
+  font-size:clamp(.9rem,1.4vw,1.2rem);color:var(--textMuted);
+  font-weight:300;line-height:1.65;max-width:58ch;
+  border-left:2px solid var(--round-glow);padding-left:.9rem;
+  white-space:pre-line;text-align:justify;
+}
+.ans-media-col{display:flex;flex-direction:column;gap:.5rem;align-items:center;justify-content:center;height:100%;}
+.ans-media-wrap{
+  width:100%;border-radius:var(--rsm);overflow:hidden;
+  background:var(--surface2);border:1px solid var(--border);
+  max-height:65vh;
+}
+.ans-media-wrap img{width:100%;max-height:65vh;object-fit:contain;display:block}
+.ans-media-wrap audio{width:100%;display:block;padding:.75rem}
+.ans-media-wrap iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.ans-stat-card{
+  width:100%;min-height:220px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;gap:.75rem;padding:2.5rem 1.5rem;
+}
+.ans-stat-num{
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(2.75rem,7vw,6rem);line-height:1;
+  color:var(--round-color);
+}
+.ans-stat-label{
+  font-family:var(--font-b);font-size:clamp(.85rem,1.3vw,1.05rem);
+  color:var(--textMuted);letter-spacing:.02em;max-width:24ch;
+}
+
+/* ── SARA'S JEOPARDY BOARD ──────────────────────────────── */
+#saraBoard{gap:2vh;width:100%;padding:3vh 4vw;justify-content:center;}
+.sara-title{
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(1.5rem,3.5vw,3rem);letter-spacing:-.01em;text-align:center;
+}
+.sara-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;width:100%;
+}
+.sara-cat{
+  background:var(--surface);border:2px solid var(--border);border-radius:var(--r);
+  padding:1.2vh 1vw;text-align:center;cursor:pointer;
+  transition:border-color var(--t) var(--ease),background var(--t) var(--ease),transform var(--t) var(--ease),box-shadow var(--t) var(--ease);
+  display:flex;flex-direction:column;align-items:center;gap:.75rem;
+}
+.sara-cat:hover:not(.played){border-color:var(--accent);background:var(--surface2);transform:translateY(-4px);box-shadow:0 8px 32px rgba(124,58,237,.2)}
+.sara-cat.played{opacity:.22;pointer-events:none}
+.sara-cat.active{border-color:var(--accent);background:var(--accentGlow);box-shadow:0 0 40px rgba(124,58,237,.3)}
+.sara-cat-icon{font-size:clamp(1.5rem,3.5vh,3rem)}
+.sara-cat-label{font-family:var(--font-d);font-weight:700;font-size:1.15rem;letter-spacing:.12em;text-transform:uppercase;color:var(--textMuted)}
+
+/* ── LEADERBOARD SCREEN ─────────────────────────────────── */
+#lbScreen{gap:1.5vh;width:100%;text-align:center;padding:3vh 6vw;justify-content:center;}
+.lb-title{
+  font-family:var(--font-d);font-weight:800;
+  font-size:clamp(2.5rem,7vw,6rem);line-height:.85;letter-spacing:-.03em;
+  background: linear-gradient(270deg,#ff0000,#ff8c00,#ffed00,#008026,#004dff,#750787,#ff0000);
+  background-size:400% 400%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation: prideShift 5s ease infinite;
+  text-shadow:none;
+  margin-bottom:.5rem;
+}
+.lb-eyebrow{
+  font-family:var(--font-d);font-size:.75rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--textDim);margin-bottom:.25rem;
+}
+#lbList{width:100%;display:flex;flex-direction:column;gap:.4rem;overflow:hidden;}
+.lb-row{
+  display:flex;align-items:center;gap:1.5rem;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.25rem 2rem;
+  transition:background var(--t),border-color var(--t),transform var(--t);
+  animation:fadeSlide .3s var(--ease) both;
+}
+.lb-row:hover{transform:translateX(4px)}
+.lb-row.first{
+  background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(245,158,11,.05));
+  border-color:rgba(245,158,11,.4);
+  box-shadow:0 4px 24px rgba(245,158,11,.15);
+}
+.lb-row.second{border-color:rgba(156,163,175,.25);}
+.lb-row.third{border-color:rgba(180,83,9,.25);}
+.lb-rank{font-family:var(--font-d);font-weight:800;font-size:1.6rem;color:var(--textDim);width:2.5rem;text-align:center}
+.lb-rank.gold{color:var(--amber);text-shadow:0 0 20px rgba(245,158,11,.5)}
+.lb-rank.silver{color:#9ca3af}
+.lb-rank.bronze{color:#b45309}
+.lb-name{flex:1;font-family:var(--font-d);font-weight:700;font-size:1.8rem;text-align:left}
+.lb-pts{font-family:var(--font-d);font-weight:800;font-size:2.2rem;color:var(--amber)}
+.lb-bar-wrap{width:100%;height:3px;background:var(--border);border-radius:99px;overflow:hidden;margin-top:.5rem}
+.lb-bar{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--amber),#ff8c00);transition:width .8s var(--ease)}
+
+/* ── NAV BAR ─────────────────────────────────────────────── */
+#navBar{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;max-width:1200px;
+  padding:.3rem 0;margin-top:0;
+  flex-shrink:0;
+}
+.nav-hint{font-size:.85rem;color:var(--textDim);letter-spacing:.07em}
+.nav-round-label{
+  font-family:var(--font-d);font-size:.72rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--round-color);
+  transition:color .5s ease;
+  opacity:.85;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:12vw;
+}
+.nav-btns{display:flex;gap:.4rem;flex-wrap:nowrap;align-items:center;}
+.btn{
+  display:inline-flex;align-items:center;gap:.3rem;
+  padding:.5rem .9rem;border-radius:100px;
+  font-family:var(--font-d);font-weight:700;font-size:.78rem;letter-spacing:.04em;
+  cursor:pointer;border:1px solid;white-space:nowrap;
+  transition:background var(--t) var(--ease),transform var(--t) var(--ease),box-shadow var(--t) var(--ease);
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 0 20px rgba(124,58,237,.3)}
+.btn-primary:hover{background:#6d28d9}
+.btn-ghost{background:transparent;color:var(--textMuted);border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--textMuted);color:var(--text)}
+.btn-violet{background:transparent;color:var(--accent);border-color:rgba(124,58,237,.4)}
+.btn-violet:hover{background:var(--accentGlow)}
+.btn-green{background:var(--green);color:#111;border-color:var(--green)}
+.btn-amber{background:var(--amber);color:#111;border-color:var(--amber)}
+
+/* ── HOST PANEL ─────────────────────────────────────────── */
+#hostPanel{
+  background:var(--surface);border-top:1px solid var(--border);
+  position:sticky;bottom:0;z-index:100;width:100%;
+  /* Collapsed by default , press H to open */
+}
+.hp-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.5rem 1.5rem;cursor:pointer;user-select:none;
+}
+.hp-toggle-label{
+  font-family:var(--font-d);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--textDim);display:flex;align-items:center;gap:.5rem;
+}
+.hp-toggle-label::before{content:'◆';color:var(--accent);font-size:.45rem}
+.hp-arrow{color:var(--textDim);font-size:.8rem;transition:transform var(--t) var(--ease)}
+#hostPanel.open .hp-arrow{transform:rotate(180deg)}
+.hp-body{
+  display:none;padding:1rem 1.5rem 1.5rem;gap:1.5rem;flex-direction:column;
+  border-top:1px solid var(--border);max-height:72vh;overflow-y:auto;
+}
+#hostPanel.open .hp-body{display:flex}
+
+.hp-sec-label{font-family:var(--font-d);font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.hp-note{background:var(--accentGlow);border:1px solid rgba(124,58,237,.25);border-radius:var(--rsm);padding:.6rem 1rem;font-size:.8rem;color:var(--textMuted);line-height:1.55}
+.hp-note strong{color:var(--accent)}
+
+.hp-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.hp-col{flex:1;min-width:250px}
+
+/* team input */
+.team-add{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}
+.team-add input{
+  background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);
+  padding:.4rem .75rem;color:var(--text);font-family:var(--font-b);font-size:.85rem;
+  width:150px;outline:none;transition:border-color var(--t);
+}
+.team-add input:focus{border-color:var(--accent)}
+.hbtn{
+  padding:.4rem .85rem;border-radius:var(--rsm);font-family:var(--font-d);font-weight:700;
+  font-size:.72rem;letter-spacing:.04em;cursor:pointer;border:none;
+  transition:background var(--t) var(--ease),transform var(--t) var(--ease);
+}
+.hbtn:hover{transform:translateY(-1px)}
+.hbtn-a{background:var(--accent);color:#fff}
+.hbtn-g{background:var(--surface2);border:1px solid var(--border);color:var(--textMuted)}
+.hbtn-g:hover{color:var(--text)}
+.hbtn-green{background:var(--green);color:#111}
+.hbtn-red{background:var(--red);color:#fff}
+.hbtn-sm{padding:.22rem .45rem;font-size:.68rem;border-radius:4px}
+
+/* scoreboard */
+#scoreboard{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.45rem;margin-top:.6rem}
+.sc-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:.55rem .7rem;display:flex;flex-direction:column;gap:.3rem}
+.sc-name{font-family:var(--font-d);font-size:.72rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sc-bottom{display:flex;align-items:center;gap:.3rem}
+.sc-pts-inp{
+  width:3.5rem;padding:.2rem .4rem;border-radius:var(--rsm);
+  border:1px solid var(--border);background:var(--surface);
+  color:var(--purple);font-family:var(--font-d);font-size:1.4rem;
+  font-weight:700;text-align:center;
+}
+.sc-pts-inp:focus{outline:none;border-color:var(--purple);}
+.sc-pts{font-family:var(--font-d);font-weight:800;font-size:1.3rem;color:var(--accent);flex:1}
+.sc-adj{display:flex;gap:.22rem}
+.sc-btn{width:24px;height:24px;border-radius:4px;font-weight:700;font-size:.85rem;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;transition:transform var(--t)}
+.sc-btn:hover{transform:scale(1.15)}
+.sc-plus{background:var(--green);color:#111}
+.sc-minus{background:var(--red);color:#fff}
+
+/* inline leaderboard in panel */
+#panelLb{display:flex;flex-direction:column;gap:.28rem}
+.plb-row{display:flex;align-items:center;gap:.7rem;padding:.3rem .45rem;border-radius:var(--rsm)}
+.plb-row:first-child{background:rgba(124,58,237,.1)}
+.plb-rank{font-family:var(--font-d);font-weight:700;font-size:.72rem;color:var(--textDim);width:1.4rem;text-align:right}
+.plb-rank.gold{color:var(--amber)}.plb-rank.silver{color:#9ca3af}.plb-rank.bronze{color:#b45309}
+.plb-name{flex:1;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.plb-pts{font-family:var(--font-d);font-weight:700;font-size:.9rem;color:var(--accent)}
+
+/* YouTube play button */
+.yt-play-btn {
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  border:2px solid rgba(255,255,255,.2);
+  border-radius:50%;
+  transition:border-color .2s, background .2s, transform .15s;
+  background:rgba(255,255,255,.06);
+  width:clamp(60px,10vw,90px);
+  height:clamp(60px,10vw,90px);
+  flex-shrink:0;
+  position:relative;
+  z-index:2;
+}
+.yt-play-btn:hover { border-color:var(--round-color); background:rgba(255,255,255,.12); transform:scale(1.08); }
+.yt-play-btn.playing { border-color:var(--round-color); background:rgba(255,255,255,.06); }
+.yt-play-icon {
+  font-size:clamp(1.4rem,3vw,2.2rem);
+  color:var(--round-color);
+  transition:transform .15s;
+  user-select:none;
+  margin-left:.15em; /* optical centering for ▶ */
+}
+.yt-play-btn.playing .yt-play-icon { margin-left:0; animation:pillShimmer 2s ease-in-out infinite; }
+.yt-play-btn:hover .yt-play-icon { transform:scale(1.1); }
+
+/* wager modal team card */
+.wager-team-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:1.25rem 1rem;
+  display:flex;flex-direction:column;
+  align-items:center;gap:.75rem;
+  transition:border-color .2s;
+}
+.wager-team-card.active { border-color:var(--amber); }
+.wager-team-name { font-family:var(--font-d);font-weight:700;font-size:1rem;color:var(--text);text-align:center; }
+.wager-team-score { font-size:.75rem;color:var(--textMuted); }
+.wager-amount { font-family:var(--font-d);font-weight:800;font-size:2.5rem;color:var(--amber);min-width:3rem;text-align:center; }
+.wager-controls { display:flex;gap:.5rem;align-items:center; }
+.wager-btn { width:2.5rem;height:2.5rem;border-radius:50%;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:1.2rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s; }
+.wager-btn:hover { background:var(--accent);border-color:var(--accent); }
+
+/* after-answer result buttons */
+.wager-result-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.75rem;width:100%;max-width:900px; }
+.wager-result-card { background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1rem;display:flex;flex-direction:column;align-items:center;gap:.5rem; }
+.wager-result-name { font-family:var(--font-d);font-weight:700;font-size:.9rem; }
+.wager-result-bet { font-size:.75rem;color:var(--textMuted); }
+.wager-result-btns { display:flex;gap:.5rem; }
+.wager-correct { padding:.5rem 1.2rem;background:rgba(34,197,94,.15);border:1px solid #22c55e;border-radius:var(--rsm);color:#22c55e;font-family:var(--font-d);font-weight:700;font-size:.85rem;cursor:pointer;transition:background .15s; }
+.wager-correct:hover { background:rgba(34,197,94,.3); }
+.wager-wrong { padding:.5rem 1.2rem;background:rgba(239,68,68,.15);border:1px solid #ef4444;border-radius:var(--rsm);color:#ef4444;font-family:var(--font-d);font-weight:700;font-size:.85rem;cursor:pointer;transition:background .15s; }
+.wager-wrong:hover { background:rgba(239,68,68,.3); }
+.wager-done { opacity:.35;pointer-events:none; }
+
+/* wager */
+.wager-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:.45rem}
+.wager-row{background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:.45rem .6rem;display:flex;flex-direction:column;gap:.28rem}
+.wager-name{font-size:.68rem;color:var(--textMuted)}
+.wager-row-inp{display:flex;gap:.25rem;align-items:center}
+.wager-inp{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:.18rem .35rem;color:var(--text);font-family:var(--font-d);font-weight:700;font-size:.82rem;width:55px;outline:none;text-align:center}
+.wager-inp:focus{border-color:var(--accent)}
+
+/* buzzer tracker */
+#buzzerTracker{display:none}
+#buzzerTracker.active{display:block}
+.bz-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.45rem;margin-bottom:.65rem}
+.bz-cat{background:var(--surface2);border:1px solid var(--border);border-radius:var(--rsm);padding:.5rem .35rem;text-align:center;cursor:pointer;transition:border-color var(--t),background var(--t)}
+.bz-cat:hover{border-color:var(--accent)}
+.bz-cat.played{opacity:.3;pointer-events:none}
+.bz-cat.active{border-color:var(--accent);background:var(--accentGlow)}
+.bz-icon{font-size:1.2rem;display:block;margin-bottom:.15rem}
+.bz-label{font-family:var(--font-d);font-size:.52rem;font-weight:700;letter-spacing:.1em;color:var(--textMuted);text-transform:uppercase}
+.bz-award{display:none;flex-direction:column;gap:.45rem}
+.bz-award.active{display:flex}
+.bz-team-btns{display:flex;flex-wrap:wrap;gap:.3rem}
+.bz-tbtn{padding:.3rem .6rem;border-radius:var(--rsm);font-size:.72rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surface2);color:var(--text);transition:background var(--t)}
+.bz-tbtn:hover{background:var(--accentGlow);border-color:var(--accent)}
+
+/* ── SARA CREDIT ─────────────────────────────────────────── */
+.sara-credit {
+  text-align: center;
+  font-family: var(--font-d);
+  font-size: .7rem;
+  letter-spacing: .35em;
+  text-transform: lowercase;
+  color: rgba(255,255,255,.15);
+  padding: .3rem 0;
+  flex-shrink: 0;
+}
+
+/* ── UTILITIES ──────────────────────────────────────────── */
+.hidden{display:none!important}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+.pop-in{animation:popIn .4s var(--ease) both}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media(max-width:700px){
+  #stage{padding:1.25rem 1rem}
+  .q-card,.ans-card{padding:1.5rem}
+  .sara-grid{grid-template-columns:repeat(3,1fr)}
+  .hp-row{flex-direction:column}
+}
+/* TV / large display , sizes that actually fit the viewport */
+@media(min-width:1400px){
+  .q-question{font-size:3vw}
+  .ans-main{font-size:4.5vw}
+  .ans-sub{font-size:1.6vw}
+  .ans-note{font-size:1.1vw}
+  .ri-name{font-size:6vw}
+  .title-main{font-size:7vw}
+  .q-prog{height:6px}
+}
+</style>
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+
+
+<!-- WAGER MODAL -->
+<!-- Hidden YouTube Player -->
+<div id="ytPlayerWrap" style="position:fixed;bottom:0;right:0;width:1px;height:1px;overflow:hidden;pointer-events:none;z-index:1;opacity:0;">
+  <div id="ytPlayer"></div>
+</div>
+
+<!-- COLOUR WIPE OVERLAY -->
+<div id="wipeOverlay"></div>
+
+<!-- ═══ MAIN STAGE ═══════════════════════════════════════════ -->
+<main id="stage">
+
+  <!-- ANIMATED BACKGROUND -->
+  <canvas id="titleBg"></canvas>
+
+  <!-- TITLE -->
+  <div id="titleScreen" class="screen">
+    <!-- Content centred -->
+    <div class="title-content">
+      <h1 class="title-main" id="titleMain">SO YOU THINK<br>YOU KNOW THINGS</h1>
+      <p class="title-season">SEASON IV</p>
+      <div class="title-rule"></div>
+      <button class="title-btn" id="letsGoBtn" onclick="fireworksThenNav()"><span>LET'S GOOOOOOO</span></button>
+    </div>
+  </div>
+
+  <!-- TEAM SETUP SCREEN -->
+  <div id="teamSetupScreen" class="screen">
+    <div class="ts-inner">
+      <p class="ts-eyebrow">before we begin</p>
+      <h2 class="ts-title">WHO'S PLAYING?</h2>
+      <p class="ts-sub">Call out your team name.</p>
+      <div class="ts-input-row">
+        <input id="tsTeamInput" class="ts-input" type="text" placeholder="Team name..." maxlength="20"
+          onkeydown="if(event.key==='Enter')tsAddTeam()">
+        <button class="btn btn-primary" onclick="tsAddTeam()">ADD</button>
+      </div>
+      <div class="ts-teams-grid" id="tsTeamsGrid"></div>
+      <div class="ts-footer">
+        <button class="btn btn-ghost" id="tsStartBtn" onclick="tsFinish()">LET'S PLAY →</button>
+        <p class="ts-min"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL SCORES INPUT SCREEN (host panel triggered) -->
+  <div id="finalScoresScreen" class="screen">
+    <div class="ts-inner">
+      <p class="ts-eyebrow">end of game</p>
+      <h2 class="ts-title">FINAL SCORES</h2>
+      <p class="ts-sub">Pens down. Pass your answer sheet to the team on your left.</p>
+      <div id="finalScoresGrid" class="fs-grid"></div>
+      <button class="btn btn-primary" onclick="startWinnerReveal()" style="margin-top:1.5rem">REVEAL WINNER →</button>
+    </div>
+  </div>
+
+  <!-- WINNER REVEAL SCREEN -->
+  <div id="winnerRevealScreen" class="screen">
+    <div id="winnerRevealContent" class="wr-content"></div>
+  </div>
+
+  <!-- MULTIPLIER REVEAL SCREEN -->
+  <div id="multiplierRevealScreen" class="screen">
+    <div class="mx-inner">
+      <p class="mx-eyebrow">BEFORE YOU GRADE</p>
+      <h2 class="mx-title">MULTIPLIERS</h2>
+      <p class="mx-sub">Hand your answer sheet to the team next to you. These are the multipliers in play.</p>
+      <div class="mxr-grid" id="mxrGrid"></div>
+      <button class="btn btn-primary" onclick="showScreen('answerView', true); renderAnswer();" style="margin-top:2rem">REVEAL ANSWERS →</button>
+    </div>
+  </div>
+
+  <!-- MULTIPLIER DECLARATION SCREEN -->
+  <div id="multiplierScreen" class="screen">
+    <div class="mx-inner">
+      <p class="mx-eyebrow">CURRENT EVENTS — WAGER ROUND</p>
+      <h2 class="mx-title">SET YOUR MULTIPLIER</h2>
+      <p class="mx-sub">Minimum ×1. Every right answer earns you your multiplier in points. Every wrong answer costs you the same. Choose wisely.</p>
+      <div class="mx-grid" id="mxGrid"></div>
+      <button class="btn btn-primary" id="mxStartBtn" onclick="mxFinish()" style="margin-top:2rem">BEGIN ROUND →</button>
+    </div>
+  </div>
+
+
+  <div id="roundNav" class="screen">
+    <p class="rnav-title">This Evening's Quiz Selection</p>
+    <div class="rnav-grid" id="rnavGrid"></div>
+    <p class="rnav-menu-foot">, Bon Apple Teeth ,</p>
+  </div>
+
+  <!-- ROUND INTRO -->
+  <div id="roundIntro" class="screen">
+    <div class="ri-number-bg" id="riNumberBg"></div>
+    <span class="ri-badge" id="riBadge"></span>
+    <h2 class="ri-name" id="riName"></h2>
+    <p class="ri-subname" id="riSubname"></p>
+    <p class="ri-format" id="riFormat"></p>
+    <div class="ri-btns">
+      <button class="btn btn-primary" onclick="startRound()">BEGIN →</button>
+      <button class="btn btn-ghost" onclick="showRoundNav()">← ROUNDS</button>
+    </div>
+  </div>
+
+  <!-- QUESTION VIEW -->
+  <div id="questionView" class="screen">
+    <div class="q-topbar">
+      <span class="q-pill" id="qPill"></span>
+      <span id="qClock">0:00</span>
+      <span class="q-counter" id="qCounter"></span>
+    </div>
+        <div class="q-prog"><div class="q-prog-fill" id="qProg" style="width:0%"></div></div>
+    <div class="q-card" id="qCard">
+      <div class="q-text-col" id="qTextCol">
+        <p class="q-question" id="qQuestion"></p>
+        <div class="q-options hidden" id="qOpts"></div>
+      </div>
+      <div class="q-media-col hidden" id="qMediaCol">
+        <div class="q-media-wrap" id="qMediaWrap"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANSWER VIEW (one answer at a time) -->
+  <div id="answerView" class="screen">
+    <div class="ans-topbar">
+      <span class="ans-pill" id="ansPill"></span>
+      <span class="ans-pts" id="ansPts"></span>
+      <span class="ans-counter" id="ansCounter"></span>
+    </div>
+    <div class="ans-card" id="ansCard">
+      <div class="ans-text-col" id="ansTextCol">
+        <span class="ans-label">ANSWER</span>
+        <p class="ans-main" id="ansMain"></p>
+        <p class="ans-sub" id="ansSub"></p>
+        <p class="ans-source" id="ansSource"></p>
+        <p class="ans-note" id="ansNote"></p>
+      </div>
+      <div class="ans-media-col" id="ansMediaCol">
+        <div class="ans-media-wrap" id="ansMediaWrap"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ANSWER ROUND-UP -->
+  <div id="roundupView" class="screen">
+    <div class="roundup-header">
+      <span class="roundup-title" id="roundupPill"></span>
+      <span class="roundup-pts-badge" id="roundupPts"></span>
+      <span class="roundup-label">ANSWER ROUND-UP</span>
+    </div>
+    <div class="roundup-grid" id="roundupGrid"></div>
+  </div>
+
+  <!-- SARA'S JEOPARDY BOARD -->
+  <div id="saraBoard" class="screen">
+    <p class="ri-badge">ROUND 7</p>
+    <h2 class="sara-title">SARA'S FAVORITE FACTS</h2>
+    <div class="sara-grid" id="saraGrid"></div>
+  </div>
+
+  <!-- LEADERBOARD SCREEN -->
+  <div id="lbScreen" class="screen">
+    <!-- Phase 1: suspense -->
+    <div id="lbSuspense" style="display:none;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:2vh;">
+      <p class="lb-and-the-winner">AND THE WINNER IS...</p>
+    </div>
+    <!-- Phase 2: winner reveal -->
+    <div id="lbWinner" style="display:none;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:2vh;">
+      <p class="lb-winner-label">🏆</p>
+      <h2 class="lb-winner-name" id="lbWinnerName"></h2>
+      <p class="lb-winner-score" id="lbWinnerScore"></p>
+    </div>
+    <!-- Phase 3: full standings -->
+    <div id="lbStandings" style="display:none;flex-direction:column;align-items:center;width:100%;height:100%;padding:2vh 6vw;gap:1.5vh;">
+      <h2 class="lb-title">FINAL STANDINGS</h2>
+      <div id="lbList" style="width:100%;display:flex;flex-direction:column;gap:.5rem;flex:1;min-height:0;overflow:hidden;"></div>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;flex-shrink:0">
+        <button class="btn btn-ghost" onclick="hideLb()">← BACK</button>
+        <button class="btn btn-violet" onclick="showRoundNav()">ALL ROUNDS</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV BAR -->
+  <div id="navBar" class="hidden">
+    <span class="nav-round-label" id="navRoundLabel"></span>
+    <div class="nav-btns">
+      <button class="btn btn-ghost" onclick="navigate(-1)">← PREV</button>
+      <button class="btn btn-ghost" id="saraBoardBtn" onclick="returnToSaraBoard()" style="display:none">⬡ BOARD</button>
+      <button class="btn btn-amber" onclick="showLb()">SCORES</button>
+      <button class="btn btn-ghost" id="answersBtn" onclick="jumpToAnswers()">ANSWERS</button>
+      <button class="btn btn-violet" onclick="showRoundNav()">ROUNDS</button>
+      <button class="btn btn-ghost" id="clockToggleBtn" onclick="toggleClock()" title="Start/stop question timer">⏱ 0:00</button>
+      <button class="btn btn-ghost" onclick="showScreen('titleScreen'); sfxStopLoop();">HOME</button>
+      <button class="btn btn-primary" onclick="navigate(1)">NEXT →</button>
+    </div>
+  </div>
+
+</main>
+
+<div class="sara-credit">sara behar</div>
+
+<!-- HOST PANEL -->
+<div id="hostPanel">
+  <div class="hp-toggle" onclick="togglePanel()">
+    <span class="hp-toggle-label">HOST CONTROL PANEL (press H)</span>
+    <span class="hp-arrow">▲</span>
+  </div>
+  <div class="hp-body">
+    <div class="hp-note"><strong>HOST NOTE:</strong> <span id="hpNote">Select a round to begin.</span></div>
+    <div style="margin-bottom:.75rem">
+      <button class="hbtn hbtn-a" onclick="showFinalScores()">🏆 FINISH GAME — REVEAL WINNER</button>
+    </div>
+    <div class="hp-row">
+      <div class="hp-col">
+        <div class="hp-sec-label">TEAMS</div>
+        <div class="team-add">
+          <input type="text" id="newTeamInput" placeholder="Team name..." maxlength="24"
+                 onkeydown="if(event.key==='Enter')addTeam()">
+          <button class="hbtn hbtn-a" onclick="addTeam()">+ ADD</button>
+          <button class="hbtn hbtn-g" onclick="clearTeams()">CLEAR ALL</button>
+        </div>
+        <div id="scoreboard"></div>
+      </div>
+      <div class="hp-col" style="max-width:260px">
+        <div class="hp-sec-label">STANDINGS</div>
+        <div id="panelLb"></div>
+        <div id="panelMultipliers" style="display:none;margin-top:1rem"></div>
+      </div>
+    </div>
+    <div id="buzzerTracker">
+      <div class="hp-sec-label">SARA'S FACTS , BUZZER TRACKER</div>
+      <div class="bz-grid" id="bzGrid"></div>
+      <div class="bz-award" id="bzAward">
+        <p style="font-size:.75rem;color:var(--accent)">Category: <strong id="bzCatLabel"></strong> , who buzzed in?</p>
+        <div class="bz-team-btns" id="bzTeamBtns"></div>
+        <div id="bzScoreRow" class="hidden" style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap">
+          <span style="font-size:.78rem;color:var(--textMuted)">Team: <strong id="bzSelTeam" style="color:var(--text)"></strong></span>
+          <button class="hbtn hbtn-green hbtn-sm" onclick="awardBuzzer(1)">+1 CORRECT</button>
+          <button class="hbtn hbtn-red hbtn-sm" onclick="awardBuzzer(-1)">-1 WRONG</button>
+          <button class="hbtn hbtn-g hbtn-sm" onclick="cancelBuzzer()">CANCEL</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// STATE
+let rIdx=-1, qIdx=0, aIdx=0, mode='title', lbReturnMode='questionView';
+let teams=[], completedRounds=new Set(), panelOpen=false;
+let buzzerActiveCat=null, buzzerSelTeam=null, buzzerPlayed=new Set();
+
+// INIT
+window.addEventListener('error', function(e) {
+  if (e.message && e.message.includes('innerHTML')) {
+    console.error('innerHTML crash at:', e.filename, 'line', e.lineno, 'col', e.colno);
+    console.error('Stack:', e.error?.stack);
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    setEl('titleMain','textContent', QUIZ_META.title);
+    buildRnavGrid(); buildSaraGrid(); buildBzGrid();
+    renderScoreboard(); renderPanelLb();
+    showScreen('titleScreen');
+    initTitleBg();
+  try { /* initDiscoBalls(); , disabled, causing iOS script errors */ } catch(de) { }
+  initSounds();
+  } catch(e) {
+    console.error('INIT ERROR:', e.message, e.stack);
+  }
+
+  document.addEventListener('keydown', e => {
+    if (['INPUT','TEXTAREA'].includes(e.target.tagName)) return;
+    if (e.key==='ArrowRight') navigate(1);
+    if (e.key==='ArrowLeft')  navigate(-1);
+    if (e.key==='h'||e.key==='H') togglePanel();
+  });
+});
+
+// SCREENS
+function showScreen(name, useWipe) {
+  if (useWipe) {
+    doWipeTransition(() => _applyScreen(name));
+  } else {
+    _applyScreen(name);
+  }
+}
+
+function _applyScreen(name) {
+  // Remove wager result overlay when leaving answer view
+  const wro = document.getElementById('wagerResultOverlay');
+  if (wro) wro.remove();
+  // Stop YouTube on every screen change except when staying in question/answer views within same round
+  if (name !== 'questionView' && name !== 'answerView') ytStop();
+  else if (mode === 'questionView') ytFade();
+  ['titleScreen','teamSetupScreen','roundNav','roundIntro','multiplierScreen','multiplierRevealScreen','finalScoresScreen','winnerRevealScreen','questionView','answerView','roundupView','saraBoard','lbScreen']
+    .forEach(id => document.getElementById(id)?.classList.remove('active'));
+  // Stop confetti if navigating away from winner screen
+  const wrScreen = document.getElementById('winnerRevealScreen');
+  if(wrScreen && wrScreen._confettiInterval){ clearInterval(wrScreen._confettiInterval); wrScreen._confettiInterval = null; }
+  const nb = document.getElementById('navBar');
+  if (nb) {
+    if (['questionView','answerView','roundupView'].includes(name)) nb.classList.remove('hidden');
+    else nb.classList.add('hidden');
+  }
+  document.getElementById(name)?.classList.add('active');
+  mode = name;
+  const saraBoardBtn = document.getElementById('saraBoardBtn');
+  if (saraBoardBtn) {
+    saraBoardBtn.style.display = 'none';
+  }
+}
+
+// Colour wipe: sweep in → swap content → sweep out
+function doWipeTransition(callback) {
+  const overlay = document.getElementById('wipeOverlay');
+  if (!overlay) { callback(); return; }
+
+  overlay.classList.remove('wipe-in','wipe-out');
+  // Force reflow
+  void overlay.offsetWidth;
+  overlay.classList.add('wipe-in');
+
+  overlay.addEventListener('animationend', function onIn() {
+    overlay.removeEventListener('animationend', onIn);
+    callback();
+    void overlay.offsetWidth;
+    overlay.classList.remove('wipe-in');
+    overlay.classList.add('wipe-out');
+    overlay.addEventListener('animationend', function onOut() {
+      overlay.removeEventListener('animationend', onOut);
+      overlay.classList.remove('wipe-out');
+    }, {once:true});
+  }, {once:true});
+}
+
+// FIREWORKS then navigate
+function unlockAudio(){
+  try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); ctx.resume().then(() => ctx.close()); } catch(e){}
+}
+
+function fireworksThenNav() {
+  unlockAudio();
+  setTimeout(() => sfxPlay('letsGo'), 80);
+  launchFireworks();
+  setTimeout(() => showScreen('teamSetupScreen', true), 900);
+}
+
+function launchFireworks() {
+  const colors = [
+    '#ff00aa','#ff1493','#ff007f','#ff69b4',
+    '#ff85c2','#ff3d8c','#e91e8c','#c2185b',
+    '#ff4dab','#ff80c0','#ffc0e0','#ffffff',
+    '#ff0066','#ff66b2','#ff99cc','#db1f7a',
+  ];
+
+  const W = window.innerWidth;
+  const H = window.innerHeight;
+  const origins = [
+    {x:W*.1,  y:H*.7}, {x:W*.2,  y:H*.5}, {x:W*.3,  y:H*.65},
+    {x:W*.5,  y:H*.55},{x:W*.5,  y:H*.75},{x:W*.5,  y:H*.4},
+    {x:W*.7,  y:H*.65},{x:W*.8,  y:H*.5}, {x:W*.9,  y:H*.7},
+    {x:W*.15, y:H*.35},{x:W*.4,  y:H*.3}, {x:W*.6,  y:H*.3},
+    {x:W*.85, y:H*.35},{x:W*.25, y:H*.8}, {x:W*.75, y:H*.8},
+  ];
+
+  origins.forEach((origin, burstIdx) => {
+    setTimeout(() => {
+      const count = 52;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        const size = 5 + Math.random() * 10;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const angle = (i / count) * 360 + Math.random() * 20;
+        const speed = 260 + Math.random() * 440;
+        const dx = Math.cos(angle * Math.PI/180) * speed;
+        const dy = Math.sin(angle * Math.PI/180) * speed - 100;
+        const duration = 1100 + Math.random() * 700;
+        const delay = Math.random() * 80;
+        const gravY = dy + 320;
+        const isCircle = Math.random() > 0.4;
+
+        p.style.cssText = `
+          position:fixed;
+          left:${origin.x}px;top:${origin.y}px;
+          width:${size}px;height:${isCircle ? size : size*0.4}px;
+          background:${color};
+          border-radius:${isCircle ? '50%' : '1px'};
+          pointer-events:none;z-index:9999;
+          will-change:transform,opacity;
+          box-shadow:0 0 ${size}px ${color}88;`;
+
+        p.animate([
+          { transform:'translate(-50%,-50%) scale(1)', opacity:1 },
+          { transform:`translate(calc(-50% + ${dx*.4}px),calc(-50% + ${dy*.4}px)) scale(0.9)`, opacity:1, offset:.25 },
+          { transform:`translate(calc(-50% + ${dx}px),calc(-50% + ${gravY}px)) scale(0)`, opacity:0 }
+        ], {
+          duration,
+          delay,
+          easing:'cubic-bezier(.15,.5,.4,1)',
+          fill:'forwards'
+        });
+
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), duration + delay + 50);
+      }
+    }, burstIdx * 55);
+  });
+}
+
+function showRoundNav() { buildRnavGrid(); showScreen('roundNav', true); setHpNote('Select a round to begin.'); }
+
+// ROUND NAV
+// Accent colour per round slot , cycles through pride-ish palette
+const ROUND_COLORS = [
+  '#ff6eb4', // warm up , pink
+  '#f59e0b', // round 1 , amber
+  '#22c55e', // round 2 , green (local expert) (local expert)
+  '#f97316', // round 3 , orange
+  '#dc2626', // round 4 , courtroom red (guess the not-lawyer)
+  '#ef4444', // round 5 , red
+  '#a855f7', // round 6 , purple
+  '#06b6d4', // round 7 , cyan
+  '#ec4899', // round 8 , hot pink (pride)
+  '#10b981', // round 9 , emerald (geography)
+  '#8b5cf6', // round 10 , violet (current events)
+  '#f59e0b', // round 11 , gold (double down)
+];
+
+function buildRnavGrid() {
+  const g = document.getElementById('rnavGrid');
+  if (!g) return;
+  g.innerHTML = '';
+  ROUNDS.forEach((r,i) => {
+    const c = document.createElement('div');
+    c.className = 'rnav-card' + (completedRounds.has(i) ? ' done' : '');
+    const color = ROUND_COLORS[i] || '#7c3aed';
+    c.style.setProperty('--card-accent', color);
+    const pts = r.questions.length;
+    c.innerHTML = `
+      <div class="rnav-badge">${r.badge}</div>
+      <div class="rnav-label">${r.navName || r.name}</div>
+      <div class="rnav-pts">${pts} question${pts===1?'':'s'} · ${pts} pts</div>
+    `;
+    c.addEventListener('click', () => selectRound(i));
+    g.appendChild(c);
+  });
+}
+function selectRound(idx) {
+  rIdx=idx; qIdx=0; aIdx=0;
+  const r=ROUNDS[idx];
+
+  // Set the round accent color as a CSS variable , everything themed picks this up
+  const color = ROUND_COLORS[idx] || '#7c3aed';
+  const alpha = color + '26'; // ~15% opacity for glow
+  document.documentElement.style.setProperty('--round-color', color);
+  document.documentElement.style.setProperty('--round-glow', hexToRgba(color, 0.12));
+
+  setEl('riBadge','textContent', r.badge);
+  const nameEl = document.getElementById('riName');
+  if (nameEl) nameEl.textContent = r.name;
+  const sub = document.getElementById('riSubname');
+  if (sub) {
+    if (r.subname) {
+      sub.textContent = r.subname;
+      sub.style.display = '';
+    } else {
+      sub.style.display = 'none';
+    }
+  }
+  setEl('riFormat','textContent', r.format);
+
+  // Round number watermark in background , extract number from badge (e.g. "ROUND 6" → "06")
+  const numBg = document.getElementById('riNumberBg');
+  if (numBg) {
+    const badgeNum = r.badge.match(/\d+/);
+    if (badgeNum) {
+      numBg.textContent = String(parseInt(badgeNum[0])).padStart(2, '0');
+      numBg.style.display = '';
+    } else {
+      // WARM UP, BONUS etc , no watermark, text would overflow
+      numBg.textContent = '';
+      numBg.style.display = 'none';
+    }
+  }
+
+  showScreen('roundIntro', true);
+  sfxFadeLoop();
+  setTimeout(() => sfxPlay('fanfare'), 480);
+  if (window.setBgRoundColor && rIdx >= 0) window.setBgRoundColor(ROUND_COLORS[rIdx]);
+  setHpNote(r.hostNote||'');
+  updateBuzzerVis();
+}
+
+// Convert hex color to rgba string
+function hexToRgba(hex, alpha) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+function startRound() {
+  setTimeout(() => {
+    // Round 10 (currentevents) gets the multiplier declaration screen first
+    if (ROUNDS[rIdx].id==='currentevents') {
+      showMultiplierScreen();
+      return;
+    }
+    showScreen('questionView', true);
+    renderQuestion();
+  }, 600);
+}
+
+// NAVIGATE
+function navigate(dir) {
+  if (['lbScreen','saraBoard','roundIntro','roundNav','titleScreen'].includes(mode)) {
+    if (dir>0 && mode==='titleScreen') showScreen('teamSetupScreen', true);
+    return;
+  }
+  if (rIdx < 0 || !ROUNDS[rIdx]) return;
+  const total = ROUNDS[rIdx].questions.length;
+  const isBonusRound = ROUNDS[rIdx].id === 'doubledown';
+  if (mode==='questionView') {
+    if (dir>0) {
+      if (isBonusRound) {
+        // Bonus round: answer follows immediately after each question, no batching
+        aIdx = qIdx;
+        showScreen('answerView'); renderAnswer();
+      }
+      else if (qIdx < total-1) {
+        qIdx++; renderQuestion();
+      }
+      else {
+        // Fill progress bar to 100% and wait for transition before moving to answers
+        const fill = document.getElementById('qProg')?.querySelector('.q-prog-fill') ||
+                     document.querySelector('.q-prog-fill');
+        if (fill) {
+          fill.style.width = '100%';
+          fill.classList.remove('last-question'); // stop pulsing, hold solid
+        }
+        setTimeout(() => {
+          aIdx=0;
+          if(ROUNDS[rIdx] && ROUNDS[rIdx].id === 'currentevents') {
+            showMultiplierReveal();
+          } else {
+            showScreen('answerView'); renderAnswer();
+          }
+        }, 650);
+      }
+    } else {
+      if (qIdx>0) { qIdx--; renderQuestion(); }
+    }
+  } else if (mode==='roundupView') {
+    if (dir>0) { completedRounds.add(rIdx); buildRnavGrid(); showRoundNav(); }
+    else { aIdx = ROUNDS[rIdx].questions.length - 1; showScreen('answerView'); renderAnswer(); }
+  } else if (mode==='answerView') {
+    if (dir>0) {
+      if (isBonusRound) {
+        if (aIdx < total-1) {
+          qIdx = aIdx+1; renderQuestion();
+          showScreen('questionView');
+        } else {
+          showRoundup();
+        }
+      }
+      else if (aIdx < total-1) { aIdx++; renderAnswer(); }
+      else { showRoundup(); }
+    } else {
+      if (aIdx>0) { aIdx--; renderAnswer(); }
+      else { qIdx=total-1; showScreen('questionView'); renderQuestion(); }
+    }
+  }
+}
+
+
+// SHOW ANSWER ROUND-UP
+function showRoundup() {
+  if (rIdx < 0 || !ROUNDS[rIdx]) return;
+  const r = ROUNDS[rIdx];
+  const pill = document.getElementById('roundupPill');
+  if (pill) pill.textContent = r.badge;
+  const ruPts = document.getElementById('roundupPts');
+  if (ruPts) {
+    ruPts.textContent = `${r.questions.length} PTS TOTAL`;
+  }
+
+  const grid = document.getElementById('roundupGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  r.questions.forEach((q, i) => {
+    const row = document.createElement('div');
+    row.className = 'roundup-row';
+
+    // Keep A: B: C: D: prefix for multiple choice questions so the letter is visible on roundup
+    const ansText = (q.answer || '').replace(/^([A-D]):\s*/, '$1) ');
+    const subText = q.answerSubline || '';
+
+    // Truncate question for display
+    const qText = (q.question || '').replace(/\\n/g, ' ').replace(/\n/g, ' ');
+
+    row.innerHTML = `
+      <div>
+        <div class="roundup-q-num">Q${i + 1}</div>
+        <div class="roundup-q">${esc(qText)}</div>
+      </div>
+      <div>
+        <div class="roundup-a">${esc(ansText)}</div>
+        ${subText ? `<div class="roundup-a-sub">${esc(subText)}</div>` : ''}
+        <div class="roundup-row-pts">${'1 PT'}</div>
+      </div>`;
+    grid.appendChild(row);
+  });
+
+  showScreen('roundupView', true);
+  if (window.setBgRoundColor && rIdx >= 0) window.setBgRoundColor(ROUND_COLORS[rIdx]);
+}
+
+// JUMP STRAIGHT TO ANSWERS , skips remaining questions
+function jumpToAnswers() {
+  if (rIdx < 0) return;
+  aIdx = 0;
+  showScreen('answerView');
+  renderAnswer();
+}
+
+// RENDER QUESTION
+function renderQuestion() {
+  if (rIdx < 0 || !ROUNDS[rIdx]) return;
+  const r=ROUNDS[rIdx], q=r.questions[qIdx], total=r.questions.length;
+
+  // ── CLEAN UP previous question's audio state unconditionally ──
+  const card=document.getElementById('qCard');
+  const textCol = document.getElementById('qTextCol');
+  // Remove any injected play button
+  const staleBtn = textCol ? textCol.querySelector('.yt-play-btn') : null;
+  if (staleBtn) staleBtn.remove();
+  // Clear card audio class (will be re-added below if this question needs it)
+  if (card) card.classList.remove('has-audio');
+  // Stop YouTube if this question doesn't use audio
+  if (!q.mediaSrc || q.mediaType !== 'audio') {
+    ytStop();
+  }
+
+  document.getElementById('qPill').textContent = r.badge;
+  setEl('qCounter','textContent', `Q ${qIdx+1} / ${total}`);
+  setStyle('qProg','width', ((qIdx+1)/total*100)+'%');
+  const qEl = document.getElementById('qQuestion');
+  if (qEl) qEl.textContent = q.question;
+  const optsEl = document.getElementById('qOpts');
+  if (optsEl) {
+    if (q.multiChoice && q.multiChoice.length) {
+      optsEl.innerHTML = q.multiChoice.map(o =>
+        `<div class="q-opt">${esc(o.replace(/ ← CORRECT/,'').replace(/ ← NOT REAL/,''))}</div>`).join('');
+      optsEl.classList.remove('hidden');
+    } else { optsEl.classList.add('hidden'); }
+  }
+  const mediaCol=document.getElementById('qMediaCol');
+  if (q.mediaType && q.mediaType!=='none' && q.mediaSrc) {
+    const isAudio = q.mediaType === 'audio';
+
+    if (isAudio) {
+      // Audio , hide media col, inject play button into text col only
+      if(mediaCol) mediaCol.classList.add('hidden');
+      if(card) { card.classList.remove('has-media'); card.classList.add('has-audio'); card.style.gridTemplateColumns='1fr'; }
+      const qmw = document.getElementById('qMediaWrap');
+      if (qmw) qmw.innerHTML = '';
+      // Inject play button into text col
+      if (textCol && isYtSrc(q.mediaSrc)) {
+        const ytid = ytIdFrom(q.mediaSrc);
+        const btnDiv = document.createElement('div');
+        btnDiv.innerHTML = `<div class="yt-play-btn" onclick="ytToggle('${ytid}',this)" id="ytBtn_${ytid}" data-start="${ytStartFrom(q.mediaSrc)}"><div class="yt-play-icon">▶</div></div>`;
+        textCol.appendChild(btnDiv.firstChild);
+      }
+    } else {
+      const qmw = document.getElementById('qMediaWrap');
+      if (qmw) qmw.innerHTML = buildMedia(q.mediaType, q.mediaSrc);
+      // Image/video , show media col side by side
+      if(mediaCol) mediaCol.classList.remove('hidden');
+      if(card) { card.classList.add('has-media'); card.classList.remove('has-audio'); card.style.gridTemplateColumns='1fr 1fr'; }
+    }
+  } else {
+    if(mediaCol) mediaCol.classList.add('hidden');
+    if(card) { card.style.gridTemplateColumns='1fr'; card.classList.remove('has-media','has-audio'); }
+  }
+  setHpNote(r.hostNote||'');
+  // Update nav label with round name in round color
+  const navLbl = document.getElementById('navRoundLabel');
+  if (navLbl) navLbl.textContent = r.name;
+
+  // Q number watermark , large faded number behind question text
+  if (textCol) {
+    let numBg = textCol.querySelector('.q-number-bg');
+    if (!numBg) {
+      numBg = document.createElement('div');
+      numBg.className = 'q-number-bg';
+      textCol.insertBefore(numBg, textCol.firstChild);
+    }
+    numBg.textContent = String(qIdx + 1).padStart(2, '0');
+  }
+
+  // Round tint on card background , subtle colour atmosphere
+  const tintColor = hexToRgba(ROUND_COLORS[rIdx] || '#7c3aed', 0.06);
+  document.documentElement.style.setProperty('--round-tint', tintColor);
+
+  // Progress bar pulse on last question
+  const _qp = document.getElementById('qProg');
+  const progFill = (_qp ? _qp.querySelector('.q-prog-fill') : null) ||
+                   document.querySelector('.q-prog-fill');
+  if (progFill) {
+    progFill.classList.toggle('last-question', qIdx === r.questions.length - 1);
+  }
+
+  // Fit question text to viewport , short = big, long = smaller
+  // Single-column (no media) slides get extra room to be more readable from across a room
+  const _hasMediaNow = card && card.classList.contains('has-media');
+  requestAnimationFrame(() => fitText(document.getElementById('qQuestion'), _hasMediaNow ? 1.8 : 2.1, _hasMediaNow ? 3.2 : 3.8));
+  // Remove any lingering wager overlay
+  const _wo = document.getElementById('wagerResultOverlay');
+  if(_wo) _wo.remove();
+  // Reset and start clock on each new question
+  clockReset(); clockStart();
+  // Update multiplier panel if in wager round
+  renderPanelMultipliers();
+  // Play YouTube audio if this question uses it
+  if (q.mediaType === 'audio' && isYtSrc(q.mediaSrc)) {
+    const ytid = ytIdFrom(q.mediaSrc);
+    setTimeout(() => {
+      ytPlayFrom(ytid, ytStartFrom(q.mediaSrc));
+      const btn = document.getElementById(`ytBtn_${ytid}`);
+      if (btn) { btn.querySelector('.yt-play-icon').textContent = '⏸'; btn.classList.add('playing'); }
+    }, 400);
+  } else {
+    sfxStartLoop();
+  }
+}
+
+// RENDER ANSWER
+function renderAnswer() {
+  if (rIdx < 0 || !ROUNDS[rIdx]) return;
+  const r=ROUNDS[rIdx], q=r.questions[aIdx], total=r.questions.length;
+  // Stop the question timer while viewing an answer, it should only ever count
+  // time spent on a live question, not time spent discussing the answer
+  clockStop();
+  document.getElementById('ansPill').textContent = r.badge;
+  setEl('ansCounter','textContent', `${aIdx+1} / ${total}`);
+  const _ptsEl = document.getElementById('ansPts');
+  if (_ptsEl) {
+    _ptsEl.textContent = (r.id === 'currentevents') ? `×MULTIPLIER PER Q` : `1 PT PER Q · ${r.questions.length} PTS THIS ROUND`;
+  }
+  const mainEl = document.getElementById('ansMain');
+  if(mainEl) mainEl.textContent = q.answer;
+  document.getElementById('ansSub').textContent = q.answerSubline||'';
+  document.getElementById('ansSource').textContent = q.source||'';
+  setEl('ansNote','textContent', q.note||'');
+  const navLblA = document.getElementById('navRoundLabel');
+  if (navLblA) navLblA.textContent = r.name;
+
+  const mediaCol = document.getElementById('ansMediaCol');
+  const card     = document.getElementById('ansCard');
+  const wrap     = document.getElementById('ansMediaWrap');
+  if (!wrap) return; // guard
+
+  // Decide what to show in the media column
+  let _hasMedia = true;
+  if (q.answerStat) {
+    // Has a stat/number to show, big styled number instead of a photo
+    mediaCol.classList.remove('hidden');
+    card.style.gridTemplateColumns = '1fr 1fr';
+    wrap.innerHTML = `<div class="ans-stat-card"><div class="ans-stat-num">${q.answerStat}</div><div class="ans-stat-label">${q.answerStatLabel||''}</div></div>`;
+  } else if (q.answerImg) {
+    // Has an answer image , show it
+    mediaCol.classList.remove('hidden');
+    card.style.gridTemplateColumns = '1fr 1fr';
+    wrap.innerHTML = `<img src="${q.answerImg}" alt=""
+      onerror="if(this.parentElement){this.onerror=null;this.parentElement.innerHTML='<div class=ph><span class=ph-icon>🖼</span></div>';}">`;
+  } else if (q.answerMedia && q.answerMediaType && q.answerMediaType !== 'audio') {
+    // Has non-audio media (video etc)
+    mediaCol.classList.remove('hidden');
+    card.style.gridTemplateColumns = '1fr 1fr';
+    wrap.innerHTML = buildMedia(q.answerMediaType, q.answerMedia);
+  } else {
+    // Nothing to show , collapse to single column, centered composition instead of pinned-left
+    mediaCol.classList.add('hidden');
+    card.style.gridTemplateColumns = '1fr';
+    wrap.innerHTML = '';
+    _hasMedia = false;
+  }
+  const _textCol = document.getElementById('ansTextCol');
+  if (_textCol) _textCol.classList.toggle('tc-wide', !_hasMedia);
+
+  // Audio on answer slides: only replay non-YouTube local files if explicitly needed
+  // YouTube audio already played on question slide , don't replay on answer
+
+  // Fit answer text to viewport , single-column slides get a bigger range since they have the full frame to themselves
+  requestAnimationFrame(() => fitText(document.getElementById('ansMain'), _hasMedia ? 2.0 : 2.6, _hasMedia ? 4.2 : 5.6));
+  requestAnimationFrame(() => requestAnimationFrame(() => fitAnswerBox()));
+  sfxFadeLoop();
+  // Hide answer text immediately to prevent flash during word-reveal setup
+  const _am = document.getElementById('ansMain');
+  if (_am) _am.style.opacity = '0';
+  setTimeout(() => {
+    sfxPlay('answerSting');
+    if (_am) {
+      _am.style.opacity = '1';
+      revealAnswerWords(_am);
+    }
+  }, 220);
+}
+
+// DYNAMIC FONT SIZING , fits text to card without overflow
+// Calibrated for TV viewing: short punchy text = huge, long text = readable
+function fitText(el, minVw, maxVw) {
+  if (!el) return;
+  const len = (el.textContent || el.innerText || '').length;
+  // Gentler curve , less dramatic size variation between questions
+  let ratio;
+  if (len < 40)        ratio = 1.0;
+  else if (len < 100)  ratio = 1.0 - ((len - 40) / 60)  * 0.35;
+  else if (len < 200)  ratio = 0.65 - ((len - 100) / 100) * 0.35;
+  else                 ratio = 0.3;
+  const vw = minVw + (maxVw - minVw) * Math.max(0, Math.min(1, ratio));
+  el.style.fontSize = vw.toFixed(2) + 'vw';
+}
+
+// PREVENT ANSWER CARD OVERFLOW , shrinks note/subline until content actually fits
+// Runs after fitText sizes the main answer text, since that's the biggest variable.
+// Guards against the note/subline running past the bottom of the card and getting clipped.
+function fitAnswerBox() {
+  const card = document.getElementById('ansCard');
+  const textCol = document.getElementById('ansTextCol');
+  const note = document.getElementById('ansNote');
+  const sub = document.getElementById('ansSub');
+  if (!card || !textCol) return;
+  // Reset to CSS defaults first so we're measuring fresh, not compounding a previous shrink
+  if (note) note.style.fontSize = '';
+  if (sub) sub.style.fontSize = '';
+  let guard = 0;
+  while (textCol.scrollHeight > card.clientHeight && guard < 30) {
+    let shrunk = false;
+    if (note) {
+      const cur = parseFloat(getComputedStyle(note).fontSize);
+      if (cur > 13) { note.style.fontSize = (cur - 1) + 'px'; shrunk = true; }
+    }
+    if (sub) {
+      const cur = parseFloat(getComputedStyle(sub).fontSize);
+      if (cur > 14) { sub.style.fontSize = (cur - 1) + 'px'; shrunk = true; }
+    }
+    if (!shrunk) break; // hit the floor, stop rather than loop forever
+    guard++;
+  }
+}
+
+
+// Safe element setter , silently skips if element doesn't exist
+function setEl(id, prop, val) {
+  const el = document.getElementById(id);
+  if (el) el[prop] = val;
+}
+function setStyle(id, prop, val) {
+  const el = document.getElementById(id);
+  if (el) el.style[prop] = val;
+}
+function setClass(id, method, cls) {
+  const el = document.getElementById(id);
+  if (el) el.classList[method](cls);
+}
+function setClassToggle(id, cls, force) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle(cls, force);
+}
+
+// Highlight standalone A , only colours an A that stands alone as a word.
+// Uses a compatible approach (no lookbehind) for broad browser support.
+function highlightA(str) {
+  if (!str) return '';
+  // Match word-boundary A: at start of string, or preceded by whitespace
+  const match = str.match(/(^|\s)([Aa])(?=\s|$|[.,!?:])/);
+  if (!match) {
+    // Fallback: just highlight the very first A/a character
+    if (/^[Aa]/.test(str)) {
+      return `<span class="a-highlight">${str[0]}</span>` + esc(str.slice(1));
+    }
+    return esc(str);
+  }
+  // match[1] is the preceding whitespace (if any), match[2] is the A
+  const idx = match.index + match[1].length;
+  return esc(str.slice(0, idx)) + `<span class="a-highlight">${str[idx]}</span>` + esc(str.slice(idx + 1));
+}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// BUILD MEDIA
+function buildMedia(type, src) {
+  if (!src) return '';
+  if (type==='image') return `<img src="${src}" alt="" onerror="if(this.parentElement){this.onerror=null;this.parentElement.innerHTML='<div class=ph><span class=ph-icon>&#128444;</span></div>';}">`;
+  if (type==='audio') {
+    if (isYtSrc(src)) {
+      const ytid = ytIdFrom(src);
+      return `<div class="yt-play-btn" onclick="ytToggle('${ytid}',this)" id="ytBtn_${ytid}"><div class="yt-play-icon">▶</div></div>`;
+    }
+    return `<audio controls src="${src}" style="width:100%;display:block"></audio>`;
+  }
+  if (type==='video') {
+    if(isYtSrc(src)) {
+      const end = ytEndFrom(src);
+      const endParam = end ? `&end=${end}` : '';
+      const embedSrc = `https://www.youtube.com/embed/${ytIdFrom(src)}?autoplay=1&rel=0&start=${ytStartFrom(src)}${endParam}&modestbranding=1&showinfo=0&iv_load_policy=3&cc_load_policy=0`;
+      return `<iframe src="${embedSrc}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+    }
+    return `<iframe src="${src}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+  }
+  return '';
+}
+
+// SARA BOARD
+function buildSaraGrid() {
+  const g = document.getElementById('saraGrid');
+  if (!g) return;
+  g.innerHTML = SARA_CATEGORIES.map((cat,i)=>`
+    <div class="sara-cat" id="saraCat_${i}" onclick="selectSaraCat(${i})">
+      <span class="sara-cat-icon">${cat.icon}</span>
+      <span class="sara-cat-label">${cat.label}</span>
+    </div>`).join('');
+}
+function selectSaraCat(idx) {
+  if (buzzerPlayed.has(idx)) return;
+  qIdx=idx;
+  SARA_CATEGORIES.forEach((_,i)=>document.getElementById(`saraCat_${i}`)?.classList.toggle('active',i===idx));
+  showScreen('questionView'); renderQuestion();
+  selectBzCat(idx);
+}
+function returnToSaraBoard() {
+  SARA_CATEGORIES.forEach((_,i)=>{
+    const el=document.getElementById(`saraCat_${i}`);
+    if(el){el.classList.remove('active');el.classList.toggle('played',buzzerPlayed.has(i));}
+  });
+  showScreen('saraBoard');
+}
+
+// Also called from BOARD button in nav bar
+window.returnToSaraBoardFromNav = function() { returnToSaraBoard(); };
+
+// LEADERBOARD
+function showLb() {
+  lbReturnMode = mode;
+  showScreen('lbScreen');
+  // Hide all phases
+  setStyle('lbSuspense','display','none');
+  setStyle('lbWinner','display','none');
+  setStyle('lbStandings','display','none');
+
+  if (!teams.length) {
+    renderFullLb();
+    setStyle('lbStandings','display','flex');
+    return;
+  }
+
+  // Phase 1: "AND THE WINNER IS..." for 2.5 seconds
+  setStyle('lbSuspense','display','flex');
+  sfxFadeLoop();
+  setTimeout(() => sfxPlay('winner'), 300);
+
+  setTimeout(() => {
+    // Phase 2: winner name slams in with fireworks
+    setStyle('lbSuspense','display','none');
+    setStyle('lbWinner','display','flex');
+
+    const sorted = [...teams].sort((a,b) => b.score - a.score);
+    const winner = sorted[0];
+    document.getElementById('lbWinnerName').textContent = winner.name;
+    setEl('lbWinnerScore','textContent', winner.score + ' points');
+
+    // Fireworks!
+    launchFireworks();
+
+    // Phase 3: after 3 more seconds, full standings animate in
+    setTimeout(() => {
+      setStyle('lbWinner','display','none');
+      setStyle('lbStandings','display','flex');
+      renderFullLb();
+    }, 3200);
+
+  }, 2500);
+}
+
+function hideLb() {
+  showScreen(lbReturnMode);
+  setClass('navBar','remove','hidden');
+}
+
+function renderFullLb() {
+  const el = document.getElementById('lbList');
+  if (!el) return;
+  if (!teams.length) {
+    el.innerHTML = '<p style="color:var(--textDim);font-size:.9rem">No teams yet , add teams in the host panel.</p>';
+    return;
+  }
+  const s = [...teams].sort((a,b) => b.score - a.score);
+  const maxScore = Math.max(...s.map(t => t.score), 1);
+  const rowClass = i => i===0?' first':i===1?' second':i===2?' third':'';
+  el.innerHTML = s.map((t,i) => `
+    <div class="lb-row${rowClass(i)}" style="animation-delay:${i*0.07}s">
+      <span class="lb-rank ${['gold','silver','bronze'][i]||''}">${['🥇','🥈','🥉'][i]||i+1}</span>
+      <div style="flex:1;min-width:0;">
+        <div class="lb-name">${esc(t.name)}</div>
+        <div class="lb-bar-wrap">
+          <div class="lb-bar" style="width:${(t.score/maxScore*100).toFixed(1)}%"></div>
+        </div>
+      </div>
+      <span class="lb-pts">${t.score}</span>
+    </div>`).join('');
+}
+
+// ── TEAM SETUP SCREEN ────────────────────────────────────
+function tsAddTeam(){
+  const inp = document.getElementById('tsTeamInput');
+  const name = inp.value.trim();
+  if(!name || teams.length >= SCORING.maxTeams) return;
+  teams.push({name, score:0, multiplier:1});
+  inp.value='';
+  tsBuildGrid();
+  renderScoreboard(); renderPanelLb(); rebuildBzTeamBtns();
+}
+function tsRemoveTeam(idx){
+  teams.splice(idx,1);
+  tsBuildGrid();
+  renderScoreboard(); renderPanelLb(); rebuildBzTeamBtns();
+}
+function tsBuildGrid(){
+  const g = document.getElementById('tsTeamsGrid');
+  const btn = document.getElementById('tsStartBtn');
+  if(!g) return;
+  g.innerHTML = teams.map((t,i) => `
+    <div class="ts-team-chip">
+      <span class="ts-team-name">${esc(t.name)}</span>
+      <button class="ts-team-remove" onclick="tsRemoveTeam(${i})">✕</button>
+    </div>`).join('');
+  if(btn) btn.disabled = false;
+}
+function tsFinish(){
+  unlockAudio();
+  sfxPlay('letsGo');
+  setTimeout(() => showScreen('roundNav', true), 400);
+}
+
+// ── FINAL SCORES & WINNER REVEAL ─────────────────────────
+let _wrTeams = [];
+let _wrIdx = 0;
+
+function showFinalScores(){
+  if(!teams.length){ alert('No teams yet — add teams first.'); return; }
+  rIdx = -1; // Clear round context so multiplier doesn't apply
+  // Sort descending and take top 3
+  _wrTeams = [...teams].sort((a,b) => b.score - a.score).slice(0,3);
+  _wrIdx = 0;
+  showScreen('winnerRevealScreen', true);
+  renderWinnerSlide();
+}
+
+function startWinnerReveal(){
+  if(!teams.length){ alert('No teams entered yet.'); return; }
+  _wrTeams = [...teams].sort((a,b) => b.score - a.score).slice(0,3);
+  _wrIdx = 0;
+  showScreen('winnerRevealScreen', true);
+  renderWinnerSlide();
+}
+
+function renderWinnerSlide(){
+  const content = document.getElementById('winnerRevealContent');
+  if(!content) return;
+
+  const first = _wrTeams[0];
+  const second = _wrTeams[1];
+  if(!first) return;
+
+  content.innerHTML = `
+    <div class="wr-welldown">Well done everyone!</div>
+    <div class="wr-hearts">❤️ ❤️ ❤️</div>
+    <div class="wr-placements">
+      <div class="wr-placement">
+        <div class="wr-trophy">🥇</div>
+        <div class="wr-place">Winner</div>
+        <div class="wr-name wr-gold">${esc(first.name)}</div>
+        <div class="wr-pts">${first.score} pts</div>
+      </div>
+      ${second ? `
+      <div class="wr-placement">
+        <div class="wr-trophy">🥈</div>
+        <div class="wr-place">Second Place</div>
+        <div class="wr-name wr-silver">${esc(second.name)}</div>
+        <div class="wr-pts">${second.score} pts</div>
+      </div>` : ''}
+    </div>
+  `;
+
+  sfxPlay('winner');
+  if(typeof launchFireworks === 'function') launchFireworks();
+  launchConfetti();
+}
+
+function launchConfetti(){
+  const colors = ['#f59e0b','#9ca3af','#fff','#ff00aa','#a855f7','#22d3ee','#ff69b4','#ffd700'];
+
+  function spawnBatch(){
+    const container = document.createElement('div');
+    container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;overflow:hidden;';
+    document.body.appendChild(container);
+
+    for(let i = 0; i < 60; i++){
+      const piece = document.createElement('div');
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const size = Math.random() * 10 + 6;
+      const left = Math.random() * 100;
+      const delay = Math.random() * 1.5;
+      const duration = Math.random() * 2 + 2;
+      const rotation = Math.random() * 360;
+      piece.style.cssText = `
+        position:absolute;top:-20px;left:${left}%;
+        width:${size}px;height:${size * (Math.random() > 0.5 ? 1 : 2.5)}px;
+        background:${color};border-radius:${Math.random() > 0.5 ? '50%' : '2px'};
+        animation:confettiFall ${duration}s ${delay}s ease-in forwards;
+        transform:rotate(${rotation}deg);
+      `;
+      container.appendChild(piece);
+    }
+    setTimeout(() => container.remove(), 4000);
+  }
+
+  // Fire immediately then keep going
+  spawnBatch();
+  const interval = setInterval(spawnBatch, 1800);
+
+  // Store interval ID on the screen so we can stop it if we navigate away
+  const screen = document.getElementById('winnerRevealScreen');
+  if(screen) screen._confettiInterval = interval;
+}
+
+function winnerRevealNext(){ /* no longer used but kept to avoid reference errors */ }
+
+
+function showMultiplierReveal(){
+  // Ensure all teams have a multiplier set
+  teams.forEach(t => { if(!t.multiplier || t.multiplier < 1) t.multiplier = 1; });
+  const g = document.getElementById('mxrGrid');
+  if(g) {
+    g.innerHTML = teams.map(t => `
+      <div class="mxr-card">
+        <div class="mxr-name">${esc(t.name)}</div>
+        <div class="mxr-mult">×${t.multiplier||1}</div>
+      </div>`).join('');
+  }
+  showScreen('multiplierRevealScreen', true);
+}
+
+// ── MULTIPLIER DECLARATION SCREEN ────────────────────────
+function showMultiplierScreen(){
+  buildMxGrid();
+  showScreen('multiplierScreen', true);
+}
+function buildMxGrid(){
+  const g = document.getElementById('mxGrid');
+  if(!g) return;
+  g.innerHTML = teams.map((t,i) => `
+    <div class="mx-card" id="mxCard_${i}">
+      <div class="mx-card-name">${esc(t.name)}</div>
+      <div class="mx-multiplier-display" id="mxDisp_${i}">×${t.multiplier > 1 ? t.multiplier : '?'}</div>
+      <div class="mx-inp-row">
+        <input class="mx-inp" type="number" id="mxInp_${i}" min="1" value="" placeholder="1">
+        <button class="btn btn-ghost mx-set-btn" onclick="mxSetTeam(${i})">SET</button>
+      </div>
+    </div>`).join('');
+}
+function mxSetTeam(idx){
+  const val = parseInt(document.getElementById(`mxInp_${idx}`)?.value) || 1;
+  teams[idx].multiplier = Math.max(1, val);
+  const card = document.getElementById(`mxCard_${idx}`);
+  const disp = document.getElementById(`mxDisp_${idx}`);
+  if(card) card.classList.add('mx-set');
+  if(disp) disp.textContent = `×${teams[idx].multiplier}`;
+}
+function mxFinish(){
+  // Apply default multiplier of 1 to any unset teams
+  teams.forEach(t => { if(!t.multiplier) t.multiplier = 1; });
+  // Go to first question
+  qIdx=0; aIdx=0;
+  showScreen('questionView', true); renderQuestion();
+}
+
+// Reset multipliers after Round 10 ends
+function resetMultipliers(){
+  teams.forEach(t => t.multiplier = 1);
+}
+
+// ── MULTIPLIER-AWARE SCORE ADJUSTMENT ────────────────────
+function adjustScoreMultiplied(idx, dir){
+  const r = ROUNDS[rIdx];
+  const isWagerRound = r && r.id === 'currentevents';
+  const mult = isWagerRound ? (teams[idx].multiplier || 1) : 1;
+  teams[idx].score += dir * mult;
+  renderScoreboard(); renderPanelLb();
+  renderPanelMultipliers();
+}
+
+function renderPanelMultipliers(){
+  const el = document.getElementById('panelMultipliers');
+  if(!el) return;
+  const r = ROUNDS[rIdx];
+  const isWagerRound = r && r.id === 'currentevents';
+  if(!isWagerRound || !teams.length){ el.style.display='none'; return; }
+  el.style.display='block';
+  el.innerHTML = `<div style="font-size:.7rem;letter-spacing:.1em;color:var(--textDim);margin-bottom:.4rem">MULTIPLIERS</div>` +
+    teams.map(t => `<div class="plb-row">
+      <span class="plb-name">${esc(t.name)}</span>
+      <span class="plb-pts" style="color:var(--round-color)">×${t.multiplier||1}</span>
+    </div>`).join('');
+}
+
+// HOST PANEL
+function togglePanel(){ panelOpen=!panelOpen; setClassToggle('hostPanel','open',panelOpen); }
+function setHpNote(txt){ document.getElementById('hpNote').textContent =txt||','; }
+function updateBuzzerVis(){ setClassToggle('buzzerTracker','active',false); }
+
+// TEAMS
+function addTeam(){
+  const inp=document.getElementById('newTeamInput');
+  const name=inp.value.trim();
+  if(!name||teams.length>=SCORING.maxTeams)return;
+  teams.push({name,score:0,multiplier:1}); inp.value='';
+  renderScoreboard();renderPanelLb();rebuildBzTeamBtns();
+}
+function clearTeams(){
+  if(!confirm('Clear all teams and scores?'))return;
+  teams=[];renderScoreboard();renderPanelLb();rebuildBzTeamBtns();
+}
+function adjustScore(idx,d){teams[idx].score+=d;renderScoreboard();renderPanelLb();}
+function setScore(idx, val){
+  const n = parseInt(val);
+  if(isNaN(n)) return;
+  teams[idx].score = n;
+  renderPanelLb();
+  renderPanelMultipliers();
+}
+function renderScoreboard(){
+  const el=document.getElementById('scoreboard');
+  if(!el) return;
+  if(!teams.length){el.innerHTML='<p style="font-size:.78rem;color:var(--textDim);margin-top:.5rem">No teams yet.</p>';return;}
+  el.innerHTML=teams.map((t,i)=>`
+    <div class="sc-card">
+      <div class="sc-name" title="${esc(t.name)}">${esc(t.name)}</div>
+      <div class="sc-bottom">
+        <input class="sc-pts-inp" type="number" value="${t.score}" onchange="setScore(${i},this.value)" oninput="setScore(${i},this.value)">
+        <div class="sc-adj">
+          <button class="sc-btn sc-plus" onclick="adjustScoreMultiplied(${i},1)">+</button>
+          <button class="sc-btn sc-minus" onclick="adjustScoreMultiplied(${i},-1)">−</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function renderPanelLb(){
+  const el=document.getElementById('panelLb');
+  if(!el) return;
+  if(!teams.length){el.innerHTML='<p style="font-size:.75rem;color:var(--textDim)">,</p>';return;}
+  const s=[...teams].sort((a,b)=>b.score-a.score);
+  el.innerHTML=s.map((t,i)=>`
+    <div class="plb-row">
+      <span class="plb-rank ${['gold','silver','bronze'][i]||''}">${i+1}</span>
+      <span class="plb-name">${esc(t.name)}</span>
+      <span class="plb-pts">${t.score}</span>
+    </div>`).join('');
+}
+
+// WAGER
+
+
+
+
+// ══════════════════════════════════════════════════════════════
+// SOUND ENGINE
+// Drop in same folder as host.html on GitHub:
+//   sfx_question_loop.mp3  , looping tension music (questions)
+//   sfx_round_fanfare.mp3  , one-shot fanfare (round intro)
+//   sfx_answer_sting.mp3   , reveal sting (answer slides)
+//   sfx_winner.mp3         , winner fanfare (leaderboard)
+// Missing files fail silently.
+// ══════════════════════════════════════════════════════════════
+const SFX = { questionLoop:null, fanfare:null, answerSting:null, winner:null, letsGo:null };
+let _loopPlaying = false;
+
+function initSounds() {
+  function load(f, vol, loop) {
+    try {
+      const a = new Audio(f);
+      a.preload = 'auto';
+      a.volume = vol || 0.5;
+      if (loop) a.loop = true;
+      return a;
+    } catch(e) { return null; }
+  }
+  SFX.questionLoop = null; // sfx_question_loop.mp3 not available
+  SFX.fanfare      = null; // sfx_round_fanfare.mp3 not available
+  SFX.answerSting  = null; // sfx_answer_sting.mp3 not available
+  SFX.winner       = null; // sfx_winner.mp3 not available
+  SFX.letsGo       = load('320739__druki__yeah.mp3', 0.85);
+}
+
+function sfxPlay(key) {
+  try { const s=SFX[key]; if(!s) return; s.currentTime=0; s.play().catch(()=>{}); } catch(e){}
+}
+
+
+let _clockInterval = null;
+let _clockSeconds = 0;
+let _clockRunning = false;
+const CLOCK_WARN = 120;  // fuschia at 2:00
+const CLOCK_MAX  = 150;  // fuschia + gold pulse at 2:30
+
+function clockFormat(s) {
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return m + ':' + String(sec).padStart(2, '0');
+}
+
+function clockUpdate() {
+  _clockSeconds++;
+  const display = clockFormat(_clockSeconds);
+  const el = document.getElementById('qClock');
+  const btn = document.getElementById('clockToggleBtn');
+  if (el) {
+    el.textContent = display;
+    el.classList.toggle('clock-warning', _clockSeconds >= CLOCK_WARN && _clockSeconds < CLOCK_MAX);
+    el.classList.toggle('clock-over', _clockSeconds >= CLOCK_MAX);
+  }
+  if (btn) btn.textContent = '⏱ ' + display;
+}
+
+function clockStart() {
+  if (_clockInterval) clearInterval(_clockInterval);
+  _clockRunning = true;
+  _clockInterval = setInterval(clockUpdate, 1000);
+  const btn = document.getElementById('clockToggleBtn');
+  if (btn) btn.style.opacity = '1';
+}
+
+function clockStop() {
+  if (_clockInterval) clearInterval(_clockInterval);
+  _clockInterval = null;
+  _clockRunning = false;
+  const btn = document.getElementById('clockToggleBtn');
+  if (btn) btn.style.opacity = '0.45';
+}
+
+function clockReset() {
+  clockStop();
+  _clockSeconds = 0;
+  const el = document.getElementById('qClock');
+  const btn = document.getElementById('clockToggleBtn');
+  if (el) { el.textContent = '0:00'; el.classList.remove('clock-warning','clock-over'); }
+  if (btn) { btn.textContent = '⏱ 0:00'; btn.style.opacity = '1'; }
+}
+
+function toggleClock() {
+  if (_clockRunning) { clockStop(); } else { clockStart(); }
+}
+
+function sfxStartLoop() {
+  if (!SFX.questionLoop || _loopPlaying) return;
+  SFX.questionLoop.currentTime = 0;
+  SFX.questionLoop.play().catch(()=>{});
+  _loopPlaying = true;
+}
+
+function sfxStopLoop() {
+  if (!SFX.questionLoop) return;
+  SFX.questionLoop.pause();
+  SFX.questionLoop.currentTime = 0;
+  _loopPlaying = false;
+}
+
+function sfxFadeLoop() {
+  if (!SFX.questionLoop || !_loopPlaying) return;
+  const baseVol = 0.45;
+  const step = baseVol / 16;
+  const fade = setInterval(() => {
+    if (SFX.questionLoop && SFX.questionLoop.volume > step) {
+      SFX.questionLoop.volume = Math.max(0, SFX.questionLoop.volume - step);
+    } else {
+      clearInterval(fade);
+      sfxStopLoop();
+      if (SFX.questionLoop) SFX.questionLoop.volume = baseVol;
+    }
+  }, 50);
+}
+
+// Word-by-word answer reveal
+function revealAnswerWords(el) {
+  if (!el) return;
+  const text = el.textContent || '';
+  const words = text.split(' ').filter(w => w.length > 0);
+  // Build spans while element is hidden (caller sets opacity:0 before calling)
+  el.innerHTML = words.map(w =>
+    `<span class="ans-word" style="opacity:0;display:inline-block;margin-right:.25em">${w}</span>`
+  ).join('');
+  // Small delay to let the DOM settle before animating
+  requestAnimationFrame(() => {
+    words.forEach((_, i) => {
+      setTimeout(() => {
+        const spans = el.querySelectorAll('.ans-word');
+        if (spans[i]) {
+          spans[i].style.transition = 'opacity .18s ease';
+          spans[i].style.opacity = '1';
+        }
+      }, i * 85);
+    });
+  });
+}
+
+
+// ── YOUTUBE AUDIO ENGINE ──────────────────────────────────────
+// Replaces local MP3 files for warm up and before they were famous audio
+let _ytPlayer = null;
+let _ytReady  = false;
+let _ytPending = null; // { videoId, startSeconds } to play once ready
+
+window.onYouTubeIframeAPIReady = function() {
+  _ytPlayer = new YT.Player('ytPlayer', {
+    height: '1',
+    width:  '1',
+    playerVars: {
+      autoplay: 0,
+      controls: 0,
+      disablekb: 1,
+      fs: 0,
+      iv_load_policy: 3,
+      modestbranding: 1,
+      playsinline: 1,
+      rel: 0,
+    },
+    events: {
+      onReady: function() {
+        _ytReady = true;
+        if (_ytPending) {
+          ytPlayFrom(_ytPending.videoId, _ytPending.startSeconds);
+          _ytPending = null;
+        }
+      },
+      onStateChange: function(e) {
+        // When video ends or is paused externally, do nothing
+      }
+    }
+  });
+};
+
+function ytPlayFrom(videoId, startSeconds) {
+  if (!_ytReady || !_ytPlayer) {
+    _ytPending = { videoId, startSeconds: startSeconds || 0 };
+    return;
+  }
+  try {
+    _ytPlayer.loadVideoById({
+      videoId,
+      startSeconds: startSeconds || 0,
+      suggestedQuality: 'small'
+    });
+    _ytPlayer.mute();
+    _ytPlayer.playVideo();
+    setTimeout(() => {
+      try { _ytPlayer.unMute(); _ytPlayer.setVolume(70); } catch(e){}
+    }, 300);
+  } catch(e) { console.warn('YT play error:', e); }
+}
+
+function ytToggle(videoId, btnEl) {
+  if (!_ytReady) return;
+  try {
+    const state = _ytPlayer.getPlayerState();
+    if (state === YT.PlayerState.PLAYING) {
+      _ytPlayer.pauseVideo();
+      if (btnEl) btnEl.querySelector('.yt-play-icon').textContent = '▶';
+      btnEl?.classList.remove('playing');
+    } else {
+      const startSec = btnEl ? parseInt(btnEl.dataset.start || '0') : 0;
+      ytPlayFrom(videoId, startSec);
+      if (btnEl) btnEl.querySelector('.yt-play-icon').textContent = '⏸';
+      btnEl?.classList.add('playing');
+    }
+  } catch(e) {}
+}
+
+function ytStop() {
+  _ytPending = null;
+  try {
+    if (_ytPlayer && _ytReady) {
+      _ytPlayer.stopVideo();
+    }
+  } catch(e) {}
+}
+
+function ytFade() {
+  if (!_ytPlayer || !_ytReady) return;
+  let vol = 70;
+  const fade = setInterval(() => {
+    vol -= 5;
+    if (vol <= 0) {
+      clearInterval(fade);
+      ytStop();
+      try { _ytPlayer.setVolume(70); } catch(e){}
+    } else {
+      try { _ytPlayer.setVolume(vol); } catch(e){}
+    }
+  }, 60);
+}
+
+// Parse yt:VIDEO_ID format from mediaSrc
+function isYtSrc(src) { return src && src.startsWith('yt:'); }
+function ytIdFrom(src) {
+  if (!src) return null;
+  const parts = src.replace('yt:', '').split(':');
+  return parts[0];
+}
+function ytStartFrom(src) {
+  if (!src) return 0;
+  const parts = src.replace('yt:', '').split(':');
+  return parts[1] ? parseInt(parts[1]) : 0;
+}
+function ytEndFrom(src) {
+  if (!src) return null;
+  const parts = src.replace('yt:', '').split(':');
+  return parts[2] ? parseInt(parts[2]) : null;
+}
+
+
+// SARA BUZZER
+function buildBzGrid(){
+  const bzg = document.getElementById('bzGrid'); if(!bzg) return;
+  bzg.innerHTML=SARA_CATEGORIES.map((cat,i)=>`
+    <div class="bz-cat" id="bzCat_${i}" onclick="selectBzCat(${i})">
+      <span class="bz-icon">${cat.icon}</span>
+      <span class="bz-label">${cat.label}</span>
+    </div>`).join('');
+}
+function selectBzCat(idx){
+  if(buzzerPlayed.has(idx))return;
+  buzzerActiveCat=idx;buzzerSelTeam=null;
+  SARA_CATEGORIES.forEach((_,i)=>document.getElementById(`bzCat_${i}`)?.classList.toggle('active',i===idx));
+  document.getElementById('bzCatLabel').textContent =SARA_CATEGORIES[idx].label;
+  setClass('bzAward','add','active');
+  setClass('bzScoreRow','add','hidden');
+  rebuildBzTeamBtns();
+}
+function rebuildBzTeamBtns(){
+  const c=document.getElementById('bzTeamBtns');
+  if(!c) return;
+  if(!teams.length){c.innerHTML='<span style="font-size:.72rem;color:var(--textDim)">Add teams first.</span>';return;}
+  c.innerHTML=teams.map((t,i)=>`<button class="bz-tbtn" onclick="selectBzTeam(${i})">${esc(t.name)}</button>`).join('');
+}
+function selectBzTeam(idx){
+  buzzerSelTeam=idx;
+  document.getElementById('bzSelTeam').textContent =teams[idx].name;
+  setClass('bzScoreRow','remove','hidden');
+}
+function awardBuzzer(delta){
+  if(buzzerSelTeam===null||buzzerActiveCat===null)return;
+  teams[buzzerSelTeam].score+=delta;
+  buzzerPlayed.add(buzzerActiveCat);
+  document.getElementById(`bzCat_${buzzerActiveCat}`)?.classList.add('played');
+  document.getElementById(`saraCat_${buzzerActiveCat}`)?.classList.add('played');
+  renderScoreboard();renderPanelLb();cancelBuzzer();
+  if(buzzerPlayed.size>=SARA_CATEGORIES.length){ aIdx=0;showScreen('answerView');renderAnswer(); }
+  else returnToSaraBoard();
+}
+function cancelBuzzer(){
+  buzzerActiveCat=null;buzzerSelTeam=null;
+  setClass('bzAward','remove','active');
+  setClass('bzScoreRow','add','hidden');
+  SARA_CATEGORIES.forEach((_,i)=>{if(!buzzerPlayed.has(i))document.getElementById(`bzCat_${i}`)?.classList.remove('active');});
+}
+
+// ── TITLE BACKGROUND ─────────────────────────────────────────
+// Slow moving aurora blobs , cinematic energy, no seizure risk
+
+// ── DISCO BALLS ──────────────────────────────────────────────
+function initDiscoBalls() {
+  const canvas = document.getElementById('discoBallCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+
+  function resize() {
+    const w = canvas.offsetWidth;
+    const h = canvas.offsetHeight;
+    canvas.width  = w * dpr;
+    canvas.height = h * dpr;
+    ctx.scale(dpr, dpr);
+    // Store logical dimensions for drawing
+    canvas._w = w;
+    canvas._h = h;
+  }
+  resize();
+  window.addEventListener('resize', () => { ctx.setTransform(1,0,0,1,0,0); resize(); });
+
+  // Ball definitions , position, size, rotation speed
+  const balls = [
+    { x:.18, y:.2,  r:28, speed:.004, angle:0 },
+    { x:.82, y:.15, r:22, speed:.006, angle:1 },
+    { x:.5,  y:.08, r:18, speed:.005, angle:2 },
+    { x:.08, y:.55, r:16, speed:.007, angle:0.5 },
+    { x:.92, y:.6,  r:20, speed:.004, angle:1.5 },
+  ];
+
+  // Light flecks cast by each ball
+  let flecks = [];
+
+  function spawnFlecks(ball, W, H) {
+    const bx = ball.x * W;
+    const by = ball.y * H;
+    const count = 6;
+    const hues = [330, 280, 200, 160, 60, 0, 320]; // pride + disco
+    for (let i = 0; i < count; i++) {
+      const angle = ball.angle + (i / count) * Math.PI * 2;
+      const dist  = ball.r * (3 + Math.random() * 8);
+      const hue   = hues[Math.floor(Math.random() * hues.length)];
+      flecks.push({
+        x:  bx + Math.cos(angle) * dist,
+        y:  by + Math.sin(angle) * dist,
+        vx: (Math.random() - .5) * .8,
+        vy: (Math.random() - .5) * .5,
+        size: 2 + Math.random() * 5,
+        hue,
+        life: 80 + Math.random() * 120,
+        maxLife: 0,
+      });
+      flecks[flecks.length-1].maxLife = flecks[flecks.length-1].life;
+    }
+  }
+
+  function drawBall(ctx, cx, cy, r, angle) {
+    // Sphere shading
+    const grad = ctx.createRadialGradient(cx - r*.3, cy - r*.3, r*.05, cx, cy, r);
+    grad.addColorStop(0,   'rgba(255,255,255,0.9)');
+    grad.addColorStop(0.3, 'rgba(200,180,220,0.6)');
+    grad.addColorStop(0.7, 'rgba(80,40,100,0.5)');
+    grad.addColorStop(1,   'rgba(20,10,30,0.8)');
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    // Mirror tiles
+    const tileSize = r * .22;
+    const rows = Math.floor(Math.PI * r / tileSize);
+    for (let row = 0; row < rows; row++) {
+      const phi  = (row / rows) * Math.PI;
+      const ry   = Math.sin(phi) * r;
+      const rz   = Math.cos(phi) * r;
+      const circ = Math.abs(ry) * 2;
+      const cols = Math.max(1, Math.floor(circ * Math.PI / tileSize));
+      for (let col = 0; col < cols; col++) {
+        const theta = (col / cols) * Math.PI * 2 + angle;
+        const tx = Math.cos(theta) * ry;
+        const ty = rz;
+        const tsx = cx + tx;
+        const tsy = cy - ty * .85; // slight vertical squeeze
+
+        // Tile colour varies with angle , iridescent
+        const hue = ((theta + angle * 3) * 180 / Math.PI) % 360;
+        const brightness = 0.3 + Math.abs(Math.cos(theta + angle)) * 0.7;
+        const tileAlpha  = 0.4 + brightness * 0.5;
+
+        ctx.fillStyle = `hsla(${hue},80%,${50 + brightness * 30}%,${tileAlpha})`;
+        ctx.fillRect(tsx - tileSize*.4, tsy - tileSize*.4, tileSize*.8, tileSize*.8);
+      }
+    }
+
+    // Specular highlight
+    ctx.beginPath();
+    ctx.arc(cx - r*.3, cy - r*.3, r*.18, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    ctx.fill();
+  }
+
+  let frame = 0;
+  function tick() {
+    if (!document.getElementById('titleScreen')?.classList.contains('active')) {
+      requestAnimationFrame(tick);
+      return;
+    }
+
+    const W = canvas._w || canvas.offsetWidth;
+    const H = canvas._h || canvas.offsetHeight;
+    ctx.clearRect(0, 0, W, H);
+
+    frame++;
+    balls.forEach(b => {
+      b.angle += b.speed;
+      drawBall(ctx, b.x * W, b.y * H, b.r, b.angle);
+      if (frame % 8 === 0) spawnFlecks(b, W, H);
+    });
+
+    // Draw and age flecks
+    flecks = flecks.filter(f => f.life > 0);
+    flecks.forEach(f => {
+      f.x += f.vx;
+      f.y += f.vy;
+      f.life--;
+      const alpha = (f.life / f.maxLife) * 0.7;
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.size * (f.life / f.maxLife), 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${f.hue},100%,75%,${alpha})`;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(tick);
+  }
+  tick();
+}
+
+function initTitleBg() {
+  const canvas = document.getElementById('bgCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const dpr = window.devicePixelRatio || 1;
+  function resize() {
+    canvas.width  = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.scale(dpr, dpr);
+    canvas._lw = window.innerWidth;
+    canvas._lh = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', () => { ctx.setTransform(1,0,0,1,0,0); resize(); });
+
+  // Lava-lamp blobs , visible, saturated, clearly moving
+  const blobs = [
+    { x:.15, y:.25, r:.42, color:'#9d0060', vx:.0018, vy:.0012, wobble:0, wobbleSpeed:.008 },
+    { x:.78, y:.15, r:.35, color:'#2a0066', vx:-.0015, vy:.0020, wobble:1, wobbleSpeed:.006 },
+    { x:.5,  y:.72, r:.50, color:'#5a0088', vx:.0022, vy:-.0016, wobble:2, wobbleSpeed:.010 },
+    { x:.88, y:.62, r:.33, color:'#7a0040', vx:-.0019, vy:-.0018, wobble:3, wobbleSpeed:.007 },
+    { x:.18, y:.78, r:.32, color:'#003a6d', vx:.0016, vy:-.0022, wobble:4, wobbleSpeed:.009 },
+    { x:.62, y:.38, r:.28, color:'#880020', vx:-.0014, vy:.0025, wobble:5, wobbleSpeed:.005 },
+    { x:.35, y:.5,  r:.36, color:'#600090', vx:.0020, vy:.0018, wobble:6, wobbleSpeed:.008 },
+  ];
+
+  // Current round colour influence , starts neutral
+  let roundInfluence = { r:124, g:58, b:237, a:0 };
+
+  // Expose a function to shift the background toward the round colour
+  window.setBgRoundColor = function(hex) {
+    if (!hex) return;
+    const r = parseInt(hex.slice(1,3),16);
+    const g = parseInt(hex.slice(3,5),16);
+    const b = parseInt(hex.slice(5,7),16);
+    // Fade in over ~60 frames
+    let t = 0;
+    const prev = {...roundInfluence};
+    const interval = setInterval(() => {
+      t++;
+      const p = Math.min(t/60, 1);
+      roundInfluence = {
+        r: Math.round(prev.r + (r-prev.r)*p),
+        g: Math.round(prev.g + (g-prev.g)*p),
+        b: Math.round(prev.b + (b-prev.b)*p),
+        a: 0.12,
+      };
+      if (t >= 60) clearInterval(interval);
+    }, 16);
+  };
+
+  let time = 0;
+  let _bgAnimId = null;
+  function draw() {
+    _bgAnimId = requestAnimationFrame(draw);
+    time += 0.008;
+
+    const W = canvas._lw || window.innerWidth;
+    const H = canvas._lh || window.innerHeight;
+
+    // Dark base
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = '#080412';
+    ctx.fillRect(0, 0, W, H);
+
+    // Skip expensive blob rendering when document is hidden or throttle to 30fps
+    if (document.hidden) return;
+    if (Math.round(time * 125) % 2 !== 0) return; // ~30fps for blobs
+
+    blobs.forEach(b => {
+      // Organic ooze movement , sine wave wobble on top of linear drift
+      b.wobble += b.wobbleSpeed;
+      const wobbleX = Math.sin(b.wobble * 1.3) * 0.04;
+      const wobbleY = Math.cos(b.wobble * 0.9) * 0.04;
+
+      b.x += b.vx + wobbleX * 0.01;
+      b.y += b.vy + wobbleY * 0.01;
+
+      // Bounce at edges with some overshoot
+      if (b.x < -.15 || b.x > 1.15) { b.vx *= -1; b.x = Math.max(-.1, Math.min(1.1, b.x)); }
+      if (b.y < -.15 || b.y > 1.15) { b.vy *= -1; b.y = Math.max(-.1, Math.min(1.1, b.y)); }
+
+      const cx = b.x * W + Math.sin(time + b.wobble) * W * 0.08;
+      const cy = b.y * H + Math.cos(time * 0.7 + b.wobble) * H * 0.08;
+      const radius = (b.r + Math.sin(time * 0.5 + b.wobble * 2) * 0.08) * Math.max(W, H);
+
+      const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+      grd.addColorStop(0,    b.color + 'ff');
+      grd.addColorStop(0.3,  b.color + 'aa');
+      grd.addColorStop(0.65, b.color + '44');
+      grd.addColorStop(1,    b.color + '00');
+      ctx.fillStyle = grd;
+      ctx.fillRect(0, 0, W, H);
+    });
+
+    // Round colour accent wash , pulses gently
+    if (roundInfluence.a > 0) {
+      const pulse = 0.6 + Math.sin(time * 1.5) * 0.4;
+      ctx.fillStyle = `rgba(${roundInfluence.r},${roundInfluence.g},${roundInfluence.b},${roundInfluence.a * pulse})`;
+      ctx.fillRect(0, 0, W, H);
+    }
+
+    // Subtle vignette
+    const vgrd = ctx.createRadialGradient(W*.5,H*.5,H*.2,W*.5,H*.5,H*.9);
+    vgrd.addColorStop(0,'rgba(0,0,0,0)');
+    vgrd.addColorStop(1,'rgba(0,0,0,0.55)');
+    ctx.fillStyle = vgrd;
+    ctx.fillRect(0,0,W,H);
+  }
+
+  draw();
+}
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FIREBASE INTEGRATION , host.html
+     This block is the ONLY addition to the original file.
+     ═══════════════════════════════════════════════════════════ -->
+<script type="module">
+import { firebaseConfig } from './firebase-config.js';
+import { initializeApp }   from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  onSnapshot,
+  collection,
+  getDocs,
+  deleteDoc,
+  writeBatch,
+  serverTimestamp
+} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import {
+  getAuth,
+  signInAnonymously
+} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+// ── INIT ─────────────────────────────────────────────────────
+const app = initializeApp(firebaseConfig);
+const db  = getFirestore(app);
+const auth = getAuth(app);
+
+let fbReady       = false;
+let unsubAnswers  = null;   // Firestore listener for live answers
+let currentQKey   = null;   // The question ID string we last published
+
+// Sign in anonymously so host has write access
+signInAnonymously(auth)
+  .then(() => {
+    fbReady = true;
+    setConnStatus(true);
+    startListeningForAnswers();
+  })
+  .catch(err => {
+    setConnStatus(false, err.message);
+  });
+
+// ── CONNECT STATUS ────────────────────────────────────────────
+function setConnStatus(ok, msg) {
+  const el = document.getElementById('fbConnStatus');
+  if (!el) return; // element removed , live answers panel disabled
+  if (ok) {
+    el.textContent = '● connected';
+    el.style.color = 'var(--green)';
+  } else {
+    el.textContent = '● ' + (msg || 'error');
+    el.style.color = 'var(--red)';
+  }
+}
+
+// ── BUILD A STABLE QUESTION KEY ───────────────────────────────
+// Uses round id + question index so it survives page refresh.
+function makeQKey(roundIdx, questionIdx) {
+  const r = (typeof ROUNDS !== 'undefined' && ROUNDS[roundIdx]) ? ROUNDS[roundIdx] : null;
+  const rid = r ? r.id : 'r' + roundIdx;
+  return `${rid}_q${questionIdx}`;
+}
+
+// ── PATCH renderQuestion TO AUTO-PUBLISH ──────────────────────
+// We store a reference to the original function, wrap it, and
+// re-assign on the window. This is the only modification to
+// existing behaviour , no original code is changed.
+const _origRenderQuestion = window.renderQuestion;
+if (typeof _origRenderQuestion === 'function') {
+  window.renderQuestion = function(...args) {
+    _origRenderQuestion.apply(this, args);   // run original first
+    fbAutoPublish();                          // then sync to Firestore
+  };
+}
+
+// Also patch renderAnswer (answer slides) so the phase is broadcast
+const _origRenderAnswer = window.renderAnswer;
+if (typeof _origRenderAnswer === 'function') {
+  window.renderAnswer = function(...args) {
+    _origRenderAnswer.apply(this, args);
+    fbPublishPhase('answers');
+  };
+}
+
+// ── AUTO-PUBLISH CURRENT QUESTION ─────────────────────────────
+function fbAutoPublish() {
+  if (!fbReady) return;
+  // rIdx and qIdx are the existing global state variables in host.html
+  if (typeof rIdx === 'undefined' || rIdx < 0) return;
+  fbPublishQuestion(rIdx, qIdx);
+}
+
+// ── PUBLISH QUESTION TO FIRESTORE ─────────────────────────────
+async function fbPublishQuestion(roundIdx, questionIdx) {
+  if (!fbReady) return;
+
+  const r = ROUNDS[roundIdx];
+  const q = r.questions[questionIdx];
+  const qKey = makeQKey(roundIdx, questionIdx);
+
+  // Don't re-publish if question hasn't changed
+  if (qKey === currentQKey) return;
+  currentQKey = qKey;
+
+  // Strip answer/note , teams should not see those
+  const safeMultiChoice = (q.multiChoice || []).map(o =>
+    o.replace(/ ← CORRECT/g, '').replace(/ ← NOT REAL/g, '')
+  );
+
+  try {
+    await setDoc(doc(db, 'game', 'state'), {
+      questionId:   qKey,
+      roundIdx:     roundIdx,
+      questionIdx:  questionIdx,
+      roundBadge:   r.badge,
+      roundName:    r.name,
+      questionNum:  questionIdx + 1,
+      questionText: q.question,
+      multiChoice:  safeMultiChoice,
+      locked:       false,
+      phase:        'question',
+      updatedAt:    serverTimestamp()
+    });
+
+    // Re-attach answers listener for this new question
+    startListeningForAnswers(qKey);
+
+    // Reset UI
+    if(document.getElementById('lockBtn')) document.getElementById('lockBtn').style.display='';
+    if(document.getElementById('unlockBtn')) document.getElementById('unlockBtn').style.display='none';
+    setAnswerList([]);
+
+  } catch (err) {
+    console.error('fbPublishQuestion error:', err);
+    setConnStatus(false, err.message);
+  }
+}
+
+// ── PUBLISH PHASE ONLY (for answer slides) ────────────────────
+async function fbPublishPhase(phase) {
+  if (!fbReady) return;
+  try {
+    await setDoc(doc(db, 'game', 'state'), { phase }, { merge: true });
+  } catch (e) { /* silent */ }
+}
+
+// ── MANUAL PUSH BUTTON ────────────────────────────────────────
+// Exposed to onclick in HTML
+window.fbPublishCurrent = function() {
+  if (typeof rIdx === 'undefined' || rIdx < 0) {
+    alert('Navigate to a question first, then click PUSH CURRENT Q.');
+    return;
+  }
+  currentQKey = null; // force re-publish
+  fbPublishQuestion(rIdx, qIdx);
+};
+
+// ── LOCK / UNLOCK ─────────────────────────────────────────────
+window.fbLockQuestion = async function() {
+  if (!fbReady) return;
+  try {
+    await setDoc(doc(db, 'game', 'state'), { locked: true }, { merge: true });
+    if(document.getElementById('lockBtn')) document.getElementById('lockBtn').style.display='none';
+    if(document.getElementById('unlockBtn')) document.getElementById('unlockBtn').style.display='';
+  } catch (err) { alert('Lock failed: ' + err.message); }
+};
+
+window.fbUnlockQuestion = async function() {
+  if (!fbReady) return;
+  try {
+    await setDoc(doc(db, 'game', 'state'), { locked: false }, { merge: true });
+    if(document.getElementById('lockBtn')) document.getElementById('lockBtn').style.display='';
+    if(document.getElementById('unlockBtn')) document.getElementById('unlockBtn').style.display='none';
+  } catch (err) { alert('Unlock failed: ' + err.message); }
+};
+
+// ── CLEAR ANSWERS ─────────────────────────────────────────────
+window.fbClearAnswers = async function() {
+  if (!fbReady || !currentQKey) return;
+  if (!confirm('Clear all submitted answers for this question?')) return;
+
+  try {
+    const answersRef = collection(db, 'game', 'answers', currentQKey);
+    const snap = await getDocs(answersRef);
+    const batch = writeBatch(db);
+    snap.forEach(d => batch.delete(d.ref));
+    await batch.commit();
+    setAnswerList([]);
+  } catch (err) { alert('Clear failed: ' + err.message); }
+};
+
+// ── LISTEN FOR ANSWERS ────────────────────────────────────────
+function startListeningForAnswers(qKey) {
+  if (unsubAnswers) { unsubAnswers(); unsubAnswers = null; }
+  const key = qKey || currentQKey;
+  if (!key) return;
+
+  unsubAnswers = onSnapshot(
+    collection(db, 'game', 'answers', key),
+    snap => {
+      const answers = [];
+      snap.forEach(d => answers.push({ id: d.id, ...d.data() }));
+      setAnswerList(answers);
+    },
+    err => console.error('Answers listener error:', err)
+  );
+}
+
+// ── RENDER ANSWER LIST ────────────────────────────────────────
+function setAnswerList(answers) {
+  const container = document.getElementById('liveAnswersList');
+  const summary   = document.getElementById('answerSummary');
+  if (!container) return; // live answers panel removed
+
+  if (!answers.length) {
+    container.innerHTML =
+      '<p style="font-size:.78rem;color:var(--textDim)">No answers yet.</p>';
+    if (summary) summary.textContent = '';
+    return;
+  }
+
+  // Sort by submission time if available
+  const sorted = [...answers].sort((a, b) => {
+    const ta = a.submittedAt?.toMillis?.() || 0;
+    const tb = b.submittedAt?.toMillis?.() || 0;
+    return ta - tb;
+  });
+
+  container.innerHTML = sorted.map((a, i) => `
+    <div style="
+      background:var(--surface2);
+      border:1px solid var(--border);
+      border-radius:var(--rsm);
+      padding:.55rem .75rem;
+      display:flex;flex-direction:column;gap:.25rem;
+    ">
+      <div style="
+        font-family:var(--font-d);font-size:.68rem;font-weight:700;
+        color:var(--accent);letter-spacing:.05em;
+        white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      ">${escHtml(a.teamName || 'Team ' + (i+1))}</div>
+      <div style="
+        font-size:.85rem;color:var(--text);line-height:1.4;
+        word-break:break-word;
+      ">${escHtml(a.answer || '')}</div>
+    </div>
+  `).join('');
+
+  if (summary) summary.textContent = `${answers.length} answer${answers.length===1?'':'s'} received`;
+}
+
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+</script>
+
+
+</body>
+</html>
