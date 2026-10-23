@@ -38,9 +38,9 @@ const ROUNDS = [
   {
     "id": "nanana",
     "name": "NAME THAT NANANA",
-    "subname": "Na na na na na",
+    "subname": "",
     "badge": "ROUND 1",
-    "format": "Play only the na-na-na hook. Name the song.",
+    "format": "Guess the song and artist",
     "hostNote": "Play only the na-na-na hook, let them write, then reveal. Don't say anything before the clip plays.",
     "questions": [
       {
@@ -72,7 +72,7 @@ const ROUNDS = [
       {
         "question": "",
         "mediaType": "audio",
-        "mediaSrc": "yt:9rlNpWYQunY:224",
+        "mediaSrc": "yt:9rlNpWYQunY:214",
         "answer": "Rich Girl",
         "answerSubline": "Gwen Stefani featuring Eve · 2004",
         "answerImg": "r1q3_a.jpg",
@@ -113,9 +113,9 @@ const ROUNDS = [
   {
     "id": "bround",
     "name": "THE B ROUND",
-    "subname": "Every answer starts with B",
+    "subname": "",
     "badge": "ROUND 2",
-    "format": "Every answer starts with B. Say it twice before you start.",
+    "format": "Every answer starts with B",
     "hostNote": "Say it twice before starting. Every single answer starts with B.",
     "questions": [
       {
@@ -188,9 +188,9 @@ const ROUNDS = [
   {
     "id": "chronicallyonline",
     "name": "CHRONICALLY ONLINE",
-    "subname": "The internet and online culture",
+    "subname": "",
     "badge": "ROUND 3",
-    "format": "Internet culture, easy to hard. Some open, some multiple choice.",
+    "format": "Test your internet lore",
     "hostNote": "High energy round. The room will either know these immediately or be delighted to learn them.",
     "questions": [
       {
@@ -282,9 +282,9 @@ const ROUNDS = [
   {
     "id": "survival",
     "name": "SURVIVAL",
-    "subname": "Practical questions",
+    "subname": "",
     "badge": "ROUND 4",
-    "format": "Practical questions, some multiple choice.",
+    "format": "Are you apocalypse ready?",
     "hostNote": "Practical round. Let the table argue before you reveal.",
     "questions": [
       {
@@ -369,9 +369,9 @@ const ROUNDS = [
   {
     "id": "food",
     "name": "FOOD",
-    "subname": "What's on the plate",
+    "subname": "",
     "badge": "ROUND 5",
-    "format": "Mixed, easy to hard.",
+    "format": "What's actually on your plate?",
     "hostNote": "Easy to hard. The wasabi and Hawaiian pizza answers get the best reactions.",
     "questions": [
       {
@@ -453,10 +453,10 @@ const ROUNDS = [
   },
   {
     "id": "nepo",
-    "name": "NAME THE NEPO PARENTS",
-    "subname": "Famous families",
+    "name": "NEPO BABIES",
+    "subname": "",
     "badge": "ROUND 6",
-    "format": "I name the actor. You name the famous parents.",
+    "format": "Name the famous parent(s)",
     "hostNote": "Show the actor, let them write the parents. The answer photo shows the family resemblance.",
     "questions": [
       {
@@ -529,9 +529,9 @@ const ROUNDS = [
   {
     "id": "space",
     "name": "OUTER SPACE",
-    "subname": "Planets, probes and money",
+    "subname": "",
     "badge": "ROUND 7",
-    "format": "One classic, four from this year.",
+    "format": "Test your space knowledge",
     "hostNote": "One classic, then modern space.",
     "questions": [
       {
@@ -618,7 +618,7 @@ const ROUNDS = [
   {
     "id": "geography",
     "name": "GEOGRAPHY",
-    "subname": "Maps, flags and coastlines",
+    "subname": "",
     "badge": "ROUND 8",
     "format": "Mixed, easy to hard.",
     "hostNote": "Easy to hard. Let them guess the Dead Sea figure before the options.",
@@ -700,9 +700,9 @@ const ROUNDS = [
   {
     "id": "pets",
     "name": "PETS",
-    "subname": "Cats, dogs and hamsters",
+    "subname": "",
     "badge": "ROUND 9",
-    "format": "Mixed, easy to hard.",
+    "format": "We love pets but do we *know* them",
     "hostNote": "Easy to hard. The cat and dog biology answers surprise people.",
     "questions": [
       {
@@ -780,7 +780,7 @@ const ROUNDS = [
   {
     "id": "currentevents",
     "name": "CURRENT EVENTS",
-    "subname": "January to July 2026",
+    "subname": "",
     "badge": "ROUND 10",
     "format": "Wager round. Set your multiplier before the round begins. Every right answer earns you multiplier points. Every wrong answer costs you the same.",
     "hostNote": "Collect multipliers on the declaration slide before questions begin. All five questions cover events from 2026.",
@@ -856,9 +856,9 @@ const ROUNDS = [
     "id": "doubledown",
     "name": "PLEASE SIR",
     "navName": "P.S.M.I.H.S.M.",
-    "subname": "MAY I HAVE SOME MORE?",
+    "subname": "",
     "badge": "BONUS",
-    "format": "Bonus questions and tie breakers. Does not count toward the score.",
+    "format": "Bonus questions and tie breakers.",
     "hostNote": "Quick-fire bonus round. Each answer reveals right after its question, no batching. Play only if time allows.",
     "questions": [
       {
@@ -2171,7 +2171,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .rnav-card:hover{transform:translateY(-3px);border-color:var(--card-accent);background:#15151c;box-shadow:0 12px 40px -12px color-mix(in srgb,var(--card-accent) 55%,transparent)}
 .rnav-badge{font-family:var(--font-b);font-weight:500;font-size:.8rem;letter-spacing:.24em;color:var(--card-accent)}
 .rnav-label{font-family:var(--font-d);font-weight:800;font-size:clamp(1.35rem,1.9vw,1.9rem);line-height:1.02;letter-spacing:-.02em;text-transform:uppercase;color:#fff;margin:.3rem 0}
-.rnav-sub{font-family:var(--font-b);font-size:clamp(.85rem,1vw,.98rem);color:#9a9aae;line-height:1.3;min-height:1.3em}
+.rnav-sub{display:none}
 .rnav-pts{font-family:var(--font-b);font-weight:500;font-size:.78rem;color:#6d6d80;margin-top:.5rem;letter-spacing:.1em;text-transform:uppercase}
 .rnav-menu-foot{font-family:var(--font-b);color:#6d6d80;letter-spacing:.2em;font-size:.8rem}
 @media (max-width:900px){.rnav-card{flex-basis:calc(50% - .6rem)}}
@@ -2238,7 +2238,7 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
 .btn-ghost{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.2)}
 .q-pill,.ans-pill,.ri-badge{background:rgba(255,255,255,.06)}
 .q-prog{background:rgba(255,255,255,.1)}
-.ans-note,.ans-sub,.rnav-sub{color:#d2d2e2}
+.ans-note,.ans-sub{color:#d2d2e2}
 @media (prefers-reduced-motion:reduce){body::before{animation:none}}
 </style>
   <!-- YouTube IFrame API -->
@@ -2322,7 +2322,7 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
   <!-- MULTIPLIER DECLARATION SCREEN -->
   <div id="multiplierScreen" class="screen">
     <div class="mx-inner">
-      <p class="mx-eyebrow">CURRENT EVENTS — WAGER ROUND</p>
+      <p class="mx-eyebrow">CURRENT EVENTS: WAGER ROUND</p>
       <h2 class="mx-title">SET YOUR MULTIPLIER</h2>
       <p class="mx-sub">Minimum ×1. Every right answer earns you your multiplier in points. Every wrong answer costs you the same. Choose wisely.</p>
       <div class="mx-grid" id="mxGrid"></div>
@@ -2459,7 +2459,7 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
   <div class="hp-body">
     <div class="hp-note"><strong>HOST NOTE:</strong> <span id="hpNote">Select a round to begin.</span></div>
     <div style="margin-bottom:.75rem">
-      <button class="hbtn hbtn-a" onclick="showFinalScores()">🏆 FINISH GAME — REVEAL WINNER</button>
+      <button class="hbtn hbtn-a" onclick="showFinalScores()">🏆 FINISH GAME: REVEAL WINNER</button>
     </div>
     <div class="hp-row">
       <div class="hp-col">
@@ -2708,7 +2708,7 @@ function selectRound(idx) {
       sub.style.display = 'none';
     }
   }
-  setEl('riFormat','textContent', r.format);
+  {const fe=document.getElementById('riFormat'); if(fe) fe.innerHTML=String(r.format||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\*([^*]+)\*/g,'<em>$1</em>');}
 
   // Round number watermark in background , extract number from badge (e.g. "ROUND 6" → "06")
   const numBg = document.getElementById('riNumberBg');
@@ -3288,7 +3288,7 @@ let _wrTeams = [];
 let _wrIdx = 0;
 
 function showFinalScores(){
-  if(!teams.length){ alert('No teams yet — add teams first.'); return; }
+  if(!teams.length){ alert('No teams yet. Add teams first.'); return; }
   rIdx = -1; // Clear round context so multiplier doesn't apply
   // Sort descending and take top 3
   _wrTeams = [...teams].sort((a,b) => b.score - a.score).slice(0,3);
