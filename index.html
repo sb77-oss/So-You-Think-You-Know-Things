@@ -49,9 +49,9 @@ const ROUNDS = [
         "mediaSrc": "yt:9Ht5RZpzPqw:49",
         "answer": "All the Small Things",
         "answerSubline": "Blink-182 · 1999",
-        "answerImg": "r1q1_a.jpg",
-        "answerMedia": "",
-        "answerMediaType": "",
+        "answerImg": "",
+        "answerMedia": "yt:9Ht5RZpzPqw:49",
+        "answerMediaType": "video",
         "note": "• Mark Hoppus wrote it for his girlfriend, Skye, late in the sessions, after the label asked for a radio single.\n• The video spoofs the boy band videos of the day. The Backstreet Boys and NSYNC are among the targets.",
         "multiChoice": [],
         "source": ""
@@ -62,9 +62,9 @@ const ROUNDS = [
         "mediaSrc": "yt:Sv6dMFF_yts:153",
         "answer": "We Are Young",
         "answerSubline": "fun. featuring Janelle Monáe · 2012",
-        "answerImg": "r1q2_a.jpg",
-        "answerMedia": "",
-        "answerMediaType": "",
+        "answerImg": "",
+        "answerMedia": "yt:Sv6dMFF_yts:153",
+        "answerMediaType": "video",
         "note": "• A Chevrolet ad during the 2012 Super Bowl and a Glee cover pushed it to number one on the Billboard Hot 100.\n• It won the Grammy for Song of the Year in 2013.",
         "multiChoice": [],
         "source": ""
@@ -75,9 +75,9 @@ const ROUNDS = [
         "mediaSrc": "yt:9rlNpWYQunY:223",
         "answer": "Rich Girl",
         "answerSubline": "Gwen Stefani featuring Eve · 2004",
-        "answerImg": "r1q3_a.jpg",
-        "answerMedia": "",
-        "answerMediaType": "",
+        "answerImg": "",
+        "answerMedia": "yt:9rlNpWYQunY:223",
+        "answerMediaType": "video",
         "note": "• The hook borrows from \"If I Were a Rich Man,\" from Fiddler on the Roof, by way of a 1990s reggae version by Louchie Lou and Michie One.\n• Fiddler on the Roof opened on Broadway in 1964, with songs by Jerry Bock and Sheldon Harnick.",
         "multiChoice": [],
         "source": ""
@@ -88,9 +88,9 @@ const ROUNDS = [
         "mediaSrc": "yt:v12drFTUKIc:115",
         "answer": "Na Na Na",
         "answerSubline": "One Direction · 2011",
-        "answerImg": "r1q4_a.jpg",
-        "answerMedia": "",
-        "answerMediaType": "",
+        "answerImg": "",
+        "answerMedia": "yt:v12drFTUKIc:115",
+        "answerMediaType": "video",
         "note": "• It was the B-side to their debut single, \"What Makes You Beautiful.\"\n• Savan Kotecha co-wrote both songs.",
         "multiChoice": [],
         "source": ""
@@ -101,9 +101,9 @@ const ROUNDS = [
         "mediaSrc": "yt:mQER0A0ej0M:203",
         "answer": "Hey Jude",
         "answerSubline": "The Beatles · 1968",
-        "answerImg": "r1q5_a.jpg",
-        "answerMedia": "",
-        "answerMediaType": "",
+        "answerImg": "",
+        "answerMedia": "yt:mQER0A0ej0M:203",
+        "answerMediaType": "video",
         "note": "• Paul McCartney wrote it to comfort John Lennon's son Julian during his parents' divorce. The working title was \"Hey Jules.\"\n• The na-na-na coda runs about four minutes of a seven minute single, which was very long for 1968 radio.",
         "multiChoice": [],
         "source": ""
@@ -2196,6 +2196,19 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .sc-name{font-family:var(--font-d);font-weight:700;text-transform:none;letter-spacing:0}
 .wr-name{font-family:var(--font-d)!important;font-weight:800!important;text-transform:uppercase}
 
+.roundup-grid{gap:1.2vh!important}
+.roundup-row{grid-template-columns:1.35fr 1.65fr!important;gap:2.2vw!important;padding:1vh 2vw!important}
+.roundup-row.has-thumb{grid-template-columns:1.25fr 1.35fr minmax(0,.8fr)!important}
+.roundup-q{font-size:clamp(.85rem,1.45vw,1.35rem)!important;-webkit-line-clamp:4!important;line-height:1.35!important}
+.roundup-q-num{font-size:clamp(.75rem,1.1vw,1rem)!important}
+.roundup-a{font-size:clamp(1.3rem,2.9vw,2.8rem)!important;line-height:1.05!important}
+.roundup-a-sub{font-size:clamp(.8rem,1.3vw,1.2rem)!important;margin-top:.35em!important}
+.roundup-row-pts{font-size:clamp(.65rem,.9vw,.85rem)!important}
+.roundup-thumb{height:100%;display:flex;align-items:center;justify-content:flex-end;min-height:0}
+.roundup-thumb img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,.16)}
+.roundup-thumb .rt-stat{font-family:var(--font-d);font-weight:800;font-size:clamp(1.6rem,3.4vw,3.4rem);color:var(--round-color);letter-spacing:-.02em}
+.q-media-wrap:has(>img),.ans-media-wrap:has(>img){width:fit-content!important;max-width:100%;margin-inline:auto;padding:0!important}
+.q-media-wrap>img,.ans-media-wrap>img{width:auto!important;height:auto;max-width:100%;max-height:62vh;min-height:36vh;object-fit:contain;display:block}
 /* ═══ GLASS LAYER ═══ */
 #stage,.screen,#winnerRevealScreen{background:transparent!important}
 #titleBg{opacity:.55}
@@ -2833,7 +2846,8 @@ function showRoundup() {
         <div class="roundup-a">${esc(ansText)}</div>
         ${subText ? `<div class="roundup-a-sub">${esc(subText)}</div>` : ''}
         <div class="roundup-row-pts">${'1 PT'}</div>
-      </div>`;
+      </div>${(q.answerStat||q.answerImg)?`<div class="roundup-thumb">${q.answerStat?`<span class="rt-stat">${esc(q.answerStat)}</span>`:`<img src="${q.answerImg}" alt="" onerror="this.parentElement.style.display='none'">`}</div>`:''}`;
+    if (q.answerStat||q.answerImg) row.classList.add('has-thumb');
     grid.appendChild(row);
   });
 
