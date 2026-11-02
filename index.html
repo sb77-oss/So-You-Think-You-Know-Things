@@ -299,6 +299,24 @@ const ROUNDS = [
         "source": ""
       },
       {
+        "question": "You may have just been exposed to radiation. You shower to decontaminate. Which product should you avoid?",
+        "mediaType": "none",
+        "mediaSrc": "",
+        "answer": "C: Conditioner",
+        "answerSubline": "CDC decontamination guidance",
+        "answerImg": "",
+        "answerMedia": "",
+        "answerMediaType": "",
+        "note": "• Conditioner coats the hair and makes radioactive particles stick to it.\n• Removing outer clothing is the first step. The CDC says it can remove up to 90 percent of contamination.\n• Wash gently. Scrubbing can break the skin, and broken skin lets contamination in, so shaving is best skipped too.",
+        "multiChoice": [
+          "A) Shampoo",
+          "B) Body wash",
+          "C) Conditioner ← CORRECT",
+          "D) Bar soap"
+        ],
+        "source": ""
+      },
+      {
         "question": "Oh no! A rip current is pulling you away from the beach! What do you do?",
         "mediaType": "none",
         "mediaSrc": "",
@@ -327,24 +345,6 @@ const ROUNDS = [
         "answerMediaType": "",
         "note": "• Hypothermia begins when core body temperature drops below 35 degrees Celsius.\n• Wind and wet clothing take heat away faster than most people expect.",
         "multiChoice": [],
-        "source": ""
-      },
-      {
-        "question": "You may have just been exposed to radiation. You shower to decontaminate. Which product should you avoid?",
-        "mediaType": "none",
-        "mediaSrc": "",
-        "answer": "C: Conditioner",
-        "answerSubline": "CDC decontamination guidance",
-        "answerImg": "",
-        "answerMedia": "",
-        "answerMediaType": "",
-        "note": "• Conditioner coats the hair and makes radioactive particles stick to it.\n• Removing outer clothing is the first step. The CDC says it can remove up to 90 percent of contamination.\n• Wash gently. Scrubbing can break the skin, and broken skin lets contamination in, so shaving is best skipped too.",
-        "multiChoice": [
-          "A) Shampoo",
-          "B) Body wash",
-          "C) Conditioner ← CORRECT",
-          "D) Bar soap"
-        ],
         "source": ""
       },
       {
@@ -2469,7 +2469,7 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
     <span class="hp-arrow">▲</span>
   </div>
   <div class="hp-body">
-    <div class="hp-note"><strong>HOST NOTE:</strong> <span id="hpNote">Select a round to begin.</span></div>
+    <span id="hpNote" style="display:none"></span>
     <div style="margin-bottom:.75rem">
       <button class="hbtn hbtn-a" onclick="showFinalScores()">🏆 FINISH GAME: REVEAL TOP 3</button>
       <button class="hbtn hbtn-a" onclick="showHalftimeIntro()">⏸ HALFTIME STANDINGS</button>
