@@ -2123,6 +2123,15 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   color:#08080b;background:#fff;border:0;border-radius:999px;padding:1rem 2.8rem;box-shadow:0 0 0 0 rgba(255,255,255,0);transition:transform .2s,box-shadow .2s}
 .title-btn::before{display:none!important}
 .title-btn:hover{color:#08080b;transform:translateY(-2px);box-shadow:0 0 0 6px rgba(255,61,139,.35)}
+
+/* PRESS START title button */
+@keyframes psGlow{0%,100%{text-shadow:0 0 14px rgba(255,61,139,.7),0 0 34px rgba(124,58,237,.4);opacity:1}50%{text-shadow:0 0 26px rgba(255,61,139,1),0 0 60px rgba(124,58,237,.7);opacity:.82}}
+.title-btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:.8rem;color:#fff;font-family:var(--font-d);font-weight:800;text-transform:uppercase;letter-spacing:.35em;font-size:clamp(1.4rem,2.6vw,2.2rem);padding:.6rem 1.5rem;white-space:nowrap}
+.title-btn span{animation:psGlow 1.8s ease-in-out infinite}
+.title-btn::before{display:none!important}
+.title-btn::after{display:block!important;content:'or press Enter';font-family:var(--font-b);font-weight:500;font-size:.8rem;letter-spacing:.3em;color:rgba(255,255,255,.7)}
+.title-btn:hover{color:#fff;transform:scale(1.05);box-shadow:none}
+.title-btn:focus-visible{outline:2px solid rgba(255,61,139,.8);outline-offset:6px;border-radius:8px}
 .sara-credit{color:rgba(255,255,255,.4)!important}
 
 /* headings */
@@ -2301,7 +2310,7 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
       <h1 class="title-main" id="titleMain">SO YOU THINK<br>YOU KNOW THINGS</h1>
       <p class="title-season">SEASON IV</p>
       <div class="title-rule"></div>
-      <button class="title-btn" id="letsGoBtn" onclick="fireworksThenNav()"><span>LET'S GOOOOOOO</span></button>
+      <button class="title-btn" id="letsGoBtn" onclick="fireworksThenNav()"><span>▶ PRESS TO START</span></button>
     </div>
   </div>
 
@@ -2639,7 +2648,15 @@ function unlockAudio(){
   try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); ctx.resume().then(() => ctx.close()); } catch(e){}
 }
 
+
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Enter'||e.repeat) return;
+  const t=document.getElementById('titleScreen');
+  if(t && t.classList.contains('active') && !window._titleLaunched){ window._titleLaunched=true; e.preventDefault(); fireworksThenNav(); }
+});
+
 function fireworksThenNav() {
+  window._titleLaunched=true;
   unlockAudio();
   setTimeout(() => sfxPlay('letsGo'), 80);
   launchFireworks();
