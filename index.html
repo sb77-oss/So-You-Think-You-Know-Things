@@ -3754,21 +3754,40 @@ window.onYouTubeIframeAPIReady = function() {
           _ytPending = null;
         }
       },
+      onError: function(e) {
+        window._ytErr = e.data;
+        const msg = (e.data===101||e.data===150) ? 'THIS VIDEO BLOCKS EMBEDDING, USE A DIFFERENT VIDEO ID' : 'AUDIO ERROR ' + e.data + ', PRESS THE PLAY BUTTON';
+        console.warn('YT error', e.data, window._ytWant);
+        ytToast(msg);
+      },
       onStateChange: function(e) {
-        // When video ends or is paused externally, do nothing
+        if (e.data === YT.PlayerState.PLAYING) window._ytErr = null;
       }
     }
   });
 };
 
-function ytPlayFrom(videoId, startSeconds) {
+function ytToast(msg){
+  let t=document.getElementById('ytToast');
+  if(!t){ t=document.createElement('div'); t.id='ytToast';
+    t.style.cssText='position:fixed;left:50%;bottom:150px;transform:translateX(-50%);z-index:99999;background:rgba(20,10,30,.92);border:1px solid #ff3d8b;color:#fff;font:600 .9rem var(--font-b,sans-serif);letter-spacing:.08em;padding:.7rem 1.2rem;border-radius:10px;pointer-events:none;transition:opacity .4s';
+    document.body.appendChild(t); }
+  t.textContent=msg; t.style.opacity='1';
+  clearTimeout(t._h); t._h=setTimeout(()=>{ t.style.opacity='0'; },6000);
+}
+window._ytWant = null;
+function ytPlayFrom(videoId, startSeconds, _retry) {
   if (window._masterPaused) { _ytPending = null; return; }
   if (window._ytFadeTimer) { clearInterval(window._ytFadeTimer); window._ytFadeTimer = null; try{ _ytPlayer.setVolume(70);}catch(e){} }
+  window._ytWant = { videoId, startSeconds: startSeconds || 0 };
   if (!_ytReady || !_ytPlayer) {
     _ytPending = { videoId, startSeconds: startSeconds || 0 };
+    clearTimeout(window._ytReadyWarn);
+    window._ytReadyWarn = setTimeout(() => { if (!_ytReady) ytToast('AUDIO PLAYER NOT LOADED, CHECK INTERNET'); }, 5000);
     return;
   }
   try {
+    try { _ytPlayer.stopVideo(); } catch(e){}
     _ytPlayer.loadVideoById({
       videoId,
       startSeconds: startSeconds || 0,
@@ -3777,8 +3796,24 @@ function ytPlayFrom(videoId, startSeconds) {
     _ytPlayer.mute();
     _ytPlayer.playVideo();
     setTimeout(() => {
+      if (!window._ytWant || window._ytWant.videoId !== videoId) return;
       try { _ytPlayer.unMute(); _ytPlayer.setVolume(70); } catch(e){}
     }, 300);
+    // Verify: right song, and actually playing. Retry once if not.
+    clearTimeout(window._ytVerify);
+    window._ytVerify = setTimeout(() => {
+      const w = window._ytWant;
+      if (!w || w.videoId !== videoId || window._masterPaused) return;
+      try {
+        const st = _ytPlayer.getPlayerState();
+        const cur = (_ytPlayer.getVideoData() || {}).video_id;
+        const ok = (st === YT.PlayerState.PLAYING || st === YT.PlayerState.BUFFERING) && cur === videoId;
+        if (!ok) {
+          if (!_retry) ytPlayFrom(videoId, startSeconds, true);
+          else if (!window._ytErr) ytToast('AUDIO DID NOT START, PRESS THE PLAY BUTTON');
+        }
+      } catch(e) {}
+    }, 2200);
   } catch(e) { console.warn('YT play error:', e); }
 }
 
