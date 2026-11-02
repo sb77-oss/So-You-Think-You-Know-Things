@@ -2252,6 +2252,20 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
 .pd-name{font-family:var(--font-d);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(1.8rem,4.6vw,4rem);line-height:1}
 .pd-pts{font-size:clamp(.9rem,1.6vw,1.4rem);color:rgba(255,255,255,.45);letter-spacing:.05em}
 .pd-1 .pd-name{color:#f59e0b}.pd-2 .pd-name{color:#d1d5db}.pd-3 .pd-name{color:#cd7f32}
+
+/* ── LEAVE MODAL / M HINT / ROUND-UP NOTE ── */
+#leaveModal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;background:rgba(6,5,12,.82);backdrop-filter:blur(8px)}
+#leaveModal.open{display:flex}
+.lm-card{display:flex;flex-direction:column;align-items:center;gap:1.1rem;padding:3.2rem 4rem;border-radius:28px;background:rgba(18,16,30,.92);border:1px solid rgba(255,255,255,.14);text-align:center;max-width:min(560px,90vw)}
+.lm-eyebrow{font-family:var(--font-b);font-weight:500;letter-spacing:.3em;text-transform:uppercase;font-size:.75rem;color:var(--round-color,#ff2e93);margin:0}
+.lm-title{font-family:var(--font-d);font-weight:800;text-transform:uppercase;letter-spacing:-.025em;color:#fff;font-size:clamp(1.8rem,3.4vw,3rem);margin:0;line-height:1}
+.lm-sub{color:rgba(255,255,255,.6);margin:0;font-size:1rem}
+.lm-btns{display:flex;gap:.9rem;margin-top:.8rem}
+#mHint{position:fixed;left:50%;bottom:118px;transform:translateX(-50%);z-index:40;display:none;pointer-events:none;font-family:var(--font-b);font-weight:500;font-size:.68rem;letter-spacing:.3em;color:rgba(255,255,255,.5);padding:.35rem .9rem;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(8,8,12,.55)}
+#mHint.show{display:block}
+.roundup-note{flex:1;text-align:center;font-family:var(--font-b);font-weight:500;letter-spacing:.22em;text-transform:uppercase;font-size:clamp(.62rem,.95vw,.85rem);color:rgba(255,255,255,.6);margin:0 1.5vw}
+.roundup-note:not(:empty)~.roundup-label{flex-shrink:0}
+.roundup-note.wager{color:var(--round-color,#ff2e93)}
 </style>
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
@@ -2408,6 +2422,7 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
     <div class="roundup-header">
       <span class="roundup-title" id="roundupPill"></span>
       <span class="roundup-pts-badge" id="roundupPts"></span>
+      <span class="roundup-note" id="roundupNote"></span>
       <span class="roundup-label">ANSWER ROUND-UP</span>
     </div>
     <div class="roundup-grid" id="roundupGrid"></div>
@@ -2453,13 +2468,25 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
       <button class="btn btn-violet" onclick="showRoundNav()">ROUNDS</button>
       <button class="btn btn-ghost" id="masterAudioBtn" onclick="masterAudioToggle()" title="Pause or resume ALL audio and video (M)">&#9208; AUDIO</button>
       <button class="btn btn-ghost" id="clockToggleBtn" onclick="toggleClock()" title="Start/stop question timer">⏱ 0:00</button>
-      <button class="btn btn-ghost" onclick="showScreen('titleScreen'); sfxStopLoop();">HOME</button>
+      <button class="btn btn-ghost" onclick="openLeaveModal()">HOME</button>
       <button class="btn btn-primary" onclick="navigate(1)">NEXT →</button>
     </div>
   </div>
 
 </main>
 
+<div id="leaveModal" aria-hidden="true">
+  <div class="lm-card">
+    <p class="lm-eyebrow">hold on</p>
+    <h2 class="lm-title">LEAVE THE GAME?</h2>
+    <p class="lm-sub">This takes you back to the title screen.</p>
+    <div class="lm-btns">
+      <button class="btn btn-primary" onclick="closeLeaveModal()">STAY</button>
+      <button class="btn btn-ghost" onclick="confirmLeave()">LEAVE</button>
+    </div>
+  </div>
+</div>
+<div id="mHint">PRESS M TO PAUSE AUDIO</div>
 <div class="sara-credit">sara behar</div>
 
 <!-- HOST PANEL -->
@@ -2806,7 +2833,7 @@ function navigate(dir) {
       if (qIdx>0) { qIdx--; renderQuestion(); }
     }
   } else if (mode==='roundupView') {
-    if (dir>0) { completedRounds.add(rIdx); buildRnavGrid(); afterRound(); }
+    if (dir>0) { const _was=completedRounds.has(rIdx); completedRounds.add(rIdx); buildRnavGrid(); afterRound(_was); }
     else { aIdx = ROUNDS[rIdx].questions.length - 1; showScreen('answerView'); renderAnswer(); }
   } else if (mode==='answerView') {
     if (dir>0) {
@@ -4407,11 +4434,15 @@ function toggleScoresHidden(){ setScoresHidden(!window.scoresHidden); }
 const _tpOrig=window.togglePanel;
 window.togglePanel=function(){ _tpOrig(); if(!panelOpen) setScoresHidden(true); };
 
-function afterRound(){
+let _halfShown=false, _finalShown=false;
+function afterRound(was){
   const id=ROUNDS[rIdx]&&ROUNDS[rIdx].id;
-  if(id==='food') showHalftimeIntro();
-  else if(id==='currentevents') showFinalIntro();
-  else showRoundNav();
+  if(id==='doubledown' || was){ showRoundNav(); return; }
+  const scored=ROUNDS.map((r,i)=>[r,i]).filter(x=>x[0].id!=='doubledown').map(x=>x[1]);
+  const done=scored.filter(i=>completedRounds.has(i)).length;
+  if(done===scored.length && !_finalShown){ showFinalIntro(); return; }
+  if(done===5 && !_halfShown){ showHalftimeIntro(); return; }
+  showRoundNav();
 }
 function _fsSet(eyebrow,title,sub,btn,fn){
   document.getElementById('fsEyebrow').textContent=eyebrow;
@@ -4423,7 +4454,8 @@ function _fsSet(eyebrow,title,sub,btn,fn){
 }
 function showHalftimeIntro(){
   if(!teams.length){ alert('No teams yet. Add teams first.'); return; }
-  _fsSet('halftime','HALFTIME','Pens down. Add up your points from Rounds 1 to 5.','SHOW STANDINGS →',showHalftimeStandings);
+  _halfShown=true;
+  _fsSet('halftime','HALFTIME','Pens down. Add up your points so far.','SHOW STANDINGS →',showHalftimeStandings);
 }
 function showHalftimeStandings(){
   showScreen('lbScreen');
@@ -4434,6 +4466,7 @@ function showHalftimeStandings(){
 }
 function showFinalIntro(){
   if(!teams.length){ alert('No teams yet. Add teams first.'); return; }
+  _finalShown=true;
   rIdx=-1;
   _fsSet('end of game','FINAL SCORES','Pens down. Pass your answer sheet to the team on your left.','REVEAL TOP 3 →',startWinnerReveal);
 }
@@ -4473,6 +4506,45 @@ document.addEventListener('keydown',e=>{
   }
 },true);
 setScoresHidden(true);
+</script>
+
+<script>
+function openLeaveModal(){ const m=document.getElementById('leaveModal'); m.classList.add('open'); m.setAttribute('aria-hidden','false'); }
+function closeLeaveModal(){ const m=document.getElementById('leaveModal'); m.classList.remove('open'); m.setAttribute('aria-hidden','true'); }
+function confirmLeave(){ closeLeaveModal(); showScreen('titleScreen'); sfxStopLoop(); }
+document.addEventListener('keydown',e=>{
+  const m=document.getElementById('leaveModal');
+  if(m && m.classList.contains('open')){
+    if(e.key==='Escape') closeLeaveModal();
+    e.stopImmediatePropagation(); e.preventDefault();
+  }
+},true);
+
+function updateMHint(){
+  const h=document.getElementById('mHint'); if(!h) return;
+  const r=ROUNDS[rIdx]; let on=false;
+  if(r){
+    if(mode==='questionView'){ const q=r.questions[qIdx]; on=!!(q && q.mediaType==='audio' && /^yt:/.test(q.mediaSrc||'')); }
+    else if(mode==='answerView'){ const q=r.questions[aIdx]; on=!!(q && q.answerMediaType==='video' && /^yt:/.test(q.answerMedia||'')); }
+  }
+  h.classList.toggle('show',on);
+}
+const _rq=window.renderQuestion, _ra=window.renderAnswer, _ss=window.showScreen, _sr=window.showRoundup;
+window.renderQuestion=function(){ const x=_rq.apply(this,arguments); updateMHint(); return x; };
+window.renderAnswer=function(){ const x=_ra.apply(this,arguments); updateMHint(); return x; };
+window.showScreen=function(){ const x=_ss.apply(this,arguments); updateMHint(); setTimeout(updateMHint,900); return x; };
+window.showRoundup=function(){
+  const x=_sr.apply(this,arguments);
+  const n=document.getElementById('roundupNote'), r=ROUNDS[rIdx];
+  if(n && r){
+    const pts=document.getElementById('roundupPts');
+    if(pts) pts.style.display = (r.id==='doubledown') ? '' : 'none';
+    if(r.id==='doubledown'){ n.textContent=''; n.classList.remove('wager'); }
+    else if(r.id==='currentevents'){ n.textContent='Wager round: add your multiplier for every right answer and subtract it for every wrong one'; n.classList.add('wager'); }
+    else { n.textContent="Mark your sheets and add this round's points to your running total"; n.classList.remove('wager'); }
+  }
+  return x;
+};
 </script>
 </body>
 </html>
