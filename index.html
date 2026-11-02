@@ -2239,6 +2239,19 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
 .ab-fig img{width:100%!important;max-height:46vh;min-height:0!important;object-fit:contain;border-radius:10px}
 .ab-fig figcaption{font-family:var(--font-d);font-weight:800;font-size:clamp(1.4rem,2.6vw,2.4rem);color:var(--round-color);letter-spacing:.05em}
 #masterAudioBtn.audio-off{background:#ff3d71!important;border-color:#ff3d71!important;color:#fff!important;box-shadow:0 0 0 2px rgba(255,61,113,.35)}
+
+/* ── SCORES HIDDEN (shared screen) ── */
+.scores-hidden .sc-pts-inp{-webkit-text-security:disc;text-security:disc}
+.scores-hidden #panelLb .plb-row{display:none}
+.scores-hidden #panelLb::before{content:"Standings hidden until halftime and the finale";font-size:.75rem;color:var(--textDim)}
+.pd-wrap{display:flex;flex-direction:column;align-items:center;gap:2.2vh;width:min(900px,92vw);text-align:center}
+.pd-head{font-family:var(--font-d);font-weight:800;text-transform:uppercase;letter-spacing:-.025em;color:#fff;font-size:clamp(1.6rem,4vw,3.4rem)}
+.pd-list{display:flex;flex-direction:column;gap:1.6vh;width:100%}
+.pd-row{display:flex;align-items:center;justify-content:center;gap:1.6rem;animation:issueIn .7s var(--ease) both}
+.pd-medal{font-size:clamp(2rem,4vw,3.4rem)}
+.pd-name{font-family:var(--font-d);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(1.8rem,4.6vw,4rem);line-height:1}
+.pd-pts{font-size:clamp(.9rem,1.6vw,1.4rem);color:rgba(255,255,255,.45);letter-spacing:.05em}
+.pd-1 .pd-name{color:#f59e0b}.pd-2 .pd-name{color:#d1d5db}.pd-3 .pd-name{color:#cd7f32}
 </style>
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
@@ -2294,11 +2307,11 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
   <!-- FINAL SCORES INPUT SCREEN (host panel triggered) -->
   <div id="finalScoresScreen" class="screen">
     <div class="ts-inner">
-      <p class="ts-eyebrow">end of game</p>
-      <h2 class="ts-title">FINAL SCORES</h2>
-      <p class="ts-sub">Pens down. Pass your answer sheet to the team on your left.</p>
+      <p class="ts-eyebrow" id="fsEyebrow">end of game</p>
+      <h2 class="ts-title" id="fsTitle">FINAL SCORES</h2>
+      <p class="ts-sub" id="fsSub">Pens down. Pass your answer sheet to the team on your left.</p>
       <div id="finalScoresGrid" class="fs-grid"></div>
-      <button class="btn btn-primary" onclick="startWinnerReveal()" style="margin-top:1.5rem">REVEAL WINNER →</button>
+      <button class="btn btn-primary" id="fsBtn" onclick="fsContinue()" style="margin-top:1.5rem">REVEAL TOP 3 →</button>
     </div>
   </div>
 
@@ -2421,11 +2434,10 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
     </div>
     <!-- Phase 3: full standings -->
     <div id="lbStandings" style="display:none;flex-direction:column;align-items:center;width:100%;height:100%;padding:2vh 6vw;gap:1.5vh;">
-      <h2 class="lb-title">FINAL STANDINGS</h2>
+      <h2 class="lb-title" id="lbTitleEl">FINAL STANDINGS</h2>
       <div id="lbList" style="width:100%;display:flex;flex-direction:column;gap:.5rem;flex:1;min-height:0;overflow:hidden;"></div>
       <div style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;flex-shrink:0">
-        <button class="btn btn-ghost" onclick="hideLb()">← BACK</button>
-        <button class="btn btn-violet" onclick="showRoundNav()">ALL ROUNDS</button>
+        <button class="btn btn-violet" id="lbContinueBtn" onclick="showRoundNav()">CONTINUE →</button>
       </div>
     </div>
   </div>
@@ -2436,7 +2448,7 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
     <div class="nav-btns">
       <button class="btn btn-ghost" onclick="navigate(-1)">← PREV</button>
       <button class="btn btn-ghost" id="saraBoardBtn" onclick="returnToSaraBoard()" style="display:none">⬡ BOARD</button>
-      <button class="btn btn-amber" onclick="showLb()">SCORES</button>
+      
       <button class="btn btn-ghost" id="answersBtn" onclick="jumpToAnswers()">ANSWERS</button>
       <button class="btn btn-violet" onclick="showRoundNav()">ROUNDS</button>
       <button class="btn btn-ghost" id="masterAudioBtn" onclick="masterAudioToggle()" title="Pause or resume ALL audio and video (M)">&#9208; AUDIO</button>
@@ -2459,7 +2471,9 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
   <div class="hp-body">
     <div class="hp-note"><strong>HOST NOTE:</strong> <span id="hpNote">Select a round to begin.</span></div>
     <div style="margin-bottom:.75rem">
-      <button class="hbtn hbtn-a" onclick="showFinalScores()">🏆 FINISH GAME: REVEAL WINNER</button>
+      <button class="hbtn hbtn-a" onclick="showFinalScores()">🏆 FINISH GAME: REVEAL TOP 3</button>
+      <button class="hbtn hbtn-a" onclick="showHalftimeIntro()">⏸ HALFTIME STANDINGS</button>
+      <button class="hbtn hbtn-g" id="scoreToggleBtn" onclick="toggleScoresHidden()">👁 SHOW SCORES (screen is shared)</button>
     </div>
     <div class="hp-row">
       <div class="hp-col">
@@ -2792,7 +2806,7 @@ function navigate(dir) {
       if (qIdx>0) { qIdx--; renderQuestion(); }
     }
   } else if (mode==='roundupView') {
-    if (dir>0) { completedRounds.add(rIdx); buildRnavGrid(); showRoundNav(); }
+    if (dir>0) { completedRounds.add(rIdx); buildRnavGrid(); afterRound(); }
     else { aIdx = ROUNDS[rIdx].questions.length - 1; showScreen('answerView'); renderAnswer(); }
   } else if (mode==='answerView') {
     if (dir>0) {
@@ -3493,7 +3507,7 @@ function renderScoreboard(){
     <div class="sc-card">
       <div class="sc-name" title="${esc(t.name)}">${esc(t.name)}</div>
       <div class="sc-bottom">
-        <input class="sc-pts-inp" type="number" value="${t.score}" onchange="setScore(${i},this.value)" oninput="setScore(${i},this.value)">
+        <input class="sc-pts-inp" type="${window.scoresHidden===false?'number':'text'}" inputmode="numeric" value="${t.score}" onchange="setScore(${i},this.value)" oninput="setScore(${i},this.value)">
         <div class="sc-adj">
           <button class="sc-btn sc-plus" onclick="adjustScoreMultiplied(${i},1)">+</button>
           <button class="sc-btn sc-minus" onclick="adjustScoreMultiplied(${i},-1)">−</button>
@@ -4380,5 +4394,85 @@ function escHtml(s) {
 </script>
 
 
+
+<script>
+window.scoresHidden=true; document.body.classList.add('scores-hidden');
+function setScoresHidden(h){
+  window.scoresHidden=h; document.body.classList.toggle('scores-hidden',h);
+  const b=document.getElementById('scoreToggleBtn');
+  if(b) b.textContent=h?'👁 SHOW SCORES (screen is shared)':'🙈 HIDE SCORES';
+  renderScoreboard(); renderPanelLb();
+}
+function toggleScoresHidden(){ setScoresHidden(!window.scoresHidden); }
+const _tpOrig=window.togglePanel;
+window.togglePanel=function(){ _tpOrig(); if(!panelOpen) setScoresHidden(true); };
+
+function afterRound(){
+  const id=ROUNDS[rIdx]&&ROUNDS[rIdx].id;
+  if(id==='food') showHalftimeIntro();
+  else if(id==='currentevents') showFinalIntro();
+  else showRoundNav();
+}
+function _fsSet(eyebrow,title,sub,btn,fn){
+  document.getElementById('fsEyebrow').textContent=eyebrow;
+  document.getElementById('fsTitle').textContent=title;
+  document.getElementById('fsSub').textContent=sub;
+  document.getElementById('fsBtn').textContent=btn;
+  window.fsContinue=fn;
+  showScreen('finalScoresScreen',true);
+}
+function showHalftimeIntro(){
+  if(!teams.length){ alert('No teams yet. Add teams first.'); return; }
+  _fsSet('halftime','HALFTIME','Pens down. Add up your points from Rounds 1 to 5.','SHOW STANDINGS →',showHalftimeStandings);
+}
+function showHalftimeStandings(){
+  showScreen('lbScreen');
+  setStyle('lbSuspense','display','none'); setStyle('lbWinner','display','none');
+  document.getElementById('lbTitleEl').textContent='HALFTIME STANDINGS';
+  setStyle('lbStandings','display','flex');
+  renderFullLb();
+}
+function showFinalIntro(){
+  if(!teams.length){ alert('No teams yet. Add teams first.'); return; }
+  rIdx=-1;
+  _fsSet('end of game','FINAL SCORES','Pens down. Pass your answer sheet to the team on your left.','REVEAL TOP 3 →',startWinnerReveal);
+}
+window.showFinalScores=showFinalIntro;
+
+let _podStep=0;
+function startWinnerReveal(){
+  _wrTeams=[...teams].sort((a,b)=>b.score-a.score).slice(0,3);
+  _podStep=0; showScreen('winnerRevealScreen',true); renderPodium();
+}
+function renderPodium(){
+  const c=document.getElementById('winnerRevealContent'); if(!c) return;
+  const n=_wrTeams.length, shown=_podStep+1; // places revealed from the bottom up
+  const medals=['🥇','🥈','🥉'], ord=['1st','2nd','3rd'];
+  let rows='';
+  for(let place=0; place<n; place++){
+    if(place < n-shown) continue;
+    const t=_wrTeams[place];
+    rows+=`<div class="pd-row pd-${place+1}"><span class="pd-medal">${medals[place]}</span><span class="pd-name">${esc(t.name)}</span><span class="pd-pts">${t.score} pts</span></div>`;
+  }
+  const done=shown>=n, nextPlace=n-shown-1;
+  const head=done?'Well done everyone!':('And in '+ord[n-shown]+' place...');
+  const btn=done?'<button class="btn btn-violet" onclick="showRoundNav()">ON TO THE BONUS →</button>'
+    :`<button class="btn btn-primary" onclick="podiumNext()">REVEAL ${ord[nextPlace].toUpperCase()} PLACE →</button>`;
+  c.innerHTML=`<div class="pd-wrap"><div class="pd-head">${head}</div><div class="pd-list">${rows}</div>${btn}</div>`;
+  sfxPlay('winner');
+  if(done){ if(typeof launchFireworks==='function') launchFireworks(); launchConfetti(); }
+}
+function podiumNext(){ if(_podStep<_wrTeams.length-1){ _podStep++; renderPodium(); } }
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA'].includes(e.target.tagName)) return;
+  if(e.key==='ArrowRight'){
+    const m=mode;
+    if(m==='winnerRevealScreen'){ e.stopImmediatePropagation(); podiumNext(); }
+    else if(m==='finalScoresScreen' && window.fsContinue){ e.stopImmediatePropagation(); window.fsContinue(); }
+    else if(m==='lbScreen'){ e.stopImmediatePropagation(); showRoundNav(); }
+  }
+},true);
+setScoresHidden(true);
+</script>
 </body>
 </html>
