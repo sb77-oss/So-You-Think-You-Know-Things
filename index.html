@@ -3032,12 +3032,20 @@ function renderQuestion() {
   if (q.mediaType === 'audio' && isYtSrc(q.mediaSrc)) {
     const ytid = ytIdFrom(q.mediaSrc);
     const _r0=rIdx, _q0=qIdx;
-    setTimeout(() => {
-      if (rIdx!==_r0 || qIdx!==_q0 || !document.getElementById('questionView').classList.contains('active')) return;
+    // The first question of a round arrives behind a colour wipe, so the screen
+    // can still be switching when this runs. Wait for it instead of giving up.
+    let _tries = 0;
+    const _startYt = () => {
+      if (rIdx!==_r0 || qIdx!==_q0) return;
+      if (!document.getElementById('questionView').classList.contains('active')) {
+        if (++_tries < 40) setTimeout(_startYt, 150);
+        return;
+      }
       ytPlayFrom(ytid, ytStartFrom(q.mediaSrc));
       const btn = document.getElementById(`ytBtn_${ytid}`);
       if (btn) { btn.querySelector('.yt-play-icon').textContent = '⏸'; btn.classList.add('playing'); }
-    }, 400);
+    };
+    setTimeout(_startYt, 400);
   } else {
     sfxStartLoop();
   }
