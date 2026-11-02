@@ -792,11 +792,11 @@ const ROUNDS = [
         "source": ""
       },
       {
-        "question": "On 16 October, Europe's medicines regulator backed Foundayo, a once-daily pill. What is its drug class called?",
+        "question": "On 16 October, Europe's medicines regulator backed Foundayo, a once-daily pill. What type of drug is it?",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "GLP-1 drugs, like Ozempic and Mounjaro",
-        "answerSubline": "Foundayo's active ingredient is orforglipron, a small molecule instead of a peptide",
+        "answerSubline": "Foundayo's active ingredient is orforglipron, a small molecule",
         "answerImg": "r10q3_a.jpg",
         "answerMedia": "",
         "answerMediaType": "",
@@ -818,7 +818,7 @@ const ROUNDS = [
         "source": ""
       },
       {
-        "question": "Nathan Fielder's new documentary had the second-biggest documentary opening ever. Its trailer went viral with the line \"Why would I deceive you?\" What is it called?",
+        "question": "Nathan Fielder's new documentary had the second-biggest documentary opening ever. Its trailer went viral with the line \"Why would I deceive you?\" Name it.",
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "You Can See Everything",
@@ -2266,6 +2266,12 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
 .roundup-note{flex:1;text-align:center;font-family:var(--font-b);font-weight:500;letter-spacing:.22em;text-transform:uppercase;font-size:clamp(.62rem,.95vw,.85rem);color:rgba(255,255,255,.6);margin:0 1.5vw}
 .roundup-note:not(:empty)~.roundup-label{flex-shrink:0}
 .roundup-note.wager{color:var(--round-color,#ff2e93)}
+
+/* round-up auto-fit */
+.roundup-grid .roundup-q{font-size:calc(clamp(.85rem,1.45vw,1.35rem)*var(--rs,1))!important}
+.roundup-grid .roundup-a{font-size:calc(clamp(1.3rem,2.9vw,2.8rem)*var(--rs,1))!important}
+.roundup-grid .roundup-a-sub{font-size:calc(clamp(.8rem,1.3vw,1.2rem)*var(--rs,1))!important}
+.roundup-grid .roundup-q-num,.roundup-grid .roundup-row-pts{font-size:calc(clamp(.65rem,.95vw,.9rem)*var(--rs,1))!important}
 </style>
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
@@ -4543,6 +4549,17 @@ window.showRoundup=function(){
     else if(r.id==='currentevents'){ n.textContent='Wager round: add your multiplier for every right answer and subtract it for every wrong one'; n.classList.add('wager'); }
     else { n.textContent="Mark your sheets and add this round's points to your running total"; n.classList.remove('wager'); }
   }
+  const fit=()=>{
+    const g=document.getElementById('roundupGrid'); if(!g) return;
+    g.style.setProperty('--rs',1);
+    let sc=1;
+    for(let k=0;k<8;k++){
+      const over=[...g.querySelectorAll('.roundup-row')].some(r=>r.scrollHeight>r.clientHeight+1 || [...r.children].some(c=>c.scrollHeight>r.clientHeight+1));
+      if(!over) break;
+      sc=Math.max(.6,sc-.06); g.style.setProperty('--rs',sc);
+    }
+  };
+  setTimeout(fit,120); setTimeout(fit,1100);
   return x;
 };
 </script>
