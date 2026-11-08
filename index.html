@@ -1489,9 +1489,9 @@ body{
     0 0 0 3px #55555f,
     0 0 60px rgba(var(--round-color-rgb, 124,58,237),.35),
     0 0 140px rgba(var(--round-color-rgb, 124,58,237),.2);
-  animation: spinRecord 3s linear infinite;
+  animation: spinRecord 7s linear infinite;
   animation-play-state: paused;
-  opacity:.45;
+  opacity:.3;
   transition: opacity .6s ease;
   pointer-events:none;
   z-index:0;
@@ -1514,21 +1514,21 @@ body{
     radial-gradient(circle, #07060d 0 6%, transparent 6.5%),
     linear-gradient(90deg, transparent 0 46%, rgba(255,255,255,.75) 46% 54%, transparent 54%),
     var(--round-color);
-  opacity:.5;
+  opacity:.3;
   transition: opacity .6s ease;
   pointer-events:none;
   z-index:0;
   left:50%;
   top:50%;
   transform:translate(-50%,-50%);
-  animation: spinRecord 3s linear infinite;
+  animation: spinRecord 7s linear infinite;
   animation-play-state: paused;
 }
 /* Record sits still until the clip plays, then spins and lights up */
 .q-card.has-audio:has(.yt-play-btn.playing)::before,
 .q-card.has-audio:has(.yt-play-btn.playing)::after {
   animation-play-state: running;
-  opacity:1;
+  opacity:.65;
 }
 
 /* image questions: side by side */
