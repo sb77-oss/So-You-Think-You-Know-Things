@@ -1476,22 +1476,23 @@ body{
   height:min(55vh,55vw);
   border-radius:50%;
   background:
-    radial-gradient(circle at 50% 50%, #1a1a1a 0%, #1a1a1a 12%,
-      transparent 12%, transparent 14%,
-      #111 14%, #111 15%,
-      #222 15%, #222 16%,
-      #111 16%, #111 100%),
-    repeating-conic-gradient(
-      from 0deg,
-      #1a1a1a 0deg 1deg,
-      #2a2a2a 1deg 2deg
-    );
+    /* light sheen, so the spin is visible */
+    conic-gradient(from 0deg,
+      rgba(255,255,255,0) 0deg, rgba(255,255,255,.22) 30deg, rgba(255,255,255,0) 70deg,
+      rgba(255,255,255,0) 180deg, rgba(255,255,255,.14) 215deg, rgba(255,255,255,0) 255deg,
+      rgba(255,255,255,0) 360deg),
+    /* grooves */
+    repeating-radial-gradient(circle at 50% 50%,
+      #2b2b33 0px, #2b2b33 2px, #45454f 3px, #2b2b33 4px),
+    #2b2b33;
   box-shadow:
-    0 0 0 2px #333,
-    0 0 60px rgba(var(--round-color-rgb, 124,58,237),.2),
-    0 0 120px rgba(var(--round-color-rgb, 124,58,237),.1);
-  animation: spinRecord 4s linear infinite;
-  opacity:.18;
+    0 0 0 3px #55555f,
+    0 0 60px rgba(var(--round-color-rgb, 124,58,237),.35),
+    0 0 140px rgba(var(--round-color-rgb, 124,58,237),.2);
+  animation: spinRecord 3s linear infinite;
+  animation-play-state: paused;
+  opacity:.45;
+  transition: opacity .6s ease;
   pointer-events:none;
   z-index:0;
   left:50%;
@@ -1502,21 +1503,32 @@ body{
   from { transform:translate(-50%,-50%) rotate(0deg); }
   to   { transform:translate(-50%,-50%) rotate(360deg); }
 }
-/* Label in centre of record */
+/* Label in centre of record, with a stripe so you can see it turn */
 .q-card.has-audio::after {
   content:'';
   position:absolute;
-  width:min(16vh,16vw);
-  height:min(16vh,16vw);
+  width:min(17vh,17vw);
+  height:min(17vh,17vw);
   border-radius:50%;
-  background:radial-gradient(circle, var(--round-color) 0%, rgba(0,0,0,.8) 100%);
-  opacity:.15;
+  background:
+    radial-gradient(circle, #07060d 0 6%, transparent 6.5%),
+    linear-gradient(90deg, transparent 0 46%, rgba(255,255,255,.75) 46% 54%, transparent 54%),
+    var(--round-color);
+  opacity:.5;
+  transition: opacity .6s ease;
   pointer-events:none;
   z-index:0;
   left:50%;
   top:50%;
   transform:translate(-50%,-50%);
-  animation: spinRecord 4s linear infinite;
+  animation: spinRecord 3s linear infinite;
+  animation-play-state: paused;
+}
+/* Record sits still until the clip plays, then spins and lights up */
+.q-card.has-audio:has(.yt-play-btn.playing)::before,
+.q-card.has-audio:has(.yt-play-btn.playing)::after {
+  animation-play-state: running;
+  opacity:1;
 }
 
 /* image questions: side by side */
