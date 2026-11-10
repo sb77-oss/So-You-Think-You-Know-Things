@@ -5359,7 +5359,8 @@ const Disco = (() => {
       ctx.drawImage(sprite(b.white ? 'w' + b.hue : b.hue, b.hue, b.white), x - s, y - s * .8, s * 2, s * 1.6);
     }
     const isz = Math.max(18, Math.min(30, W * .06));
-    for (let k = 0; k < iconBeams.length; k++){
+    const onTitle = document.getElementById('titleScreen').classList.contains('active');   /* home: icons only appear in the Start explosion */
+    for (let k = 0; k < iconBeams.length && !onTitle; k++){
       const b = iconBeams[k], period = 3600 + (k * 397) % 2200, u = t + k * 1130;
       const n = Math.floor(u / period), f = (u % period) / period;                   /* one pop per cycle, then a new spot */
       const h1 = Math.abs(Math.sin(n * 12.9898 + k * 78.233) * 43758.5453) % 1;
