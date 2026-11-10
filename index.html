@@ -5378,16 +5378,20 @@ const Disco = (() => {
   const shower = [];
   function launchShower(){
     if (still) return;
+    const btn = document.getElementById('letsGoBtn'), r = btn && btn.getBoundingClientRect();
+    const cx = r ? r.left + r.width / 2 : W / 2, cy = r ? r.top + r.height / 2 : H * .6;
     cv.style.zIndex = 2;                 /* above the title while it plays */
-    const N = 96;
+    const reach = Math.hypot(Math.max(cx, W - cx), Math.max(cy, H - cy));   /* distance to the farthest corner */
+    const N = 110;
     for (let k = 0; k < N; k++){
-      const col = (k + Math.random()) / N;                       /* spread evenly across the whole width */
+      const a = (k / N) * Math.PI * 2 * 3.1 + Math.random() * .9;           /* every direction, no gaps */
+      const life = 58 + Math.random() * 30;
+      const dist = reach * (.35 + Math.random() * .8);                      /* some stop mid-screen, some reach the edges */
+      const sp = dist / life * 1.5;                                         /* drag below slows them, so start faster */
       shower.push({ name: ICON_NAMES[k % ICON_NAMES.length], hue: [330, 290, 265, 190][k % 4],
-        x: W * col, y: -60 - Math.random() * 120,
-        vx: (Math.random() - .5) * 2.2, vy: 9 + Math.random() * 9,
-        rot: (Math.random() - .5) * 1.2, vr: (Math.random() - .5) * .09,
-        size: 30 + Math.random() * 46, age: -Math.random() * 34,   /* negative age = waits its turn, so it comes in waves */
-        life: (H + 220) / 12 + 30 });
+        x: cx, y: cy, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+        rot: Math.random() * 6.28, vr: (Math.random() - .5) * .22,
+        size: 30 + Math.random() * 40, age: -(k % 3) * 7 - Math.random() * 3, life });   /* three quick waves */
     }
     if (!raf) raf = requestAnimationFrame(frame);
   }
@@ -5396,13 +5400,14 @@ const Disco = (() => {
     for (let i = shower.length - 1; i >= 0; i--){
       const q = shower[i]; q.age += k;
       if (q.age < 0) continue;
-      if (q.age >= q.life || q.y > H + 120){ shower.splice(i, 1); continue; }
-      q.vy += .16 * k;
+      if (q.age >= q.life){ shower.splice(i, 1); continue; }
+      const drag = Math.pow(.972, k); q.vx *= drag; q.vy = q.vy * drag + .035 * k;
       q.x += q.vx * k; q.y += q.vy * k; q.rot += q.vr * k;
-      const edge = Math.min(1, q.y / 140 + .15, (H + 100 - q.y) / 200);          /* soft in at the top and out at the bottom */
-      ctx.globalAlpha = Math.max(0, edge) * .95;
+      const f = q.age / q.life;
+      ctx.globalAlpha = (f < .08 ? f / .08 : Math.pow(1 - (f - .08) / .92, 1.25)) * .95;     /* flash in, fade out */
+      const s = q.size * (.35 + 1.15 * Math.sqrt(f));                                          /* grow as they fly toward you */
       ctx.save(); ctx.translate(q.x, q.y); ctx.rotate(q.rot);
-      const s = q.size; ctx.drawImage(iconSprite(q.name, q.hue), -s * 1.23, -s * 1.23, s * 2.46, s * 2.46);
+      ctx.drawImage(iconSprite(q.name, q.hue), -s * 1.23, -s * 1.23, s * 2.46, s * 2.46);
       ctx.restore();
     }
     ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
