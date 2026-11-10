@@ -5280,8 +5280,8 @@ const Disco = (() => {
       hue: HUES[k % HUES.length], white: Math.random() < .35, size: 2.2 + Math.random() * 3.2, tw: Math.random() * 6.28 });
   }
   const ICON_ORDER = ['science','geography','history','literature','music','screen','food','internet','star','bulb','news','paw','question','speech','pill','candle','scales','trident','mic','phones','camera','crown','rocket','planet','dna','pyramid','anchor','compass','cocktail','mask','trophy','eye'];
-  const iconBeams = ICON_ORDER.map((name, k) => ({   /* each icon once, spread evenly (golden-ratio scatter) */
-    name, fx: .05 + .9 * ((k * .618034 + .13) % 1), fy: .07 + .86 * ((k * .381966 + .31 + (k % 3) * .11) % 1),
+  const iconBeams = ICON_ORDER.map((name, k, all) => ({   /* each icon once, spread round the turning ball (as in the archive) */
+    name, v: .08 + ((k * 5) % all.length) / all.length * .82, lon: k * 2 * Math.PI / all.length + (k % 2 ? Math.PI / all.length : 0) + .4,
     hue: [330, 290, 265, 190][k % 4], tw: Math.random() * 6.28 }));
   /* pre-rendered glow sprites, one per colour, so hundreds of spots stay cheap */
   const sprites = {};
@@ -5465,14 +5465,16 @@ const Disco = (() => {
       ctx.drawImage(sprite(b.white ? 'w' + b.hue : b.hue, b.hue, b.white), x - s, y - s * .8, s * 2, s * 1.6);
     }
     const isz = Math.max(20, Math.min(42, W * .022)) * tv;   /* scaled for a TV */
-    for (let k = 0; k < iconBeams.length; k++){                                      /* icons just float: slow bob, soft fade, no travel */
-      const b = iconBeams[k];
-      const x0 = W * b.fx, y0 = H * b.fy;
-      const x = x0 + Math.sin(t * .00035 + k * 1.7) * 10, y = y0 + Math.sin(t * .0005 + k * 2.3) * 16;
-      const tw = .5 + .5 * Math.sin(t * .0007 + b.tw * 3);
-      ctx.globalAlpha = (.15 + .85 * tw) * .6;
-      const s = isz * (.95 + .1 * tw);
-      ctx.drawImage(iconSprite(b.name, b.hue), x - s * 1.6, y - s * 1.6, s * 3.2, s * 3.2);
+    for (const b of iconBeams){                                                       /* icons sweep slowly across, as in the archive */
+      const lon = b.lon + spin * .9, facing = Math.cos(lon);
+      if (facing < .15) continue;
+      const y = top + b.v * span;
+      const x = bx + Math.sin(lon) * W * (.5 + b.v * .2);
+      if (x < -40 * tv || x > W + 40 * tv) continue;
+      const tw = .7 + .3 * Math.sin(t * .0025 + b.tw);
+      ctx.globalAlpha = Math.min(1, (facing - .15) * 2.2) * tw * .55;
+      const s = isz * (.8 + facing * .35), sx = s * (.55 + facing * .45);             /* squash as it slides off the edge */
+      ctx.drawImage(iconSprite(b.name, b.hue), x - sx * 1.6, y - s * 1.6, sx * 3.2, s * 3.2);
     }
     ctx.globalAlpha = 1;
     ctx.globalCompositeOperation = 'source-over';
