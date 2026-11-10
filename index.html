@@ -5102,6 +5102,19 @@ window.showRoundup=function(){
   return x;
 };
 </script>
+<style id="calm-load">
+/* CALM LOAD: a new page arrives as one piece. Text is sized before it is shown, and nothing inside a page
+   animates in on its own schedule. Only the page as a whole fades in. */
+@keyframes calmIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+#qCard,#ansCard,#roundupGrid{animation:calmIn .32s cubic-bezier(.22,.8,.3,1) both!important}
+#questionView *:not(.yt-play-btn):not(.yt-play-btn *),
+#answerView *,
+#roundupView .roundup-row,#roundupView .roundup-row *,
+#roundIntro .ri-number-bg,#roundIntro .ri-name,#roundIntro .ri-format,#roundIntro .ri-btns,#roundIntro .lvl-pips,#roundIntro .ri-badge{
+  animation:none!important;animation-delay:0s!important}
+#ansCard.is-reveal .ans-label,#ansCard.is-reveal .ans-media-wrap,#ansCard.is-reveal .ans-sub,#ansCard.is-reveal .ans-source,#ansCard.is-reveal .ans-note{opacity:1!important}
+#ansCard.is-reveal .ans-main::after{transform:none!important;opacity:1!important}
+</style>
 <!-- ARCADE-PASS-JS:START -->
 <script>
 /* ARCADE PASS: presentation helpers only.
@@ -5180,17 +5193,24 @@ window.showRoundup=function(){
   }
   const later = fn => { requestAnimationFrame(() => requestAnimationFrame(() => requestAnimationFrame(fn))); };
 
+  // CALM LOAD: size text exactly once, before the page is painted, and show the answer all at once.
+  const _ft = window.fitText;
+  window.fitText = function(el){ if(el && (el.id==='qQuestion' || el.id==='ansMain')) return; return _ft.apply(this, arguments); };
+  window.fitAnswerBox = function(){};
+  window.revealAnswerWords = function(el){ if(el) el.style.opacity = '1'; };
+  const replay = card => { if(!card) return; card.style.animation='none'; void card.offsetWidth; card.style.animation=''; };
+
   const _as = window._applyScreen, _rq = window.renderQuestion, _ra = window.renderAnswer, _bg = window.buildRnavGrid;
   window._applyScreen = function(){
     const x = _as.apply(this, arguments);
     uiSync();
-    if(mode === 'questionView') later(uiFitQuestion);
-    if(mode === 'answerView') later(uiFitAnswer);
+    if(mode === 'questionView') { uiFitQuestion(); later(uiFitQuestion); }
+    if(mode === 'answerView') { uiFitAnswer(); later(uiFitAnswer); }
     return x;
   };
   window.renderQuestion = function(){
     const x = _rq.apply(this, arguments);
-    uiSync(); later(uiFitQuestion);
+    uiSync(); replay($('qCard')); uiFitQuestion(); later(uiFitQuestion);
     return x;
   };
   window.renderAnswer = function(){
@@ -5198,7 +5218,8 @@ window.showRoundup=function(){
     uiSync();
     const card = $('ansCard');
     if(card){ card.classList.remove('is-reveal'); void card.offsetWidth; card.classList.add('is-reveal'); }
-    later(uiFitAnswer); setTimeout(uiFitAnswer, 320);
+    { const m=$('ansMain'); if(m) m.style.opacity='1'; }
+    uiFitAnswer(); later(uiFitAnswer);
     return x;
   };
   // Round cards: reachable by Tab, start with Enter or Space (mouse behaviour unchanged)
