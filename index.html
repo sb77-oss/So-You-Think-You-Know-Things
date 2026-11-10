@@ -3078,8 +3078,7 @@ function fireworksThenNav() {
   window._titleLaunched=true;
   unlockAudio();
   setTimeout(() => sfxPlay('letsGo'), 80);
-  try { Disco.shower(); } catch(e) {}
-  setTimeout(() => showScreen('teamSetupScreen', true), 1250);
+  setTimeout(() => showScreen('teamSetupScreen', true), 900);
 }
 
 function launchFireworks() {
@@ -5248,7 +5247,7 @@ window.showRoundup=function(){
 </style>
 <script id="disco-lights-js">
 /* WELCOME LIGHTS (from the archive quiz): soft light spots and glowing category icons sweep across the screen,
-   as if an unseen mirror ball were turning above it. Shown on the home, round menu, round intro and answer round-up screens. */
+   as if an unseen mirror ball were turning above it. Shown on the home, team setup, round menu, round intro and answer round-up screens. Never on question screens. */
 const Disco = (() => {
   const cv = document.getElementById('discoLights');
   if (!cv || !cv.getContext) return { kick(){} };
@@ -5256,7 +5255,7 @@ const Disco = (() => {
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const HUES = [330, 320, 300, 285, 265, 250, 190];   /* pinks, violets, a touch of cyan */
   let W = 0, H = 0, dpr = 1, bx = 0, by = 0, br = 40;
-  let spin = 0, boost = 0, raf = 0, last = 0;
+  let spin = 0, boost = 0, raf = 0, last = 0, tv = 1;   /* tv: scale-up for a big 16:9 screen */
   const SPEED = 0.0032;
 
   /* the light it throws: a sparser set of beams */
@@ -5417,11 +5416,11 @@ const Disco = (() => {
   const ICON_NAMES = Object.keys(ICONS), iconSprites = {};
   function iconSprite(name, hue){
     const key = name + hue; if (iconSprites[key]) return iconSprites[key];
-    const S = 96, c = document.createElement('canvas'); c.width = c.height = S;
+    const S = 160, c = document.createElement('canvas'); c.width = c.height = S;   /* sharp at TV size */
     const g = c.getContext('2d');
     g.translate(S / 2, S / 2); g.scale(S * .3, S * .3);
     g.lineCap = g.lineJoin = 'round'; g.lineWidth = .11;
-    g.shadowColor = `hsla(${hue},100%,65%,1)`; g.shadowBlur = 12;
+    g.shadowColor = `hsla(${hue},100%,65%,1)`; g.shadowBlur = 20;
     g.strokeStyle = g.fillStyle = `hsla(${hue},100%,88%,1)`;
     ICONS[name](g); ICONS[name](g);       /* twice: brighter core inside the glow */
     return (iconSprites[key] = c);
@@ -5433,6 +5432,7 @@ const Disco = (() => {
     cv.width = W * dpr; cv.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     br = 0; bx = W / 2; by = -10;   /* an unseen mirror ball just above the screen */
+    tv = Math.max(1, Math.min(2, Math.min(W / 1280, H / 720)));
   }
 
   function spots(t){
@@ -5443,10 +5443,10 @@ const Disco = (() => {
       if (facing < .08) continue;
       const y = top + b.v * span;
       const x = bx + Math.sin(lon) * W * (.55 + b.v * .25);
-      if (x < -30 || x > W + 30 || y < -30 || y > H + 30) continue;
+      if (x < -30 * tv || x > W + 30 * tv || y < -30 * tv || y > H + 30 * tv) continue;
       const tw = .6 + .4 * Math.sin(t * .003 + b.tw);
       ctx.globalAlpha = Math.min(1, facing * 1.8) * tw * .75;
-      const s = b.size * (.75 + facing * .5) * 4.2;
+      const s = b.size * (.75 + facing * .5) * 4.2 * tv;
       ctx.drawImage(sprite(b.white ? 'w' + b.hue : b.hue, b.hue, b.white), x - s, y - s * .8, s * 2, s * 1.6);
     }
     const isz = Math.max(20, Math.min(42, W * .022));   /* scaled for a TV */
@@ -5463,52 +5463,12 @@ const Disco = (() => {
     ctx.globalCompositeOperation = 'source-over';
   }
 
-  /* icon shower: pressing start throws the glowing category icons out of the button */
-  const shower = [];
-  function launchShower(){
-    if (still) return;
-    const btn = document.getElementById('letsGoBtn'), r = btn && btn.getBoundingClientRect();
-    const cx = r ? r.left + r.width / 2 : W / 2, cy = r ? r.top + r.height / 2 : H * .6;
-    cv.style.zIndex = 2;
-    const WAVES = 4, PER = 26;                                  /* ~100 icons in four waves */
-    for (let w = 0; w < WAVES; w++){
-      setTimeout(() => {
-        for (let k = 0; k < PER; k++){
-          const life = 78 + Math.random() * 22;
-          const tx = W * ((k + Math.random()) / PER);           /* spread evenly across the full width */
-          shower.push({ name: ICON_NAMES[(k + w * 3) % ICON_NAMES.length], hue: [330, 290, 265, 190][(k + w) % 4],
-            x: cx, y: cy, vx: (tx - cx) / life * 1.1, vy: -(9 + Math.random() * 10),   /* explode up and out... */
-            rot: Math.random() * 6.28, vr: (Math.random() < .5 ? -1 : 1) * (.08 + Math.random() * .12),   /* ...spinning */
-            size: 34 + Math.random() * 30, age: 0, life });
-        }
-        if (!raf) raf = requestAnimationFrame(frame);
-      }, w * 170);
-    }
-  }
-  function drawShower(k){
-    ctx.globalCompositeOperation = 'lighter';
-    for (let i = shower.length - 1; i >= 0; i--){
-      const q = shower[i]; q.age += k;
-      if (q.age >= q.life){ shower.splice(i, 1); continue; }
-      q.vy += .42 * k;                                           /* gravity: up, then falling */
-      q.x += q.vx * k; q.y += q.vy * k; q.rot += q.vr * k;
-      const f = q.age / q.life;
-      ctx.globalAlpha = (f < .06 ? f / .06 : f > .75 ? 1 - (f - .75) / .25 : 1) * .95;
-      const s = q.size * (f < .1 ? .4 + 6 * f : 1);
-      ctx.save(); ctx.translate(q.x, q.y); ctx.rotate(q.rot);
-      ctx.drawImage(iconSprite(q.name, q.hue), -s * 1.23, -s * 1.23, s * 2.46, s * 2.46);
-      ctx.restore();
-    }
-    ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
-  }
-
   function frame(t){
     const dt = last ? Math.min(50, t - last) : 16; last = t;
     boost *= Math.pow(.97, dt / 16);
     spin += (SPEED + boost) * dt / 16;
     ctx.clearRect(0, 0, W, H);
     spots(t);
-    if (shower.length) drawShower(dt / 16);
     raf = still ? 0 : requestAnimationFrame(frame);
   }
   const SHOWN = { titleScreen: 1, teamSetupScreen: 1, roundNav: 1, roundIntro: 1, roundupView: .5 };   /* screens that get the lights, and how strongly */
@@ -5528,7 +5488,7 @@ const Disco = (() => {
   const mo = new MutationObserver(() => visible() ? start() : stop());
   document.querySelectorAll('.screen').forEach(el => mo.observe(el, { attributes: true, attributeFilter: ['class'] }));
   (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(start));
-  return { kick(){ boost = .09; }, shower: launchShower };
+  return { kick(){ boost = .09; }, shower(){ boost = .09; } };
 })();
 (function(){
   const _f = window.fireworksThenNav;
