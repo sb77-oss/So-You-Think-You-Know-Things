@@ -3078,6 +3078,7 @@ function fireworksThenNav() {
   window._titleLaunched=true;
   unlockAudio();
   setTimeout(() => sfxPlay('letsGo'), 80);
+  launchFireworks();
   try { Disco.shower(); } catch(e) {}
   setTimeout(() => showScreen('teamSetupScreen', true), 900);
 }
@@ -5376,24 +5377,27 @@ const Disco = (() => {
 
   /* icon shower: pressing start throws the glowing category icons out of the button */
   const shower = [];
-  function launchShower(){
-    if (still) return;
-    const btn = document.getElementById('letsGoBtn'), r = btn && btn.getBoundingClientRect();
-    const cx = r ? r.left + r.width / 2 : W / 2, cy = r ? r.top + r.height / 2 : H * .6;
-    cv.style.zIndex = 2;                 /* above the title while it plays */
-    const reach = Math.hypot(Math.max(cx, W - cx), Math.max(cy, H - cy));   /* distance to the farthest corner */
-    const N = 110;
-    for (let k = 0; k < N; k++){
-      const a = (k / N) * Math.PI * 2 * 3.1 + Math.random() * .9;           /* every direction, no gaps */
-      const life = 58 + Math.random() * 30;
-      const dist = reach * (.35 + Math.random() * .8);                      /* some stop mid-screen, some reach the edges */
-      const sp = dist / life * 1.5;                                         /* drag below slows them, so start faster */
-      shower.push({ name: ICON_NAMES[k % ICON_NAMES.length], hue: [330, 290, 265, 190][k % 4],
+  function popBurst(cx, cy, n, spread){
+    const base = Math.random() * 6.28;
+    for (let k = 0; k < n; k++){
+      const a = base + (k / n) * Math.PI * 2 + (Math.random() - .5) * .25;   /* an even ring, like one firework */
+      const life = 62 + Math.random() * 18;
+      const dist = spread * (.75 + Math.random() * .35);
+      const sp = dist / life * 1.5;
+      const hue = [330, 290, 265, 190][(k + Math.floor(base * 3)) % 4];
+      shower.push({ name: ICON_NAMES[(k + Math.floor(base * 5)) % ICON_NAMES.length], hue,
         x: cx, y: cy, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
-        rot: Math.random() * 6.28, vr: (Math.random() - .5) * .22,
-        size: 30 + Math.random() * 40, age: -(k % 3) * 7 - Math.random() * 3, life });   /* three quick waves */
+        rot: Math.random() * 6.28, vr: (Math.random() - .5) * .06,           /* barely spin: no dizziness */
+        size: 30 + Math.random() * 18, age: 0, life });
     }
     if (!raf) raf = requestAnimationFrame(frame);
+  }
+  function launchShower(){
+    if (still) return;
+    cv.style.zIndex = 2;
+    const spots = [[.5,.5],[.2,.35],[.8,.38],[.33,.7],[.68,.72],[.12,.68],[.9,.7],[.5,.25],[.5,.82],[.28,.18],[.74,.2]];
+    const spread = Math.min(W, H) * .24;
+    spots.forEach((o, i) => setTimeout(() => popBurst(W * o[0], H * o[1], 12, spread * (.85 + Math.random() * .4)), i * 110));
   }
   function drawShower(k){
     ctx.globalCompositeOperation = 'lighter';
@@ -5405,7 +5409,7 @@ const Disco = (() => {
       q.x += q.vx * k; q.y += q.vy * k; q.rot += q.vr * k;
       const f = q.age / q.life;
       ctx.globalAlpha = (f < .08 ? f / .08 : Math.pow(1 - (f - .08) / .92, 1.25)) * .95;     /* flash in, fade out */
-      const s = q.size * (.35 + 1.15 * Math.sqrt(f));                                          /* grow as they fly toward you */
+      const s = q.size * (.6 + .5 * Math.sqrt(f));                                          /* grow as they fly toward you */
       ctx.save(); ctx.translate(q.x, q.y); ctx.rotate(q.rot);
       ctx.drawImage(iconSprite(q.name, q.hue), -s * 1.23, -s * 1.23, s * 2.46, s * 2.46);
       ctx.restore();
