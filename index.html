@@ -3078,9 +3078,8 @@ function fireworksThenNav() {
   window._titleLaunched=true;
   unlockAudio();
   setTimeout(() => sfxPlay('letsGo'), 80);
-  launchFireworks();
   try { Disco.shower(); } catch(e) {}
-  setTimeout(() => showScreen('teamSetupScreen', true), 900);
+  setTimeout(() => showScreen('teamSetupScreen', true), 1250);
 }
 
 function launchFireworks() {
@@ -5388,39 +5387,36 @@ const Disco = (() => {
 
   /* icon shower: pressing start throws the glowing category icons out of the button */
   const shower = [];
-  function popBurst(cx, cy, n, spread){
-    const base = Math.random() * 6.28;
-    for (let k = 0; k < n; k++){
-      const a = base + (k / n) * Math.PI * 2 + (Math.random() - .5) * .25;   /* an even ring, like one firework */
-      const life = 48 + Math.random() * 10;
-      const dist = spread * .95;
-      const sp = dist / life * 2.2;
-      const hue = [330, 290, 265, 190][(k + Math.floor(base * 3)) % 4];
-      shower.push({ name: ICON_NAMES[(k + Math.floor(base * 5)) % ICON_NAMES.length], hue,
-        x: cx, y: cy, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
-        rot: Math.random() * 6.28, vr: (Math.random() - .5) * .06,           /* barely spin: no dizziness */
-        size: 30 + Math.random() * 18, age: 0, life });
-    }
-    if (!raf) raf = requestAnimationFrame(frame);
-  }
   function launchShower(){
     if (still) return;
+    const btn = document.getElementById('letsGoBtn'), r = btn && btn.getBoundingClientRect();
+    const cx = r ? r.left + r.width / 2 : W / 2, cy = r ? r.top + r.height / 2 : H * .6;
     cv.style.zIndex = 2;
-    const spots = [[.5,.5],[.2,.35],[.8,.38],[.33,.7],[.68,.72],[.12,.68],[.9,.7],[.5,.25],[.5,.82],[.28,.18],[.74,.2]];
-    const spread = Math.min(W, H) * .24;
-    spots.forEach((o, i) => setTimeout(() => popBurst(W * o[0], H * o[1], 12, spread * (.85 + Math.random() * .4)), i * 110));
+    const WAVES = 4, PER = 26;                                  /* ~100 icons in four waves */
+    for (let w = 0; w < WAVES; w++){
+      setTimeout(() => {
+        for (let k = 0; k < PER; k++){
+          const life = 78 + Math.random() * 22;
+          const tx = W * ((k + Math.random()) / PER);           /* spread evenly across the full width */
+          shower.push({ name: ICON_NAMES[(k + w * 3) % ICON_NAMES.length], hue: [330, 290, 265, 190][(k + w) % 4],
+            x: cx, y: cy, vx: (tx - cx) / life * 1.1, vy: -(9 + Math.random() * 10),   /* explode up and out... */
+            rot: Math.random() * 6.28, vr: (Math.random() < .5 ? -1 : 1) * (.08 + Math.random() * .12),   /* ...spinning */
+            size: 34 + Math.random() * 30, age: 0, life });
+        }
+        if (!raf) raf = requestAnimationFrame(frame);
+      }, w * 170);
+    }
   }
   function drawShower(k){
     ctx.globalCompositeOperation = 'lighter';
     for (let i = shower.length - 1; i >= 0; i--){
       const q = shower[i]; q.age += k;
-      if (q.age < 0) continue;
       if (q.age >= q.life){ shower.splice(i, 1); continue; }
-      const drag = Math.pow(.93, k); q.vx *= drag; q.vy *= drag;
+      q.vy += .42 * k;                                           /* gravity: up, then falling */
       q.x += q.vx * k; q.y += q.vy * k; q.rot += q.vr * k;
       const f = q.age / q.life;
-      ctx.globalAlpha = (f < .08 ? f / .08 : Math.pow(1 - (f - .08) / .92, 1.25)) * .95;     /* flash in, fade out */
-      const s = q.size * (.25 + 1.05 * Math.min(1, f * 4));   /* pop to full size almost at once, then hold */                                          /* grow as they fly toward you */
+      ctx.globalAlpha = (f < .06 ? f / .06 : f > .75 ? 1 - (f - .75) / .25 : 1) * .95;
+      const s = q.size * (f < .1 ? .4 + 6 * f : 1);
       ctx.save(); ctx.translate(q.x, q.y); ctx.rotate(q.rot);
       ctx.drawImage(iconSprite(q.name, q.hue), -s * 1.23, -s * 1.23, s * 2.46, s * 2.46);
       ctx.restore();
