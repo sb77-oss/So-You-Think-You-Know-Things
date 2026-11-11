@@ -2141,7 +2141,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 /* title */
 .title-masthead{color:rgba(255,255,255,.5);font-family:var(--font-b);font-weight:500;letter-spacing:.45em;font-size:.8rem}
-.title-main{font-family:var(--font-d)!important;font-weight:800!important;text-transform:uppercase;letter-spacing:-.035em;line-height:.9;
+.title-main{font-family:var(--font-d)!important;font-weight:800!important;text-transform:uppercase;letter-spacing:-.035em;word-spacing:.14em;line-height:.9;
   background:none!important;-webkit-text-fill-color:#fff!important;color:#fff;filter:none!important;text-shadow:none;
   animation:titleReveal .9s var(--ease) .3s both!important;font-size:clamp(3rem,9.2vw,10.5rem)}
 .title-season{font-family:var(--font-b)!important;font-weight:500;color:#ff3d8b;letter-spacing:.7em;font-size:clamp(.85rem,1.3vw,1.15rem);opacity:1;text-shadow:none;margin-top:1vh}
@@ -2196,7 +2196,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 /* round intro */
 .ri-number-bg{font-family:var(--font-d);font-weight:800;opacity:.07;color:var(--round-color)}
 .ri-badge{font-family:var(--font-b);font-weight:500;letter-spacing:.35em;color:var(--round-color);border:1px solid var(--round-color);background:transparent;box-shadow:none}
-.ri-name{font-family:var(--font-d)!important;font-weight:800!important;text-transform:uppercase;letter-spacing:-.035em;line-height:.92;color:#fff;text-shadow:none}
+.ri-name{font-family:var(--font-d)!important;font-weight:800!important;text-transform:uppercase;letter-spacing:-.035em;word-spacing:.1em;line-height:.92;color:#fff;text-shadow:none}
 .ri-subname{font-family:var(--font-b)!important;font-weight:500;letter-spacing:.3em;color:var(--round-color)}
 
 /* question card: flat panel, thin edge light */
@@ -2217,7 +2217,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 /* answer */
 .ans-label,.ans-pts,.roundup-pts-badge{font-family:var(--font-b);font-weight:500;letter-spacing:.3em;color:var(--round-color);opacity:1;text-shadow:none}
-.ans-main{font-family:var(--font-d)!important;font-weight:800!important;text-transform:uppercase;letter-spacing:-.035em;font-size:5.2vw;line-height:.96;color:#fff;text-shadow:none}
+.ans-main{font-family:var(--font-d)!important;font-weight:800!important;text-transform:uppercase;letter-spacing:-.035em;word-spacing:.1em;font-size:5.2vw;line-height:.96;color:#fff;text-shadow:none}
 .ans-sub{font-family:var(--font-b);color:#b4b4c8}
 .ans-note{border-left:2px solid var(--round-color);color:#c8c8da;text-align:left}
 .ans-stat-num{font-family:var(--font-d);font-weight:800;color:var(--round-color);text-shadow:none;letter-spacing:-.03em}
@@ -5464,6 +5464,13 @@ const Disco = (() => {
       ctx.drawImage(sprite(b.white ? 'w' + b.hue : b.hue, b.hue, b.white), x - s, y - s * .8, s * 2, s * 1.6);
     }
     const isz = Math.max(20, Math.min(42, W * .022)) * tv;   /* scaled for a TV */
+    let keep = null;                                                                  /* title screen: keep icons off the text lines and the button */
+    if (document.getElementById('titleScreen').classList.contains('active')){
+      keep = []; const pad = 28 * tv;
+      const h = document.getElementById('titleMain');
+      if (h){ const rg = document.createRange(); rg.selectNodeContents(h); for (const r of rg.getClientRects()) if (r.width > 4) keep.push([r.left - pad, r.top - pad, r.right + pad, r.bottom + pad]); }
+      for (const sel of ['.title-season', '.title-btn']){ const e = document.querySelector('#titleScreen ' + sel); if (e){ const r = e.getBoundingClientRect(); keep.push([r.left - pad, r.top - pad, r.right + pad, r.bottom + pad]); } }
+    }
     for (const b of iconBeams){                                                       /* icons sweep slowly across, as in the archive */
       const lon = b.lon + spin * .9, facing = Math.cos(lon);
       if (facing < .15) continue;
@@ -5471,7 +5478,10 @@ const Disco = (() => {
       const x = bx + Math.sin(lon) * W * (.5 + b.v * .2);
       if (x < -40 * tv || x > W + 40 * tv) continue;
       const tw = .7 + .3 * Math.sin(t * .0025 + b.tw);
-      ctx.globalAlpha = Math.min(1, (facing - .15) * 2.2) * tw * .55;
+      let clear = 1;                                                                   /* fade out near the text, never pop */
+      if (keep) for (const k of keep){ const dx = Math.max(k[0] - x, 0, x - k[2]), dy = Math.max(k[1] - y, 0, y - k[3]), d = Math.hypot(dx, dy); clear = Math.min(clear, d === 0 ? 0 : Math.min(1, d / (70 * tv))); }
+      if (clear <= 0) continue;
+      ctx.globalAlpha = Math.min(1, (facing - .15) * 2.2) * tw * .55 * clear;
       const s = isz * (.8 + facing * .35), sx = s * (.55 + facing * .45);             /* squash as it slides off the edge */
       ctx.drawImage(iconSprite(b.name, b.hue), x - sx * 1.6, y - s * 1.6, sx * 3.2, s * 3.2);
     }
