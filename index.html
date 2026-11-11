@@ -3516,11 +3516,8 @@ function renderAnswer() {
 
   // Decide what to show in the media column
   let _hasMedia = true;
-  if (q.answerStat) {
-    // Has a stat/number to show, big styled number instead of a photo
-    mediaCol.classList.remove('hidden');
-    card.style.gridTemplateColumns = '1fr 1fr';
-    wrap.innerHTML = `<div class="ans-stat-card"><div class="ans-stat-num">${q.answerStat}</div><div class="ans-stat-label">${q.answerStatLabel||''}</div></div>`;
+  if (false) {
+    // (number answers no longer get a stat card: the big answer text already is the number)
   } else if (q.answerImg) {
     // Has an answer image , show it
     mediaCol.classList.remove('hidden');
