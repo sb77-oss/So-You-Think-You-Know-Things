@@ -4052,7 +4052,7 @@ function initSounds() {
   SFX.questionLoop = null; // sfx_question_loop.mp3 not available
   SFX.fanfare      = null; // sfx_round_fanfare.mp3 not available
   SFX.answerSting  = null; // sfx_answer_sting.mp3 not available
-  SFX.winner       = null; // sfx_winner.mp3 not available
+  SFX.winner       = load('320739__druki__yeah.mp3', 0.9);   // the "yeahhhh": final score reveal (1st place)
   SFX.letsGo       = load('320739__druki__yeah.mp3', 0.85);
 }
 
@@ -5052,8 +5052,7 @@ function renderPodium(){
   const btn=done?'<button class="btn btn-violet" onclick="showRoundNav()">ON TO THE BONUS →</button>'
     :`<button class="btn btn-primary" onclick="podiumNext()">REVEAL ${ord[nextPlace].toUpperCase()} PLACE →</button>`;
   c.innerHTML=`<div class="pd-wrap"><div class="pd-head">${head}</div><div class="pd-list">${rows}</div>${btn}</div>`;
-  sfxPlay('winner');
-  if(done){ if(typeof launchFireworks==='function') launchFireworks(); launchConfetti(); }
+  if(done){ sfxPlay('winner'); if(typeof launchFireworks==='function') launchFireworks(); launchConfetti(); }
 }
 function podiumNext(){ if(_podStep<_wrTeams.length-1){ _podStep++; renderPodium(); } }
 document.addEventListener('keydown',e=>{
