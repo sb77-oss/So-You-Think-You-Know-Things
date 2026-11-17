@@ -5052,7 +5052,8 @@ function renderPodium(){
   const btn=done?'<button class="btn btn-violet" onclick="showRoundNav()">ON TO THE BONUS →</button>'
     :`<button class="btn btn-primary" onclick="podiumNext()">REVEAL ${ord[nextPlace].toUpperCase()} PLACE →</button>`;
   c.innerHTML=`<div class="pd-wrap"><div class="pd-head">${head}</div><div class="pd-list">${rows}</div>${btn}</div>`;
-  if(done){ sfxPlay('winner'); if(typeof launchFireworks==='function') launchFireworks(); launchConfetti(); }
+  sfxPlay('winner');                                   /* yeahhhh on every place reveal */
+  if(done){ if(typeof launchFireworks==='function') launchFireworks(); launchConfetti(); }
 }
 function podiumNext(){ if(_podStep<_wrTeams.length-1){ _podStep++; renderPodium(); } }
 document.addEventListener('keydown',e=>{
