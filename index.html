@@ -2941,14 +2941,14 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
   <div id="navBar" class="hidden">
     <span class="nav-round-label" id="navRoundLabel"></span>
     <div class="nav-btns">
-      <button class="btn btn-ghost" onclick="navigate(-1)">← PREV</button>
+      <button class="btn btn-ghost" onclick="openLeaveModal()">HOME</button>
+      <button class="btn btn-violet" onclick="showRoundNav()">ROUNDS</button>
       <button class="btn btn-ghost" id="saraBoardBtn" onclick="returnToSaraBoard()" style="display:none">⬡ BOARD</button>
       
-      <button class="btn btn-ghost" id="answersBtn" onclick="jumpToAnswers()">ANSWERS</button>
-      <button class="btn btn-violet" onclick="showRoundNav()">ROUNDS</button>
       <button class="btn btn-ghost" id="masterAudioBtn" onclick="masterAudioToggle()" title="Pause or resume ALL audio and video (M)">&#9208; AUDIO</button>
       <button class="btn btn-ghost" id="clockToggleBtn" onclick="toggleClock()" title="Start/stop question timer">⏱ 0:00</button>
-      <button class="btn btn-ghost" onclick="openLeaveModal()">HOME</button>
+      <button class="btn btn-ghost" onclick="navigate(-1)">← PREV</button>
+      <button class="btn btn-ghost" id="answersBtn" onclick="jumpToAnswers()">ANSWERS</button>
       <button class="btn btn-primary" onclick="navigate(1)">NEXT →</button>
     </div>
   </div>
