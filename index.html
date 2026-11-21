@@ -2729,6 +2729,11 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
   .ans-card.is-reveal,.ans-card.is-reveal *,.ans-card.is-reveal .ans-main::after{animation:none!important}
 }
 /* ARCADE-PASS:END */
+
+/* answer round-up: Q number beside the question, not above it */
+.roundup-q-cell{display:flex;align-items:baseline;gap:1.1vw;min-width:0}
+.roundup-q-cell .roundup-q-num{flex:none;margin:0!important;white-space:nowrap}
+.roundup-q-cell .roundup-q{min-width:0;flex:1}
 </style>
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
@@ -3361,7 +3366,7 @@ function showRoundup() {
     const qText = (q.question || '').replace(/\\n/g, ' ').replace(/\n/g, ' ');
 
     row.innerHTML = `
-      <div>
+      <div class="roundup-q-cell">
         <div class="roundup-q-num">Q${i + 1}</div>
         <div class="roundup-q">${esc(qText)}</div>
       </div>
