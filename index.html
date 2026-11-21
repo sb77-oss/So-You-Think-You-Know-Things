@@ -64,6 +64,7 @@ const ROUNDS = [
         "mediaType": "audio",
         "mediaSrc": "yt:9Ht5RZpzPqw:49",
         "answer": "All the Small Things",
+        "roundupAnswer": "All the Small Things, Blink-182",
         "answerSubline": "Blink-182 · 1999",
         "answerImg": "",
         "answerMedia": "yt:9Ht5RZpzPqw:49",
@@ -77,6 +78,7 @@ const ROUNDS = [
         "mediaType": "audio",
         "mediaSrc": "yt:Sv6dMFF_yts:153",
         "answer": "We Are Young",
+        "roundupAnswer": "We Are Young, fun. featuring Janelle Monáe",
         "answerSubline": "fun. featuring Janelle Monáe · 2011",
         "answerImg": "",
         "answerMedia": "yt:Sv6dMFF_yts:153",
@@ -90,6 +92,7 @@ const ROUNDS = [
         "mediaType": "audio",
         "mediaSrc": "yt:9rlNpWYQunY:223",
         "answer": "Rich Girl",
+        "roundupAnswer": "Rich Girl, Gwen Stefani featuring Eve",
         "answerSubline": "Gwen Stefani featuring Eve · 2004",
         "answerImg": "",
         "answerMedia": "yt:9rlNpWYQunY:223",
@@ -103,6 +106,7 @@ const ROUNDS = [
         "mediaType": "audio",
         "mediaSrc": "yt:v12drFTUKIc:115",
         "answer": "Na Na Na",
+        "roundupAnswer": "Na Na Na, One Direction",
         "answerSubline": "One Direction · 2011",
         "answerImg": "",
         "answerMedia": "yt:v12drFTUKIc:115",
@@ -116,6 +120,7 @@ const ROUNDS = [
         "mediaType": "audio",
         "mediaSrc": "yt:mQER0A0ej0M:203",
         "answer": "Hey Jude",
+        "roundupAnswer": "Hey Jude, The Beatles",
         "answerSubline": "The Beatles · 1968",
         "answerImg": "",
         "answerMedia": "yt:mQER0A0ej0M:203",
@@ -875,6 +880,7 @@ const ROUNDS = [
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "A flamboyance",
+        "roundupAnswer": "A flamboyance (or a colony)",
         "answerSubline": "Also a colony",
         "answerImg": "",
         "answerMedia": "",
@@ -903,6 +909,7 @@ const ROUNDS = [
         "mediaType": "none",
         "mediaSrc": "",
         "answer": "193",
+        "roundupAnswer": "193 (closest answer wins)",
         "answerSubline": "Closest answer wins",
         "answerImg": "",
         "answerStat": "193",
@@ -3346,8 +3353,9 @@ function showRoundup() {
     row.className = 'roundup-row';
 
     // Keep A: B: C: D: prefix for multiple choice questions so the letter is visible on roundup
-    const ansText = (q.answer || '').replace(/^([A-D]):\s*/, '$1) ');
-    const subText = q.answerSubline || '';
+    // Round-up shows the answer line only. roundupAnswer adds what's needed for marking (artist, accepted alternatives)
+    const ansText = (q.roundupAnswer || q.answer || '').replace(/^([A-D]):\s*/, '$1) ');
+    const subText = '';
 
     // Truncate question for display
     const qText = (q.question || '').replace(/\\n/g, ' ').replace(/\n/g, ' ');
