@@ -3228,6 +3228,7 @@ function selectRound(idx) {
 
   showScreen('roundIntro', true);
   sfxFadeLoop();
+  sfxPlay('roundChime');
   setTimeout(() => sfxPlay('fanfare'), 480);
   if (window.setBgRoundColor && rIdx >= 0) window.setBgRoundColor(ROUND_COLORS[rIdx]);
   setHpNote(r.hostNote||'');
@@ -3270,7 +3271,7 @@ function navigate(dir) {
         showScreen('answerView'); renderAnswer();
       }
       else if (qIdx < total-1) {
-        qIdx++; renderQuestion();
+        qIdx++; sfxPlay('qChime'); renderQuestion();
       }
       else {
         // Fill progress bar to 100% and wait for transition before moving to answers
@@ -3290,7 +3291,7 @@ function navigate(dir) {
         }, 650);
       }
     } else {
-      if (qIdx>0) { qIdx--; renderQuestion(); }
+      if (qIdx>0) { qIdx--; sfxPlay('qChime'); renderQuestion(); }
     }
   } else if (mode==='roundupView') {
     if (dir>0) { const _was=completedRounds.has(rIdx); completedRounds.add(rIdx); buildRnavGrid(); afterRound(_was); }
@@ -3299,7 +3300,7 @@ function navigate(dir) {
     if (dir>0) {
       if (isBonusRound) {
         if (aIdx < total-1) {
-          qIdx = aIdx+1; renderQuestion();
+          qIdx = aIdx+1; sfxPlay('qChime'); renderQuestion();
           showScreen('questionView');
         } else {
           showRoundup();
@@ -4036,7 +4037,7 @@ function renderPanelLb(){
 //   sfx_winner.mp3         , winner fanfare (leaderboard)
 // Missing files fail silently.
 // ══════════════════════════════════════════════════════════════
-const SFX = { questionLoop:null, fanfare:null, answerSting:null, winner:null, letsGo:null };
+const SFX = { questionLoop:null, fanfare:null, answerSting:null, winner:null, letsGo:null, roundChime:null, qChime:null };
 let _loopPlaying = false;
 
 function initSounds() {
@@ -4054,6 +4055,9 @@ function initSounds() {
   SFX.answerSting  = null; // sfx_answer_sting.mp3 not available
   SFX.winner       = load('320739__druki__yeah.mp3', 0.9);   // the "yeahhhh": final score reveal (1st place)
   SFX.letsGo       = load('320739__druki__yeah.mp3', 0.85);
+  // Freesound, craigscottuk, CC0: "Quiz Gameshow Correct Ring 01" (644953) and "Correct Ping 07" (644956)
+  SFX.roundChime   = load('https://cdn.freesound.org/previews/644/644953_8358230-hq.mp3', 0.7); // round selected
+  SFX.qChime       = load('https://cdn.freesound.org/previews/644/644956_8358230-hq.mp3', 0.6); // question to question
 }
 
 function sfxPlay(key) {
