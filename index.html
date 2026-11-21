@@ -3245,6 +3245,7 @@ function hexToRgba(hex, alpha) {
   return `rgba(${r},${g},${b},${alpha})`;
 }
 function startRound() {
+  sfxPlay('qChime');
   setTimeout(() => {
     // Round 10 (currentevents) gets the multiplier declaration screen first
     if (ROUNDS[rIdx].id==='currentevents') {
@@ -3935,6 +3936,7 @@ function mxSetTeam(idx){
   if(disp) disp.textContent = `×${teams[idx].multiplier}`;
 }
 function mxFinish(){
+  sfxPlay('qChime');
   // Apply default multiplier of 1 to any unset teams
   teams.forEach(t => { if(!t.multiplier) t.multiplier = 1; });
   // Go to first question
