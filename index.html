@@ -3019,6 +3019,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key==='ArrowRight') navigate(1);
     if (e.key==='ArrowLeft')  navigate(-1);
     if (e.key==='h'||e.key==='H') togglePanel();
+    // R: jump to the round panel (Cmd/Ctrl+R still reloads)
+    if ((e.key==='r'||e.key==='R') && !e.ctrlKey && !e.metaKey && !e.altKey && !e.repeat && mode!=='roundNav') showRoundNav();
   });
 });
 
