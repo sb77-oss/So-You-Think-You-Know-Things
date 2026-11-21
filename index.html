@@ -2730,6 +2730,9 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
 }
 /* ARCADE-PASS:END */
 
+/* answer round-up, music rows (no question text): song title big, artist underneath */
+.roundup-grid .roundup-row.ru-song .roundup-a{font-size:calc(clamp(1.7rem,3.5vw,4rem)*var(--rs,1))!important;line-height:1.02!important;text-wrap:balance}
+.roundup-grid .roundup-row.ru-song .roundup-a-sub{font-family:var(--font-b);font-weight:500;font-size:calc(clamp(.95rem,1.7vw,1.9rem)*var(--rs,1))!important;color:var(--txt-2,rgba(255,255,255,.7));margin-top:.3em!important;letter-spacing:.01em}
 /* answer round-up: Q number beside the question, not above it */
 .roundup-q-cell{display:flex;align-items:baseline;gap:1.1vw;min-width:0}
 .roundup-q-cell .roundup-q-num{flex:none;margin:0!important;white-space:nowrap}
@@ -3359,11 +3362,17 @@ function showRoundup() {
 
     // Keep A: B: C: D: prefix for multiple choice questions so the letter is visible on roundup
     // Round-up shows the answer line only. roundupAnswer adds what's needed for marking (artist, accepted alternatives)
-    const ansText = (q.roundupAnswer || q.answer || '').replace(/^([A-D]):\s*/, '$1) ');
-    const subText = '';
+    let ansText = (q.roundupAnswer || q.answer || '').replace(/^([A-D]):\s*/, '$1) ');
+    let subText = '';
 
     // Truncate question for display
     const qText = (q.question || '').replace(/\\n/g, ' ').replace(/\n/g, ' ');
+    // Music rows (no question text): "Song, Artist" shows the song big and the artist underneath
+    if (!qText.trim()){
+      const k = ansText.lastIndexOf(', ');
+      if (k > 0){ subText = ansText.slice(k + 2); ansText = ansText.slice(0, k); row.classList.add('ru-song'); }
+    }
+
 
     row.innerHTML = `
       <div class="roundup-q-cell">
