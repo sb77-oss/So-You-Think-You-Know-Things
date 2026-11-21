@@ -2590,6 +2590,13 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
 .roundup-grid .roundup-a{font-size:calc(clamp(1.3rem,2.9vw,3rem)*var(--rs,1))!important}
 .roundup-grid .roundup-a-sub{font-size:calc(clamp(.82rem,1.3vw,1.3rem)*var(--rs,1))!important}
 .roundup-grid .roundup-q-num,.roundup-grid .roundup-row-pts{font-size:calc(clamp(.66rem,.95vw,.95rem)*var(--rs,1))!important}
+/* ROUND-UP, TEXT ONLY: no images, the answer column takes the freed space */
+.roundup-grid .roundup-row{grid-template-columns:minmax(0,1fr) minmax(0,1.75fr)!important;gap:2.6vw!important;padding:.6vh 2.4vw .6vh 2.4vw!important}
+.roundup-grid .roundup-row:has(.roundup-q:empty){grid-template-columns:minmax(4vw,auto) minmax(0,1fr)!important}
+.roundup-grid .roundup-a{font-size:calc(clamp(1.7rem,3.9vw,4.2rem)*var(--rs,1))!important;line-height:1.02!important;text-wrap:balance}
+.roundup-grid .roundup-a-sub{font-size:calc(clamp(.9rem,1.45vw,1.5rem)*var(--rs,1))!important;margin-top:.3em!important}
+.roundup-grid .roundup-q{font-size:calc(clamp(.8rem,1.25vw,1.3rem)*var(--rs,1))!important}
+.roundup-thumb{display:none!important}
 
 /* ── 10. WAGER SCREENS ─────────────────────────────────────────────── */
 .mx-inner{width:min(1400px,92vw);gap:2.2vh}
@@ -2706,7 +2713,7 @@ body::before{inset:-6vw;animation:drift 22s ease-in-out infinite}
   .ts-input-row{flex-wrap:wrap}
   .nav-round-label{display:none}
   .nav-btns{flex-wrap:wrap;justify-content:center}
-  .roundup-row,.roundup-row.has-thumb{grid-template-columns:1fr 1.2fr!important}
+  .roundup-grid .roundup-row{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)!important}
   .roundup-thumb{display:none!important}
 }
 @media (prefers-reduced-motion:reduce){
@@ -3354,8 +3361,7 @@ function showRoundup() {
         <div class="roundup-a">${esc(ansText)}</div>
         ${subText ? `<div class="roundup-a-sub">${esc(subText)}</div>` : ''}
         <div class="roundup-row-pts">${'1 PT'}</div>
-      </div>${(q.answerStat||q.answerImg)?`<div class="roundup-thumb">${q.answerStat?`<span class="rt-stat">${esc(q.answerStat)}</span>`:`<img src="${q.answerImg}" alt="" onerror="this.parentElement.style.display='none'">`}</div>`:''}`;
-    if (q.answerStat||q.answerImg) row.classList.add('has-thumb');
+      </div>`;
     grid.appendChild(row);
   });
 
