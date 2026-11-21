@@ -4091,17 +4091,17 @@ function initSounds() {
   }
   SFX.questionLoop = null; // sfx_question_loop.mp3 not available
   SFX.fanfare      = null; // sfx_round_fanfare.mp3 not available
-  SFX.answerSting  = load('https://cdn.freesound.org/previews/644/644952_8358230-hq.mp3', 0.6); // Freesound, craigscottuk, CC0: "Correct Ping 16" (644952), every answer slide
+  SFX.answerSting  = load('sfx_answer_ping.mp3', 0.6); // Freesound, craigscottuk, CC0: "Correct Ping 16" (644952), every answer slide
   SFX.winner       = load('320739__druki__yeah.mp3', 0.9);   // the "yeahhhh": final score reveal (1st place)
   SFX.letsGo       = load('320739__druki__yeah.mp3', 0.85);
   // Freesound, craigscottuk, CC0: "Quiz Gameshow Correct Ring 01" (644953) and "Correct Ping 07" (644956)
-  SFX.roundChime   = load('https://cdn.freesound.org/previews/644/644953_8358230-hq.mp3', 0.7); // round selected
+  SFX.roundChime   = load('sfx_round_ring.mp3', 0.7); // round selected
   // Freesound, FoolBoyMedia, CC BY 4.0 (credit required): "Bong Chime 1" (352657) and "Alert Chime 2" (352658)
-  SFX.right        = load('https://cdn.freesound.org/previews/352/352657_4019029-hq.mp3', 0.7); // point awarded
-  SFX.wrong        = load('https://cdn.freesound.org/previews/352/352658_4019029-hq.mp3', 0.7); // point taken away
+  SFX.right        = load('sfx_right.mp3', 0.7); // point awarded
+  SFX.wrong        = load('sfx_wrong.mp3', 0.7); // point taken away
   // Freesound, Troube, CC0: "pong sound effect ui button" (686543)
-  SFX.click        = load('https://cdn.freesound.org/previews/686/686543_12843138-hq.mp3', 0.55); // any button without its own sound
-  SFX.qChime       = load('https://cdn.freesound.org/previews/644/644956_8358230-hq.mp3', 0.6); // question to question
+  SFX.click        = load('sfx_click.mp3', 0.55); // any button without its own sound
+  SFX.qChime       = load('sfx_question_ping.mp3', 0.6); // question to question
 }
 
 function sfxPlay(key) {
