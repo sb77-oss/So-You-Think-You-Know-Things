@@ -3304,7 +3304,7 @@ function navigate(dir) {
       else if (qIdx < total-1) {
         qIdx++; sfxPlay('qChime'); renderQuestion();
       }
-      else {
+      else { if (!(ROUNDS[rIdx] && ROUNDS[rIdx].id === 'currentevents')) window._lastSfxAt = performance.now(); // skip click, answer ping plays
         // Fill progress bar to 100% and wait for transition before moving to answers
         const fill = document.getElementById('qProg')?.querySelector('.q-prog-fill') ||
                      document.querySelector('.q-prog-fill');
