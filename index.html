@@ -4055,7 +4055,8 @@ function renderPanelLb(){
 //   sfx_winner.mp3         , winner fanfare (leaderboard)
 // Missing files fail silently.
 // ══════════════════════════════════════════════════════════════
-const SFX = { questionLoop:null, fanfare:null, answerSting:null, winner:null, letsGo:null, roundChime:null, qChime:null, right:null, wrong:null };
+const SFX = { questionLoop:null, fanfare:null, answerSting:null, winner:null, letsGo:null, roundChime:null, qChime:null, right:null, wrong:null, click:null };
+window._lastSfxAt = 0;
 let _loopPlaying = false;
 
 function initSounds() {
@@ -4078,13 +4079,35 @@ function initSounds() {
   // Freesound, FoolBoyMedia, CC BY 4.0 (credit required): "Bong Chime 1" (352657) and "Alert Chime 2" (352658)
   SFX.right        = load('https://cdn.freesound.org/previews/352/352657_4019029-hq.mp3', 0.7); // point awarded
   SFX.wrong        = load('https://cdn.freesound.org/previews/352/352658_4019029-hq.mp3', 0.7); // point taken away
+  // Freesound, Troube, CC0: "pong sound effect ui button" (686543)
+  SFX.click        = load('https://cdn.freesound.org/previews/686/686543_12843138-hq.mp3', 0.55); // any button without its own sound
   SFX.qChime       = load('https://cdn.freesound.org/previews/644/644956_8358230-hq.mp3', 0.6); // question to question
 }
 
 function sfxPlay(key) {
   if (window._masterPaused) return;
-  try { const s=SFX[key]; if(!s) return; s.currentTime=0; s.play().catch(()=>{}); } catch(e){}
+  try { const s=SFX[key]; if(!s) return; window._lastSfxAt=performance.now(); s.currentTime=0; s.play().catch(()=>{}); } catch(e){}
 }
+
+// BUTTON CLICK SOUND: every button that has no sound of its own plays SFX.click.
+// Buttons that always have their own sound are skipped. Buttons that only sometimes do (NEXT, PREV, ANSWERS...)
+// wait a moment and play the click only if nothing else played.
+(function(){
+  const OWN   = /fireworksThenNav|startRound|mxFinish|awardBuzzer|adjustScoreMultiplied/;
+  const MAYBE = /navigate\(|renderAnswer|jumpToAnswers|podiumNext|fsContinue|showFinalScores|returnToSaraBoard/;
+  document.addEventListener('click', e => {
+    const b = e.target.closest && e.target.closest('button');
+    if (!b || b.disabled) return;
+    const oc = b.getAttribute('onclick') || '';
+    if (OWN.test(oc)) return;
+    if (MAYBE.test(oc)) {
+      const t = performance.now();
+      setTimeout(() => { if (window._lastSfxAt < t) sfxPlay('click'); }, 280);
+    } else {
+      sfxPlay('click');
+    }
+  }, true);
+})();
 
 
 let _clockInterval = null;
