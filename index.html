@@ -3125,7 +3125,7 @@ document.addEventListener('keydown',function(e){
 function fireworksThenNav() {
   window._titleLaunched=true;
   unlockAudio();
-  setTimeout(() => sfxPlay('letsGo'), 80);
+  setTimeout(() => sfxPlay('roundChime'), 80);
   try { Disco.shower(); } catch(e) {}
   setTimeout(() => showScreen('teamSetupScreen', true), 1250);
 }
@@ -5121,7 +5121,7 @@ function renderPodium(){
   const btn=done?'<button class="btn btn-violet" onclick="showRoundNav()">ON TO THE BONUS →</button>'
     :`<button class="btn btn-primary" onclick="podiumNext()">REVEAL ${ord[nextPlace].toUpperCase()} PLACE →</button>`;
   c.innerHTML=`<div class="pd-wrap"><div class="pd-head">${head}</div><div class="pd-list">${rows}</div>${btn}</div>`;
-  sfxPlay('winner');                                   /* yeahhhh on every place reveal */
+  sfxPlay(done ? 'winner' : 'answerSting'); /* yeahhhh only when 1st place is revealed */
   if(done){ if(typeof launchFireworks==='function') launchFireworks(); launchConfetti(); }
 }
 function podiumNext(){ if(_podStep<_wrTeams.length-1){ _podStep++; renderPodium(); } }
