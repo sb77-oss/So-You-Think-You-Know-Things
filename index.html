@@ -3968,6 +3968,7 @@ function adjustScoreMultiplied(idx, dir){
   const isWagerRound = r && r.id === 'currentevents';
   const mult = isWagerRound ? (teams[idx].multiplier || 1) : 1;
   teams[idx].score += dir * mult;
+  sfxPlay(dir > 0 ? 'right' : 'wrong');
   renderScoreboard(); renderPanelLb();
   renderPanelMultipliers();
 }
@@ -4054,7 +4055,7 @@ function renderPanelLb(){
 //   sfx_winner.mp3         , winner fanfare (leaderboard)
 // Missing files fail silently.
 // ══════════════════════════════════════════════════════════════
-const SFX = { questionLoop:null, fanfare:null, answerSting:null, winner:null, letsGo:null, roundChime:null, qChime:null };
+const SFX = { questionLoop:null, fanfare:null, answerSting:null, winner:null, letsGo:null, roundChime:null, qChime:null, right:null, wrong:null };
 let _loopPlaying = false;
 
 function initSounds() {
@@ -4074,6 +4075,9 @@ function initSounds() {
   SFX.letsGo       = load('320739__druki__yeah.mp3', 0.85);
   // Freesound, craigscottuk, CC0: "Quiz Gameshow Correct Ring 01" (644953) and "Correct Ping 07" (644956)
   SFX.roundChime   = load('https://cdn.freesound.org/previews/644/644953_8358230-hq.mp3', 0.7); // round selected
+  // Freesound, FoolBoyMedia, CC BY 4.0 (credit required): "Bong Chime 1" (352657) and "Alert Chime 2" (352658)
+  SFX.right        = load('https://cdn.freesound.org/previews/352/352657_4019029-hq.mp3', 0.7); // point awarded
+  SFX.wrong        = load('https://cdn.freesound.org/previews/352/352658_4019029-hq.mp3', 0.7); // point taken away
   SFX.qChime       = load('https://cdn.freesound.org/previews/644/644956_8358230-hq.mp3', 0.6); // question to question
 }
 
@@ -4470,6 +4474,7 @@ function selectBzTeam(idx){
 function awardBuzzer(delta){
   if(buzzerSelTeam===null||buzzerActiveCat===null)return;
   teams[buzzerSelTeam].score+=delta;
+  sfxPlay(delta > 0 ? 'right' : 'wrong');
   buzzerPlayed.add(buzzerActiveCat);
   document.getElementById(`bzCat_${buzzerActiveCat}`)?.classList.add('played');
   document.getElementById(`saraCat_${buzzerActiveCat}`)?.classList.add('played');
