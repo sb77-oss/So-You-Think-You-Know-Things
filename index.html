@@ -4113,7 +4113,7 @@ function sfxPlay(key) {
 // Buttons that always have their own sound are skipped. Buttons that only sometimes do (NEXT, PREV, ANSWERS...)
 // wait a moment and play the click only if nothing else played.
 (function(){
-  const OWN   = /fireworksThenNav|startRound|mxFinish|awardBuzzer|adjustScoreMultiplied/;
+  const OWN   = /fireworksThenNav|startRound|mxFinish|awardBuzzer|adjustScoreMultiplied|tsFinish/;
   const MAYBE = /navigate\(|renderAnswer|jumpToAnswers|podiumNext|fsContinue|showFinalScores|returnToSaraBoard/;
   document.addEventListener('click', e => {
     const b = e.target.closest && e.target.closest('button');
